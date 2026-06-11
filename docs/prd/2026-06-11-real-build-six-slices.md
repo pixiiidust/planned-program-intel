@@ -1,6 +1,6 @@
 # PRD: Planned Program Intel — real build (six tracer-bullet slices)
 
-> Source of record: [issue #1](https://github.com/pixiiidust/planned-program-intel/issues/1) (labeled `ready-for-agent`), published 2026-06-11; this file is the in-repo copy. Slice-1 tracer-bullet issues: [#2](https://github.com/pixiiidust/planned-program-intel/issues/2)-[#6](https://github.com/pixiiidust/planned-program-intel/issues/6). Companion docs: `CONTEXT.md`, `docs/adr/0001`-`0005`.
+> Source of record for the build, dated 2026-06-11. Companion docs: `CONTEXT.md` (glossary), `docs/adr/0001`-`0005` (architecture decisions), `prototype/NOTES.md` (UI verdict trail).
 
 ## Problem Statement
 
