@@ -1,19 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { needsYou, tabOf } from './queue.js';
-import type { Decision, DecisionStatus } from './types.js';
+import { makeDecision } from './testing.js';
+import type { DecisionStatus } from './types.js';
 
-function decision(id: string, status: DecisionStatus): Decision {
-  return {
-    id,
-    title: `Decision ${id}`,
-    problem: 'p',
-    actionNeeded: 'a',
-    eventName: 'Event',
-    urgency: { level: 'high', because: 'deadline and cost' },
-    status,
-    owner: { name: 'Dana Ortiz', role: 'Event Lead' },
-    recommendation: { action: 'do x', why: 'because y' },
-  };
+function decision(id: string, status: DecisionStatus) {
+  return makeDecision({ id, status });
 }
 
 describe('queue tabs are views over lifecycle states', () => {

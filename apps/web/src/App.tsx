@@ -1,104 +1,102 @@
-// Walking skeleton (#7): a one-item Needs-you inbox with a detail pane,
-// running on the domain package + demo adapter. Issues #8–#11 thicken this
-// into the full converged design from prototype/NOTES.md.
+// The three-tab inbox over the hand-converted seed (#8). Tabs are views over
+// lifecycle states (Needs you = Open + Blocked, Waiting = Escalated,
+// Decided = Resolved); tab switch auto-selects the top item.
 import { useEffect, useState } from 'react';
-import type { Decision } from '@ppi/domain';
-import { needsYou } from '@ppi/domain';
+import type { Decision, QueueTab } from '@ppi/domain';
+import { tabOf } from '@ppi/domain';
 import { InMemoryDecisionSource } from '@ppi/adapters';
+import { DetailPane } from './components/DetailPane.js';
+import { defaultSort, QueueList } from './components/QueueList.js';
 
 const source = new InMemoryDecisionSource();
 
-const URGENCY_STYLE: Record<Decision['urgency']['level'], string> = {
-  critical: 'bg-red-100 text-red-700 ring-red-200',
-  high: 'bg-orange-100 text-orange-700 ring-orange-200',
-  medium: 'bg-yellow-100 text-yellow-800 ring-yellow-200',
-  low: 'bg-slate-100 text-slate-600 ring-slate-200',
+const TABS: { key: QueueTab; label: string }[] = [
+  { key: 'needs-you', label: 'Needs you' },
+  { key: 'waiting', label: 'Waiting' },
+  { key: 'decided', label: 'Decided' },
+];
+
+const EMPTY_STATE: Record<QueueTab, string> = {
+  'needs-you': 'Nothing needs you right now. New decisions appear here as the system detects them.',
+  waiting: 'Nothing is waiting on others. Decisions you escalate for feedback sit here until it arrives.',
+  decided: 'No calls made yet. Decided items land here, with their reasoning saved to program memory.',
 };
 
 export default function App() {
   const [decisions, setDecisions] = useState<Decision[]>([]);
+  const [tab, setTab] = useState<QueueTab>('needs-you');
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [mobileDetail, setMobileDetail] = useState(false);
 
   useEffect(() => {
     void source.listDecisions().then((ds) => {
       setDecisions(ds);
-      setSelectedId(needsYou(ds)[0]?.id ?? null);
+      setSelectedId(defaultSort('needs-you', ds.filter((d) => tabOf(d) === 'needs-you'))[0]?.id ?? null);
     });
   }, []);
 
-  const queue = needsYou(decisions);
+  const inTab = decisions.filter((d) => tabOf(d) === tab);
+  const counts = Object.fromEntries(TABS.map((t) => [t.key, decisions.filter((d) => tabOf(d) === t.key).length])) as Record<
+    QueueTab,
+    number
+  >;
   const selected = decisions.find((d) => d.id === selectedId) ?? null;
+
+  function switchTab(next: QueueTab) {
+    setTab(next);
+    setSelectedId(defaultSort(next, decisions.filter((d) => tabOf(d) === next))[0]?.id ?? null);
+    setMobileDetail(false);
+  }
 
   return (
     <div className="h-screen flex flex-col bg-slate-50 text-slate-900">
-      <header className="px-4 md:px-6 py-3 bg-white border-b border-slate-200 flex items-baseline gap-3">
-        <h1 className="text-lg font-semibold whitespace-nowrap">Program Intel</h1>
-        <span className="text-sm text-slate-500 truncate">Acme Corp event portfolio</span>
+      <header className="px-4 md:px-6 py-3 bg-white border-b border-slate-200 flex items-center justify-between gap-3">
+        <div className="flex items-baseline gap-3 min-w-0">
+          <h1 className="text-lg font-semibold whitespace-nowrap">Program Intel</h1>
+          <span className="text-sm text-slate-500 truncate">Acme Corp event portfolio</span>
+        </div>
+        <div className="hidden sm:block text-sm text-slate-500 whitespace-nowrap">
+          {counts['needs-you']} need you · {counts.waiting} waiting · {counts.decided} decided
+        </div>
       </header>
 
       <div className="flex-1 flex min-h-0">
-        <aside className="w-full md:w-[380px] md:border-r border-slate-200 bg-white flex flex-col">
+        <aside className={`${mobileDetail ? 'hidden' : 'flex'} md:flex w-full md:w-[380px] md:border-r border-slate-200 bg-white flex-col`}>
           <nav className="flex gap-1 p-2 border-b border-slate-100">
-            <span className="px-3 py-1.5 rounded-md text-sm bg-slate-900 text-white">Needs you ({queue.length})</span>
-          </nav>
-          <ul className="flex-1 overflow-y-auto">
-            {queue.map((d) => (
-              <li key={d.id}>
-                <button
-                  onClick={() => setSelectedId(d.id)}
-                  aria-current={selectedId === d.id}
-                  className={`w-full text-left px-4 py-3 border-b border-slate-100 hover:bg-slate-50 ${
-                    selectedId === d.id ? 'md:bg-indigo-50 md:border-l-4 md:border-l-indigo-500' : 'md:border-l-4 md:border-l-transparent'
-                  }`}
-                >
-                  <span
-                    className={`inline-flex items-center h-5 px-1.5 rounded ring-1 text-[11px] font-semibold mb-1 ${URGENCY_STYLE[d.urgency.level]}`}
-                  >
-                    {d.urgency.level.toUpperCase()}
-                  </span>
-                  <p className="text-sm font-medium leading-snug">{d.title}</p>
-                  <p className="text-xs text-slate-400 mt-1">
-                    {d.owner.name} · {d.eventName}
-                  </p>
-                </button>
-              </li>
+            {TABS.map((t) => (
+              <button
+                key={t.key}
+                onClick={() => switchTab(t.key)}
+                className={`px-3 py-1.5 rounded-md text-sm ${tab === t.key ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'}`}
+              >
+                {t.label} ({counts[t.key]})
+              </button>
             ))}
-          </ul>
+          </nav>
+          <div className="flex-1 overflow-y-auto">
+            {inTab.length === 0 ? (
+              <p className="p-6 text-sm text-slate-400 leading-relaxed">{EMPTY_STATE[tab]}</p>
+            ) : (
+              <QueueList
+                key={tab}
+                decisions={inTab}
+                tab={tab}
+                selectedId={selectedId}
+                onSelect={(id) => {
+                  setSelectedId(id);
+                  setMobileDetail(true);
+                }}
+              />
+            )}
+          </div>
         </aside>
 
-        <main className="hidden md:block flex-1 overflow-y-auto" data-testid="decision-detail">
-          {selected && (
-            <div className="max-w-3xl mx-auto px-4 md:px-8 py-5">
-              <div className="rounded-xl bg-white ring-1 ring-slate-200 p-4 md:p-5 mb-3">
-                <p className="text-xs uppercase tracking-wider text-slate-400 mb-1.5">{selected.eventName}</p>
-                <h2 className="text-lg md:text-xl font-semibold leading-snug mb-4">{selected.title}</h2>
-                <dl className="space-y-3 text-sm text-slate-700">
-                  <div>
-                    <dt className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Problem</dt>
-                    <dd>{selected.problem}</dd>
-                  </div>
-                  <div>
-                    <dt
-                      className={`inline-flex items-center h-5 px-1.5 rounded ring-1 text-[11px] font-semibold ${URGENCY_STYLE[selected.urgency.level]}`}
-                    >
-                      {selected.urgency.level.toUpperCase()}
-                    </dt>
-                    <dd>{selected.urgency.because}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Action</dt>
-                    <dd>{selected.actionNeeded}</dd>
-                  </div>
-                </dl>
-              </div>
-              <section className="rounded-xl ring-2 ring-indigo-300 bg-indigo-50 p-4 md:p-5">
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-indigo-500 mb-2">Recommendation</h3>
-                <p className="text-base font-medium leading-snug">{selected.recommendation.action}</p>
-                <p className="text-sm text-slate-600 mt-2">
-                  <span className="font-semibold text-slate-700">Why: </span>
-                  {selected.recommendation.why}
-                </p>
-              </section>
+        <main className={`${mobileDetail ? 'block' : 'hidden'} md:block flex-1 overflow-y-auto`} data-testid="decision-detail">
+          {selected ? (
+            <DetailPane decision={selected} onBack={() => setMobileDetail(false)} />
+          ) : (
+            <div className="hidden md:flex h-full items-center justify-center p-10">
+              <p className="text-sm text-slate-400 max-w-xs text-center leading-relaxed">{EMPTY_STATE[tab]}</p>
             </div>
           )}
         </main>
