@@ -15,7 +15,7 @@ Planned Program Intel should:
 - Surface the next important decision across the event lifecycle.
 - Route it to the best customer-side decision maker.
 - Package the evidence needed to act: what worked, what failed, what changed, and what to do next.
-- Let planners accept, change, or override the recommendation with reasoning.
+- Let planners accept, change, or override the recommendation with reasoning — or escalate it for feedback when they sense it is unsound but can't pinpoint why.
 - Turn that reasoning into program memory so future decisions get smarter.
 
 The goal is to help planners act without chatbot loops, manual research, or guesswork.
@@ -37,9 +37,9 @@ For this project, the AI-native system is not a chatbot. It is a decision-routin
 - Detect the next decision that needs attention
 - Route the decision to the right decision maker
 - Retrieve similar past events and relevant policy context
-- Explain what worked, what failed, and what is different now
+- Explain what worked, what failed, what is different now — and why each difference matters to this call
 - Recommend the next best action
-- Capture accept, change, or override reasoning
+- Capture accept, change, override, or escalate reasoning
 - Feed that reasoning back into future recommendations
 
 **Goal**
@@ -49,7 +49,8 @@ Make every event-program decision faster, better-contextualized, and more reusab
 **Constraints**
 
 - Human decision authority stays explicit
-- Recommendations must be inspectable and evidence-backed
+- Recommendations must be inspectable and evidence-backed: confidence is expressed as outcomes of similar past cases ("worked in 95 of 106"), never as an unexplained score
+- Priority is justified, not asserted: an urgency level always carries its why — the deadline, the cost of missing it, and how reversible the loss is (money, dates, trust)
 - High-risk decisions are not autonomously executed
 - Policy, budget, legal, procurement, and stakeholder constraints are part of the intelligence layer
 - The product should avoid chatbot loops and avoid forcing planners to manually reread past events
@@ -65,11 +66,22 @@ Planned Program Intel should first answer:
 3. What happened in similar past events?
 4. What is different this time?
 5. What action is recommended?
-6. Do we accept, change, or override — and why?
+6. Do we accept, change, override — or escalate for feedback — and why?
 
 The dashboard then becomes mission control for the system of decisions: a place to see which decisions are open, blocked, routed, accepted, changed, overridden, and learned from over time.
 
 The closed loop matters: every accepted recommendation, change, or override becomes structured program memory that can improve the next decision.
+
+## Prototype findings
+
+A working UI prototype lives in `prototype/` (`cd prototype && npm install && npm run dev`). Six rounds of side-by-side variant comparison converged on:
+
+- An **inbox shape** (queue + detail pane) over a mission-control board or a sequenced briefing flow
+- An **action-first detail**: a 3-point header (problem / justified urgency / action), the recommendation and call panel on top, evidence folded below
+- **Evidence as inspectable cases**: a flat, similarity-ranked case list with outcome filters and named exceptions
+- A **four-verb decision workflow**: accept (reasoning prefilled), change, override, escalate — every resolution becomes program memory that future similar decisions cite
+
+See `prototype/NOTES.md` for the full verdict trail, the data-model strawman, and the list of open questions the prototype deliberately did not test.
 
 ## Recommended AI posture
 
