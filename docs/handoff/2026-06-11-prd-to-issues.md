@@ -18,9 +18,9 @@ A full `/grill-with-docs` session (12 questions, all resolved with Jamie approvi
 - **`docs/adr/0001`–`0005`** (NEW) — hexagonal core + two real adapters; single live AI moment with engine picker; Planned-shaped Signals ingestion; build-time intelligence pipeline (no runtime embeddings, LLM never produces counts, review-as-PR); npm-workspaces monorepo (`packages/domain|adapters|pipeline`, `apps/web|edge`).
 - **Issue #1** — everything else (slices, testing, demo-state rules, persona switching, portfolio view in scope as slice 4).
 
-## ⚠️ Uncommitted work
+## Repo state
 
-`CONTEXT.md` and `docs/adr/0001`–`0005` exist on disk but are **not committed**. First action next session: commit them (suggest one commit, message like "Record architecture decisions from grill session: glossary + ADRs 0001–0005"). Jamie hasn't explicitly asked — confirm or just include it when starting work, since these files are referenced by the published PRD.
+`CONTEXT.md`, `docs/adr/0001`–`0005`, and this handoff are committed and pushed (`51c2d11`). Tree is clean — start directly on the mission.
 
 ## Key context not fully captured in the artifacts
 
