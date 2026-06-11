@@ -1,0 +1,3 @@
+# npm-workspaces monorepo with an import-clean domain package
+
+One repo, five workspaces: `packages/domain` (types + pure logic + ports; imports nothing), `packages/adapters` (all port implementations; imports domain only), `packages/pipeline` (build-time intelligence CLI), `apps/web` (the deployed demo), `apps/edge` (the single Cloudflare Worker). Dependency arrows point inward — that constraint, enforced by package boundaries rather than convention, is the hexagonal architecture made checkable. Seed data is pipeline output checked in as versioned artifacts that `web` loads. A flat single-`src/` layout was considered and rejected: workspace boundaries make the architecture greppable at near-zero ceremony cost.
