@@ -2,15 +2,23 @@
 
 Planned Program Intel is a product-strategy prototype for a customer-facing decision layer inside enterprise event programs.
 
-## Planned.com context
+## Background Context of Planned.com
 
-Planned helps enterprise teams run event programs across briefs, sourcing, vendor quotes, contracts, budgets, approvals, payments, and delivery. It automates repetitive event work while keeping humans in approval loops so teams can plan compliant, cost-controlled events without chasing vendors, documents, or stakeholders.
+Planned helps enterprise teams move events from brief to delivery: sourcing venues, collecting quotes, managing contracts, tracking budgets, approvals, payments, and reporting.
 
-Enterprise event decisions happen across briefs, sourcing, budgets, contracts, approvals, delivery, and reporting. In smaller teams, one planner may own most decisions. In larger programs, responsibility may shift between planners, managers, finance, legal, procurement, and executives.
+Its goal is to help teams plan compliant, cost-controlled events faster. Its constraints are real enterprise constraints: human approvals, vendor availability, policy rules, budget limits, legal/procurement checks, and stakeholder coordination.
 
-Planned Program Intel surfaces the next important decision across that lifecycle, routes it to the best customer-side decision maker, and packages the evidence needed to act: what worked before, what failed, what is different now, and the recommended next action.
+## Product intent
 
-Each recommendation can be accepted, changed, or overridden with reasoning, closing the loop so the program learns from every event instead of forcing planners to ask a chatbot, reread past events, or guess what worked.
+Planned Program Intel should:
+
+- Surface the next important decision across the event lifecycle.
+- Route it to the best customer-side decision maker.
+- Package the evidence needed to act: what worked, what failed, what changed, and what to do next.
+- Let planners accept, change, or override the recommendation with reasoning.
+- Turn that reasoning into program memory so future decisions get smarter.
+
+The goal is to help planners act without chatbot loops, manual research, or guesswork.
 
 ## AI-native framing
 
