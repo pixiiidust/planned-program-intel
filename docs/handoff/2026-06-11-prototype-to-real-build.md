@@ -48,7 +48,7 @@ This is a **discussion/design session first** — produce architecture options a
 - **`/to-prd`** — turn the landed architecture discussion into a phased spec/PRD with goals, non-goals, and acceptance criteria.
 - **`/to-issues`** — break the agreed plan into tracer-bullet vertical-slice issues once the spec exists.
 - **`/tdd`** — Jamie asked for SDLC best practices; test-first fits when implementation starts.
-- Consult before designing the LLM-touching pieces (labelling assist, similarity/embeddings, pattern naming) for current model/API guidance.
+- Consult Claude before designing the LLM-touching pieces (labelling assist, similarity/embeddings, pattern naming) — discuss model and provider choice as part of the architecture, don't assume one up front.
 - Consider **EnterPlanMode** for the architecture design itself.
 
 ## Suggested opening move
