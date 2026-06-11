@@ -1,14 +1,17 @@
-// The three-tab inbox over the hand-converted seed (#8). Tabs are views over
-// lifecycle states (Needs you = Open + Blocked, Waiting = Escalated,
-// Decided = Resolved); tab switch auto-selects the top item.
+// The inbox shell (#10): Decisions load from the persistence port (IndexedDB
+// demo adapter), the four verbs transition lifecycle state via domain logic
+// and persist, resolving auto-advances with a jump-back toast, and a stale
+// seed (version-stamp mismatch after a redeploy) nukes-and-reseeds with a
+// one-line toast. "Reset demo data" restores the pristine seed.
 import { useEffect, useState } from 'react';
 import type { Decision, QueueTab } from '@ppi/domain';
-import { tabOf } from '@ppi/domain';
-import { InMemoryDecisionSource } from '@ppi/adapters';
+import { applyAction, tabOf } from '@ppi/domain';
+import { IndexedDbDecisionRepository } from '@ppi/adapters';
+import type { ResolveOutcome } from './components/ActionPanel.js';
 import { DetailPane } from './components/DetailPane.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
 
-const source = new InMemoryDecisionSource();
+const repository = new IndexedDbDecisionRepository();
 
 const TABS: { key: QueueTab; label: string }[] = [
   { key: 'needs-you', label: 'Needs you' },
@@ -22,18 +25,31 @@ const EMPTY_STATE: Record<QueueTab, string> = {
   decided: 'No calls made yet. Decided items land here, with their reasoning saved to program memory.',
 };
 
+interface Toast {
+  message: string;
+  jump?: { tab: QueueTab; id: string };
+}
+
 export default function App() {
   const [decisions, setDecisions] = useState<Decision[]>([]);
   const [tab, setTab] = useState<QueueTab>('needs-you');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [mobileDetail, setMobileDetail] = useState(false);
+  const [toast, setToast] = useState<Toast | null>(null);
 
   useEffect(() => {
-    void source.listDecisions().then((ds) => {
+    void repository.load().then(({ decisions: ds, reseeded }) => {
       setDecisions(ds);
       setSelectedId(defaultSort('needs-you', ds.filter((d) => tabOf(d) === 'needs-you'))[0]?.id ?? null);
+      if (reseeded) setToast({ message: 'Demo data refreshed — a new version of the seed was deployed.' });
     });
   }, []);
+
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 4000);
+    return () => clearTimeout(t);
+  }, [toast]);
 
   const inTab = decisions.filter((d) => tabOf(d) === tab);
   const counts = Object.fromEntries(TABS.map((t) => [t.key, decisions.filter((d) => tabOf(d) === t.key).length])) as Record<
@@ -48,15 +64,62 @@ export default function App() {
     setMobileDetail(false);
   }
 
+  async function handleResolve(decision: Decision, outcome: ResolveOutcome) {
+    const next =
+      outcome.choice === 'escalated'
+        ? applyAction(decision, {
+            kind: 'escalate',
+            escalation: { to: outcome.escalatedTo, reasoning: outcome.reasoning, requestedBy: decision.owner.name, daysAgo: 0 },
+          })
+        : applyAction(decision, {
+            kind: 'resolve',
+            resolution: {
+              choice: outcome.choice,
+              reasoning: outcome.reasoning,
+              ...(outcome.changedTo ? { changedTo: outcome.changedTo } : {}),
+              decidedBy: decision.owner.name,
+              daysAgo: 0,
+            },
+          });
+
+    await repository.save(next);
+    const updated = decisions.map((d) => (d.id === next.id ? next : d));
+    setDecisions(updated);
+
+    const movedTo: QueueTab = outcome.choice === 'escalated' ? 'waiting' : 'decided';
+    setToast({ message: `✓ Moved to ${movedTo === 'waiting' ? 'Waiting' : 'Decided'}`, jump: { tab: movedTo, id: next.id } });
+
+    // Auto-advance to the next item in the current tab.
+    if (tab !== movedTo) {
+      const remaining = defaultSort(tab, updated.filter((d) => tabOf(d) === tab));
+      setSelectedId(remaining[0]?.id ?? null);
+      if (remaining.length === 0) setMobileDetail(false);
+    }
+  }
+
+  async function handleReset() {
+    const ds = await repository.reset();
+    setDecisions(ds);
+    setTab('needs-you');
+    setSelectedId(defaultSort('needs-you', ds.filter((d) => tabOf(d) === 'needs-you'))[0]?.id ?? null);
+    setMobileDetail(false);
+    setToast({ message: '✓ Demo data reset to the pristine seed' });
+  }
+
   return (
     <div className="h-screen flex flex-col bg-slate-50 text-slate-900">
       <header className="px-4 md:px-6 py-3 bg-white border-b border-slate-200 flex items-center justify-between gap-3">
         <div className="flex items-baseline gap-3 min-w-0">
           <h1 className="text-lg font-semibold whitespace-nowrap">Program Intel</h1>
-          <span className="text-sm text-slate-500 truncate">Acme Corp event portfolio</span>
+          <span className="text-sm text-slate-500 truncate hidden sm:inline">Acme Corp event portfolio</span>
         </div>
-        <div className="hidden sm:block text-sm text-slate-500 whitespace-nowrap">
-          {counts['needs-you']} need you · {counts.waiting} waiting · {counts.decided} decided
+        <div className="flex items-center gap-4 whitespace-nowrap">
+          <span className="hidden sm:block text-sm text-slate-500">
+            {counts['needs-you']} need you · {counts.waiting} waiting · {counts.decided} decided
+          </span>
+          <button onClick={() => void handleReset()} className="text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2">
+            Reset demo data
+          </button>
         </div>
       </header>
 
@@ -93,7 +156,11 @@ export default function App() {
 
         <main className={`${mobileDetail ? 'block' : 'hidden'} md:block flex-1 overflow-y-auto`} data-testid="decision-detail">
           {selected ? (
-            <DetailPane decision={selected} onBack={() => setMobileDetail(false)} />
+            <DetailPane
+              decision={selected}
+              onBack={() => setMobileDetail(false)}
+              onResolve={(outcome) => void handleResolve(selected, outcome)}
+            />
           ) : (
             <div className="hidden md:flex h-full items-center justify-center p-10">
               <p className="text-sm text-slate-400 max-w-xs text-center leading-relaxed">{EMPTY_STATE[tab]}</p>
@@ -101,6 +168,25 @@ export default function App() {
           )}
         </main>
       </div>
+
+      {toast && (
+        <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 rounded-lg bg-slate-900 text-white px-4 py-3 shadow-xl">
+          <span className="text-sm">{toast.message}</span>
+          {toast.jump && (
+            <button
+              onClick={() => {
+                switchTab(toast.jump!.tab);
+                setSelectedId(toast.jump!.id);
+                setMobileDetail(true);
+                setToast(null);
+              }}
+              className="text-sm underline underline-offset-2 text-sky-300 hover:text-sky-200"
+            >
+              View
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }

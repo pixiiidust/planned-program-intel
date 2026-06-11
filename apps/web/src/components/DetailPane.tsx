@@ -5,6 +5,7 @@ import type { Decision, Escalation, Resolution } from '@ppi/domain';
 import { isSmallSample } from '@ppi/domain';
 import type { ReactNode } from 'react';
 import { agoLabel } from '../lib/format.js';
+import { ActionPanel, type ResolveOutcome } from './ActionPanel.js';
 import { CaseExplorer } from './CaseExplorer.js';
 import { Fold } from './Fold.js';
 import { UrgencyTrigger } from './UrgencyRubric.js';
@@ -75,7 +76,13 @@ function EscalationBanner({ esc }: { esc: Escalation }) {
   );
 }
 
-export function DetailPane({ decision: d, onBack }: { decision: Decision; onBack: () => void }) {
+interface DetailPaneProps {
+  decision: Decision;
+  onBack: () => void;
+  onResolve: (outcome: ResolveOutcome) => void;
+}
+
+export function DetailPane({ decision: d, onBack, onResolve }: DetailPaneProps) {
   return (
     <div className="max-w-3xl mx-auto px-4 md:px-8 py-5 pb-32">
       <button onClick={onBack} className="md:hidden mb-3 text-sm text-slate-500 hover:text-slate-800">
@@ -118,7 +125,7 @@ export function DetailPane({ decision: d, onBack }: { decision: Decision; onBack
         <TrackRecordLine decision={d} />
         <div className="mt-4 space-y-3">
           {d.escalation && d.status === 'escalated' && <EscalationBanner esc={d.escalation} />}
-          {d.resolution && <ResolutionBanner res={d.resolution} />}
+          {d.resolution ? <ResolutionBanner res={d.resolution} /> : <ActionPanel decision={d} onResolve={onResolve} />}
         </div>
       </section>
 
