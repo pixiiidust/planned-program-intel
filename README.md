@@ -44,9 +44,9 @@ Make every event-program decision faster, better-contextualized, and more reusab
 
 ## Product approach
 
-The product starts from the decision moment, not the dashboard.
+The product starts from the decision moment, not from a passive dashboard.
 
-Instead of asking planners to search, chat, or inspect every historical event, the surface should answer:
+Planned Program Intel should first answer:
 
 1. What decision needs attention?
 2. Who should make it?
@@ -54,6 +54,8 @@ Instead of asking planners to search, chat, or inspect every historical event, t
 4. What is different this time?
 5. What action is recommended?
 6. Do we accept, change, or override — and why?
+
+The dashboard then becomes mission control for the system of decisions: a place to see which decisions are open, blocked, routed, accepted, changed, overridden, and learned from over time.
 
 The closed loop matters: every accepted recommendation, change, or override becomes structured program memory that can improve the next decision.
 
