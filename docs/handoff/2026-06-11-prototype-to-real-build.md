@@ -26,11 +26,12 @@ This is a **discussion/design session first** — produce architecture options a
 - UI shape: inbox (3 tabs: Needs you / Waiting / Decided), action-first detail, 3-point header (Problem / urgency chip + because / Action), flat similarity-ranked case explorer for evidence, four-verb workflow (accept w/ prefilled reasoning, change, override, escalate to suggested people).
 - Product principles now in README: confidence = "worked X of Y similar cases" (never bare scores); urgency always carries its "because" (deadline, cost, reversibility); differences always carry "why it matters"; escalation keeps ownership with the owner (shows who it's *with*).
 - TypeScript for the real build (Jamie asked why JS was used in the prototype; the answer — throwaway vs contract — landed well and set up the TS expectation).
+- **Standalone-first positioning** (Jamie, 2026-06-11): the real build is a standalone app that must work as a functional demo in its own right — own data, runnable end-to-end without planned.com access. But it must be architected so it can later integrate into planned.com's existing enterprise stack as a module. Integration readiness is a design constraint from day one; integration itself is not a launch dependency.
 
 ## Open architecture questions (from NOTES.md "not tested" + Jamie's ask)
 
 - **Decision detection**: how do decisions get *created* from real event data (briefs, contracts, budgets, registration feeds)? Biggest unknown.
-- **Endpoints and integration**: how would this product integrate with the existing planned.com enterprise stack as an additional module?
+- **Endpoints and integration**: given standalone-first positioning, which seams must the design leave open for later planned.com integration — auth/SSO, data ingestion adapters (events, contracts, budgets, suppliers), webhooks/notifications, embedding vs side-by-side UI? In demo mode these seams are filled by seed/synthetic data and stub adapters.
 - **Data labelling pipeline**: who/what labels historical cases as worked/failed, names patterns with counts, flags exceptions? Human-labelled, LLM-assisted-with-review, or both? This drives backend design (Jamie's explicit hunch).
 - **Multi-user**: routing/notifications, the escalatee's experience, feedback returning to the owner.
 - **Closing the memory loop**: resolutions are captured but don't yet influence the next recommendation — how does reasoning re-enter evidence (it should "appear in the evidence of similar future decisions")?
