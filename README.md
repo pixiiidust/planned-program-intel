@@ -2,6 +2,10 @@
 
 Planned Program Intel is a product-strategy prototype for a customer-facing decision layer inside enterprise event programs.
 
+## Planned.com context
+
+Planned helps enterprise teams run event programs across briefs, sourcing, vendor quotes, contracts, budgets, approvals, payments, and delivery. It automates repetitive event work while keeping humans in approval loops so teams can plan compliant, cost-controlled events without chasing vendors, documents, or stakeholders.
+
 Enterprise event decisions happen across briefs, sourcing, budgets, contracts, approvals, delivery, and reporting. In smaller teams, one planner may own most decisions. In larger programs, responsibility may shift between planners, managers, finance, legal, procurement, and executives.
 
 Planned Program Intel surfaces the next important decision across that lifecycle, routes it to the best customer-side decision maker, and packages the evidence needed to act: what worked before, what failed, what is different now, and the recommended next action.
