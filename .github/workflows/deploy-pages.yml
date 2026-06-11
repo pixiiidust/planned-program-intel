@@ -1,11 +1,12 @@
-name: Deploy prototype to GitHub Pages
+name: CI & gated Pages deploy
+
+# Deploys are gated on green typecheck + unit tests + e2e. A red run never
+# deploys — the previously deployed site stays live (stale beats broken).
+# Until the slice-1 cutover (#11): prototype at the root URL, real build at /app/.
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'prototype/**'
-      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -18,25 +19,49 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            prototype/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
+      - name: Build app
+        run: npm run build
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: e2e (recruiter journey)
+        run: npm run e2e
+      - name: Build prototype (serves at root until the slice-1 cutover)
+        run: npm ci && npm run build
+        working-directory: prototype
+      - name: Assemble site (prototype at /, real build at /app/)
+        run: |
+          mkdir -p _site/app
+          cp -r prototype/dist/. _site/
+          cp -r apps/web/dist/. _site/app/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
   deploy:
+    needs: verify
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Install dependencies
-        run: npm ci
-        working-directory: prototype
-      - name: Build
-        run: npm run build
-        working-directory: prototype
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: prototype/dist
       - id: deployment
         uses: actions/deploy-pages@v4
