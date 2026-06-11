@@ -67,13 +67,3 @@ The useful intelligence is modular:
 - **Optimization:** recommend the next best decision or escalation path under policy and program constraints
 - **Execution:** route the decision, show the evidence, and capture human reasoning
 
-## Current status
-
-This repository is the fresh public home for the pivoted **Planned Program Intel** direction.
-
-Earlier prototype work lives in:
-
-- https://github.com/pixiiidust/planned-program-intelligence
-- https://pixiiidust.github.io/planned-program-intelligence/
-
-Next step: rebuild or migrate the prototype narrative around customer-facing decision routing instead of leading with PDLC scoring.
