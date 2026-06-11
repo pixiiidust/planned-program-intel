@@ -2,7 +2,6 @@
 
 **Date:** 2026-06-11
 **Repo:** `D:\planned-program-intel\planned-program-intel` → https://github.com/pixiiidust/planned-program-intel (branch `main`, latest commit `7228ccc`, clean tree)
-**User:** Jamie Sim (jamiesimsg@gmail.com)
 
 ## Mission for this session
 
