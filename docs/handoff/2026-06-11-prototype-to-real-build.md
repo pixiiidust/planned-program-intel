@@ -30,6 +30,7 @@ This is a **discussion/design session first** — produce architecture options a
 ## Open architecture questions (from NOTES.md "not tested" + Jamie's ask)
 
 - **Decision detection**: how do decisions get *created* from real event data (briefs, contracts, budgets, registration feeds)? Biggest unknown.
+- **Endpoints and integration**: how would this product integrate with the existing planned.com enterprise stack as an additional module?
 - **Data labelling pipeline**: who/what labels historical cases as worked/failed, names patterns with counts, flags exceptions? Human-labelled, LLM-assisted-with-review, or both? This drives backend design (Jamie's explicit hunch).
 - **Multi-user**: routing/notifications, the escalatee's experience, feedback returning to the owner.
 - **Closing the memory loop**: resolutions are captured but don't yet influence the next recommendation — how does reasoning re-enter evidence (it should "appear in the evidence of similar future decisions")?
@@ -40,15 +41,14 @@ This is a **discussion/design session first** — produce architecture options a
 - Iterates via side-by-side variant rounds; picks a winner, narrows the axis, repeats. For architecture: present 2–3 genuinely different options per major decision with a recommendation, not one take-it-or-leave-it design.
 - Touchstones: clean/minimal-clutter/high-taste; mobile + desktop; plain actionable language, short sentences; everything must justify itself (no unexplained scores/labels).
 - **Explicitly welcomes pushback** — has said so. Disagree with reasons.
-- There's a persistent memory file on this: `jamie-working-style` in the project memory directory.
 
 ## Suggested skills
 
 - **`/grill-me`** or **`/grill-with-docs`** — after drafting the architecture, have Jamie stress-test it branch by branch; grill-with-docs can write ADRs as decisions crystallise (the repo has no `docs/adr/` yet — creating one fits the SDLC-best-practices ask).
-- **`product-management:write-spec`** — turn the landed architecture discussion into a phased spec/PRD with goals, non-goals, and acceptance criteria.
+- **`/to-prd`** — turn the landed architecture discussion into a phased spec/PRD with goals, non-goals, and acceptance criteria.
 - **`/to-issues`** — break the agreed plan into tracer-bullet vertical-slice issues once the spec exists.
 - **`/tdd`** — Jamie asked for SDLC best practices; test-first fits when implementation starts.
-- **`claude-api`** — consult before designing the LLM-touching pieces (labelling assist, similarity/embeddings, pattern naming) for current model/API guidance.
+- Consult before designing the LLM-touching pieces (labelling assist, similarity/embeddings, pattern naming) for current model/API guidance.
 - Consider **EnterPlanMode** for the architecture design itself.
 
 ## Suggested opening move
