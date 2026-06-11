@@ -2,7 +2,8 @@ name: CI & gated Pages deploy
 
 # Deploys are gated on green typecheck + unit tests + e2e. A red run never
 # deploys — the previously deployed site stays live (stale beats broken).
-# Until the slice-1 cutover (#11): prototype at the root URL, real build at /app/.
+# Since the slice-1 cutover (#11) the real build serves at the root URL;
+# /app/ (the pre-cutover staging path) redirects there.
 
 on:
   push:
@@ -27,9 +28,6 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: |
-            package-lock.json
-            prototype/package-lock.json
       - name: Install
         run: npm ci
       - name: Typecheck
@@ -42,14 +40,11 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: e2e (recruiter journey)
         run: npm run e2e
-      - name: Build prototype (serves at root until the slice-1 cutover)
-        run: npm ci && npm run build
-        working-directory: prototype
-      - name: Assemble site (prototype at /, real build at /app/)
+      - name: Assemble site (real build at root; /app/ redirects)
         run: |
           mkdir -p _site/app
-          cp -r prototype/dist/. _site/
-          cp -r apps/web/dist/. _site/app/
+          cp -r apps/web/dist/. _site/
+          printf '<!doctype html><meta http-equiv="refresh" content="0; url=../"><link rel="canonical" href="../">' > _site/app/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

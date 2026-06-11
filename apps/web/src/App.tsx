@@ -5,8 +5,8 @@
 // one-line toast. "Reset demo data" restores the pristine seed.
 import { useEffect, useState } from 'react';
 import type { Decision, QueueTab } from '@ppi/domain';
-import { applyAction, tabOf } from '@ppi/domain';
-import { IndexedDbDecisionRepository } from '@ppi/adapters';
+import { applyAction, landPrecedent, openSiblingsOf, precedentFrom, tabOf } from '@ppi/domain';
+import { DEMO_SEED, IndexedDbDecisionRepository } from '@ppi/adapters';
 import type { ResolveOutcome } from './components/ActionPanel.js';
 import { DetailPane } from './components/DetailPane.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
@@ -82,12 +82,31 @@ export default function App() {
             },
           });
 
+    // The memory loop: a Resolution spawns a Precedent that lands in the
+    // Evidence of similar open Decisions (seeded sibling map). Verbatim
+    // reasoning is the deterministic baseline; distillation arrives in slice 5.
+    const landed =
+      next.status === 'resolved' && next.resolution
+        ? openSiblingsOf(next.id, decisions, DEMO_SEED.siblings).map((s) => landPrecedent(s, precedentFrom(next, next.resolution!)))
+        : [];
+
     await repository.save(next);
-    const updated = decisions.map((d) => (d.id === next.id ? next : d));
+    for (const sibling of landed) await repository.save(sibling);
+
+    const byId = new Map([[next.id, next], ...landed.map((s) => [s.id, s] as const)]);
+    const updated = decisions.map((d) => byId.get(d.id) ?? d);
     setDecisions(updated);
 
     const movedTo: QueueTab = outcome.choice === 'escalated' ? 'waiting' : 'decided';
-    setToast({ message: `✓ Moved to ${movedTo === 'waiting' ? 'Waiting' : 'Decided'}`, jump: { tab: movedTo, id: next.id } });
+    if (landed.length > 0) {
+      // The nudge: the loop closes visibly, in front of the user.
+      setToast({
+        message: `✓ Decided. Your reasoning now appears in ${landed.length} similar open decision${landed.length === 1 ? '' : 's'}`,
+        jump: { tab: 'needs-you', id: landed[0]!.id },
+      });
+    } else {
+      setToast({ message: `✓ Moved to ${movedTo === 'waiting' ? 'Waiting' : 'Decided'}`, jump: { tab: movedTo, id: next.id } });
+    }
 
     // Auto-advance to the next item in the current tab.
     if (tab !== movedTo) {

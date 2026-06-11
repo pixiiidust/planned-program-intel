@@ -15,8 +15,8 @@ test('Accept: reasoning prefilled, resolves, auto-advances, persists across relo
   await reasoning.fill('Removes the $310K exposure. January in Lisbon is storm season — this is the exact scenario the clause covers.');
   await detail.getByRole('button', { name: 'Save decision' }).click();
 
-  // Jump-back toast + auto-advance to the next item in Needs you.
-  await expect(page.getByText('✓ Moved to Decided')).toBeVisible();
+  // Nudge toast (d1 has a seeded sibling) + auto-advance to the next item.
+  await expect(page.getByText(/✓ Decided\. Your reasoning now appears/)).toBeVisible();
   await expect(detail).toContainText('Austin hotel contract stuck in VP approval');
 
   // Persisted: a reload finds the Resolution in Decided.
@@ -63,7 +63,7 @@ test('Change and Override require an alternative action and reasoning', async ({
   await detail.getByLabel('Your reasoning').fill('Offer 3% earlier deposit instead — cash-flow review flagged 5%.');
   await detail.getByRole('button', { name: 'Save decision' }).click();
 
-  await expect(page.getByText('✓ Moved to Decided')).toBeVisible();
+  await expect(page.getByText(/✓ Decided\. Your reasoning now appears/)).toBeVisible();
   await page.getByRole('button', { name: /^Decided \(/ }).click();
   await expect(page.getByRole('button', { name: /force majeure/i })).toContainText('changed');
 });
@@ -74,7 +74,7 @@ test('Reset demo data restores the pristine seed', async ({ page }) => {
 
   await detail.getByRole('button', { name: 'Accept', exact: false }).click();
   await detail.getByRole('button', { name: 'Save decision' }).click();
-  await expect(page.getByText('✓ Moved to Decided')).toBeVisible();
+  await expect(page.getByText(/✓ Decided\. Your reasoning now appears/)).toBeVisible();
   await expect(page.getByRole('button', { name: /^Decided \(8\)/ })).toBeVisible();
 
   await page.getByRole('button', { name: 'Reset demo data' }).click();

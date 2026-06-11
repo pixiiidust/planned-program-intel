@@ -29,3 +29,4 @@ export { applyAction, canApply, IllegalTransitionError } from './lifecycle.js';
 export type { DecisionAction } from './lifecycle.js';
 export { evidenceCounts, isSmallSample } from './evidence.js';
 export { openSiblingsOf } from './siblings.js';
+export { landPrecedent, precedentFrom } from './precedents.js';

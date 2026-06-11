@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import type { Decision } from '@ppi/domain';
 import { evidenceCounts } from '@ppi/domain';
+import { agoLabel } from '../lib/format.js';
 
 type Filter = 'all' | 'worked' | 'failed' | 'exceptions';
 
@@ -24,6 +25,29 @@ export function CaseExplorer({ decision: d }: { decision: Decision }) {
 
   return (
     <div>
+      {/* Precedents: recent similar Resolutions, outcome pending — visually
+          distinct from Cases and never part of the worked/failed counts. */}
+      {ev.precedents.length > 0 && (
+        <div className="mb-3" data-testid="precedents">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-sky-700 mb-1.5">
+            Precedents · outcome pending, not in the counts
+          </p>
+          <ul className="space-y-2">
+            {ev.precedents.map((p) => (
+              <li key={p.sourceDecisionId} className="rounded-lg bg-sky-50 ring-1 ring-sky-200 p-3.5 text-sm">
+                <p className="text-slate-800">
+                  <span className="font-medium capitalize">{p.choice}</span> {agoLabel(p.daysAgo)} by{' '}
+                  <span className="font-medium">{p.decidedBy}</span>
+                  <span className="text-sky-700"> — outcome pending</span>
+                </p>
+                <p className="text-slate-600 mt-1">“{p.reasoning}”</p>
+                <p className="text-xs text-slate-400 mt-1">from: {p.sourceTitle}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div className="mb-1.5 flex justify-between text-xs text-slate-500">
         <span>
           <span className="font-semibold text-emerald-700">{worked} worked</span>
