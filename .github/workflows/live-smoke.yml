@@ -1,0 +1,53 @@
+name: Live demo smoke (daily)
+
+# Watches the deployed artifact; never gates the deploy. A failure files or
+# updates a live-smoke issue so it is impossible to miss.
+
+on:
+  schedule:
+    - cron: '23 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Live smoke
+        run: npm run e2e:live
+      - name: Alert on failure
+        if: failure()
+        shell: bash
+        run: |
+          gh label create live-smoke --color D93F0B --description "Deployed demo health" --force
+          existing=$(gh issue list --label live-smoke --state open --json number --jq '.[0].number')
+          run_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "Live smoke failed again: $run_url"
+          else
+            gh issue create --title "Live demo smoke failed" --label live-smoke \
+              --body "The daily smoke against https://pixiiidust.github.io/planned-program-intel/ failed. Run: $run_url — check the deployed site and the Worker before sending any application."
+          fi
+      - name: Close alert on success
+        if: success()
+        shell: bash
+        run: |
+          existing=$(gh issue list --label live-smoke --state open --json number --jq '.[0].number')
+          run_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "Live smoke green again: $run_url"
+          fi
