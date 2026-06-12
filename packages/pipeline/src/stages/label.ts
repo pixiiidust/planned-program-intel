@@ -51,7 +51,8 @@ function labelContractAddendum(corpusCase: GeneratedCorpusCase): LabelResult {
   const worked = addendumSigned && signedWithinHold;
 
   if (worked) {
-    return { outcome: 'worked', outcomeBasis: `addendum signed ${requestedDaysBeforeHold - legalReviewDays} days inside the hold` };
+    const marginDays = requestedDaysBeforeHold - legalReviewDays;
+    return { outcome: 'worked', outcomeBasis: marginDays === 0 ? 'addendum signed on the hold deadline' : `addendum signed ${marginDays} days inside the hold` };
   }
   if (!addendumSigned) {
     return { outcome: 'failed', outcomeBasis: `addendum not signed before ${usd(exposureUsd)} stayed exposed` };

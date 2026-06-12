@@ -46,7 +46,7 @@ export function generateCases(seed: number = GENERATED_CASE_SEED): GeneratedCorp
         signalType: family.signalType,
         title,
         problem,
-        event: `${displayEventKind(slots.eventKind)} ${slots.year} - ${slots.city}`,
+        event: `${displayEventKind(slots.eventKind)} ${slots.year} — ${slots.city}`,
         when: String(slots.year),
         detail: draft.detail,
         tags: tagsFor(family.id, slots, draft.record),

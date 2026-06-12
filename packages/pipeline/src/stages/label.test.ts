@@ -153,6 +153,24 @@ describe('labelCase', () => {
     expect(labelled.outcomeBasis).toBeTruthy();
   });
 
+  it('names a contract addendum signed on the hold deadline without a zero-day margin', () => {
+    const labelled = labelCase(
+      corpusCase(examples[0]!, {
+        clauseRequested: true,
+        tradedDepositTiming: true,
+        requestedDaysBeforeHold: 4,
+        venueOwnership: 'private',
+        legalReviewDays: 4,
+        addendumSigned: true,
+        signedWithinHold: true,
+        exposureUsd: 90_000,
+      }),
+    );
+
+    expect(labelled.outcome).toBe('worked');
+    expect(labelled.outcomeBasis).toBe('addendum signed on the hold deadline');
+  });
+
   it('throws with the case id for unknown families and missing facts', () => {
     expect(() => labelCase(corpusCase({ ...examples[0]!, type: 'logistics', signalType: 'quote.received' }, examples[0]!.workedRecord, 'bad-family'))).toThrow(
       /bad-family: unknown family/,

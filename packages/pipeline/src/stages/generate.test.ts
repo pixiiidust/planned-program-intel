@@ -18,6 +18,13 @@ describe('generateCases', () => {
     expect(cases.every((c) => c.signalType && c.approach && c.record && c.problem)).toBe(true);
   });
 
+  it('uses the corpus event delimiter', () => {
+    const cases = generateCases();
+
+    expect(cases.every((c) => c.event.includes(' — '))).toBe(true);
+    expect(cases.some((c) => c.event.includes(' - '))).toBe(false);
+  });
+
   it('represents every family, approach, and Signal type', () => {
     const cases = generateCases();
     const signals = new Set(cases.map((c) => c.signalType));
