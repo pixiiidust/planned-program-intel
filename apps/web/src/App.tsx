@@ -123,6 +123,13 @@ export default function App() {
     setMobileDetail(false);
   }
 
+  function advanceIfSelectedLeftCurrentQueue(updated: Decision[], movedId: string) {
+    const remaining = defaultSort(tab, personaQueue(persona, tab, updated));
+    if (remaining.some((d) => d.id === movedId)) return;
+    setSelectedId(remaining[0]?.id ?? null);
+    if (remaining.length === 0) setMobileDetail(false);
+  }
+
   async function handleResolve(decision: Decision, outcome: ResolveOutcome) {
     const next =
       outcome.choice === 'escalated'
@@ -168,11 +175,24 @@ export default function App() {
     }
 
     // Auto-advance to the next item in the current tab.
-    if (tab !== movedTo) {
-      const remaining = defaultSort(tab, personaQueue(persona, tab, updated));
-      setSelectedId(remaining[0]?.id ?? null);
-      if (remaining.length === 0) setMobileDetail(false);
-    }
+    advanceIfSelectedLeftCurrentQueue(updated, next.id);
+  }
+
+  async function handleReturnFeedback(decision: Decision, text: string) {
+    const next = applyAction(decision, {
+      kind: 'feedbackReturned',
+      feedback: { text: text.trim(), from: decision.escalation!.to, daysAgo: 0 },
+    });
+
+    await repository.save(next);
+
+    const updated = decisions.map((d) => (d.id === next.id ? next : d));
+    setDecisions(updated);
+    setToast({
+      message: `\u2713 Feedback sent \u2014 back to ${decision.owner.name}'s queue`,
+      jump: { tab: 'needs-you', id: decision.id },
+    });
+    advanceIfSelectedLeftCurrentQueue(updated, next.id);
   }
 
   async function handleReset() {
@@ -243,6 +263,7 @@ export default function App() {
               decision={selected}
               onBack={() => setMobileDetail(false)}
               onResolve={(outcome) => void handleResolve(selected, outcome)}
+              onReturnFeedback={(text) => void handleReturnFeedback(selected, text)}
               isFeedbackRequest={persona?.group === 'escalation-path' && selected.status === 'escalated' && selected.escalation?.to === persona.name}
             />
           ) : (

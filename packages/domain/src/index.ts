@@ -5,6 +5,7 @@ export type {
   DecisionStatus,
   EscalationPath,
   Escalation,
+  EscalationFeedback,
   EventRef,
   Evidence,
   ExceptionNote,

@@ -3,7 +3,7 @@
 // call panel on top, evidence folds below collapsed by default.
 import type { Decision, Escalation, Resolution } from '@ppi/domain';
 import { isSmallSample } from '@ppi/domain';
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { agoLabel } from '../lib/format.js';
 import { FEED_DECISION_IDS } from '../lib/feed.js';
 import { ActionPanel, type ResolveOutcome } from './ActionPanel.js';
@@ -85,13 +85,55 @@ function EscalationBanner({ esc }: { esc: Escalation }) {
   );
 }
 
-function FeedbackRequestBanner({ esc }: { esc: Escalation }) {
+function FeedbackRequestBanner({ esc, onReturnFeedback }: { esc: Escalation; onReturnFeedback: (text: string) => void }) {
+  const [feedback, setFeedback] = useState('');
+  const canReturn = feedback.trim().length > 0;
+
   return (
     <div className="rounded-lg p-4 ring-1 bg-sky-50 ring-sky-300">
       <p className="text-sm font-semibold">{esc.requestedBy} asked for your feedback</p>
       <p className="text-xs text-slate-500 mt-0.5">requested {agoLabel(esc.daysAgo)}</p>
       <p className="text-sm text-slate-700 mt-1.5">“{esc.reasoning}”</p>
-      <p className="text-xs text-slate-500 mt-2">Full Decision context is below.</p>
+      <div className="mt-3 space-y-2">
+        <label htmlFor="feedback-composer" className="block text-xs font-semibold uppercase tracking-wider text-sky-700">
+          Your feedback
+        </label>
+        <textarea
+          id="feedback-composer"
+          value={feedback}
+          onChange={(e) => setFeedback(e.target.value)}
+          rows={4}
+          className="w-full rounded-md border border-sky-200 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-100"
+        />
+        <button
+          type="button"
+          onClick={() => {
+            if (canReturn) onReturnFeedback(feedback);
+          }}
+          disabled={!canReturn}
+          className={`rounded-md px-4 py-2 text-sm font-medium text-white ${
+            canReturn ? 'bg-sky-600 hover:bg-sky-700' : 'bg-slate-300 cursor-not-allowed'
+          }`}
+        >
+          Return feedback
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ReturnedFeedbackBanner({ esc }: { esc: Escalation }) {
+  const feedback = esc.feedback;
+  if (!feedback) return null;
+
+  return (
+    <div className="rounded-lg p-4 ring-1 bg-sky-50 ring-sky-200">
+      <p className="text-sm font-semibold">Feedback from {esc.to}</p>
+      <p className="text-xs text-slate-500 mt-0.5">
+        returned {agoLabel(feedback.daysAgo)} &middot; you escalated this {agoLabel(esc.daysAgo)}
+      </p>
+      <p className="text-sm text-slate-700 mt-1.5">&ldquo;{feedback.text}&rdquo;</p>
+      <p className="text-xs text-slate-500 mt-2">You asked: &ldquo;{esc.reasoning}&rdquo;</p>
     </div>
   );
 }
@@ -100,10 +142,13 @@ interface DetailPaneProps {
   decision: Decision;
   onBack: () => void;
   onResolve: (outcome: ResolveOutcome) => void;
+  onReturnFeedback: (text: string) => void;
   isFeedbackRequest?: boolean;
 }
 
-export function DetailPane({ decision: d, onBack, onResolve, isFeedbackRequest = false }: DetailPaneProps) {
+export function DetailPane({ decision: d, onBack, onResolve, onReturnFeedback, isFeedbackRequest = false }: DetailPaneProps) {
+  const returnedFeedback = d.status !== 'escalated' && d.escalation?.feedback ? d.escalation : null;
+
   return (
     <div className="max-w-3xl mx-auto px-4 md:px-8 py-5 pb-32">
       <button onClick={onBack} className="md:hidden mb-3 text-sm text-slate-500 hover:text-slate-800">
@@ -151,11 +196,11 @@ export function DetailPane({ decision: d, onBack, onResolve, isFeedbackRequest =
         <TrackRecordLine decision={d} />
         <div className="mt-4 space-y-3">
           {isFeedbackRequest && d.escalation ? (
-            // #17 replaces this read-only request with the feedback composer.
-            <FeedbackRequestBanner esc={d.escalation} />
+            <FeedbackRequestBanner esc={d.escalation} onReturnFeedback={onReturnFeedback} />
           ) : (
             <>
               {d.escalation && d.status === 'escalated' && <EscalationBanner esc={d.escalation} />}
+              {returnedFeedback && <ReturnedFeedbackBanner esc={returnedFeedback} />}
               {d.resolution ? <ResolutionBanner res={d.resolution} /> : <ActionPanel decision={d} onResolve={onResolve} />}
             </>
           )}

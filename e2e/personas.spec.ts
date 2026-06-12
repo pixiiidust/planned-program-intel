@@ -62,3 +62,67 @@ test('switching back to Whole program restores the default queue', async ({ page
   await expect(topRow).toHaveAttribute('aria-current', 'true');
   await expect(page.getByTestId('decision-detail')).toContainText('Lisbon venue contract missing force majeure clause');
 });
+
+test('escalatee returns feedback to the owner queue', async ({ page }) => {
+  await page.goto('/?feedDelay=0');
+
+  await expect(page.getByRole('button', { name: /^Needs you \(12\)/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /^Waiting \(1\)/ })).toBeVisible();
+
+  await page.getByRole('button', { name: /Roadshow venue license sign-off sitting in legal/i }).click();
+  await page.getByRole('button', { name: /^Escalate/ }).click();
+  await page.getByLabel('Your reasoning').fill('Sign-off authority sits above me and legal needs delegated pressure.');
+  await page.getByRole('button', { name: 'Send for feedback' }).click();
+
+  await expect(page.getByRole('button', { name: /^Waiting \(2\)/ })).toBeVisible();
+  await page.getByRole('button', { name: /^Waiting \(2\)/ }).click();
+  const waitingRow = page.getByRole('button', { name: /Roadshow venue license sign-off sitting in legal/i });
+  await expect(waitingRow).toContainText(/With Mei Lin.*escalated by Dana Ortiz/);
+
+  await choosePersona(page, 'Mei Lin');
+  await expect(page.getByRole('button', { name: /^Needs you \(1\)/ })).toBeVisible();
+  const requestRow = page.getByRole('button', { name: /Roadshow venue license sign-off sitting in legal/i });
+  await expect(requestRow).toContainText('FEEDBACK REQUESTED');
+
+  const requestDetail = page.getByTestId('decision-detail');
+  await expect(requestDetail).toContainText('Dana Ortiz asked for your feedback');
+  await expect(requestDetail.getByLabel('Your feedback')).toBeVisible();
+  await expect(requestDetail.getByRole('button', { name: /^Accept/ })).toHaveCount(0);
+
+  const feedback = "Take it to the venue's counsel directly - I'll flag it to James.";
+  await requestDetail.getByLabel('Your feedback').fill(feedback);
+  await requestDetail.getByRole('button', { name: 'Return feedback' }).click();
+
+  await choosePersona(page, 'Whole program');
+  const returnedRow = page.getByRole('button', { name: /Roadshow venue license sign-off sitting in legal/i });
+  await expect(returnedRow).toContainText('FEEDBACK RETURNED');
+  await returnedRow.click();
+
+  const returnedDetail = page.getByTestId('decision-detail');
+  await expect(returnedDetail).toContainText('Feedback from Mei Lin');
+  await expect(returnedDetail).toContainText(feedback);
+  await expect(returnedDetail.getByRole('button', { name: /^Accept/ })).toBeVisible();
+
+  await page.reload();
+  const persistedRow = page.getByRole('button', { name: /Roadshow venue license sign-off sitting in legal/i });
+  await expect(persistedRow).toContainText('FEEDBACK RETURNED');
+  await persistedRow.click();
+  await expect(page.getByTestId('decision-detail')).toContainText('Feedback from Mei Lin');
+  await expect(page.getByTestId('decision-detail')).toContainText(feedback);
+});
+
+test('seeded escalation can return feedback', async ({ page }) => {
+  await page.goto('/?feedDelay=0');
+
+  await choosePersona(page, 'James Tan');
+  await expect(page.getByRole('button', { name: /^Needs you \(1\)/ })).toBeVisible();
+
+  const feedback = 'Approve only if sales funds the overage from their launch reserve.';
+  await page.getByTestId('decision-detail').getByLabel('Your feedback').fill(feedback);
+  await page.getByRole('button', { name: 'Return feedback' }).click();
+
+  await choosePersona(page, 'Whole program');
+  const returnedRow = page.getByRole('button', { name: /keynote speaker fee/i });
+  await expect(returnedRow).toContainText('FEEDBACK RETURNED');
+  await expect(page.getByRole('button', { name: /^Waiting \(0\)/ })).toBeVisible();
+});

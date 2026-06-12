@@ -136,12 +136,19 @@ export interface Resolution {
   daysAgo: number;
 }
 
+export interface EscalationFeedback {
+  text: string;
+  from: string;
+  daysAgo: number;
+}
+
 /** Escalation keeps ownership with the Owner; the Decision is *with* the escalatee. */
 export interface Escalation {
   to: string;
   reasoning: string;
   requestedBy: string;
   daysAgo: number;
+  feedback?: EscalationFeedback;
 }
 
 /** A choice that needs a human resolution, attached to one event. */

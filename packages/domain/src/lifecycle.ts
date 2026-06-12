@@ -9,13 +9,13 @@
 // thing they never do is wait it out. Escalated Decisions can still be
 // resolved by the Owner once feedback (or conviction) arrives.
 
-import type { Decision, DecisionStatus, Escalation, Resolution } from './types.js';
+import type { Decision, DecisionStatus, Escalation, EscalationFeedback, Resolution } from './types.js';
 
 export type DecisionAction =
   | { kind: 'block'; blockedBy: string }
   | { kind: 'unblock' }
   | { kind: 'escalate'; escalation: Escalation }
-  | { kind: 'feedbackReturned' }
+  | { kind: 'feedbackReturned'; feedback: EscalationFeedback }
   | { kind: 'resolve'; resolution: Resolution };
 
 const ALLOWED: Record<DecisionStatus, ReadonlyArray<DecisionAction['kind']>> = {
@@ -51,7 +51,7 @@ export function applyAction(decision: Decision, action: DecisionAction): Decisio
     case 'escalate':
       return { ...decision, status: 'escalated', escalation: action.escalation };
     case 'feedbackReturned':
-      return { ...decision, status: 'open' };
+      return { ...decision, status: 'open', escalation: { ...decision.escalation!, feedback: action.feedback } };
     case 'resolve':
       return { ...decision, status: 'resolved', resolution: action.resolution };
   }

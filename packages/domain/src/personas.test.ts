@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { applyAction } from './lifecycle.js';
 import { makeDecision } from './testing.js';
 import { needsYouCount, personasFrom, personaQueue, type Persona } from './personas.js';
 import type { Decision, DecisionStatus, EscalationPath, Owner, Resolution } from './types.js';
@@ -93,6 +94,18 @@ describe('personaQueue', () => {
   it("keeps an escalated Decision in the Owner's Waiting and the escalatee's Needs you", () => {
     expect(personaQueue(PRIYA_PERSONA, 'waiting', decisions).map((d) => d.id)).toContain('escalated-priya');
     expect(personaQueue(JAMES, 'needs-you', decisions).map((d) => d.id)).toContain('escalated-priya');
+  });
+
+  it("returns feedback to the Owner's Needs you and leaves the escalatee's queue", () => {
+    const returned = applyAction(decisions.find((d) => d.id === 'escalated-priya')!, {
+      kind: 'feedbackReturned',
+      feedback: { text: 'Take it to counsel directly.', from: JAMES.name, daysAgo: 0 },
+    });
+    const next = decisions.map((d) => (d.id === returned.id ? returned : d));
+
+    expect(personaQueue(JAMES, 'needs-you', next).map((d) => d.id)).not.toContain('escalated-priya');
+    expect(personaQueue(PRIYA_PERSONA, 'waiting', next).map((d) => d.id)).not.toContain('escalated-priya');
+    expect(personaQueue(PRIYA_PERSONA, 'needs-you', next).map((d) => d.id)).toContain('escalated-priya');
   });
 
   it('counts Needs you badges from the persona queue', () => {

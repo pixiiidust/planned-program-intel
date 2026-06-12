@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { applyAction, canApply, IllegalTransitionError } from './lifecycle.js';
 import { makeDecision } from './testing.js';
-import type { DecisionStatus, Escalation, Resolution } from './types.js';
+import type { DecisionStatus, Escalation, EscalationFeedback, Resolution } from './types.js';
 
 function decision(status: DecisionStatus) {
   return makeDecision({ status });
@@ -9,6 +9,7 @@ function decision(status: DecisionStatus) {
 
 const RESOLUTION: Resolution = { choice: 'accepted', reasoning: 'r', decidedBy: 'Dana Ortiz', daysAgo: 0 };
 const ESCALATION: Escalation = { to: 'Mei Lin', reasoning: 'outside my authority', requestedBy: 'Dana Ortiz', daysAgo: 0 };
+const FEEDBACK: EscalationFeedback = { text: 'Take it to venue counsel directly.', from: 'Mei Lin', daysAgo: 0 };
 
 describe('lifecycle state machine', () => {
   it('open ⇄ blocked', () => {
@@ -27,8 +28,9 @@ describe('lifecycle state machine', () => {
     expect(escalated.escalation?.to).toBe('Mei Lin');
     expect(escalated.owner.name).toBe('Dana Ortiz');
 
-    const back = applyAction(escalated, { kind: 'feedbackReturned' });
+    const back = applyAction(escalated, { kind: 'feedbackReturned', feedback: FEEDBACK });
     expect(back.status).toBe('open');
+    expect(back.escalation).toEqual({ ...ESCALATION, feedback: FEEDBACK });
     expect(back.owner.name).toBe('Dana Ortiz');
   });
 
@@ -58,7 +60,7 @@ describe('lifecycle state machine', () => {
 
   it('rejects nonsense transitions', () => {
     expect(() => applyAction(decision('open'), { kind: 'unblock' })).toThrow(IllegalTransitionError);
-    expect(() => applyAction(decision('open'), { kind: 'feedbackReturned' })).toThrow(IllegalTransitionError);
+    expect(() => applyAction(decision('open'), { kind: 'feedbackReturned', feedback: FEEDBACK })).toThrow(IllegalTransitionError);
     expect(() => applyAction(decision('blocked'), { kind: 'block', blockedBy: 'x' })).toThrow(IllegalTransitionError);
     expect(() => applyAction(decision('escalated'), { kind: 'escalate', escalation: ESCALATION })).toThrow(
       IllegalTransitionError,

@@ -146,6 +146,11 @@ export function QueueList({ decisions, tab, selectedId, onSelect }: QueueListPro
                   {tab === 'needs-you' && d.status === 'blocked' && (
                     <span className="text-[11px] font-semibold px-1.5 rounded ring-1 leading-5 bg-red-50 text-red-600 ring-red-200">BLOCKED</span>
                   )}
+                  {tab === 'needs-you' && d.status !== 'escalated' && d.escalation?.feedback && (
+                    <span className="text-[11px] font-semibold px-1.5 rounded ring-1 leading-5 bg-sky-50 text-sky-700 ring-sky-200">
+                      FEEDBACK RETURNED
+                    </span>
+                  )}
                   {tab === 'needs-you' && d.status === 'escalated' && (
                     <span className="text-[11px] font-semibold px-1.5 rounded ring-1 leading-5 bg-sky-50 text-sky-700 ring-sky-200">
                       FEEDBACK REQUESTED
