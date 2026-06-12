@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
+    "generate": "tsx src/cli.ts generate",
+    "label": "tsx src/cli.ts label",
     "embed": "tsx src/cli.ts embed",
     "emit": "tsx src/cli.ts emit",
     "validate": "tsx src/cli.ts validate"
