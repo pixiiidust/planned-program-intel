@@ -9,12 +9,14 @@
   "scripts": {
     "typecheck": "npm run typecheck --workspaces",
     "test": "vitest run",
+    "test:contract:pg": "cross-env PPI_PG_URL=postgres://ppi:ppi@localhost:5499/ppi vitest run packages/adapters",
     "build": "npm run build -w @ppi/web",
     "preview": "npm run preview -w @ppi/web",
     "e2e": "playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.50.0",
+    "cross-env": "^7.0.3",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0"
   },

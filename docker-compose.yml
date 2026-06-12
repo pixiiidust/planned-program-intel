@@ -1,0 +1,16 @@
+# Postgres for the persistence contract suite (ADR-0001) - local + CI only,
+# deliberately never hosted. The demo runs IndexedDB.
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: ppi
+      POSTGRES_PASSWORD: ppi
+      POSTGRES_DB: ppi
+    ports:
+      - "5499:5432"   # non-default host port; avoids colliding with a local Postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ppi -d ppi"]
+      interval: 2s
+      timeout: 3s
+      retries: 15

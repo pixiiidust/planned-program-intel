@@ -3,6 +3,7 @@
 // nuke-and-reseed on a seed-version mismatch (no IndexedDB migrations);
 // migration discipline is demonstrated in the Postgres adapter instead.
 import type { Decision, DecisionRepository, LoadResult, SeedBundle } from '@ppi/domain';
+import { inSeedOrder } from '../persistence/seedOrder.js';
 import { SEED } from './seed.js';
 
 const DB_NAME = 'ppi-demo';
@@ -49,7 +50,7 @@ export class IndexedDbDecisionRepository implements DecisionRepository {
       );
       if (stored?.value === this.seed.seedVersion) {
         const decisions = await request<Decision[]>(db.transaction(DECISIONS).objectStore(DECISIONS).getAll());
-        return { decisions: this.inSeedOrder(decisions), reseeded: false };
+        return { decisions: inSeedOrder(this.seed, decisions), reseeded: false };
       }
       await this.writeSeed(db);
       // First visit seeds silently; a version mismatch is a visible reseed.
@@ -87,11 +88,5 @@ export class IndexedDbDecisionRepository implements DecisionRepository {
     tx.objectStore(META).clear();
     tx.objectStore(META).put({ key: 'seedVersion', value: this.seed.seedVersion });
     await done(tx);
-  }
-
-  /** getAll returns key order; the queue expects seed order. */
-  private inSeedOrder(decisions: Decision[]): Decision[] {
-    const rank = new Map(this.seed.decisions.map((d, i) => [d.id, i]));
-    return [...decisions].sort((a, b) => (rank.get(a.id) ?? Number.MAX_SAFE_INTEGER) - (rank.get(b.id) ?? Number.MAX_SAFE_INTEGER));
   }
 }
