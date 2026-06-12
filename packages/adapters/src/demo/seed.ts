@@ -1775,43 +1775,43 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Leverage existing digital screens instead of purchasing printed signage",
+            "title": "Ask the print vendor to requote before committing",
             "count": "15 of the 37 successes",
             "example": {
               "event": "SKO 2022 — Marseille",
               "detail": "Original quote was $273K against a $222K line. Outside AV fee was waived. Final cost was $189K. Change orders were $5K."
             },
-            "takeaway": "This play works when venue packages already include unused digital infrastructure, eliminating redundant spending and reducing total event costs while maintaining communication objectives."
+            "takeaway": "This play works when the quote carries obvious slack and the vendor expects negotiation — a sharper print quote keeps the option open even while a cheaper substitute exists."
           },
           {
             "outcome": "worked",
-            "title": "Leverage existing venue digital screens to eliminate print costs",
+            "title": "Use the venue's included screens instead of buying print",
             "count": "12 of the 37 successes",
             "example": {
               "event": "SKO 2026 — Madrid",
               "detail": "Original quote was $490K against a $389K line. Outside AV fee was not waived. Final cost was $381K. Change orders were $1K."
             },
-            "takeaway": "This play works when venue infrastructure already includes display technology, making repricing the signage approach as digital-only a cost-neutral substitution that removes budget variance without sacrificing communication impact."
+            "takeaway": "This play works when venue infrastructure already includes display technology, making the digital-only substitution cost-neutral and removing the budget variance without sacrificing communication impact."
           },
           {
             "outcome": "worked",
-            "title": "Leverage included digital screens to eliminate printing expense",
+            "title": "Cut the printed signage scope to essentials only",
             "count": "4 of the 37 successes",
             "example": {
               "event": "SKO 2023 — Madrid",
               "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
             },
-            "takeaway": "This approach succeeds when venue packages already provide digital infrastructure, eliminating redundant printed materials and freeing budget for higher-impact content or experience enhancements."
+            "takeaway": "This approach succeeds when most signage is wayfinding or schedule content that screens already cover, leaving only a small printed remainder worth paying for."
           },
           {
             "outcome": "failed",
-            "title": "Accept digital-screen variance from traditional printed signage",
+            "title": "Accept the printed-signage overspend as quoted",
             "count": "9 of the 20 failures",
             "example": {
               "event": "SKO 2022 — Stockholm",
               "detail": "Original quote was $352K against a $291K line. Outside AV fee was waived. Final cost was $265K. Change orders were $33K."
             },
-            "takeaway": "This play fails when venue infrastructure already covers the need, making acceptance of substitution obvious rather than strategic."
+            "takeaway": "This play fails when an included alternative already covers the need — paying the variance buys nothing the venue package does not provide."
           }
         ],
         "exceptions": [],
@@ -1925,17 +1925,17 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Extend early-bird pricing deadline to accelerate lagging registrations",
+            "title": "Run targeted outreach to high-fit prospects",
             "count": "9 of the 27 successes",
             "example": {
               "event": "Executive Forum 2025 — Stockholm",
               "detail": "Pace was 74% of target 34 days out. Target attendance was 792. Final attendance was 729. Added spend was $29K."
             },
-            "takeaway": "This play works when registration momentum stalls before an event and a brief price incentive window can convert hesitant prospects into committed attendees."
+            "takeaway": "This play works when the registration gap is concentrated in reachable segments — personal invitations convert hesitant prospects that a blanket price signal does not."
           },
           {
             "outcome": "worked",
-            "title": "Extend early-bird pricing window to accelerate EMEA registration",
+            "title": "Extend the early-bird pricing window to recover pace",
             "count": "8 of the 27 successes",
             "example": {
               "event": "Executive Forum 2024 — Austin",
@@ -1945,23 +1945,23 @@ export const SEED = {
           },
           {
             "outcome": "worked",
-            "title": "Extend early-bird pricing window to accelerate registration pace",
+            "title": "Rescope the venue to match the registration trajectory",
             "count": "7 of the 27 successes",
             "example": {
               "event": "Sales Club 2026 — Stockholm",
               "detail": "Pace was 88% of target 84 days out. Target attendance was 470. Final attendance was 456. Added spend was $2K."
             },
-            "takeaway": "This play works when registration momentum lags early and a brief incentive window extension can recapture price-sensitive attendees before they disengage from the event entirely."
+            "takeaway": "This play works when pace cannot recover within the remaining lead time — shrinking the footprint removes attrition exposure and improves per-attendee economics."
           },
           {
             "outcome": "failed",
-            "title": "Extend early-bird pricing window to accelerate registration momentum",
+            "title": "Hold course on the current registration plan",
             "count": "7 of the 23 failures",
             "example": {
               "event": "Partner Summit 2026 — London",
               "detail": "Pace was 68% of target 24 days out. Target attendance was 524. Final attendance was 366. Added spend was $0K."
             },
-            "takeaway": "This play fails when the soft initial registration signals weak demand rather than timing friction, and extending deadlines without addressing underlying appeal cannot convert prospect interest into commitments."
+            "takeaway": "This play fails when soft registration signals weak demand rather than timing friction — waiting without intervening converts none of the prospect interest into commitments."
           }
         ],
         "exceptions": [
@@ -2079,7 +2079,7 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Pair Master Rate Renewal with Deposit Trade-In",
+            "title": "Pair master rate renewal with a deposit trade-in",
             "count": "6 of the 18 successes",
             "example": {
               "event": "User Conference 2022 — Barcelona",
@@ -2537,7 +2537,7 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Quantify Daily Revenue Loss Until Legal Approves",
+            "title": "Quantify daily revenue loss until legal approves",
             "count": "17 of the 30 successes",
             "example": {
               "event": "Customer Roadshow 2026 — Denver",
@@ -2687,7 +2687,7 @@ export const SEED = {
           },
           {
             "outcome": "worked",
-            "title": "Leverage in-house talent to repricing negotiation",
+            "title": "Trade platform exposure for a reduced speaker fee",
             "count": "13 of the 43 successes",
             "example": {
               "event": "User Conference 2024 — Boston",
