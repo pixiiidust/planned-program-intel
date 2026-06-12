@@ -28,7 +28,7 @@ test('the memory loop closes visibly: resolve → Precedent lands in sibling →
 
   // The Precedent sits in the sibling's Evidence: visually distinct, with
   // decider and recency, outcome pending.
-  await detail.getByText('What happened in similar events (48 cases)').click();
+  await detail.getByText('What happened in similar events (60 cases)').click();
   const precedents = detail.getByTestId('precedents');
   await expect(precedents).toContainText('Precedents · outcome pending, not in the counts');
   await expect(precedents).toContainText(/accepted just now by Priya Nair — outcome pending/i);
@@ -36,9 +36,9 @@ test('the memory loop closes visibly: resolve → Precedent lands in sibling →
   await expect(precedents).toContainText('from: Lisbon venue contract missing force majeure clause');
 
   // The Track Record never lies: counts and proportion unchanged by the Precedent.
-  await expect(detail).toContainText('Worked in 41 of 48 similar cases');
-  await expect(detail.getByText('41 worked')).toBeVisible();
-  await expect(detail.getByText('85% success across 48 cases')).toBeVisible();
+  await expect(detail).toContainText('Worked in 40 of 60 similar cases');
+  await expect(detail.getByText('40 worked')).toBeVisible();
+  await expect(detail.getByText('67% success across 60 cases')).toBeVisible();
 
   // The Resolution is in Decided.
   await page.getByRole('button', { name: /^Decided \(8\)/ }).click();
@@ -47,7 +47,7 @@ test('the memory loop closes visibly: resolve → Precedent lands in sibling →
   // And all of it survives a reload — Program Memory is persistent.
   await page.reload();
   await page.getByRole('button', { name: /cancellation cap/i }).click();
-  await page.getByTestId('decision-detail').getByText('What happened in similar events (48 cases)').click();
+  await page.getByTestId('decision-detail').getByText('What happened in similar events (60 cases)').click();
   await expect(page.getByTestId('precedents')).toContainText(/accepted just now by Priya Nair/i);
 });
 

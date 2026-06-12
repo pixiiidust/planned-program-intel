@@ -22,7 +22,7 @@ export type {
   WhatsDifferent,
 } from './types.js';
 export { SIGNAL_TYPES, URGENCY_RANK } from './types.js';
-export type { DecisionRepository, DecisionSource, LoadResult } from './ports.js';
+export type { AiJsonRequest, AiPort, DecisionRepository, DecisionSource, LoadResult } from './ports.js';
 export { needsYou, tabOf } from './queue.js';
 export type { QueueTab } from './queue.js';
 export { applyAction, canApply, IllegalTransitionError } from './lifecycle.js';

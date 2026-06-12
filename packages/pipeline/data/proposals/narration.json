@@ -1,0 +1,474 @@
+[
+  {
+    "decisionId": "d1",
+    "basis": "similar contract decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "pair-with-deposit-trade",
+        "title": "Pair with deposit trade",
+        "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "ask-early-no-trade",
+        "title": "Ask early no trade",
+        "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "sign-then-amend",
+        "title": "Sign then amend",
+        "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "sign-without-clause",
+        "title": "Sign without clause",
+        "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "government-venue",
+        "whyItMattersNow": "Government-owned venues have run notably longer on legal review than the rest of the similar set — check whether it applies to this decision."
+      }
+    ]
+  },
+  {
+    "decisionId": "d2",
+    "basis": "similar budget decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "title": "Requote preferred vendor",
+        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "title": "Leverage reprice inhouse",
+        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "descope",
+        "title": "Descope",
+        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "accept-variance",
+        "title": "Accept variance",
+        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d3",
+    "basis": "similar approval decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "quantified-cost-of-delay",
+        "title": "Quantified cost of delay",
+        "takeaway": "In similar approval decisions, \"Quantified cost of delay\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "exec-nudge",
+        "title": "Exec nudge",
+        "takeaway": "In similar approval decisions, \"Exec nudge\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "wait-it-out",
+        "title": "Wait it out",
+        "takeaway": "In similar approval decisions, \"Wait it out\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d4",
+    "basis": "similar policy decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "document-and-approve",
+        "title": "Document and approve",
+        "takeaway": "In similar policy decisions, \"Document and approve\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "escalate-for-waiver",
+        "title": "Escalate for waiver",
+        "takeaway": "In similar policy decisions, \"Escalate for waiver\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "deny-find-alternative",
+        "title": "Deny find alternative",
+        "takeaway": "In similar policy decisions, \"Deny find alternative\" is the play that has repeatedly worked."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d5",
+    "basis": "similar forecast decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "targeted-outreach",
+        "title": "Targeted outreach",
+        "takeaway": "In similar forecast decisions, \"Targeted outreach\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "extend-early-bird",
+        "title": "Extend early bird",
+        "takeaway": "In similar forecast decisions, \"Extend early bird\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "rescope-venue",
+        "title": "Rescope venue",
+        "takeaway": "In similar forecast decisions, \"Rescope venue\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "hold-course",
+        "title": "Hold course",
+        "takeaway": "In similar forecast decisions, \"Hold course\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "inside-30-days",
+        "whyItMattersNow": "Inside thirty days out have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+      }
+    ]
+  },
+  {
+    "decisionId": "d6",
+    "basis": "similar budget decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "title": "Requote preferred vendor",
+        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "title": "Leverage reprice inhouse",
+        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "descope",
+        "title": "Descope",
+        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "accept-variance",
+        "title": "Accept variance",
+        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d14",
+    "basis": "similar vendor decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "swap-to-preferred",
+        "title": "Swap to preferred",
+        "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "dual-source",
+        "title": "Dual source",
+        "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "keep-incumbent",
+        "title": "Keep incumbent",
+        "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "sole-source",
+        "whyItMattersNow": "Sole-source vendors have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+      }
+    ]
+  },
+  {
+    "decisionId": "d15",
+    "basis": "similar logistics decisions drawn from past event programs",
+    "patterns": [],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d16",
+    "basis": "similar logistics decisions drawn from past event programs",
+    "patterns": [],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d7",
+    "basis": "similar budget decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "title": "Requote preferred vendor",
+        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "title": "Leverage reprice inhouse",
+        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "descope",
+        "title": "Descope",
+        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "accept-variance",
+        "title": "Accept variance",
+        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d8",
+    "basis": "similar vendor decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "swap-to-preferred",
+        "title": "Swap to preferred",
+        "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "dual-source",
+        "title": "Dual source",
+        "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "keep-incumbent",
+        "title": "Keep incumbent",
+        "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d9",
+    "basis": "similar vendor decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "swap-to-preferred",
+        "title": "Swap to preferred",
+        "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "keep-incumbent",
+        "title": "Keep incumbent",
+        "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "dual-source",
+        "title": "Dual source",
+        "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d10",
+    "basis": "similar logistics decisions drawn from past event programs",
+    "patterns": [],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d11",
+    "basis": "similar budget decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "title": "Requote preferred vendor",
+        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "title": "Leverage reprice inhouse",
+        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "descope",
+        "title": "Descope",
+        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "accept-variance",
+        "title": "Accept variance",
+        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d12",
+    "basis": "similar forecast decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "targeted-outreach",
+        "title": "Targeted outreach",
+        "takeaway": "In similar forecast decisions, \"Targeted outreach\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "extend-early-bird",
+        "title": "Extend early bird",
+        "takeaway": "In similar forecast decisions, \"Extend early bird\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "rescope-venue",
+        "title": "Rescope venue",
+        "takeaway": "In similar forecast decisions, \"Rescope venue\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "hold-course",
+        "title": "Hold course",
+        "takeaway": "In similar forecast decisions, \"Hold course\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "inside-30-days",
+        "whyItMattersNow": "Inside thirty days out have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+      }
+    ]
+  },
+  {
+    "decisionId": "d13",
+    "basis": "similar contract decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "pair-with-deposit-trade",
+        "title": "Pair with deposit trade",
+        "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "ask-early-no-trade",
+        "title": "Ask early no trade",
+        "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "sign-then-amend",
+        "title": "Sign then amend",
+        "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "sign-without-clause",
+        "title": "Sign without clause",
+        "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d17",
+    "basis": "similar contract decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "pair-with-deposit-trade",
+        "title": "Pair with deposit trade",
+        "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "ask-early-no-trade",
+        "title": "Ask early no trade",
+        "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "sign-then-amend",
+        "title": "Sign then amend",
+        "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "sign-without-clause",
+        "title": "Sign without clause",
+        "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "government-venue",
+        "whyItMattersNow": "Government-owned venues have run notably longer on legal review than the rest of the similar set — check whether it applies to this decision."
+      }
+    ]
+  },
+  {
+    "decisionId": "d18",
+    "basis": "similar budget decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "title": "Requote preferred vendor",
+        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "title": "Leverage reprice inhouse",
+        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "descope",
+        "title": "Descope",
+        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "accept-variance",
+        "title": "Accept variance",
+        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d19",
+    "basis": "similar approval decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "quantified-cost-of-delay",
+        "title": "Quantified cost of delay",
+        "takeaway": "In similar approval decisions, \"Quantified cost of delay\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "exec-nudge",
+        "title": "Exec nudge",
+        "takeaway": "In similar approval decisions, \"Exec nudge\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "wait-it-out",
+        "title": "Wait it out",
+        "takeaway": "In similar approval decisions, \"Wait it out\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d20",
+    "basis": "similar budget decisions drawn from past event programs",
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "title": "Requote preferred vendor",
+        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "title": "Leverage reprice inhouse",
+        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "descope",
+        "title": "Descope",
+        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+      },
+      {
+        "approach": "accept-variance",
+        "title": "Accept variance",
+        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+      }
+    ],
+    "exceptions": []
+  }
+]

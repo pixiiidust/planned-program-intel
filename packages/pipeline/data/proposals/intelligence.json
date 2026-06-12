@@ -1,0 +1,714 @@
+[
+  {
+    "decisionId": "d1",
+    "caseCount": 60,
+    "workedCount": 40,
+    "patterns": [
+      {
+        "approach": "pair-with-deposit-trade",
+        "outcome": "worked",
+        "size": 18,
+        "worked": 15,
+        "failed": 3,
+        "exemplarCaseId": "gc-007"
+      },
+      {
+        "approach": "ask-early-no-trade",
+        "outcome": "worked",
+        "size": 15,
+        "worked": 12,
+        "failed": 3,
+        "exemplarCaseId": "gc-051"
+      },
+      {
+        "approach": "sign-then-amend",
+        "outcome": "worked",
+        "size": 15,
+        "worked": 10,
+        "failed": 5,
+        "exemplarCaseId": "gc-014"
+      },
+      {
+        "approach": "sign-without-clause",
+        "outcome": "failed",
+        "size": 12,
+        "worked": 3,
+        "failed": 9,
+        "exemplarCaseId": "gc-052"
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "government-venue",
+        "label": "Government-owned venues",
+        "size": 11,
+        "worked": 7,
+        "parentWorked": 40,
+        "parentTotal": 60,
+        "metric": {
+          "key": "legalReviewDays",
+          "label": "legal review",
+          "unit": "days",
+          "subgroupMean": 11.7,
+          "complementMean": 5.6
+        }
+      }
+    ]
+  },
+  {
+    "decisionId": "d2",
+    "caseCount": 70,
+    "workedCount": 44,
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "outcome": "worked",
+        "size": 21,
+        "worked": 18,
+        "failed": 3,
+        "exemplarCaseId": "gc-111"
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "outcome": "worked",
+        "size": 21,
+        "worked": 13,
+        "failed": 8,
+        "exemplarCaseId": "gc-105"
+      },
+      {
+        "approach": "descope",
+        "outcome": "worked",
+        "size": 10,
+        "worked": 6,
+        "failed": 4,
+        "exemplarCaseId": "gc-095"
+      },
+      {
+        "approach": "accept-variance",
+        "outcome": "failed",
+        "size": 18,
+        "worked": 7,
+        "failed": 11,
+        "exemplarCaseId": "gc-077"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d3",
+    "caseCount": 50,
+    "workedCount": 32,
+    "patterns": [
+      {
+        "approach": "quantified-cost-of-delay",
+        "outcome": "worked",
+        "size": 20,
+        "worked": 17,
+        "failed": 3,
+        "exemplarCaseId": "gc-157"
+      },
+      {
+        "approach": "exec-nudge",
+        "outcome": "worked",
+        "size": 15,
+        "worked": 10,
+        "failed": 5,
+        "exemplarCaseId": "gc-180"
+      },
+      {
+        "approach": "wait-it-out",
+        "outcome": "failed",
+        "size": 15,
+        "worked": 5,
+        "failed": 10,
+        "exemplarCaseId": "gc-156"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d4",
+    "caseCount": 40,
+    "workedCount": 33,
+    "patterns": [
+      {
+        "approach": "document-and-approve",
+        "outcome": "worked",
+        "size": 16,
+        "worked": 15,
+        "failed": 1,
+        "exemplarCaseId": "gc-236"
+      },
+      {
+        "approach": "escalate-for-waiver",
+        "outcome": "worked",
+        "size": 14,
+        "worked": 10,
+        "failed": 4,
+        "exemplarCaseId": "gc-269"
+      },
+      {
+        "approach": "deny-find-alternative",
+        "outcome": "worked",
+        "size": 10,
+        "worked": 8,
+        "failed": 2,
+        "exemplarCaseId": "gc-264"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d5",
+    "caseCount": 50,
+    "workedCount": 27,
+    "patterns": [
+      {
+        "approach": "targeted-outreach",
+        "outcome": "worked",
+        "size": 14,
+        "worked": 9,
+        "failed": 5,
+        "exemplarCaseId": "gc-200"
+      },
+      {
+        "approach": "extend-early-bird",
+        "outcome": "worked",
+        "size": 14,
+        "worked": 8,
+        "failed": 6,
+        "exemplarCaseId": "gc-201"
+      },
+      {
+        "approach": "rescope-venue",
+        "outcome": "worked",
+        "size": 12,
+        "worked": 7,
+        "failed": 5,
+        "exemplarCaseId": "gc-229"
+      },
+      {
+        "approach": "hold-course",
+        "outcome": "failed",
+        "size": 10,
+        "worked": 3,
+        "failed": 7,
+        "exemplarCaseId": "gc-225"
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "inside-30-days",
+        "label": "Inside 30 days out",
+        "size": 13,
+        "worked": 5,
+        "parentWorked": 27,
+        "parentTotal": 50
+      }
+    ]
+  },
+  {
+    "decisionId": "d6",
+    "caseCount": 54,
+    "workedCount": 35,
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "outcome": "worked",
+        "size": 17,
+        "worked": 14,
+        "failed": 3,
+        "exemplarCaseId": "gc-100"
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "outcome": "worked",
+        "size": 17,
+        "worked": 12,
+        "failed": 5,
+        "exemplarCaseId": "gc-082"
+      },
+      {
+        "approach": "descope",
+        "outcome": "worked",
+        "size": 5,
+        "worked": 3,
+        "failed": 2,
+        "exemplarCaseId": "gc-095"
+      },
+      {
+        "approach": "accept-variance",
+        "outcome": "failed",
+        "size": 15,
+        "worked": 6,
+        "failed": 9,
+        "exemplarCaseId": "gc-122"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d14",
+    "caseCount": 28,
+    "workedCount": 17,
+    "patterns": [
+      {
+        "approach": "swap-to-preferred",
+        "outcome": "worked",
+        "size": 10,
+        "worked": 7,
+        "failed": 3,
+        "exemplarCaseId": "gc-274"
+      },
+      {
+        "approach": "dual-source",
+        "outcome": "worked",
+        "size": 9,
+        "worked": 5,
+        "failed": 4,
+        "exemplarCaseId": "gc-280"
+      },
+      {
+        "approach": "keep-incumbent",
+        "outcome": "worked",
+        "size": 9,
+        "worked": 5,
+        "failed": 4,
+        "exemplarCaseId": "gc-297"
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "sole-source",
+        "label": "Sole-source vendors",
+        "size": 15,
+        "worked": 6,
+        "parentWorked": 17,
+        "parentTotal": 28
+      }
+    ]
+  },
+  {
+    "decisionId": "d15",
+    "caseCount": 0,
+    "workedCount": 0,
+    "patterns": [],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d16",
+    "caseCount": 0,
+    "workedCount": 0,
+    "patterns": [],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d7",
+    "caseCount": 55,
+    "workedCount": 36,
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "outcome": "worked",
+        "size": 17,
+        "worked": 16,
+        "failed": 1,
+        "exemplarCaseId": "gc-111"
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "outcome": "worked",
+        "size": 15,
+        "worked": 10,
+        "failed": 5,
+        "exemplarCaseId": "gc-105"
+      },
+      {
+        "approach": "descope",
+        "outcome": "worked",
+        "size": 7,
+        "worked": 4,
+        "failed": 3,
+        "exemplarCaseId": "gc-090"
+      },
+      {
+        "approach": "accept-variance",
+        "outcome": "failed",
+        "size": 16,
+        "worked": 6,
+        "failed": 10,
+        "exemplarCaseId": "gc-077"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d8",
+    "caseCount": 18,
+    "workedCount": 11,
+    "patterns": [
+      {
+        "approach": "swap-to-preferred",
+        "outcome": "worked",
+        "size": 7,
+        "worked": 4,
+        "failed": 3,
+        "exemplarCaseId": "gc-274"
+      },
+      {
+        "approach": "dual-source",
+        "outcome": "worked",
+        "size": 6,
+        "worked": 4,
+        "failed": 2,
+        "exemplarCaseId": "gc-280"
+      },
+      {
+        "approach": "keep-incumbent",
+        "outcome": "worked",
+        "size": 5,
+        "worked": 3,
+        "failed": 2,
+        "exemplarCaseId": "gc-276"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d9",
+    "caseCount": 22,
+    "workedCount": 12,
+    "patterns": [
+      {
+        "approach": "swap-to-preferred",
+        "outcome": "worked",
+        "size": 10,
+        "worked": 6,
+        "failed": 4,
+        "exemplarCaseId": "gc-295"
+      },
+      {
+        "approach": "keep-incumbent",
+        "outcome": "worked",
+        "size": 6,
+        "worked": 4,
+        "failed": 2,
+        "exemplarCaseId": "gc-276"
+      },
+      {
+        "approach": "dual-source",
+        "outcome": "failed",
+        "size": 6,
+        "worked": 2,
+        "failed": 4,
+        "exemplarCaseId": "gc-293"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d10",
+    "caseCount": 0,
+    "workedCount": 0,
+    "patterns": [],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d11",
+    "caseCount": 57,
+    "workedCount": 37,
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "outcome": "worked",
+        "size": 18,
+        "worked": 15,
+        "failed": 3,
+        "exemplarCaseId": "gc-116"
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "outcome": "worked",
+        "size": 18,
+        "worked": 12,
+        "failed": 6,
+        "exemplarCaseId": "gc-096"
+      },
+      {
+        "approach": "descope",
+        "outcome": "worked",
+        "size": 6,
+        "worked": 4,
+        "failed": 2,
+        "exemplarCaseId": "gc-095"
+      },
+      {
+        "approach": "accept-variance",
+        "outcome": "failed",
+        "size": 15,
+        "worked": 6,
+        "failed": 9,
+        "exemplarCaseId": "gc-064"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d12",
+    "caseCount": 50,
+    "workedCount": 27,
+    "patterns": [
+      {
+        "approach": "targeted-outreach",
+        "outcome": "worked",
+        "size": 14,
+        "worked": 9,
+        "failed": 5,
+        "exemplarCaseId": "gc-223"
+      },
+      {
+        "approach": "extend-early-bird",
+        "outcome": "worked",
+        "size": 14,
+        "worked": 8,
+        "failed": 6,
+        "exemplarCaseId": "gc-208"
+      },
+      {
+        "approach": "rescope-venue",
+        "outcome": "worked",
+        "size": 12,
+        "worked": 7,
+        "failed": 5,
+        "exemplarCaseId": "gc-229"
+      },
+      {
+        "approach": "hold-course",
+        "outcome": "failed",
+        "size": 10,
+        "worked": 3,
+        "failed": 7,
+        "exemplarCaseId": "gc-187"
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "inside-30-days",
+        "label": "Inside 30 days out",
+        "size": 13,
+        "worked": 5,
+        "parentWorked": 27,
+        "parentTotal": 50
+      }
+    ]
+  },
+  {
+    "decisionId": "d13",
+    "caseCount": 28,
+    "workedCount": 18,
+    "patterns": [
+      {
+        "approach": "pair-with-deposit-trade",
+        "outcome": "worked",
+        "size": 7,
+        "worked": 6,
+        "failed": 1,
+        "exemplarCaseId": "gc-024"
+      },
+      {
+        "approach": "ask-early-no-trade",
+        "outcome": "worked",
+        "size": 6,
+        "worked": 5,
+        "failed": 1,
+        "exemplarCaseId": "gc-005"
+      },
+      {
+        "approach": "sign-then-amend",
+        "outcome": "worked",
+        "size": 7,
+        "worked": 4,
+        "failed": 3,
+        "exemplarCaseId": "gc-002"
+      },
+      {
+        "approach": "sign-without-clause",
+        "outcome": "failed",
+        "size": 8,
+        "worked": 3,
+        "failed": 5,
+        "exemplarCaseId": "gc-039"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d17",
+    "caseCount": 60,
+    "workedCount": 40,
+    "patterns": [
+      {
+        "approach": "pair-with-deposit-trade",
+        "outcome": "worked",
+        "size": 18,
+        "worked": 15,
+        "failed": 3,
+        "exemplarCaseId": "gc-019"
+      },
+      {
+        "approach": "ask-early-no-trade",
+        "outcome": "worked",
+        "size": 15,
+        "worked": 12,
+        "failed": 3,
+        "exemplarCaseId": "gc-016"
+      },
+      {
+        "approach": "sign-then-amend",
+        "outcome": "worked",
+        "size": 15,
+        "worked": 10,
+        "failed": 5,
+        "exemplarCaseId": "gc-021"
+      },
+      {
+        "approach": "sign-without-clause",
+        "outcome": "failed",
+        "size": 12,
+        "worked": 3,
+        "failed": 9,
+        "exemplarCaseId": "gc-025"
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "government-venue",
+        "label": "Government-owned venues",
+        "size": 11,
+        "worked": 7,
+        "parentWorked": 40,
+        "parentTotal": 60,
+        "metric": {
+          "key": "legalReviewDays",
+          "label": "legal review",
+          "unit": "days",
+          "subgroupMean": 11.7,
+          "complementMean": 5.6
+        }
+      }
+    ]
+  },
+  {
+    "decisionId": "d18",
+    "caseCount": 70,
+    "workedCount": 44,
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "outcome": "worked",
+        "size": 21,
+        "worked": 18,
+        "failed": 3,
+        "exemplarCaseId": "gc-100"
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "outcome": "worked",
+        "size": 21,
+        "worked": 13,
+        "failed": 8,
+        "exemplarCaseId": "gc-082"
+      },
+      {
+        "approach": "descope",
+        "outcome": "worked",
+        "size": 10,
+        "worked": 6,
+        "failed": 4,
+        "exemplarCaseId": "gc-095"
+      },
+      {
+        "approach": "accept-variance",
+        "outcome": "failed",
+        "size": 18,
+        "worked": 7,
+        "failed": 11,
+        "exemplarCaseId": "gc-122"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d19",
+    "caseCount": 47,
+    "workedCount": 30,
+    "patterns": [
+      {
+        "approach": "quantified-cost-of-delay",
+        "outcome": "worked",
+        "size": 20,
+        "worked": 17,
+        "failed": 3,
+        "exemplarCaseId": "gc-178"
+      },
+      {
+        "approach": "exec-nudge",
+        "outcome": "worked",
+        "size": 13,
+        "worked": 8,
+        "failed": 5,
+        "exemplarCaseId": "gc-167"
+      },
+      {
+        "approach": "wait-it-out",
+        "outcome": "failed",
+        "size": 14,
+        "worked": 5,
+        "failed": 9,
+        "exemplarCaseId": "gc-150"
+      }
+    ],
+    "exceptions": []
+  },
+  {
+    "decisionId": "d20",
+    "caseCount": 68,
+    "workedCount": 43,
+    "patterns": [
+      {
+        "approach": "requote-preferred-vendor",
+        "outcome": "worked",
+        "size": 20,
+        "worked": 17,
+        "failed": 3,
+        "exemplarCaseId": "gc-130"
+      },
+      {
+        "approach": "leverage-reprice-inhouse",
+        "outcome": "worked",
+        "size": 20,
+        "worked": 13,
+        "failed": 7,
+        "exemplarCaseId": "gc-121"
+      },
+      {
+        "approach": "descope",
+        "outcome": "worked",
+        "size": 10,
+        "worked": 6,
+        "failed": 4,
+        "exemplarCaseId": "gc-095"
+      },
+      {
+        "approach": "accept-variance",
+        "outcome": "failed",
+        "size": 18,
+        "worked": 7,
+        "failed": 11,
+        "exemplarCaseId": "gc-064"
+      }
+    ],
+    "exceptions": []
+  }
+]

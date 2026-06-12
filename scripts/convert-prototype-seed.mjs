@@ -1,18 +1,14 @@
 // Converts the prototype strawman corpus (prototype/src/data.js) into the
-// slice-2 pipeline's INPUTS (issue #12) — no longer directly into seed.ts;
-// the @ppi/pipeline embed & emit stages own the seed artifact now.
+// slice-2 pipeline's decision input (issue #12). The generated corpus (#13)
+// plus the @ppi/pipeline promote stage own packages/pipeline/data/cases.json.
 //
 // What it does:
 //  - mechanical field mapping (status names, eventId → EventRef, dueIn → days)
 //  - tags each Decision with the Signal type that would have produced it (ADR-0003)
 //  - keeps the three hand-authored quieter siblings (d17–d19) and the
 //    escalated d20 from slice 1
-//  - extracts every hand-authored nested evidence case into a standalone
-//    corpus Case (provisional titles from the parent decision; the #13
-//    generated corpus replaces this file)
-//  - emits packages/pipeline/data/decisions.json (evidence.cases emptied —
-//    the pipeline's decision→cases table fills them) and
-//    packages/pipeline/data/cases.json
+//  - emits packages/pipeline/data/decisions.json (evidence.cases emptied;
+//    the pipeline's decision-to-cases table fills them)
 //
 // Run: node scripts/convert-prototype-seed.mjs
 
@@ -301,26 +297,6 @@ const d20 = {
 
 const full = [...INITIAL_DECISIONS.map(convert), d17, d18, d19, d20];
 
-// Extract every nested hand-authored evidence case into a standalone corpus
-// Case. Titles are provisional (the parent decision's situation); the #13
-// generated corpus replaces this file with real per-case situations.
-const cases = [];
-for (const d of full) {
-  for (const c of d.evidence.cases) {
-    cases.push({
-      id: `c${String(cases.length + 1).padStart(2, '0')}`,
-      type: d.type,
-      title: d.title,
-      event: c.event,
-      when: c.when,
-      outcome: c.outcome,
-      detail: c.detail,
-      tags: c.tags,
-      origin: { decisionId: d.id, ...(c.patternIndex !== undefined ? { patternIndex: c.patternIndex } : {}) },
-    });
-  }
-}
-
 // Decisions enter the pipeline with empty case lists — the decision→cases
 // table (embed stage) fills them at emit.
 const decisions = full.map((d) => ({ ...d, evidence: { ...d.evidence, cases: [], precedents: [] } }));
@@ -328,5 +304,4 @@ const decisions = full.map((d) => ({ ...d, evidence: { ...d.evidence, cases: [],
 const dataDir = join(dirname(fileURLToPath(import.meta.url)), '../packages/pipeline/data');
 mkdirSync(dataDir, { recursive: true });
 writeFileSync(join(dataDir, 'decisions.json'), JSON.stringify(decisions, null, 2) + '\n', 'utf8');
-writeFileSync(join(dataDir, 'cases.json'), JSON.stringify(cases, null, 2) + '\n', 'utf8');
-console.log(`Wrote ${dataDir}\\decisions.json (${decisions.length} decisions) and cases.json (${cases.length} cases)`);
+console.log(`Wrote ${dataDir}\\decisions.json (${decisions.length} decisions)`);

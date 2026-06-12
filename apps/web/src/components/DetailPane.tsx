@@ -29,6 +29,14 @@ function HeaderRow({ label, children }: { label: ReactNode; children: ReactNode 
 
 function TrackRecordLine({ decision: d }: { decision: Decision }) {
   const track = d.recommendation.track;
+  if (track.total === 0) {
+    return (
+      <div className="mt-2">
+        <p className="text-sm text-slate-500">No comparable cases in Program Memory yet.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="mt-2">
       <p className="text-sm text-slate-600">

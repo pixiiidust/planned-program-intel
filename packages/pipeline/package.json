@@ -7,12 +7,16 @@
     "typecheck": "tsc --noEmit",
     "generate": "tsx src/cli.ts generate",
     "label": "tsx src/cli.ts label",
+    "promote": "tsx src/cli.ts promote",
     "embed": "tsx src/cli.ts embed",
+    "cluster": "tsx src/cli.ts cluster",
+    "name": "tsx src/cli.ts name",
     "emit": "tsx src/cli.ts emit",
     "validate": "tsx src/cli.ts validate"
   },
   "dependencies": {
     "@huggingface/transformers": "^3.3.0",
+    "@ppi/adapters": "*",
     "@ppi/domain": "*"
   },
   "devDependencies": {
