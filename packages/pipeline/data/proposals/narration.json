@@ -1,472 +1,472 @@
 [
   {
     "decisionId": "d1",
-    "basis": "similar contract decisions drawn from past event programs",
+    "basis": "venue contracts lacking protective clauses for unforeseen circumstances",
     "patterns": [
       {
         "approach": "pair-with-deposit-trade",
-        "title": "Pair with deposit trade",
-        "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+        "title": "Pair deposit trade with force majeure clause insertion",
+        "takeaway": "This play works when both parties fear cancellation risk equally and agree that shared protection through explicit force majeure language costs less than individual forfeit exposure."
       },
       {
         "approach": "ask-early-no-trade",
-        "title": "Ask early no trade",
-        "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+        "title": "Request force majeure protections before signing venue contracts",
+        "takeaway": "This approach works when negotiating with venues early in planning, as adding protective clauses requires mutual agreement before either party becomes contractually bound."
       },
       {
         "approach": "sign-then-amend",
-        "title": "Sign then amend",
-        "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+        "title": "Sign contract then amend force majeure protections",
+        "takeaway": "This play works when both parties prioritize relationship continuity over contract perfectionism and amendments can be negotiated quickly before binding commitments lock in."
       },
       {
         "approach": "sign-without-clause",
-        "title": "Sign without clause",
-        "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+        "title": "Sign contract without negotiating force majeure protection",
+        "takeaway": "This approach fails when weather or unforeseen circumstances trigger cancellation, leaving all committed spend unrecoverable and creating financial exposure the venue controls entirely."
       }
     ],
     "exceptions": [
       {
         "id": "government-venue",
-        "whyItMattersNow": "Government-owned venues have run notably longer on legal review than the rest of the similar set — check whether it applies to this decision."
+        "whyItMattersNow": "Government-owned venues require legal board approval for contract modifications, which consumes most of the remaining time before the hold expires Friday, making it critical to prioritize this clause now or risk losing the venue entirely."
       }
     ]
   },
   {
     "decisionId": "d2",
-    "basis": "similar budget decisions drawn from past event programs",
+    "basis": "quotes from preferred vendors at comparable scope with repricing leverage opportunities",
     "patterns": [
       {
         "approach": "requote-preferred-vendor",
-        "title": "Requote preferred vendor",
-        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+        "title": "Request alternative quotes from competing preferred vendors",
+        "takeaway": "This approach works when the venue's sole quote exceeds budget and alternative suppliers exist in the market, but fails if the venue holds exclusive service contracts or competing options are unavailable."
       },
       {
         "approach": "leverage-reprice-inhouse",
-        "title": "Leverage reprice inhouse",
-        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+        "title": "Leverage in-house repricing against budget benchmark",
+        "takeaway": "This play works when the venue holds exclusivity clauses and has competing alternatives in the same market, allowing budget pressure to force quote reduction toward the original line."
       },
       {
         "approach": "descope",
-        "title": "Descope",
-        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+        "title": "Descope the venue quote against comparable university benchmarks",
+        "takeaway": "This play works when you have access to regional peer pricing data from similar multi-stage academic venues, as demonstrated in Madrid, allowing you to reframe the overage as a data-driven negotiation rather than a budget shortfall."
       },
       {
         "approach": "accept-variance",
-        "title": "Accept variance",
-        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+        "title": "Accept the venue's higher quote as final cost",
+        "takeaway": "This play fails when budget rigidity is necessary or when alternative venues at target price exist, but succeeds only if the venue's unique value justifies cost absorption across the event margin."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d3",
-    "basis": "similar approval decisions drawn from past event programs",
+    "basis": "stalled approval workflows where executive decision-makers delay contract sign-offs",
     "patterns": [
       {
         "approach": "quantified-cost-of-delay",
-        "title": "Quantified cost of delay",
-        "takeaway": "In similar approval decisions, \"Quantified cost of delay\" is the play that has repeatedly worked."
+        "title": "Quantify daily revenue loss from approval delay",
+        "takeaway": "This approach works when the decision-maker has limited attention capacity and faces competing priorities, because attaching concrete financial impact to inaction creates urgency that abstract timelines alone cannot."
       },
       {
         "approach": "exec-nudge",
-        "title": "Exec nudge",
-        "takeaway": "In similar approval decisions, \"Exec nudge\" is the play that has repeatedly worked."
+        "title": "Escalate approval request directly to traveling VP's assistant",
+        "takeaway": "This play works when the decision-maker is mobile and unreachable through normal channels, as their delegate can prioritize and facilitate sign-off despite limited connectivity."
       },
       {
         "approach": "wait-it-out",
-        "title": "Wait it out",
-        "takeaway": "In similar approval decisions, \"Wait it out\" is the play that has repeatedly failed."
+        "title": "Wait for VP approval despite travel and email constraints",
+        "takeaway": "Waiting fails when the decision-maker has degraded access and competing travel priorities, requiring escalation or interim authorization instead."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d4",
-    "basis": "similar policy decisions drawn from past event programs",
+    "basis": "vendor unavailability requiring exception approval for service continuity",
     "patterns": [
       {
         "approach": "document-and-approve",
-        "title": "Document and approve",
-        "takeaway": "In similar policy decisions, \"Document and approve\" is the play that has repeatedly worked."
+        "title": "Document exception request and seek management approval",
+        "takeaway": "This approach works when time permits formal review and the requestor can justify business need before event logistics become critical."
       },
       {
         "approach": "escalate-for-waiver",
-        "title": "Escalate for waiver",
-        "takeaway": "In similar policy decisions, \"Escalate for waiver\" is the play that has repeatedly worked."
+        "title": "Escalate unavailable preferred vendor for policy exception approval",
+        "takeaway": "This play succeeds when the preferred supplier has genuine capacity constraints and the escalation presents a vetted alternate with clear business justification."
       },
       {
         "approach": "deny-find-alternative",
-        "title": "Deny find alternative",
-        "takeaway": "In similar policy decisions, \"Deny find alternative\" is the play that has repeatedly worked."
+        "title": "Deny preferred vendor, find and approve alternate",
+        "takeaway": "This play works when the alternate vendor meets quality and compliance standards, reducing delay risk compared to waiting for the preferred caterer or rejecting the venue recommendation outright."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d5",
-    "basis": "similar forecast decisions drawn from past event programs",
+    "basis": "previous summit registration shortfalls addressed through similar outreach and pricing interventions",
     "patterns": [
       {
         "approach": "targeted-outreach",
-        "title": "Targeted outreach",
-        "takeaway": "In similar forecast decisions, \"Targeted outreach\" is the play that has repeatedly worked."
+        "title": "Contact high-value prospects with personalized summit value propositions",
+        "takeaway": "This play works when decision-makers remain reachable before the final registration push and perceive the event's content as addressing current business priorities."
       },
       {
         "approach": "extend-early-bird",
-        "title": "Extend early bird",
-        "takeaway": "In similar forecast decisions, \"Extend early bird\" is the play that has repeatedly worked."
+        "title": "Accelerate early-bird deadline to drive immediate registration surge",
+        "takeaway": "This play works when registration lags significantly behind target with sufficient time to incentivize decision-making before attrition thresholds trigger penalties."
       },
       {
         "approach": "rescope-venue",
-        "title": "Rescope venue",
-        "takeaway": "In similar forecast decisions, \"Rescope venue\" is the play that has repeatedly worked."
+        "title": "Shift event to smaller venue matching current registration",
+        "takeaway": "This play works when registration trajectory cannot recover to original capacity targets within remaining lead time, eliminating attrition penalties and improving per-attendee economics."
       },
       {
         "approach": "hold-course",
-        "title": "Hold course",
-        "takeaway": "In similar forecast decisions, \"Hold course\" is the play that has repeatedly failed."
+        "title": "Maintain current promotional strategy despite registration shortfall",
+        "takeaway": "This approach fails when registration decline is steep and time-to-event is insufficient to recover momentum through existing tactics alone."
       }
     ],
     "exceptions": [
       {
         "id": "inside-30-days",
-        "whyItMattersNow": "Inside thirty days out have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+        "whyItMattersNow": "This subgroup determines whether the summit achieves minimum room pickup thresholds before attrition penalties activate, making their registration commitment critical to financial viability within the compressed timeframe remaining."
       }
     ]
   },
   {
     "decisionId": "d6",
-    "basis": "similar budget decisions drawn from past event programs",
+    "basis": "venue contracts with f&b minimum increases requiring renegotiation or scope adjustment decisions",
     "patterns": [
       {
         "approach": "requote-preferred-vendor",
-        "title": "Requote preferred vendor",
-        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+        "title": "Request preferred vendor pricing concessions from Lisbon",
+        "takeaway": "This play works when a venue has recently invested in infrastructure and values retaining established clients, making them open to negotiating minimums in exchange for commitment."
       },
       {
         "approach": "leverage-reprice-inhouse",
-        "title": "Leverage reprice inhouse",
-        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+        "title": "Renegotiate venue F&B minimum based on renovation improvements",
+        "takeaway": "This approach succeeds when the venue upgrade substantively enhances client experience and justifies cost increases to stakeholders who value quality over budget constraints."
       },
       {
         "approach": "descope",
-        "title": "Descope",
-        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+        "title": "Descope the renovation requirement from the F&B minimum",
+        "takeaway": "This play works when the venue's capital project is recent and unfinished, allowing you to negotiate a temporary reduction or phase-in that decouples your event from costs you did not approve."
       },
       {
         "approach": "accept-variance",
-        "title": "Accept variance",
-        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+        "title": "Accept the venue's raised food and beverage minimum",
+        "takeaway": "This approach fails when the cost increase is unbudgeted and non-negotiable, as the Prague exemplar shows success only because the venue waived fees entirely rather than accepting a variance."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d14",
-    "basis": "similar vendor decisions drawn from past event programs",
+    "basis": "vendor decisions involving product sourcing strategies and supplier relationship management approaches",
     "patterns": [
       {
         "approach": "swap-to-preferred",
-        "title": "Swap to preferred",
-        "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+        "title": "Negotiate with preferred vendor to expand recording scope",
+        "takeaway": "This play succeeds when the existing vendor has bandwidth and willingness to add breakout sessions, avoiding sole-source constraints and delivery delays at convention centers."
       },
       {
         "approach": "dual-source",
-        "title": "Dual source",
-        "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly worked."
+        "title": "Secure secondary vendor for breakout session recording",
+        "takeaway": "This approach works when primary vendor scope is limited and budget exists to extend coverage through a complementary vendor contract."
       },
       {
         "approach": "keep-incumbent",
-        "title": "Keep incumbent",
-        "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+        "title": "Extend incumbent vendor's scope for all breakout tracks",
+        "takeaway": "This approach works when the existing AV vendor has proven capacity and onsite presence, avoiding fragmentation and ensuring consistent quality across all twelve sessions."
       }
     ],
     "exceptions": [
       {
         "id": "sole-source",
-        "whyItMattersNow": "Sole-source vendors have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+        "whyItMattersNow": "Sole-source vendors become critical when there is insufficient time to conduct competitive bidding before the SKO event, forcing reliance on the single AV provider who can quickly scale services beyond the keynote coverage."
       }
     ]
   },
   {
     "decisionId": "d15",
-    "basis": "similar logistics decisions drawn from past event programs",
+    "basis": "badge design refresh projects for regional conferences across europe middle east and africa",
     "patterns": [],
     "exceptions": []
   },
   {
     "decisionId": "d16",
-    "basis": "similar logistics decisions drawn from past event programs",
+    "basis": "post-event feedback collection mechanisms for mobile promotional tours and traveling demonstrations",
     "patterns": [],
     "exceptions": []
   },
   {
     "decisionId": "d7",
-    "basis": "similar budget decisions drawn from past event programs",
+    "basis": "similar budget decisions involving keynote event audiovisual packages with vendor repricing negotiations",
     "patterns": [
       {
         "approach": "requote-preferred-vendor",
-        "title": "Requote preferred vendor",
-        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+        "title": "Return to preferred vendor for cost reduction leverage",
+        "takeaway": "This play works when a preferred vendor relationship exists and budget pressure forces renegotiation, but fails if the vendor lacks alternatives or if quality requirements cannot flex."
       },
       {
         "approach": "leverage-reprice-inhouse",
-        "title": "Leverage reprice inhouse",
-        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+        "title": "Repricing hybrid AV in-house to absorb broadcast costs",
+        "takeaway": "This approach succeeds when internal teams can redistribute existing AV resources and negotiate exclusivity clause waivers, making it ideal for regional conferences with hotel partners willing to flex on technical restrictions."
       },
       {
         "approach": "descope",
-        "title": "Descope",
-        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+        "title": "Descope broadcast features, prioritize core keynote experience",
+        "takeaway": "This play works when audience engagement through essential content matters more than production polish, but fails if stakeholders expect premium broadcast quality as a differentiator."
       },
       {
         "approach": "accept-variance",
-        "title": "Accept variance",
-        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+        "title": "Accept the broadcast-grade livestream package variance",
+        "takeaway": "This approach fails when venue technical capabilities are assumed sufficient and stakeholder demand for production quality is underestimated before commitment."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d8",
-    "basis": "similar vendor decisions drawn from past event programs",
+    "basis": "vendor selection decisions involving accommodation options and cost comparison scenarios",
     "patterns": [
       {
         "approach": "swap-to-preferred",
-        "title": "Swap to preferred",
-        "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+        "title": "Negotiate rate parity with preferred hotel vendor",
+        "takeaway": "This play succeeds when the preferred vendor has room to match pricing without sacrificing margin, particularly at established properties with existing volume relationships."
       },
       {
         "approach": "dual-source",
-        "title": "Dual source",
-        "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly worked."
+        "title": "Weigh total cost against attendee experience impact",
+        "takeaway": "This approach succeeds when the savings offset travel burden, but fails if attendee fatigue or reduced participation outweighs the budget gain."
       },
       {
         "approach": "keep-incumbent",
-        "title": "Keep incumbent",
-        "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+        "title": "Retain the established hotel despite lower-cost alternative",
+        "takeaway": "Keeping the incumbent vendor succeeds when proximity and convenience outweigh marginal cost savings for attendee experience."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d9",
-    "basis": "similar vendor decisions drawn from past event programs",
+    "basis": "venue infrastructure technology quotes from competing network service providers",
     "patterns": [
       {
         "approach": "swap-to-preferred",
-        "title": "Swap to preferred",
-        "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+        "title": "Swap venue to one with dedicated bandwidth guarantee",
+        "takeaway": "This play succeeds when a venue can contractually commit to isolated bandwidth for the demo, but fails if the replacement venue has shared infrastructure or cannot guarantee service levels in writing."
       },
       {
         "approach": "keep-incumbent",
-        "title": "Keep incumbent",
-        "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+        "title": "Retain the incumbent vendor for bandwidth guarantee",
+        "takeaway": "This approach works when the incumbent vendor has proven performance history at the venue and can isolate demo traffic from shared network congestion."
       },
       {
         "approach": "dual-source",
-        "title": "Dual source",
-        "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly failed."
+        "title": "Secure dedicated bandwidth from two independent network providers",
+        "takeaway": "This approach fails when venue infrastructure prevents parallel vendor installations or contracts lock in single-provider access, leaving no fallback option available."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d10",
-    "basis": "similar logistics decisions drawn from past event programs",
+    "basis": "similar logistics decisions involving transportation options for corporate events and employee engagement programs",
     "patterns": [],
     "exceptions": []
   },
   {
     "decisionId": "d11",
-    "basis": "similar budget decisions drawn from past event programs",
+    "basis": "budget decisions with received quotes involving vendor repricing or scope adjustments",
     "patterns": [
       {
         "approach": "requote-preferred-vendor",
-        "title": "Requote preferred vendor",
-        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+        "title": "Leverage existing digital screens instead of purchasing printed signage",
+        "takeaway": "This play works when venue packages already include unused digital infrastructure, eliminating redundant spending and reducing total event costs while maintaining communication objectives."
       },
       {
         "approach": "leverage-reprice-inhouse",
-        "title": "Leverage reprice inhouse",
-        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+        "title": "Leverage existing venue digital screens to eliminate print costs",
+        "takeaway": "This play works when venue infrastructure already includes display technology, making repricing the signage approach as digital-only a cost-neutral substitution that removes budget variance without sacrificing communication impact."
       },
       {
         "approach": "descope",
-        "title": "Descope",
-        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+        "title": "Leverage included digital screens to eliminate printing expense",
+        "takeaway": "This approach succeeds when venue packages already provide digital infrastructure, eliminating redundant printed materials and freeing budget for higher-impact content or experience enhancements."
       },
       {
         "approach": "accept-variance",
-        "title": "Accept variance",
-        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+        "title": "Accept digital-screen variance from traditional printed signage",
+        "takeaway": "This play fails when venue infrastructure already covers the need, making acceptance of substitution obvious rather than strategic."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d12",
-    "basis": "similar forecast decisions drawn from past event programs",
+    "basis": "previous pricing extension decisions for regional conference registrations",
     "patterns": [
       {
         "approach": "targeted-outreach",
-        "title": "Targeted outreach",
-        "takeaway": "In similar forecast decisions, \"Targeted outreach\" is the play that has repeatedly worked."
+        "title": "Extend early-bird pricing deadline to accelerate lagging registrations",
+        "takeaway": "This play works when registration momentum stalls before an event and a brief price incentive window can convert hesitant prospects into committed attendees."
       },
       {
         "approach": "extend-early-bird",
-        "title": "Extend early bird",
-        "takeaway": "In similar forecast decisions, \"Extend early bird\" is the play that has repeatedly worked."
+        "title": "Extend early-bird pricing window to accelerate EMEA registration",
+        "takeaway": "This play works when registration lags behind forecast and a time-limited incentive can overcome price sensitivity without devaluing the event."
       },
       {
         "approach": "rescope-venue",
-        "title": "Rescope venue",
-        "takeaway": "In similar forecast decisions, \"Rescope venue\" is the play that has repeatedly worked."
+        "title": "Extend early-bird pricing window to accelerate registration pace",
+        "takeaway": "This play works when registration momentum lags early and a brief incentive window extension can recapture price-sensitive attendees before they disengage from the event entirely."
       },
       {
         "approach": "hold-course",
-        "title": "Hold course",
-        "takeaway": "In similar forecast decisions, \"Hold course\" is the play that has repeatedly failed."
+        "title": "Extend early-bird pricing window to accelerate registration momentum",
+        "takeaway": "This play fails when the soft initial registration signals weak demand rather than timing friction, and extending deadlines without addressing underlying appeal cannot convert prospect interest into commitments."
       }
     ],
     "exceptions": [
       {
         "id": "inside-30-days",
-        "whyItMattersNow": "Inside thirty days out have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+        "whyItMattersNow": "Budget-conscious attendees in emerging EMEA markets will make their purchase decisions within this narrow window, and extending early-bird pricing directly addresses the primary barrier preventing registration conversion during this critical momentum phase."
       }
     ]
   },
   {
     "decisionId": "d13",
-    "basis": "similar contract decisions drawn from past event programs",
+    "basis": "vendor service agreements with renewal terms and payment structure modifications",
     "patterns": [
       {
         "approach": "pair-with-deposit-trade",
-        "title": "Pair with deposit trade",
-        "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+        "title": "Pair Master Rate Renewal with Deposit Trade-In",
+        "takeaway": "This approach works when a customer faces imminent price escalation on an expiring contract and has capital assets or prior deposits available to offset renewal costs, creating urgency to secure favorable terms before list-price reinstatement."
       },
       {
         "approach": "ask-early-no-trade",
-        "title": "Ask early no trade",
-        "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+        "title": "Initiate renewal discussions before contract expiration",
+        "takeaway": "This play works when decision-makers have sufficient lead time to approve terms and avoid default rate increases that would otherwise force budget renegotiation across all venues."
       },
       {
         "approach": "sign-then-amend",
-        "title": "Sign then amend",
-        "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+        "title": "Sign master agreement then negotiate targeted rate exceptions",
+        "takeaway": "This approach works when the counterparty values contract continuity and accepts a baseline framework that allows subsequent amendments for specific venue categories or regional tiers."
       },
       {
         "approach": "sign-without-clause",
-        "title": "Sign without clause",
-        "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+        "title": "Renew master rate card before expiration deadline",
+        "takeaway": "This approach fails when renewal negotiations extend beyond the contract expiration date, forcing an immediate reversion to list pricing with no leverage to recover the discount."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d17",
-    "basis": "similar contract decisions drawn from past event programs",
+    "basis": "venue contracts lacking explicit cancellation fee limits or caps",
     "patterns": [
       {
         "approach": "pair-with-deposit-trade",
-        "title": "Pair with deposit trade",
-        "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+        "title": "Pair deposit trade with cancellation liability cap",
+        "takeaway": "This play works when both parties agree upfront that deposit forfeiture limits total exposure, preventing catastrophic financial loss from either side's withdrawal."
       },
       {
         "approach": "ask-early-no-trade",
-        "title": "Ask early no trade",
-        "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+        "title": "Ask venue early for cancellation liability cap",
+        "takeaway": "This approach works when raised before contract finalization, as it locks mutual protection into the agreement and prevents full exposure of committed spend."
       },
       {
         "approach": "sign-then-amend",
-        "title": "Sign then amend",
-        "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+        "title": "Sign contract then negotiate amendment limits",
+        "takeaway": "This approach works when counterparty has already committed resources and prefers amending a signed agreement to renegotiating from scratch, but fails if either party uses signature as leverage to harden their stance."
       },
       {
         "approach": "sign-without-clause",
-        "title": "Sign without clause",
-        "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+        "title": "Sign contract without negotiating liability cap clause",
+        "takeaway": "This play fails when either party cancels because unlimited exposure to full committed spend creates unacceptable financial risk that should have been bounded before execution."
       }
     ],
     "exceptions": [
       {
         "id": "government-venue",
-        "whyItMattersNow": "Government-owned venues have run notably longer on legal review than the rest of the similar set — check whether it applies to this decision."
+        "whyItMattersNow": "Government-owned venues face unique budget constraints and public accountability requirements, making unlimited cancellation liability a critical fiscal risk that could jeopardize facility operations or require emergency appropriations if the contract is terminated."
       }
     ]
   },
   {
     "decisionId": "d18",
-    "basis": "similar budget decisions drawn from past event programs",
+    "basis": "similar quotes received from preferred vendors with comparable scope and service terms",
     "patterns": [
       {
         "approach": "requote-preferred-vendor",
-        "title": "Requote preferred vendor",
-        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+        "title": "Negotiate fee waiver with preferred in-house vendor",
+        "takeaway": "This play works when the venue's AV provider has discretionary margin and values long-term relationship over single-event margin, especially for anchor events like kickoffs."
       },
       {
         "approach": "leverage-reprice-inhouse",
-        "title": "Leverage reprice inhouse",
-        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+        "title": "Negotiate in-house AV pricing down to budget baseline",
+        "takeaway": "This play works when the venue has exclusivity clauses that create dependency, giving the buyer leverage to repress the quote toward budget without losing the technical specification."
       },
       {
         "approach": "descope",
-        "title": "Descope",
-        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+        "title": "Descope venue AV scope to essential production requirements only",
+        "takeaway": "This play works when venue quotes significantly exceed budget and the event team has authority to redefine scope without compromising core attendee experience."
       },
       {
         "approach": "accept-variance",
-        "title": "Accept variance",
-        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+        "title": "Accept the venue's in-house AV variance as cost of convenience",
+        "takeaway": "This play fails when the variance exceeds stakeholder tolerance and no competitive alternatives exist to justify premium pricing."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d19",
-    "basis": "similar approval decisions drawn from past event programs",
+    "basis": "approval decisions delayed in legal review awaiting executive or cost-driven intervention",
     "patterns": [
       {
         "approach": "quantified-cost-of-delay",
-        "title": "Quantified cost of delay",
-        "takeaway": "In similar approval decisions, \"Quantified cost of delay\" is the play that has repeatedly worked."
+        "title": "Quantify Daily Revenue Loss Until Legal Approves",
+        "takeaway": "This play works when approval gatekeepers see concrete financial impact of delay, creating urgency that bureaucratic timelines alone cannot generate."
       },
       {
         "approach": "exec-nudge",
-        "title": "Exec nudge",
-        "takeaway": "In similar approval decisions, \"Exec nudge\" is the play that has repeatedly worked."
+        "title": "Escalate venue license approval to executive sponsor immediately",
+        "takeaway": "This play works when legal review delays threaten hard deadline windows and executive visibility can unblock stakeholder bottlenecks before the opportunity closes."
       },
       {
         "approach": "wait-it-out",
-        "title": "Wait it out",
-        "takeaway": "In similar approval decisions, \"Wait it out\" is the play that has repeatedly failed."
+        "title": "Allow legal review to conclude without escalation",
+        "takeaway": "This approach fails when time-sensitive deadlines exist because passivity in approval processes risks missing critical windows."
       }
     ],
     "exceptions": []
   },
   {
     "decisionId": "d20",
-    "basis": "similar budget decisions drawn from past event programs",
+    "basis": "budget variance decisions involving external speaker or talent engagement cost overruns",
     "patterns": [
       {
         "approach": "requote-preferred-vendor",
-        "title": "Requote preferred vendor",
-        "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+        "title": "Request preferred vendor to adjust fee within talent envelope",
+        "takeaway": "This play works when the speaker's brand value to sales leadership is high enough that they will advocate for budget reallocation, but fails if the speaker views their quote as non-negotiable or if leadership lacks conviction to champion the gap."
       },
       {
         "approach": "leverage-reprice-inhouse",
-        "title": "Leverage reprice inhouse",
-        "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+        "title": "Leverage in-house talent to repricing negotiation",
+        "takeaway": "This approach works when the speaker values platform exposure or audience access enough to accept a lower fee than their standard rate."
       },
       {
         "approach": "descope",
-        "title": "Descope",
-        "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+        "title": "Secure speaker commitment by phased fee structure negotiation",
+        "takeaway": "This approach works when the speaker prioritizes event reach and brand visibility over upfront cash, enabling partial fee deferral or performance-linked payments that honor the envelope while closing the talent gap."
       },
       {
         "approach": "accept-variance",
-        "title": "Accept variance",
-        "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+        "title": "Accept the keynote speaker's premium fee above envelope",
+        "takeaway": "This approach fails when leadership preference for a specific speaker outweighs budget discipline, as accepting variance without negotiation or trade-offs sets precedent and erodes financial controls."
       }
     ],
     "exceptions": []

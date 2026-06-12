@@ -38,7 +38,7 @@ export const SEED = {
         "track": {
           "worked": 40,
           "total": 60,
-          "basis": "similar contract decisions drawn from past event programs"
+          "basis": "venue contracts lacking protective clauses for unforeseen circumstances"
         }
       },
       "evidence": {
@@ -47,49 +47,49 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Pair with deposit trade",
+            "title": "Pair deposit trade with force majeure clause insertion",
             "count": "15 of the 40 successes",
             "example": {
               "event": "Partner Summit 2025 — Lisbon",
               "detail": "Clause requested 12 days before the hold. Venue ownership was private. Legal review took 5 days. Exposure was $106K."
             },
-            "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+            "takeaway": "This play works when both parties fear cancellation risk equally and agree that shared protection through explicit force majeure language costs less than individual forfeit exposure."
           },
           {
             "outcome": "worked",
-            "title": "Ask early no trade",
+            "title": "Request force majeure protections before signing venue contracts",
             "count": "12 of the 40 successes",
             "example": {
               "event": "User Conference 2026 — Lisbon",
               "detail": "Clause requested 28 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $37K."
             },
-            "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when negotiating with venues early in planning, as adding protective clauses requires mutual agreement before either party becomes contractually bound."
           },
           {
             "outcome": "worked",
-            "title": "Sign then amend",
+            "title": "Sign contract then amend force majeure protections",
             "count": "10 of the 40 successes",
             "example": {
               "event": "Partner Summit 2023 — Lisbon",
               "detail": "Clause requested 8 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $120K."
             },
-            "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+            "takeaway": "This play works when both parties prioritize relationship continuity over contract perfectionism and amendments can be negotiated quickly before binding commitments lock in."
           },
           {
             "outcome": "failed",
-            "title": "Sign without clause",
+            "title": "Sign contract without negotiating force majeure protection",
             "count": "9 of the 20 failures",
             "example": {
               "event": "SKO 2025 — London",
               "detail": "Clause requested 5 days before the hold. Venue ownership was private. Legal review took 6 days. Exposure was $193K."
             },
-            "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+            "takeaway": "This approach fails when weather or unforeseen circumstances trigger cancellation, leaving all committed spend unrecoverable and creating financial exposure the venue controls entirely."
           }
         ],
         "exceptions": [
           {
             "title": "Government-owned venues (11 cases)",
-            "detail": "Legal review averaged 11.7 days vs 5.6 across the rest of the similar set. Government-owned venues have run notably longer on legal review than the rest of the similar set — check whether it applies to this decision."
+            "detail": "Legal review averaged 11.7 days vs 5.6 across the rest of the similar set. Government-owned venues require legal board approval for contract modifications, which consumes most of the remaining time before the hold expires Friday, making it critical to prioritize this clause now or risk losing the venue entirely."
           }
         ],
         "cases": [
@@ -213,7 +213,7 @@ export const SEED = {
         "track": {
           "worked": 44,
           "total": 70,
-          "basis": "similar budget decisions drawn from past event programs"
+          "basis": "quotes from preferred vendors at comparable scope with repricing leverage opportunities"
         }
       },
       "evidence": {
@@ -222,43 +222,43 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Requote preferred vendor",
+            "title": "Request alternative quotes from competing preferred vendors",
             "count": "18 of the 44 successes",
             "example": {
               "event": "Partner Summit 2022 — Marseille",
               "detail": "Original quote was $454K against a $388K line. Outside AV fee was not waived. Final cost was $326K. Change orders were $3K."
             },
-            "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when the venue's sole quote exceeds budget and alternative suppliers exist in the market, but fails if the venue holds exclusive service contracts or competing options are unavailable."
           },
           {
             "outcome": "worked",
-            "title": "Leverage reprice inhouse",
+            "title": "Leverage in-house repricing against budget benchmark",
             "count": "13 of the 44 successes",
             "example": {
               "event": "User Conference 2022 — Berlin",
               "detail": "Original quote was $333K against a $280K line. Outside AV fee was not waived. Final cost was $269K. Change orders were $1K."
             },
-            "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+            "takeaway": "This play works when the venue holds exclusivity clauses and has competing alternatives in the same market, allowing budget pressure to force quote reduction toward the original line."
           },
           {
             "outcome": "worked",
-            "title": "Descope",
+            "title": "Descope the venue quote against comparable university benchmarks",
             "count": "6 of the 44 successes",
             "example": {
               "event": "SKO 2023 — Madrid",
               "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
             },
-            "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+            "takeaway": "This play works when you have access to regional peer pricing data from similar multi-stage academic venues, as demonstrated in Madrid, allowing you to reframe the overage as a data-driven negotiation rather than a budget shortfall."
           },
           {
             "outcome": "failed",
-            "title": "Accept variance",
+            "title": "Accept the venue's higher quote as final cost",
             "count": "11 of the 26 failures",
             "example": {
               "event": "User Conference 2023 — Berlin",
               "detail": "Original quote was $253K against a $201K line. Outside AV fee was waived. Final cost was $225K. Change orders were $8K."
             },
-            "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+            "takeaway": "This play fails when budget rigidity is necessary or when alternative venues at target price exist, but succeeds only if the venue's unique value justifies cost absorption across the event margin."
           }
         ],
         "exceptions": [],
@@ -384,7 +384,7 @@ export const SEED = {
         "track": {
           "worked": 32,
           "total": 50,
-          "basis": "similar approval decisions drawn from past event programs"
+          "basis": "stalled approval workflows where executive decision-makers delay contract sign-offs"
         }
       },
       "evidence": {
@@ -393,33 +393,33 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Quantified cost of delay",
+            "title": "Quantify daily revenue loss from approval delay",
             "count": "17 of the 32 successes",
             "example": {
               "event": "Sales Club 2023 — Austin",
               "detail": "Approval had stalled for 10 days. The hold window was 10 days. Approval came in 7 days. Reprice exposure was $2K."
             },
-            "takeaway": "In similar approval decisions, \"Quantified cost of delay\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when the decision-maker has limited attention capacity and faces competing priorities, because attaching concrete financial impact to inaction creates urgency that abstract timelines alone cannot."
           },
           {
             "outcome": "worked",
-            "title": "Exec nudge",
+            "title": "Escalate approval request directly to traveling VP's assistant",
             "count": "10 of the 32 successes",
             "example": {
               "event": "Sales Club 2025 — Rome",
               "detail": "Approval had stalled for 14 days. The hold window was 13 days. Approval came in 11 days. Reprice exposure was $2K."
             },
-            "takeaway": "In similar approval decisions, \"Exec nudge\" is the play that has repeatedly worked."
+            "takeaway": "This play works when the decision-maker is mobile and unreachable through normal channels, as their delegate can prioritize and facilitate sign-off despite limited connectivity."
           },
           {
             "outcome": "failed",
-            "title": "Wait it out",
+            "title": "Wait for VP approval despite travel and email constraints",
             "count": "10 of the 18 failures",
             "example": {
               "event": "User Conference 2022 — Chicago",
               "detail": "Approval had stalled for 4 days. The hold window was 12 days. Approval came in 17 days. Reprice exposure was $26K."
             },
-            "takeaway": "In similar approval decisions, \"Wait it out\" is the play that has repeatedly failed."
+            "takeaway": "Waiting fails when the decision-maker has degraded access and competing travel priorities, requiring escalation or interim authorization instead."
           }
         ],
         "exceptions": [],
@@ -539,7 +539,7 @@ export const SEED = {
         "track": {
           "worked": 33,
           "total": 40,
-          "basis": "similar policy decisions drawn from past event programs"
+          "basis": "vendor unavailability requiring exception approval for service continuity"
         }
       },
       "evidence": {
@@ -548,33 +548,33 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Document and approve",
+            "title": "Document exception request and seek management approval",
             "count": "15 of the 33 successes",
             "example": {
               "event": "Customer Roadshow 2022 — New York",
               "detail": "Policy POL-SEC-03 was checked. Exception was granted. Incident after was false. Alternative was found in 0 days."
             },
-            "takeaway": "In similar policy decisions, \"Document and approve\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when time permits formal review and the requestor can justify business need before event logistics become critical."
           },
           {
             "outcome": "worked",
-            "title": "Escalate for waiver",
+            "title": "Escalate unavailable preferred vendor for policy exception approval",
             "count": "10 of the 33 successes",
             "example": {
               "event": "Sales Club 2026 — New York",
               "detail": "Policy POL-TRV-18 was checked. Exception was granted. Incident after was false. Alternative was found in 0 days."
             },
-            "takeaway": "In similar policy decisions, \"Escalate for waiver\" is the play that has repeatedly worked."
+            "takeaway": "This play succeeds when the preferred supplier has genuine capacity constraints and the escalation presents a vetted alternate with clear business justification."
           },
           {
             "outcome": "worked",
-            "title": "Deny find alternative",
+            "title": "Deny preferred vendor, find and approve alternate",
             "count": "8 of the 33 successes",
             "example": {
               "event": "Customer Roadshow 2022 — Boston",
               "detail": "Policy POL-FB-07 was checked. Exception was denied. Incident after was false. Alternative was found in 5 days."
             },
-            "takeaway": "In similar policy decisions, \"Deny find alternative\" is the play that has repeatedly worked."
+            "takeaway": "This play works when the alternate vendor meets quality and compliance standards, reducing delay risk compared to waiting for the preferred caterer or rejecting the venue recommendation outright."
           }
         ],
         "exceptions": [],
@@ -694,7 +694,7 @@ export const SEED = {
         "track": {
           "worked": 27,
           "total": 50,
-          "basis": "similar forecast decisions drawn from past event programs"
+          "basis": "previous summit registration shortfalls addressed through similar outreach and pricing interventions"
         }
       },
       "evidence": {
@@ -703,49 +703,49 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Targeted outreach",
+            "title": "Contact high-value prospects with personalized summit value propositions",
             "count": "9 of the 27 successes",
             "example": {
               "event": "Executive Forum 2024 — Stockholm",
               "detail": "Pace was 59% of target 34 days out. Target attendance was 522. Final attendance was 543. Added spend was $15K."
             },
-            "takeaway": "In similar forecast decisions, \"Targeted outreach\" is the play that has repeatedly worked."
+            "takeaway": "This play works when decision-makers remain reachable before the final registration push and perceive the event's content as addressing current business priorities."
           },
           {
             "outcome": "worked",
-            "title": "Extend early bird",
+            "title": "Accelerate early-bird deadline to drive immediate registration surge",
             "count": "8 of the 27 successes",
             "example": {
               "event": "User Conference 2022 — Berlin",
               "detail": "Pace was 61% of target 64 days out. Target attendance was 606. Final attendance was 588. Added spend was $4K."
             },
-            "takeaway": "In similar forecast decisions, \"Extend early bird\" is the play that has repeatedly worked."
+            "takeaway": "This play works when registration lags significantly behind target with sufficient time to incentivize decision-making before attrition thresholds trigger penalties."
           },
           {
             "outcome": "worked",
-            "title": "Rescope venue",
+            "title": "Shift event to smaller venue matching current registration",
             "count": "7 of the 27 successes",
             "example": {
               "event": "Sales Club 2026 — Stockholm",
               "detail": "Pace was 88% of target 84 days out. Target attendance was 470. Final attendance was 456. Added spend was $2K."
             },
-            "takeaway": "In similar forecast decisions, \"Rescope venue\" is the play that has repeatedly worked."
+            "takeaway": "This play works when registration trajectory cannot recover to original capacity targets within remaining lead time, eliminating attrition penalties and improving per-attendee economics."
           },
           {
             "outcome": "failed",
-            "title": "Hold course",
+            "title": "Maintain current promotional strategy despite registration shortfall",
             "count": "7 of the 23 failures",
             "example": {
               "event": "Executive Forum 2024 — Berlin",
               "detail": "Pace was 80% of target 26 days out. Target attendance was 464. Final attendance was 417. Added spend was $0K."
             },
-            "takeaway": "In similar forecast decisions, \"Hold course\" is the play that has repeatedly failed."
+            "takeaway": "This approach fails when registration decline is steep and time-to-event is insufficient to recover momentum through existing tactics alone."
           }
         ],
         "exceptions": [
           {
             "title": "Inside 30 days out (13 cases)",
-            "detail": "Worked 5 of 13 vs 54% across the similar set. Inside thirty days out have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+            "detail": "Worked 5 of 13 vs 54% across the similar set. This subgroup determines whether the summit achieves minimum room pickup thresholds before attrition penalties activate, making their registration commitment critical to financial viability within the compressed timeframe remaining."
           }
         ],
         "cases": [
@@ -859,7 +859,7 @@ export const SEED = {
         "track": {
           "worked": 35,
           "total": 54,
-          "basis": "similar budget decisions drawn from past event programs"
+          "basis": "venue contracts with f&b minimum increases requiring renegotiation or scope adjustment decisions"
         }
       },
       "evidence": {
@@ -868,43 +868,43 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Requote preferred vendor",
+            "title": "Request preferred vendor pricing concessions from Lisbon",
             "count": "14 of the 35 successes",
             "example": {
               "event": "Field Kickoff 2022 — Stockholm",
               "detail": "Original quote was $199K against a $153K line. Outside AV fee was waived. Final cost was $153K. Change orders were $2K."
             },
-            "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+            "takeaway": "This play works when a venue has recently invested in infrastructure and values retaining established clients, making them open to negotiating minimums in exchange for commitment."
           },
           {
             "outcome": "worked",
-            "title": "Leverage reprice inhouse",
+            "title": "Renegotiate venue F&B minimum based on renovation improvements",
             "count": "12 of the 35 successes",
             "example": {
               "event": "Sales Club 2025 — Lisbon",
               "detail": "Original quote was $170K against a $128K line. Outside AV fee was not waived. Final cost was $127K. Change orders were $5K."
             },
-            "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+            "takeaway": "This approach succeeds when the venue upgrade substantively enhances client experience and justifies cost increases to stakeholders who value quality over budget constraints."
           },
           {
             "outcome": "worked",
-            "title": "Descope",
+            "title": "Descope the renovation requirement from the F&B minimum",
             "count": "3 of the 35 successes",
             "example": {
               "event": "SKO 2023 — Madrid",
               "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
             },
-            "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+            "takeaway": "This play works when the venue's capital project is recent and unfinished, allowing you to negotiate a temporary reduction or phase-in that decouples your event from costs you did not approve."
           },
           {
             "outcome": "failed",
-            "title": "Accept variance",
+            "title": "Accept the venue's raised food and beverage minimum",
             "count": "9 of the 19 failures",
             "example": {
               "event": "Field Kickoff 2023 — Prague",
               "detail": "Original quote was $358K against a $306K line. Outside AV fee was waived. Final cost was $266K. Change orders were $35K."
             },
-            "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+            "takeaway": "This approach fails when the cost increase is unbudgeted and non-negotiable, as the Prague exemplar shows success only because the venue waived fees entirely rather than accepting a variance."
           }
         ],
         "exceptions": [],
@@ -1024,7 +1024,7 @@ export const SEED = {
         "track": {
           "worked": 17,
           "total": 28,
-          "basis": "similar vendor decisions drawn from past event programs"
+          "basis": "vendor decisions involving product sourcing strategies and supplier relationship management approaches"
         }
       },
       "evidence": {
@@ -1033,39 +1033,39 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Swap to preferred",
+            "title": "Negotiate with preferred vendor to expand recording scope",
             "count": "7 of the 17 successes",
             "example": {
               "event": "SKO 2023 — Austin",
               "detail": "Incumbent quote was $158K. New quote was $120K. Sole source was true. Change orders were $3K."
             },
-            "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+            "takeaway": "This play succeeds when the existing vendor has bandwidth and willingness to add breakout sessions, avoiding sole-source constraints and delivery delays at convention centers."
           },
           {
             "outcome": "worked",
-            "title": "Dual source",
+            "title": "Secure secondary vendor for breakout session recording",
             "count": "5 of the 17 successes",
             "example": {
               "event": "SKO 2022 — San Francisco",
               "detail": "Incumbent quote was $175K. New quote was $170K. Sole source was false. Change orders were $2K."
             },
-            "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when primary vendor scope is limited and budget exists to extend coverage through a complementary vendor contract."
           },
           {
             "outcome": "worked",
-            "title": "Keep incumbent",
+            "title": "Extend incumbent vendor's scope for all breakout tracks",
             "count": "5 of the 17 successes",
             "example": {
               "event": "Partner Summit 2025 — New York",
               "detail": "Incumbent quote was $116K. New quote was $123K. Sole source was true. Change orders were $4K."
             },
-            "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when the existing AV vendor has proven capacity and onsite presence, avoiding fragmentation and ensuring consistent quality across all twelve sessions."
           }
         ],
         "exceptions": [
           {
             "title": "Sole-source vendors (15 cases)",
-            "detail": "Worked 6 of 15 vs 61% across the similar set. Sole-source vendors have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+            "detail": "Worked 6 of 15 vs 61% across the similar set. Sole-source vendors become critical when there is insufficient time to conduct competitive bidding before the SKO event, forcing reliance on the single AV provider who can quickly scale services beyond the keynote coverage."
           }
         ],
         "cases": [
@@ -1173,7 +1173,7 @@ export const SEED = {
         "track": {
           "worked": 0,
           "total": 0,
-          "basis": "similar logistics decisions drawn from past event programs"
+          "basis": "badge design refresh projects for regional conferences across europe middle east and africa"
         }
       },
       "evidence": {
@@ -1223,7 +1223,7 @@ export const SEED = {
         "track": {
           "worked": 0,
           "total": 0,
-          "basis": "similar logistics decisions drawn from past event programs"
+          "basis": "post-event feedback collection mechanisms for mobile promotional tours and traveling demonstrations"
         }
       },
       "evidence": {
@@ -1273,7 +1273,7 @@ export const SEED = {
         "track": {
           "worked": 36,
           "total": 55,
-          "basis": "similar budget decisions drawn from past event programs"
+          "basis": "similar budget decisions involving keynote event audiovisual packages with vendor repricing negotiations"
         }
       },
       "evidence": {
@@ -1282,43 +1282,43 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Requote preferred vendor",
+            "title": "Return to preferred vendor for cost reduction leverage",
             "count": "16 of the 36 successes",
             "example": {
               "event": "Partner Summit 2022 — Marseille",
               "detail": "Original quote was $454K against a $388K line. Outside AV fee was not waived. Final cost was $326K. Change orders were $3K."
             },
-            "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+            "takeaway": "This play works when a preferred vendor relationship exists and budget pressure forces renegotiation, but fails if the vendor lacks alternatives or if quality requirements cannot flex."
           },
           {
             "outcome": "worked",
-            "title": "Leverage reprice inhouse",
+            "title": "Repricing hybrid AV in-house to absorb broadcast costs",
             "count": "10 of the 36 successes",
             "example": {
               "event": "User Conference 2022 — Berlin",
               "detail": "Original quote was $333K against a $280K line. Outside AV fee was not waived. Final cost was $269K. Change orders were $1K."
             },
-            "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+            "takeaway": "This approach succeeds when internal teams can redistribute existing AV resources and negotiate exclusivity clause waivers, making it ideal for regional conferences with hotel partners willing to flex on technical restrictions."
           },
           {
             "outcome": "worked",
-            "title": "Descope",
+            "title": "Descope broadcast features, prioritize core keynote experience",
             "count": "4 of the 36 successes",
             "example": {
               "event": "Customer Roadshow 2026 — Stockholm",
               "detail": "Original quote was $444K against a $347K line. Outside AV fee was not waived. Final cost was $344K. Change orders were $1K."
             },
-            "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+            "takeaway": "This play works when audience engagement through essential content matters more than production polish, but fails if stakeholders expect premium broadcast quality as a differentiator."
           },
           {
             "outcome": "failed",
-            "title": "Accept variance",
+            "title": "Accept the broadcast-grade livestream package variance",
             "count": "10 of the 19 failures",
             "example": {
               "event": "User Conference 2023 — Berlin",
               "detail": "Original quote was $253K against a $201K line. Outside AV fee was waived. Final cost was $225K. Change orders were $8K."
             },
-            "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+            "takeaway": "This approach fails when venue technical capabilities are assumed sufficient and stakeholder demand for production quality is underestimated before commitment."
           }
         ],
         "exceptions": [],
@@ -1422,7 +1422,7 @@ export const SEED = {
         "track": {
           "worked": 11,
           "total": 18,
-          "basis": "similar vendor decisions drawn from past event programs"
+          "basis": "vendor selection decisions involving accommodation options and cost comparison scenarios"
         }
       },
       "evidence": {
@@ -1431,33 +1431,33 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Swap to preferred",
+            "title": "Negotiate rate parity with preferred hotel vendor",
             "count": "4 of the 11 successes",
             "example": {
               "event": "SKO 2023 — Austin",
               "detail": "Incumbent quote was $158K. New quote was $120K. Sole source was true. Change orders were $3K."
             },
-            "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+            "takeaway": "This play succeeds when the preferred vendor has room to match pricing without sacrificing margin, particularly at established properties with existing volume relationships."
           },
           {
             "outcome": "worked",
-            "title": "Dual source",
+            "title": "Weigh total cost against attendee experience impact",
             "count": "4 of the 11 successes",
             "example": {
               "event": "SKO 2022 — San Francisco",
               "detail": "Incumbent quote was $175K. New quote was $170K. Sole source was false. Change orders were $2K."
             },
-            "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly worked."
+            "takeaway": "This approach succeeds when the savings offset travel burden, but fails if attendee fatigue or reduced participation outweighs the budget gain."
           },
           {
             "outcome": "worked",
-            "title": "Keep incumbent",
+            "title": "Retain the established hotel despite lower-cost alternative",
             "count": "3 of the 11 successes",
             "example": {
               "event": "User Conference 2024 — Stockholm",
               "detail": "Incumbent quote was $274K. New quote was $307K. Sole source was false. Change orders were $11K."
             },
-            "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+            "takeaway": "Keeping the incumbent vendor succeeds when proximity and convenience outweigh marginal cost savings for attendee experience."
           }
         ],
         "exceptions": [],
@@ -1566,7 +1566,7 @@ export const SEED = {
         "track": {
           "worked": 12,
           "total": 22,
-          "basis": "similar vendor decisions drawn from past event programs"
+          "basis": "venue infrastructure technology quotes from competing network service providers"
         }
       },
       "evidence": {
@@ -1575,33 +1575,33 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Swap to preferred",
+            "title": "Swap venue to one with dedicated bandwidth guarantee",
             "count": "6 of the 12 successes",
             "example": {
               "event": "Field Kickoff 2022 — Chicago",
               "detail": "Incumbent quote was $243K. New quote was $219K. Sole source was false. Change orders were $7K."
             },
-            "takeaway": "In similar vendor decisions, \"Swap to preferred\" is the play that has repeatedly worked."
+            "takeaway": "This play succeeds when a venue can contractually commit to isolated bandwidth for the demo, but fails if the replacement venue has shared infrastructure or cannot guarantee service levels in writing."
           },
           {
             "outcome": "worked",
-            "title": "Keep incumbent",
+            "title": "Retain the incumbent vendor for bandwidth guarantee",
             "count": "4 of the 12 successes",
             "example": {
               "event": "User Conference 2024 — Stockholm",
               "detail": "Incumbent quote was $274K. New quote was $307K. Sole source was false. Change orders were $11K."
             },
-            "takeaway": "In similar vendor decisions, \"Keep incumbent\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when the incumbent vendor has proven performance history at the venue and can isolate demo traffic from shared network congestion."
           },
           {
             "outcome": "failed",
-            "title": "Dual source",
+            "title": "Secure dedicated bandwidth from two independent network providers",
             "count": "4 of the 10 failures",
             "example": {
               "event": "Executive Forum 2024 — Berlin",
               "detail": "Incumbent quote was $146K. New quote was $136K. Sole source was true. Change orders were $14K."
             },
-            "takeaway": "In similar vendor decisions, \"Dual source\" is the play that has repeatedly failed."
+            "takeaway": "This approach fails when venue infrastructure prevents parallel vendor installations or contracts lock in single-provider access, leaving no fallback option available."
           }
         ],
         "exceptions": [],
@@ -1705,7 +1705,7 @@ export const SEED = {
         "track": {
           "worked": 0,
           "total": 0,
-          "basis": "similar logistics decisions drawn from past event programs"
+          "basis": "similar logistics decisions involving transportation options for corporate events and employee engagement programs"
         }
       },
       "evidence": {
@@ -1766,7 +1766,7 @@ export const SEED = {
         "track": {
           "worked": 37,
           "total": 57,
-          "basis": "similar budget decisions drawn from past event programs"
+          "basis": "budget decisions with received quotes involving vendor repricing or scope adjustments"
         }
       },
       "evidence": {
@@ -1775,43 +1775,43 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Requote preferred vendor",
+            "title": "Leverage existing digital screens instead of purchasing printed signage",
             "count": "15 of the 37 successes",
             "example": {
               "event": "SKO 2022 — Marseille",
               "detail": "Original quote was $273K against a $222K line. Outside AV fee was waived. Final cost was $189K. Change orders were $5K."
             },
-            "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+            "takeaway": "This play works when venue packages already include unused digital infrastructure, eliminating redundant spending and reducing total event costs while maintaining communication objectives."
           },
           {
             "outcome": "worked",
-            "title": "Leverage reprice inhouse",
+            "title": "Leverage existing venue digital screens to eliminate print costs",
             "count": "12 of the 37 successes",
             "example": {
               "event": "SKO 2026 — Madrid",
               "detail": "Original quote was $490K against a $389K line. Outside AV fee was not waived. Final cost was $381K. Change orders were $1K."
             },
-            "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+            "takeaway": "This play works when venue infrastructure already includes display technology, making repricing the signage approach as digital-only a cost-neutral substitution that removes budget variance without sacrificing communication impact."
           },
           {
             "outcome": "worked",
-            "title": "Descope",
+            "title": "Leverage included digital screens to eliminate printing expense",
             "count": "4 of the 37 successes",
             "example": {
               "event": "SKO 2023 — Madrid",
               "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
             },
-            "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+            "takeaway": "This approach succeeds when venue packages already provide digital infrastructure, eliminating redundant printed materials and freeing budget for higher-impact content or experience enhancements."
           },
           {
             "outcome": "failed",
-            "title": "Accept variance",
+            "title": "Accept digital-screen variance from traditional printed signage",
             "count": "9 of the 20 failures",
             "example": {
               "event": "SKO 2022 — Stockholm",
               "detail": "Original quote was $352K against a $291K line. Outside AV fee was waived. Final cost was $265K. Change orders were $33K."
             },
-            "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+            "takeaway": "This play fails when venue infrastructure already covers the need, making acceptance of substitution obvious rather than strategic."
           }
         ],
         "exceptions": [],
@@ -1916,7 +1916,7 @@ export const SEED = {
         "track": {
           "worked": 27,
           "total": 50,
-          "basis": "similar forecast decisions drawn from past event programs"
+          "basis": "previous pricing extension decisions for regional conference registrations"
         }
       },
       "evidence": {
@@ -1925,49 +1925,49 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Targeted outreach",
+            "title": "Extend early-bird pricing deadline to accelerate lagging registrations",
             "count": "9 of the 27 successes",
             "example": {
               "event": "Executive Forum 2025 — Stockholm",
               "detail": "Pace was 74% of target 34 days out. Target attendance was 792. Final attendance was 729. Added spend was $29K."
             },
-            "takeaway": "In similar forecast decisions, \"Targeted outreach\" is the play that has repeatedly worked."
+            "takeaway": "This play works when registration momentum stalls before an event and a brief price incentive window can convert hesitant prospects into committed attendees."
           },
           {
             "outcome": "worked",
-            "title": "Extend early bird",
+            "title": "Extend early-bird pricing window to accelerate EMEA registration",
             "count": "8 of the 27 successes",
             "example": {
               "event": "Executive Forum 2024 — Austin",
               "detail": "Pace was 72% of target 61 days out. Target attendance was 212. Final attendance was 225. Added spend was $10K."
             },
-            "takeaway": "In similar forecast decisions, \"Extend early bird\" is the play that has repeatedly worked."
+            "takeaway": "This play works when registration lags behind forecast and a time-limited incentive can overcome price sensitivity without devaluing the event."
           },
           {
             "outcome": "worked",
-            "title": "Rescope venue",
+            "title": "Extend early-bird pricing window to accelerate registration pace",
             "count": "7 of the 27 successes",
             "example": {
               "event": "Sales Club 2026 — Stockholm",
               "detail": "Pace was 88% of target 84 days out. Target attendance was 470. Final attendance was 456. Added spend was $2K."
             },
-            "takeaway": "In similar forecast decisions, \"Rescope venue\" is the play that has repeatedly worked."
+            "takeaway": "This play works when registration momentum lags early and a brief incentive window extension can recapture price-sensitive attendees before they disengage from the event entirely."
           },
           {
             "outcome": "failed",
-            "title": "Hold course",
+            "title": "Extend early-bird pricing window to accelerate registration momentum",
             "count": "7 of the 23 failures",
             "example": {
               "event": "Partner Summit 2026 — London",
               "detail": "Pace was 68% of target 24 days out. Target attendance was 524. Final attendance was 366. Added spend was $0K."
             },
-            "takeaway": "In similar forecast decisions, \"Hold course\" is the play that has repeatedly failed."
+            "takeaway": "This play fails when the soft initial registration signals weak demand rather than timing friction, and extending deadlines without addressing underlying appeal cannot convert prospect interest into commitments."
           }
         ],
         "exceptions": [
           {
             "title": "Inside 30 days out (13 cases)",
-            "detail": "Worked 5 of 13 vs 54% across the similar set. Inside thirty days out have worked notably less often than the rest of the similar set — check whether it applies to this decision."
+            "detail": "Worked 5 of 13 vs 54% across the similar set. Budget-conscious attendees in emerging EMEA markets will make their purchase decisions within this narrow window, and extending early-bird pricing directly addresses the primary barrier preventing registration conversion during this critical momentum phase."
           }
         ],
         "cases": [
@@ -2070,7 +2070,7 @@ export const SEED = {
         "track": {
           "worked": 18,
           "total": 28,
-          "basis": "similar contract decisions drawn from past event programs"
+          "basis": "vendor service agreements with renewal terms and payment structure modifications"
         }
       },
       "evidence": {
@@ -2079,43 +2079,43 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Pair with deposit trade",
+            "title": "Pair Master Rate Renewal with Deposit Trade-In",
             "count": "6 of the 18 successes",
             "example": {
               "event": "User Conference 2022 — Barcelona",
               "detail": "Clause requested 24 days before the hold. Venue ownership was government. Legal review took 8 days. Exposure was $138K."
             },
-            "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when a customer faces imminent price escalation on an expiring contract and has capital assets or prior deposits available to offset renewal costs, creating urgency to secure favorable terms before list-price reinstatement."
           },
           {
             "outcome": "worked",
-            "title": "Ask early no trade",
+            "title": "Initiate renewal discussions before contract expiration",
             "count": "5 of the 18 successes",
             "example": {
               "event": "Sales Club 2024 — Singapore",
               "detail": "Clause requested 16 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $242K."
             },
-            "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+            "takeaway": "This play works when decision-makers have sufficient lead time to approve terms and avoid default rate increases that would otherwise force budget renegotiation across all venues."
           },
           {
             "outcome": "worked",
-            "title": "Sign then amend",
+            "title": "Sign master agreement then negotiate targeted rate exceptions",
             "count": "4 of the 18 successes",
             "example": {
               "event": "Partner Summit 2025 — Marseille",
               "detail": "Clause requested 9 days before the hold. Venue ownership was private. Legal review took 4 days. Exposure was $155K."
             },
-            "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when the counterparty values contract continuity and accepts a baseline framework that allows subsequent amendments for specific venue categories or regional tiers."
           },
           {
             "outcome": "failed",
-            "title": "Sign without clause",
+            "title": "Renew master rate card before expiration deadline",
             "count": "5 of the 10 failures",
             "example": {
               "event": "Partner Summit 2026 — Austin",
               "detail": "Clause not requested 12 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $62K."
             },
-            "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+            "takeaway": "This approach fails when renewal negotiations extend beyond the contract expiration date, forcing an immediate reversion to list pricing with no leverage to recover the discount."
           }
         ],
         "exceptions": [],
@@ -2219,7 +2219,7 @@ export const SEED = {
         "track": {
           "worked": 40,
           "total": 60,
-          "basis": "similar contract decisions drawn from past event programs"
+          "basis": "venue contracts lacking explicit cancellation fee limits or caps"
         }
       },
       "evidence": {
@@ -2228,49 +2228,49 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Pair with deposit trade",
+            "title": "Pair deposit trade with cancellation liability cap",
             "count": "15 of the 40 successes",
             "example": {
               "event": "Executive Forum 2025 — Barcelona",
               "detail": "Clause requested 10 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $251K."
             },
-            "takeaway": "In similar contract decisions, \"Pair with deposit trade\" is the play that has repeatedly worked."
+            "takeaway": "This play works when both parties agree upfront that deposit forfeiture limits total exposure, preventing catastrophic financial loss from either side's withdrawal."
           },
           {
             "outcome": "worked",
-            "title": "Ask early no trade",
+            "title": "Ask venue early for cancellation liability cap",
             "count": "12 of the 40 successes",
             "example": {
               "event": "Customer Roadshow 2026 — Berlin",
               "detail": "Clause requested 30 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $152K."
             },
-            "takeaway": "In similar contract decisions, \"Ask early no trade\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when raised before contract finalization, as it locks mutual protection into the agreement and prevents full exposure of committed spend."
           },
           {
             "outcome": "worked",
-            "title": "Sign then amend",
+            "title": "Sign contract then negotiate amendment limits",
             "count": "10 of the 40 successes",
             "example": {
               "event": "Executive Forum 2025 — London",
               "detail": "Clause requested 13 days before the hold. Venue ownership was private. Legal review took 2 days. Exposure was $167K."
             },
-            "takeaway": "In similar contract decisions, \"Sign then amend\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when counterparty has already committed resources and prefers amending a signed agreement to renegotiating from scratch, but fails if either party uses signature as leverage to harden their stance."
           },
           {
             "outcome": "failed",
-            "title": "Sign without clause",
+            "title": "Sign contract without negotiating liability cap clause",
             "count": "9 of the 20 failures",
             "example": {
               "event": "Executive Forum 2025 — Chicago",
               "detail": "Clause requested 11 days before the hold. Venue ownership was private. Legal review took 5 days. Exposure was $242K."
             },
-            "takeaway": "In similar contract decisions, \"Sign without clause\" is the play that has repeatedly failed."
+            "takeaway": "This play fails when either party cancels because unlimited exposure to full committed spend creates unacceptable financial risk that should have been bounded before execution."
           }
         ],
         "exceptions": [
           {
             "title": "Government-owned venues (11 cases)",
-            "detail": "Legal review averaged 11.7 days vs 5.6 across the rest of the similar set. Government-owned venues have run notably longer on legal review than the rest of the similar set — check whether it applies to this decision."
+            "detail": "Legal review averaged 11.7 days vs 5.6 across the rest of the similar set. Government-owned venues face unique budget constraints and public accountability requirements, making unlimited cancellation liability a critical fiscal risk that could jeopardize facility operations or require emergency appropriations if the contract is terminated."
           }
         ],
         "cases": [
@@ -2376,7 +2376,7 @@ export const SEED = {
         "track": {
           "worked": 44,
           "total": 70,
-          "basis": "similar budget decisions drawn from past event programs"
+          "basis": "similar quotes received from preferred vendors with comparable scope and service terms"
         }
       },
       "evidence": {
@@ -2385,43 +2385,43 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Requote preferred vendor",
+            "title": "Negotiate fee waiver with preferred in-house vendor",
             "count": "18 of the 44 successes",
             "example": {
               "event": "Field Kickoff 2022 — Stockholm",
               "detail": "Original quote was $199K against a $153K line. Outside AV fee was waived. Final cost was $153K. Change orders were $2K."
             },
-            "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+            "takeaway": "This play works when the venue's AV provider has discretionary margin and values long-term relationship over single-event margin, especially for anchor events like kickoffs."
           },
           {
             "outcome": "worked",
-            "title": "Leverage reprice inhouse",
+            "title": "Negotiate in-house AV pricing down to budget baseline",
             "count": "13 of the 44 successes",
             "example": {
               "event": "Sales Club 2025 — Lisbon",
               "detail": "Original quote was $170K against a $128K line. Outside AV fee was not waived. Final cost was $127K. Change orders were $5K."
             },
-            "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+            "takeaway": "This play works when the venue has exclusivity clauses that create dependency, giving the buyer leverage to repress the quote toward budget without losing the technical specification."
           },
           {
             "outcome": "worked",
-            "title": "Descope",
+            "title": "Descope venue AV scope to essential production requirements only",
             "count": "6 of the 44 successes",
             "example": {
               "event": "SKO 2023 — Madrid",
               "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
             },
-            "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+            "takeaway": "This play works when venue quotes significantly exceed budget and the event team has authority to redefine scope without compromising core attendee experience."
           },
           {
             "outcome": "failed",
-            "title": "Accept variance",
+            "title": "Accept the venue's in-house AV variance as cost of convenience",
             "count": "11 of the 26 failures",
             "example": {
               "event": "Field Kickoff 2023 — Prague",
               "detail": "Original quote was $358K against a $306K line. Outside AV fee was waived. Final cost was $266K. Change orders were $35K."
             },
-            "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+            "takeaway": "This play fails when the variance exceeds stakeholder tolerance and no competitive alternatives exist to justify premium pricing."
           }
         ],
         "exceptions": [],
@@ -2528,7 +2528,7 @@ export const SEED = {
         "track": {
           "worked": 30,
           "total": 47,
-          "basis": "similar approval decisions drawn from past event programs"
+          "basis": "approval decisions delayed in legal review awaiting executive or cost-driven intervention"
         }
       },
       "evidence": {
@@ -2537,33 +2537,33 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Quantified cost of delay",
+            "title": "Quantify Daily Revenue Loss Until Legal Approves",
             "count": "17 of the 30 successes",
             "example": {
               "event": "Customer Roadshow 2026 — Denver",
               "detail": "Approval had stalled for 20 days. The hold window was 3 days. Approval came in 2 days. Reprice exposure was $2K."
             },
-            "takeaway": "In similar approval decisions, \"Quantified cost of delay\" is the play that has repeatedly worked."
+            "takeaway": "This play works when approval gatekeepers see concrete financial impact of delay, creating urgency that bureaucratic timelines alone cannot generate."
           },
           {
             "outcome": "worked",
-            "title": "Exec nudge",
+            "title": "Escalate venue license approval to executive sponsor immediately",
             "count": "8 of the 30 successes",
             "example": {
               "event": "Field Kickoff 2022 — New York",
               "detail": "Approval had stalled for 8 days. The hold window was 14 days. Approval came in 11 days. Reprice exposure was $2K."
             },
-            "takeaway": "In similar approval decisions, \"Exec nudge\" is the play that has repeatedly worked."
+            "takeaway": "This play works when legal review delays threaten hard deadline windows and executive visibility can unblock stakeholder bottlenecks before the opportunity closes."
           },
           {
             "outcome": "failed",
-            "title": "Wait it out",
+            "title": "Allow legal review to conclude without escalation",
             "count": "9 of the 17 failures",
             "example": {
               "event": "Customer Roadshow 2026 — Singapore",
               "detail": "Approval had stalled for 7 days. The hold window was 3 days. Approval came in 4 days. Reprice exposure was $32K."
             },
-            "takeaway": "In similar approval decisions, \"Wait it out\" is the play that has repeatedly failed."
+            "takeaway": "This approach fails when time-sensitive deadlines exist because passivity in approval processes risks missing critical windows."
           }
         ],
         "exceptions": [],
@@ -2668,7 +2668,7 @@ export const SEED = {
         "track": {
           "worked": 43,
           "total": 68,
-          "basis": "similar budget decisions drawn from past event programs"
+          "basis": "budget variance decisions involving external speaker or talent engagement cost overruns"
         }
       },
       "evidence": {
@@ -2677,43 +2677,43 @@ export const SEED = {
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Requote preferred vendor",
+            "title": "Request preferred vendor to adjust fee within talent envelope",
             "count": "17 of the 43 successes",
             "example": {
               "event": "SKO 2022 — Singapore",
               "detail": "Original quote was $366K against a $305K line. Outside AV fee was waived. Final cost was $302K. Change orders were $2K."
             },
-            "takeaway": "In similar budget decisions, \"Requote preferred vendor\" is the play that has repeatedly worked."
+            "takeaway": "This play works when the speaker's brand value to sales leadership is high enough that they will advocate for budget reallocation, but fails if the speaker views their quote as non-negotiable or if leadership lacks conviction to champion the gap."
           },
           {
             "outcome": "worked",
-            "title": "Leverage reprice inhouse",
+            "title": "Leverage in-house talent to repricing negotiation",
             "count": "13 of the 43 successes",
             "example": {
               "event": "User Conference 2024 — Boston",
               "detail": "Original quote was $135K against a $104K line. Outside AV fee was waived. Final cost was $92K. Change orders were $3K."
             },
-            "takeaway": "In similar budget decisions, \"Leverage reprice inhouse\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when the speaker values platform exposure or audience access enough to accept a lower fee than their standard rate."
           },
           {
             "outcome": "worked",
-            "title": "Descope",
+            "title": "Secure speaker commitment by phased fee structure negotiation",
             "count": "6 of the 43 successes",
             "example": {
               "event": "SKO 2023 — Madrid",
               "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
             },
-            "takeaway": "In similar budget decisions, \"Descope\" is the play that has repeatedly worked."
+            "takeaway": "This approach works when the speaker prioritizes event reach and brand visibility over upfront cash, enabling partial fee deferral or performance-linked payments that honor the envelope while closing the talent gap."
           },
           {
             "outcome": "failed",
-            "title": "Accept variance",
+            "title": "Accept the keynote speaker's premium fee above envelope",
             "count": "11 of the 25 failures",
             "example": {
               "event": "SKO 2022 — Stockholm",
               "detail": "Original quote was $352K against a $291K line. Outside AV fee was waived. Final cost was $265K. Change orders were $33K."
             },
-            "takeaway": "In similar budget decisions, \"Accept variance\" is the play that has repeatedly failed."
+            "takeaway": "This approach fails when leadership preference for a specific speaker outweighs budget discipline, as accepting variance without negotiation or trade-offs sets precedent and erodes financial controls."
           }
         ],
         "exceptions": [],
