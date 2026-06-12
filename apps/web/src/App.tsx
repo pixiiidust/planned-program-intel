@@ -12,6 +12,7 @@ import { DetailPane } from './components/DetailPane.js';
 import { PersonaSwitcher } from './components/PersonaSwitcher.js';
 import { PortfolioView } from './components/PortfolioView.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
+import { ActivityPanelPrototype } from './components/ActivityPanelPrototype.js';
 import { SettingsDrawer } from './components/SettingsDrawer.js';
 import { distillResolution } from './lib/distillation.js';
 import { FEED_DECISION_IDS, feedDelayMs } from './lib/feed.js';
@@ -342,6 +343,9 @@ export default function App() {
       )}
 
       <SettingsDrawer open={settingsOpen} onClose={() => setSettingsOpen(false)} onReset={() => void handleReset()} />
+
+      {/* PROTOTYPE mount (#27 variant round) — dev-only, stripped from builds. */}
+      {import.meta.env.DEV && <ActivityPanelPrototype />}
 
       {toast && (
         <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 rounded-lg bg-slate-900 text-white px-4 py-3 shadow-xl">
