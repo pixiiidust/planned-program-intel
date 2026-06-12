@@ -1,0 +1,1636 @@
+[
+  {
+    "id": "d1",
+    "title": "Lisbon venue contract missing force majeure clause",
+    "problem": "Under the current draft, any cancellation — ours, theirs, or weather — forfeits all committed spend.",
+    "actionNeeded": "Get the clause added before signing. Trade deposit timing for it, and ask for more time.",
+    "event": {
+      "id": "sko",
+      "name": "Global Sales Kickoff 2027",
+      "location": "Lisbon",
+      "date": "Jan 12–15, 2027",
+      "budget": "$1.4M",
+      "attendees": 850
+    },
+    "type": "contract",
+    "signalType": "contract.summarized",
+    "urgency": {
+      "level": "critical",
+      "because": "The date hold expires Friday — 2 days away. Sign as-is and we carry ~$310K of unrecoverable cancellation exposure. Miss the deadline and we lose the only week that fits the sales calendar."
+    },
+    "dueInDays": 2,
+    "status": "open",
+    "owner": {
+      "name": "Priya Nair",
+      "role": "Procurement Lead",
+      "whyRouted": "Policy P-114 routes contract-term exceptions over $500K to procurement. Priya closed both prior venue addendums."
+    },
+    "recommendation": {
+      "action": "Request a force majeure addendum before signing. Offer a 5% earlier deposit in exchange. Ask for a 1-week hold extension in the same message.",
+      "why": "Removes the $310K exposure. Costs only deposit timing — cash-flow neutral. The hold extension covers this venue’s slower legal review.",
+      "track": {
+        "worked": 41,
+        "total": 48,
+        "basis": "force majeure addendums requested on international venue contracts"
+      }
+    },
+    "evidence": {
+      "caseCount": 48,
+      "workedCount": 41,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Pair the addendum request with a deposit-timing trade",
+          "count": "29 of the 41 successes",
+          "example": {
+            "event": "Global SKO 2025 — Barcelona",
+            "detail": "Venue accepted the clause for a 5% earlier deposit. Signed two days inside the hold."
+          },
+          "takeaway": "Deposit timing is the cheapest currency for contract protections."
+        },
+        {
+          "outcome": "worked",
+          "title": "Ask for a hold extension in the same message",
+          "count": "9 of the 41 successes",
+          "example": {
+            "event": "APAC SKO 2025 — Seoul",
+            "detail": "Venue gave a one-week extension while its legal team reviewed the clause. No leverage lost."
+          },
+          "takeaway": "Asking for time costs nothing and removes deadline pressure."
+        },
+        {
+          "outcome": "failed",
+          "title": "Sign without the clause to protect the date",
+          "count": "5 of the 7 failures",
+          "example": {
+            "event": "EMEA Summit 2024 — Prague",
+            "detail": "Signed without the clause to save 3 days. A storm cancellation cost $42K, unrecoverable."
+          },
+          "takeaway": "Skipping the clause to save time has already cost real money."
+        }
+      ],
+      "exceptions": [
+        {
+          "title": "Government-owned venues (3 cases)",
+          "detail": "All three took 2–4x longer in legal review than private venues. This venue is government-owned."
+        }
+      ],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [
+      {
+        "change": "This venue is government-owned. Addendums go through its legal board (~4 business days).",
+        "whyItMatters": "Their board may respond after the Friday hold expires. The extension ask must travel with the addendum request, not after it."
+      },
+      {
+        "change": "The hold expires Friday. Barcelona had a 3-week hold.",
+        "whyItMatters": "The winning pattern had slack time. You don’t. Send the extension ask today."
+      }
+    ],
+    "risks": [
+      "January in Lisbon is storm season — the exact scenario the clause covers.",
+      "If the extension is refused, the original deadline stands with one less day. Send the request today."
+    ],
+    "constraints": [
+      "Policy P-114: cancellation exposure over $250K requires legal sign-off.",
+      "Deposit acceleration is cash-flow neutral. No budget approval needed."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Sofia Reyes",
+        "role": "Legal Counsel, Contracts",
+        "why": "Owns sign-off for cancellation exposure over $250K (P-114)."
+      },
+      {
+        "name": "James Tan",
+        "role": "VP Events",
+        "why": "Can authorize signing without the clause if the date outweighs the exposure."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d2",
+    "title": "Berlin AV quote 22% over benchmark",
+    "problem": "The venue’s in-house quote is €148K against a €130K budget line, for a 400-person, 2-stage summit.",
+    "actionNeeded": "Re-quote with StageCraft and ask the venue to waive its outside-AV fee.",
+    "event": {
+      "id": "emea",
+      "name": "EMEA Customer Summit",
+      "location": "Berlin",
+      "date": "Sep 22–24, 2026",
+      "budget": "$620K",
+      "attendees": 400
+    },
+    "type": "budget",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "high",
+      "because": "AV sign-off is due in 6 days. Accepting as-is breaches the €130K budget line by €18K. A breach triggers a ~2-week finance approval cycle."
+    },
+    "dueInDays": 6,
+    "status": "open",
+    "owner": {
+      "name": "Marcus Webb",
+      "role": "Program Manager, EMEA",
+      "whyRouted": "Budget variances of 15–30% route to the program manager. Above 30% goes to finance."
+    },
+    "recommendation": {
+      "action": "Re-quote with preferred vendor StageCraft GmbH. Ask the venue to waive its outside-AV fee. Require a priced backup rig for the live demo.",
+      "why": "StageCraft priced a comparable Berlin event 15% lower. That puts AV back inside the €130K line — no finance cycle. The venue has waived the fee before when F&B spend topped €80K. Yours is €95K.",
+      "track": {
+        "worked": 95,
+        "total": 106,
+        "basis": "re-quotes with preferred AV vendors at venues with exclusivity clauses"
+      }
+    },
+    "evidence": {
+      "caseCount": 106,
+      "workedCount": 95,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Re-quote with a preferred vendor, then negotiate the outside-AV fee",
+          "count": "71 of the 95 successes",
+          "example": {
+            "event": "DACH Partner Day 2025 — Berlin",
+            "detail": "StageCraft came in 15% under the in-house quote. Venue waived its fee once F&B spend passed €80K."
+          },
+          "takeaway": "Outside-AV fees are negotiable when F&B spend is high."
+        },
+        {
+          "outcome": "worked",
+          "title": "Use the outside quote as leverage to reprice the in-house offer",
+          "count": "24 of the 95 successes",
+          "example": {
+            "event": "Nordics Summit 2025 — Stockholm",
+            "detail": "Venue matched the outside price within 48 hours rather than lose the contract."
+          },
+          "takeaway": "Sometimes the quote’s only job is to exist."
+        },
+        {
+          "outcome": "failed",
+          "title": "Bring in an outside vendor without a paid venue walkthrough",
+          "count": "8 of the 11 failures",
+          "example": {
+            "event": "EMEA Summit 2025 — Vienna",
+            "detail": "Outside vendor didn’t know the venue. Load-in overran and added €9K in overtime."
+          },
+          "takeaway": "Budget the walkthrough up front."
+        }
+      ],
+      "exceptions": [
+        {
+          "title": "Live product demos (4 cases)",
+          "detail": "Redundancy requirements erased about half the vendor savings each time. This keynote has a live demo. Price the backup rig before comparing quotes."
+        }
+      ],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [
+      {
+        "change": "The venue added a €12K outside-AV fee in its 2026 terms. It wasn’t in last year’s contract.",
+        "whyItMatters": "Unwaived, it eats two-thirds of the €18K saving. The waiver ask is mandatory, not optional."
+      },
+      {
+        "change": "The keynote includes a live product demo.",
+        "whyItMatters": "Past demos doubled redundancy requirements. Without a priced backup rig, the quote comparison is false."
+      }
+    ],
+    "risks": [
+      "Outside vendors don’t know this venue — the dominant failure mode. Budget a paid walkthrough.",
+      "The re-quote cycle takes ~4 days against a 6-day deadline. Start within 2 days or the in-house quote wins by default."
+    ],
+    "constraints": [
+      "StageCraft is on the preferred supplier list. No procurement exception needed.",
+      "The AV budget line is €130K. The current quote breaches it."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Lena Fischer",
+        "role": "Finance Partner, Events",
+        "why": "Owns the variance approval if you accept the higher quote instead."
+      },
+      {
+        "name": "Tom Okafor",
+        "role": "AV Category Manager",
+        "why": "Negotiated the StageCraft rate card. Can pressure-test both quotes."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d3",
+    "title": "Austin hotel contract stuck in VP approval",
+    "problem": "Sign-off has sat with the VP for 6 days. The VP is traveling with email-only access.",
+    "actionNeeded": "Escalate to the chief of staff today. Ask the hotel for 72 more hours in parallel.",
+    "event": {
+      "id": "exec",
+      "name": "Q3 Exec Offsite",
+      "location": "Austin",
+      "date": "Aug 4–6, 2026",
+      "budget": "$180K",
+      "attendees": 45
+    },
+    "type": "approval",
+    "signalType": "approval.stalled",
+    "urgency": {
+      "level": "critical",
+      "because": "The rate hold expires in 2 days. After that, rates rise ~18% (~$14K avoidable spend). Worse: the hotel can release the block to another group entirely."
+    },
+    "dueInDays": 2,
+    "status": "blocked",
+    "blockedBy": "VP sign-off pending 6 days (J. Tan, traveling internationally)",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "You own the escalation path. The VP is the blocker, not the decision maker here."
+    },
+    "recommendation": {
+      "action": "Escalate to the VP’s chief of staff today, with the $14K rate-expiry cost attached. Request delegated approval under policy A-22. In parallel, ask the hotel for a 72-hour hold extension.",
+      "why": "A quantified cost-of-delay has unblocked approvals within 24h. Policy A-22 lets the chief of staff approve lodging contracts under $200K — this one is $86K. The hotel ask is free insurance if the escalation runs long.",
+      "track": {
+        "worked": 17,
+        "total": 21,
+        "basis": "approval stalls broken with a quantified cost-of-delay escalation"
+      }
+    },
+    "evidence": {
+      "caseCount": 21,
+      "workedCount": 17,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Escalate to the approver’s delegate with a quantified cost-of-delay",
+          "count": "13 of the 17 successes",
+          "example": {
+            "event": "Q1 Exec Offsite 2026 — Denver",
+            "detail": "Chief-of-staff escalation with the cost figure attached. Approved in 6 hours."
+          },
+          "takeaway": "Quantified cost-of-delay moves approvals. Vague urgency doesn’t."
+        },
+        {
+          "outcome": "worked",
+          "title": "Ask the vendor for a hold extension while approval clears",
+          "count": "4 of the 17 successes",
+          "example": {
+            "event": "NY Leadership Summit 2025",
+            "detail": "Hotel extended the hold 72 hours on a direct request. Deadline defused."
+          },
+          "takeaway": "The vendor often has more flexibility than the org chart."
+        },
+        {
+          "outcome": "failed",
+          "title": "Wait for the approver to resurface",
+          "count": "4 of the 4 failures",
+          "example": {
+            "event": "Board Retreat 2025 — Sonoma",
+            "detail": "Waited politely. The hold lapsed. Paid a 21% higher rate — $11K avoidable."
+          },
+          "takeaway": "Waiting out an approval stall has a measurable price."
+        }
+      ],
+      "exceptions": [
+        {
+          "title": "Approver traveling (2 cases)",
+          "detail": "Both needed the chief of staff. Direct pings to the traveling VP went unanswered past the deadline. Your VP is traveling now."
+        }
+      ],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [
+      {
+        "change": "The VP is traveling internationally with email-only access.",
+        "whyItMatters": "The winning pattern assumes the approver can respond in time. Route through the chief of staff, who holds delegated authority."
+      }
+    ],
+    "risks": [
+      "If the hold lapses, the hotel can release the block — not just reprice it.",
+      "Escalating around a VP has relationship cost. Lead with the cost-of-delay number, not the complaint."
+    ],
+    "constraints": [
+      "Policy A-22: delegated approval allowed under $200K. This contract: $86K."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Mei Lin",
+        "role": "Chief of Staff to VP Events",
+        "why": "Holds delegated approval authority under A-22 for contracts under $200K."
+      },
+      {
+        "name": "Lena Fischer",
+        "role": "Finance Partner, Events",
+        "why": "Can pre-approve the higher rate as a fallback, so you aren’t deciding under the gun."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d4",
+    "title": "NYC caterer unavailable — alternate needs a policy exception",
+    "problem": "The preferred caterer is fully booked. The venue’s recommended alternate is not on the preferred supplier list.",
+    "actionNeeded": "Start the COI check and menu review today. Grant the exception once both pass.",
+    "event": {
+      "id": "roadshow",
+      "name": "Product Launch Roadshow",
+      "location": "NYC",
+      "date": "Jul 9, 2026",
+      "budget": "$240K",
+      "attendees": 300
+    },
+    "type": "policy",
+    "signalType": "policy.checked",
+    "urgency": {
+      "level": "high",
+      "because": "Catering must confirm in 9 days, but the COI check and menu review take ~4 of them. If the exception fails late, re-sourcing adds a 10–20% premium ($8–16K). The real window is this week."
+    },
+    "dueInDays": 9,
+    "status": "open",
+    "owner": {
+      "name": "Priya Nair",
+      "role": "Procurement Lead",
+      "whyRouted": "Policy P-201 routes supplier-list exceptions to procurement."
+    },
+    "recommendation": {
+      "action": "Start the COI check and dietary menu review today. Grant the one-event exception once both pass. Skip re-sourcing.",
+      "why": "The alternate passed venue vetting and has served 3 peer-company events. The exception costs a day of paperwork. Late re-sourcing costs 10–20% more.",
+      "track": {
+        "worked": 9,
+        "total": 12,
+        "basis": "one-event supplier exceptions at first-time venues"
+      }
+    },
+    "evidence": {
+      "caseCount": 12,
+      "workedCount": 9,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Grant the exception with verification done first",
+          "count": "all 9 successes verified before contracting",
+          "example": {
+            "event": "West Coast Roadshow 2025 — SF",
+            "detail": "Exception with COI check. The vendor later joined the preferred list."
+          },
+          "takeaway": "Exceptions are a sourcing pipeline, not just a risk."
+        },
+        {
+          "outcome": "failed",
+          "title": "Skip verification to move fast",
+          "count": "2 of the 3 failures",
+          "example": {
+            "event": "Chicago Roadshow 2023",
+            "detail": "No COI check. An uninsured damage claim took 5 months to settle."
+          },
+          "takeaway": "Verification is the exception’s entire safety margin."
+        }
+      ],
+      "exceptions": [
+        {
+          "title": "Dietary-compliance misses (2 cases)",
+          "detail": "Both involved new caterers missing halal or kosher needs, found at the event. Review menus before contracting, not after."
+        }
+      ],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [
+      {
+        "change": "First time at this venue. No incumbent vendor relationships.",
+        "whyItMatters": "No incumbent means no informal quality signal. The COI check and tasting carry the full vetting weight."
+      }
+    ],
+    "risks": [
+      "About a third of invitees are from EMEA partner orgs. Confirm halal and alcohol-free menus before contracting.",
+      "The alternate has no kosher-certified kitchen. Flag now if any exec guests need it."
+    ],
+    "constraints": [
+      "Policy P-201: exceptions need documented justification plus insurance verification."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Raj Mehta",
+        "role": "Procurement Director",
+        "why": "Can approve above Priya’s authority, or fast-track vendor onboarding instead."
+      },
+      {
+        "name": "Compliance Desk",
+        "role": "Vendor Compliance",
+        "why": "Can run an expedited vetting check if the exception feels thin."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d5",
+    "title": "EMEA Summit registration 31% below target",
+    "problem": "Registration is 212 against a 5-week-out target of 310. Attrition penalties start below 80% room pickup.",
+    "actionNeeded": "Release 60 rooms inside the free window and trigger the reserve partner-invite wave.",
+    "event": {
+      "id": "emea",
+      "name": "EMEA Customer Summit",
+      "location": "Berlin",
+      "date": "Sep 22–24, 2026",
+      "budget": "$620K",
+      "attendees": 400
+    },
+    "type": "forecast",
+    "signalType": "registration.pace_updated",
+    "urgency": {
+      "level": "high",
+      "because": "The free room-block release window closes in 5 days. Inside it, releasing rooms costs nothing. After it, attrition exposure starts at ~€18K and grows while pickup stays low."
+    },
+    "dueInDays": 5,
+    "status": "open",
+    "owner": {
+      "name": "Marcus Webb",
+      "role": "Program Manager, EMEA",
+      "whyRouted": "Forecast-driven scope changes route to the program owner before money moves."
+    },
+    "recommendation": {
+      "action": "Release 60 rooms now, inside the free window. Trigger the reserve partner-invite wave. Set a re-forecast checkpoint in 2 weeks.",
+      "why": "Pace projects ~265 attendees against 310 rooms. The release is free and reversible. Partner waves lifted attendance 12–18% at past summits. The checkpoint covers the conference-overlap risk.",
+      "track": {
+        "worked": 28,
+        "total": 34,
+        "basis": "early block releases combined with reserve invite waves at similar summits"
+      }
+    },
+    "evidence": {
+      "caseCount": 34,
+      "workedCount": 28,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Release inside the free window + trigger reserve invites",
+          "count": "22 of the 28 successes",
+          "example": {
+            "event": "EMEA Summit 2025 — Vienna",
+            "detail": "Released 50 rooms early and ran the partner wave. Finished at 96% pickup. Zero attrition fees."
+          },
+          "takeaway": "Act inside the free window, not at the deadline."
+        },
+        {
+          "outcome": "failed",
+          "title": "Hold the full block hoping registrations catch up",
+          "count": "5 of the 6 failures",
+          "example": {
+            "event": "APAC Summit 2024 — Singapore",
+            "detail": "Held the block. Pickup landed at 71%. Paid $22K attrition."
+          },
+          "takeaway": "Hope is not a block-management strategy."
+        }
+      ],
+      "exceptions": [
+        {
+          "title": "Competing-conference overlap (3 cases)",
+          "detail": "Pace stayed depressed after the fix in all 3. Your dates overlap a competing conference. Plan a second checkpoint, not a one-shot fix."
+        }
+      ],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [
+      {
+        "change": "A competing industry conference overlaps your dates this year.",
+        "whyItMatters": "In all 3 past overlap cases, pace stayed low after the fix. Release now, but plan to re-forecast — don’t assume the wave closes the gap."
+      }
+    ],
+    "risks": [
+      "The partner wave shifts the attendee mix toward partners. Check sponsor contracts that promise customer attendance.",
+      "Over-releasing forces a scramble at higher rates if pace recovers. Release 60, not the full overhang."
+    ],
+    "constraints": [
+      "The free-release window on the room block closes in 5 days."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Anika Sharma",
+        "role": "Demand Gen Lead, EMEA",
+        "why": "Owns the invite waves. Can validate the registration-pace projection."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d6",
+    "title": "Lisbon venue raised its F&B minimum 15%",
+    "problem": "The minimum rose from €210K to €242K after a kitchen renovation. It applies to our dates.",
+    "actionNeeded": "Convert one non-ceremonial dinner to stations. Keep the awards dinner plated.",
+    "event": {
+      "id": "sko",
+      "name": "Global Sales Kickoff 2027",
+      "location": "Lisbon",
+      "date": "Jan 12–15, 2027",
+      "budget": "$1.4M",
+      "attendees": 850
+    },
+    "type": "budget",
+    "signalType": "contract.summarized",
+    "urgency": {
+      "level": "medium",
+      "because": "Menu selections lock in 12 days. After that, format changes incur venue change fees. Unresolved, the €32K gap becomes a CFO approval (~2 weeks)."
+    },
+    "dueInDays": 12,
+    "status": "open",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "F&B trade-offs are an event-design call before they become a budget escalation."
+    },
+    "recommendation": {
+      "action": "Convert one non-ceremonial plated dinner to stations — saves ~€38K. Keep the awards dinner plated. Don’t request more budget.",
+      "why": "Closes the €32K gap inside the current budget. Avoids the 2-week CFO cycle. Stations scored equal or better in past attendee surveys.",
+      "track": {
+        "worked": 13,
+        "total": 16,
+        "basis": "plated-to-stations conversions at large SKOs and summits"
+      }
+    },
+    "evidence": {
+      "caseCount": 16,
+      "workedCount": 13,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Convert a non-ceremonial night to stations",
+          "count": "11 of the 13 successes",
+          "example": {
+            "event": "Global SKO 2026 — Marseille",
+            "detail": "Networking night went to stations. Satisfaction unchanged (4.4 → 4.5). €35K saved."
+          },
+          "takeaway": "Format swaps beat budget escalations for mid-size gaps."
+        },
+        {
+          "outcome": "failed",
+          "title": "Convert the awards or ceremony dinner",
+          "count": "2 of the 3 failures",
+          "example": {
+            "event": "Global SKO 2023 — Orlando",
+            "detail": "Leadership pushed back. Reverted at change-fee cost."
+          },
+          "takeaway": "Ceremonial dinners carry meaning beyond food. Leave them plated."
+        }
+      ],
+      "exceptions": [
+        {
+          "title": "850+ attendee events (2 cases)",
+          "detail": "Station throughput needed ~20% more floor space than the venue diagram showed. Verify with venue ops, not sales. This SKO is 850 attendees."
+        }
+      ],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [
+      {
+        "change": "Leadership expects the awards dinner to stay plated.",
+        "whyItMatters": "Both failed conversions touched ceremonial dinners. Convert the networking night — that’s where the successes happened."
+      }
+    ],
+    "risks": [
+      "Stations need more floor space at 850 attendees. Confirm the ballroom layout with venue ops first.",
+      "Every station needs halal, vegetarian, and gluten-free lines — not one corner table."
+    ],
+    "constraints": [
+      "The FY27 event budget is fixed. Increases need CFO approval."
+    ],
+    "escalationPaths": [
+      {
+        "name": "James Tan",
+        "role": "VP Events",
+        "why": "SKO exec sponsor. Can confirm which dinner formats leadership will accept."
+      },
+      {
+        "name": "Carla Duarte",
+        "role": "F&B Category Manager",
+        "why": "Can renegotiate the minimum with the venue before you change the program."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d14",
+    "title": "Breakout session recording for SKO",
+    "problem": "Leadership wants the 12 breakout tracks recorded. The AV package covers the keynote only.",
+    "actionNeeded": "Book the recording vendor inside the 3-week lead window.",
+    "event": {
+      "id": "sko",
+      "name": "Global Sales Kickoff 2027",
+      "location": "Lisbon",
+      "date": "Jan 12–15, 2027",
+      "budget": "$1.4M",
+      "attendees": 850
+    },
+    "type": "vendor",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "medium",
+      "because": "The vendor needs 3 weeks’ lead; the window closes in 18 days. Booking late adds a 10% rush fee (~€2K). Real, but bounded."
+    },
+    "dueInDays": 18,
+    "status": "open",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "Production scope additions sit with the event lead before procurement."
+    },
+    "recommendation": {
+      "action": "Book CaptureWorks for all 12 tracks. Publish raw cuts — skip per-track editing.",
+      "why": "Raw cuts cost 40% less, and past viewership concentrated in the first 48 hours — where speed beats polish.",
+      "track": {
+        "worked": 5,
+        "total": 6,
+        "basis": "breakout recording packages at large internal events"
+      }
+    },
+    "evidence": {
+      "caseCount": 6,
+      "workedCount": 5,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Record everything, publish raw within 48 hours",
+          "count": "4 of the 5 successes",
+          "example": {
+            "event": "Global SKO 2026 — Marseille",
+            "detail": "Raw cuts published next morning. 61% of sellers watched at least one track."
+          },
+          "takeaway": "Speed beats polish for internal content."
+        },
+        {
+          "outcome": "failed",
+          "title": "Record only “top” tracks picked in advance",
+          "count": "1 of 1 failure",
+          "example": {
+            "event": "Global SKO 2024 — Lisbon",
+            "detail": "Two unrecorded tracks turned out to be the most requested."
+          },
+          "takeaway": "You can’t predict which tracks will matter."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [
+      "Recording consent notices must go into session descriptions before the agenda publishes."
+    ],
+    "constraints": [
+      "The AV budget line has €11K headroom. The full package is €9K."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Tom Okafor",
+        "role": "AV Category Manager",
+        "why": "Can bundle recording into the StageCraft scope if booked together."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d15",
+    "title": "Badge design refresh for EMEA Summit",
+    "problem": "Two badge designs are ready: the 2025 layout, or a refresh with larger names and role colors.",
+    "actionNeeded": "Pick a design before the print deadline.",
+    "event": {
+      "id": "emea",
+      "name": "EMEA Customer Summit",
+      "location": "Berlin",
+      "date": "Sep 22–24, 2026",
+      "budget": "$620K",
+      "attendees": 400
+    },
+    "type": "logistics",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "low",
+      "because": "The print deadline is 30 days out and both designs cost the same. Either works — batch this with other low-stakes calls."
+    },
+    "dueInDays": 30,
+    "status": "open",
+    "owner": {
+      "name": "Marcus Webb",
+      "role": "Program Manager, EMEA",
+      "whyRouted": "Attendee-experience details sit with the program owner."
+    },
+    "recommendation": {
+      "action": "Use the refreshed design with larger names and role colors.",
+      "why": "Bigger name type tested better for networking at two past summits. Zero cost difference.",
+      "track": {
+        "worked": 2,
+        "total": 2,
+        "basis": "badge redesigns with larger name type"
+      }
+    },
+    "evidence": {
+      "caseCount": 2,
+      "workedCount": 2,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Larger name type on badges",
+          "count": "2 of 2 cases",
+          "example": {
+            "event": "EMEA Summit 2025 — Vienna",
+            "detail": "Attendees reported easier networking. No cost change."
+          },
+          "takeaway": "Readability is free."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d16",
+    "title": "Post-event survey tool for the roadshow",
+    "problem": "Both approved tools — FormKit and Surveyo — can run the post-event survey, at the same license cost.",
+    "actionNeeded": "Pick one so the survey build can start.",
+    "event": {
+      "id": "roadshow",
+      "name": "Product Launch Roadshow",
+      "location": "NYC",
+      "date": "Jul 9, 2026",
+      "budget": "$240K",
+      "attendees": 300
+    },
+    "type": "logistics",
+    "signalType": "policy.checked",
+    "urgency": {
+      "level": "low",
+      "because": "Both tools are approved and equally priced. The only cost of waiting is a shorter build runway — the survey takes 2 days to set up."
+    },
+    "dueInDays": 40,
+    "status": "open",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "Tooling picks inside approved options sit with the event lead."
+    },
+    "recommendation": {
+      "action": "Use FormKit — it already holds the attendee schema from registration.",
+      "why": "Reusing the registration schema removes a manual export step and one data-handling review.",
+      "track": {
+        "worked": 3,
+        "total": 3,
+        "basis": "surveys run on the registration-linked tool"
+      }
+    },
+    "evidence": {
+      "caseCount": 3,
+      "workedCount": 3,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Survey on the registration-linked tool",
+          "count": "3 of 3 cases",
+          "example": {
+            "event": "West Coast Roadshow 2025 — SF",
+            "detail": "No export step, results joined to attendee data automatically."
+          },
+          "takeaway": "Fewer handoffs, fewer reviews."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d7",
+    "title": "Hybrid AV package for the Berlin keynote",
+    "problem": "A broadcast-grade livestream package costs €28K on top of the AV budget.",
+    "actionNeeded": "Approve the hybrid package.",
+    "event": {
+      "id": "emea",
+      "name": "EMEA Customer Summit",
+      "location": "Berlin",
+      "date": "Sep 22–24, 2026",
+      "budget": "$620K",
+      "attendees": 400
+    },
+    "type": "budget",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "medium",
+      "because": "Broadcast crew availability required a decision 8 weeks out. After that, the package price rose 20%."
+    },
+    "dueInDays": null,
+    "status": "resolved",
+    "owner": {
+      "name": "Marcus Webb",
+      "role": "Program Manager, EMEA",
+      "whyRouted": "Budget addition inside PM discretion band."
+    },
+    "recommendation": {
+      "action": "Approve the hybrid package.",
+      "why": "Remote reach was 2.3x in-room at Vienna 2025. Remote pipeline covered the cost 4x.",
+      "track": {
+        "worked": 2,
+        "total": 2,
+        "basis": "hybrid keynote packages at your last two summits"
+      }
+    },
+    "evidence": {
+      "caseCount": 2,
+      "workedCount": 2,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Broadcast-grade hybrid for the keynote only",
+          "count": "2 of 2 cases",
+          "example": {
+            "event": "EMEA Summit 2025 — Vienna",
+            "detail": "Hybrid keynote drew 2.3x in-room reach. Remote pipeline covered cost 4x."
+          },
+          "takeaway": "Keynote livestreams out-earn their line item."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": {
+      "choice": "accepted",
+      "reasoning": "Vienna data is directly comparable. Remote pipeline attribution makes this self-funding.",
+      "decidedBy": "Marcus Webb",
+      "daysAgo": 3
+    },
+    "escalation": null
+  },
+  {
+    "id": "d8",
+    "title": "Cheaper hotel proposed for the Austin offsite",
+    "problem": "A property 15 minutes farther out is 18% cheaper, with comparable meeting space.",
+    "actionNeeded": "Move to the Lakeline property.",
+    "event": {
+      "id": "exec",
+      "name": "Q3 Exec Offsite",
+      "location": "Austin",
+      "date": "Aug 4–6, 2026",
+      "budget": "$180K",
+      "attendees": 45
+    },
+    "type": "vendor",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "low",
+      "because": "Both properties held availability. The only cost of waiting was a shrinking discount window."
+    },
+    "dueInDays": null,
+    "status": "resolved",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "Venue selection is the event lead’s call for sub-50-person programs."
+    },
+    "recommendation": {
+      "action": "Move to the Lakeline property. Saves $14K with comparable meeting space.",
+      "why": "Comparable space and service scores. The saving is 8% of the event budget.",
+      "track": {
+        "worked": 1,
+        "total": 1,
+        "basis": "outlying-property swaps for small exec programs"
+      }
+    },
+    "evidence": {
+      "caseCount": 1,
+      "workedCount": 1,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Outlying-property swap for internal-only exec groups",
+          "count": "1 of 1 case",
+          "example": {
+            "event": "Q1 Exec Offsite 2026 — Denver",
+            "detail": "Cheaper outlying property. No exec complaints. $9K saved."
+          },
+          "takeaway": "Execs care about the room and agenda, not the lobby — when no outside guests attend."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [
+      {
+        "change": "The CEO is hosting two external board guests at this offsite.",
+        "whyItMatters": "Venue choice becomes a relationship statement, not a cost line. The one prior success was an internal-only group."
+      }
+    ],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": {
+      "choice": "overridden",
+      "reasoning": "Keeping the downtown property. External board guests are attending, and the CEO asked for walkable dinner options. The $14K saving doesn’t cover the relationship downside. Note for the model: weight external-guest presence in venue recommendations.",
+      "decidedBy": "Dana Ortiz",
+      "daysAgo": 7
+    },
+    "escalation": null
+  },
+  {
+    "id": "d9",
+    "title": "Berlin venue Wi-Fi upgrade for the live demo",
+    "problem": "The live demo needs guaranteed bandwidth. Venue Wi-Fi is shared by default.",
+    "actionNeeded": "Approve the €9K dedicated-bandwidth upgrade.",
+    "event": {
+      "id": "emea",
+      "name": "EMEA Customer Summit",
+      "location": "Berlin",
+      "date": "Sep 22–24, 2026",
+      "budget": "$620K",
+      "attendees": 400
+    },
+    "type": "vendor",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "medium",
+      "because": "The venue needs 4 weeks’ notice to provision a dedicated line. Without it, the demo runs on shared Wi-Fi in front of 400 customers."
+    },
+    "dueInDays": null,
+    "status": "resolved",
+    "owner": {
+      "name": "Marcus Webb",
+      "role": "Program Manager, EMEA",
+      "whyRouted": "Vendor additions inside PM discretion band."
+    },
+    "recommendation": {
+      "action": "Approve the €9K dedicated line.",
+      "why": "Two prior public demo failures traced to shared venue Wi-Fi. €9K insures the keynote moment.",
+      "track": {
+        "worked": 3,
+        "total": 3,
+        "basis": "dedicated lines provisioned for live demos"
+      }
+    },
+    "evidence": {
+      "caseCount": 3,
+      "workedCount": 3,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Dedicated line for any live demo",
+          "count": "3 of 3 cases",
+          "example": {
+            "event": "Paris Customer Day 2024",
+            "detail": "Demo ran clean on a dedicated line while guest Wi-Fi sagged under load."
+          },
+          "takeaway": "Never demo on shared Wi-Fi."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": {
+      "choice": "accepted",
+      "reasoning": "The same failure mode burned us twice. Cheap insurance.",
+      "decidedBy": "Marcus Webb",
+      "daysAgo": 1
+    },
+    "escalation": null
+  },
+  {
+    "id": "d10",
+    "title": "Shuttles vs ride credits for the NYC roadshow",
+    "problem": "The venue has no parking. 300 attendees arrive within the same 30 minutes.",
+    "actionNeeded": "Lock a transport plan before invites go out.",
+    "event": {
+      "id": "roadshow",
+      "name": "Product Launch Roadshow",
+      "location": "NYC",
+      "date": "Jul 9, 2026",
+      "budget": "$240K",
+      "attendees": 300
+    },
+    "type": "logistics",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "low",
+      "because": "Invites go out in 3 weeks. Transport instructions must be final by then."
+    },
+    "dueInDays": null,
+    "status": "resolved",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "Attendee-experience calls sit with the event lead."
+    },
+    "recommendation": {
+      "action": "Charter two shuttle loops from Penn Station and Grand Central.",
+      "why": "Shuttles cost ~30% less than ride credits at this volume.",
+      "track": {
+        "worked": 4,
+        "total": 6,
+        "basis": "charter shuttle loops at city roadshows"
+      }
+    },
+    "evidence": {
+      "caseCount": 6,
+      "workedCount": 4,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Shuttle loops from major transit hubs",
+          "count": "4 of the 4 successes",
+          "example": {
+            "event": "West Coast Roadshow 2025 — SF",
+            "detail": "Two loops from BART hubs. 92% rider satisfaction."
+          },
+          "takeaway": "Shuttles work when pickup points are obvious."
+        },
+        {
+          "outcome": "failed",
+          "title": "Shuttles through gridlock zones",
+          "count": "2 of the 2 failures",
+          "example": {
+            "event": "Chicago Roadshow 2023",
+            "detail": "Loop times doubled in traffic. Attendees bailed to taxis."
+          },
+          "takeaway": "Match the mode to the traffic, not the budget."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [
+      {
+        "change": "The venue sits in Midtown, with a 5pm end time.",
+        "whyItMatters": "That is peak gridlock — the Chicago failure profile, not the SF success profile."
+      }
+    ],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": {
+      "choice": "changed",
+      "changedTo": "Ride credits instead of shuttles.",
+      "reasoning": "Midtown at 5pm matches the Chicago failure, not the SF success. Credits cost more but can’t be late.",
+      "decidedBy": "Dana Ortiz",
+      "daysAgo": 5
+    },
+    "escalation": null
+  },
+  {
+    "id": "d11",
+    "title": "Digital-only signage proposed for SKO",
+    "problem": "Printed signage costs €22K. The venue package already includes digital screens.",
+    "actionNeeded": "Decide the signage format before the print deadline.",
+    "event": {
+      "id": "sko",
+      "name": "Global Sales Kickoff 2027",
+      "location": "Lisbon",
+      "date": "Jan 12–15, 2027",
+      "budget": "$1.4M",
+      "attendees": 850
+    },
+    "type": "budget",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "low",
+      "because": "The print deadline is 4 weeks out. After that, rush fees add 30%."
+    },
+    "dueInDays": null,
+    "status": "resolved",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "Event-design trade-offs sit with the event lead."
+    },
+    "recommendation": {
+      "action": "Go digital-only. Saves €22K.",
+      "why": "Digital-only worked at two screen-rich venues with no wayfinding complaints.",
+      "track": {
+        "worked": 2,
+        "total": 3,
+        "basis": "digital-only signage at screen-rich venues"
+      }
+    },
+    "evidence": {
+      "caseCount": 3,
+      "workedCount": 2,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Digital-only at screen-rich venues",
+          "count": "2 of 2 successes",
+          "example": {
+            "event": "Global SKO 2026 — Marseille",
+            "detail": "No wayfinding complaints. €18K saved."
+          },
+          "takeaway": "Screens cover wayfinding when the venue has enough of them."
+        },
+        {
+          "outcome": "failed",
+          "title": "Cutting print with sponsor placements unresolved",
+          "count": "1 of 1 failure",
+          "example": {
+            "event": "Partner Summit 2024 — Rome",
+            "detail": "Sponsors had contracted printed placement. Reprint cost €6K."
+          },
+          "takeaway": "Check sponsor contracts before cutting print."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": {
+      "choice": "overridden",
+      "changedTo": "Keep printed signage as planned.",
+      "reasoning": "Three sponsor contracts promise printed placement at SKO, and the awards backdrop needs print. The €22K is contractually committed in practice. Note for the model: check sponsor obligations before signage recommendations.",
+      "decidedBy": "Dana Ortiz",
+      "daysAgo": 12
+    },
+    "escalation": null
+  },
+  {
+    "id": "d12",
+    "title": "Early-bird pricing extension for EMEA Summit",
+    "problem": "The early-bird window closed with registration soft. A 2-week extension could lift pace.",
+    "actionNeeded": "Decide before the price-increase email goes out.",
+    "event": {
+      "id": "emea",
+      "name": "EMEA Customer Summit",
+      "location": "Berlin",
+      "date": "Sep 22–24, 2026",
+      "budget": "$620K",
+      "attendees": 400
+    },
+    "type": "forecast",
+    "signalType": "registration.pace_updated",
+    "urgency": {
+      "level": "medium",
+      "because": "The price-increase email is queued. Reversing it after it sends burns attendee trust."
+    },
+    "dueInDays": null,
+    "status": "resolved",
+    "owner": {
+      "name": "Marcus Webb",
+      "role": "Program Manager, EMEA",
+      "whyRouted": "Pricing levers sit with the program owner."
+    },
+    "recommendation": {
+      "action": "Extend early-bird 2 weeks. Frame it as capacity-based.",
+      "why": "Extensions lifted registrations 8–14% at three prior summits.",
+      "track": {
+        "worked": 3,
+        "total": 4,
+        "basis": "early-bird extensions at summits with soft pace"
+      }
+    },
+    "evidence": {
+      "caseCount": 4,
+      "workedCount": 3,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Short extension framed as capacity-based",
+          "count": "3 of 3 successes",
+          "example": {
+            "event": "Americas Summit 2025 — Chicago",
+            "detail": "Two-week extension lifted registrations 14%."
+          },
+          "takeaway": "Framing matters — discounts read as desperation, capacity reads as demand."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": {
+      "choice": "accepted",
+      "reasoning": "Pace is soft and the email hasn’t gone out. Low-risk lift.",
+      "decidedBy": "Marcus Webb",
+      "daysAgo": 25
+    },
+    "escalation": null
+  },
+  {
+    "id": "d13",
+    "title": "StageCraft master rate card renewal",
+    "problem": "The master agreement expires next quarter. Without renewal, AV reverts to list price (~+18%) across EMEA events.",
+    "actionNeeded": "Renew before expiry to keep program rates.",
+    "event": {
+      "id": "emea",
+      "name": "EMEA Customer Summit",
+      "location": "Berlin",
+      "date": "Sep 22–24, 2026",
+      "budget": "$620K",
+      "attendees": 400
+    },
+    "type": "contract",
+    "signalType": "contract.summarized",
+    "urgency": {
+      "level": "medium",
+      "because": "A lapse means list-price AV at every EMEA event until a new deal closes."
+    },
+    "dueInDays": null,
+    "status": "resolved",
+    "owner": {
+      "name": "Priya Nair",
+      "role": "Procurement Lead",
+      "whyRouted": "Master agreements route to procurement."
+    },
+    "recommendation": {
+      "action": "Renew for 2 years at current rates with a 3% annual cap.",
+      "why": "StageCraft delivered 95 of 106 successful re-quotes. Locked rates protect the whole portfolio.",
+      "track": {
+        "worked": 2,
+        "total": 2,
+        "basis": "master agreement renewals with preferred AV vendors"
+      }
+    },
+    "evidence": {
+      "caseCount": 2,
+      "workedCount": 2,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Multi-year renewal with a price cap",
+          "count": "2 of 2 cases",
+          "example": {
+            "event": "Catering master renewal 2024",
+            "detail": "Two-year term with a cap beat market inflation by 6%."
+          },
+          "takeaway": "Caps are worth more than discounts in inflationary years."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [],
+    "resolution": {
+      "choice": "accepted",
+      "reasoning": "Their track record across the portfolio justifies the term. The 3% cap beats market.",
+      "decidedBy": "Priya Nair",
+      "daysAgo": 45
+    },
+    "escalation": null
+  },
+  {
+    "id": "d17",
+    "title": "Berlin venue contract missing cancellation cap",
+    "problem": "The draft contract leaves cancellation liability uncapped. Full committed spend is exposed if either side cancels.",
+    "actionNeeded": "Request a liability-cap addendum before signature. Signing is three weeks out.",
+    "event": {
+      "id": "emea",
+      "name": "EMEA Customer Summit",
+      "location": "Berlin",
+      "date": "Sep 22–24, 2026",
+      "budget": "$620K",
+      "attendees": 400
+    },
+    "type": "contract",
+    "signalType": "contract.summarized",
+    "urgency": {
+      "level": "medium",
+      "because": "Signature is 21 days out. The exposure is real (~€180K) but there is time to negotiate without trading anything."
+    },
+    "dueInDays": 21,
+    "status": "open",
+    "owner": {
+      "name": "Priya Nair",
+      "role": "Procurement Lead",
+      "whyRouted": "Policy P-114 routes contract-term exceptions to procurement."
+    },
+    "recommendation": {
+      "action": "Request a cancellation-cap addendum (1.5× deposit) before signing. No trade needed yet — ask early.",
+      "why": "Protective addendums on international venue contracts succeed most often when asked before the hold deadline adds pressure.",
+      "track": {
+        "worked": 41,
+        "total": 48,
+        "basis": "protective addendums requested on international venue contracts"
+      }
+    },
+    "evidence": {
+      "caseCount": 48,
+      "workedCount": 41,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Ask for protective terms early, before deadline pressure",
+          "count": "29 of the 41 successes",
+          "example": {
+            "event": "Global SKO 2024 — Lisbon",
+            "detail": "Clause accepted with no trade when requested three weeks before signature."
+          },
+          "takeaway": "Early asks cost nothing. Late asks cost trades."
+        },
+        {
+          "outcome": "failed",
+          "title": "Sign first, amend later",
+          "count": "5 of the 7 failures",
+          "example": {
+            "event": "EMEA Summit 2024 — Prague",
+            "detail": "Post-signature amendment talks went nowhere. Exposure stayed."
+          },
+          "takeaway": "Leverage disappears at signature."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [
+      "Policy P-114: cancellation exposure over $250K requires legal sign-off."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Sofia Reyes",
+        "role": "Legal Counsel, Contracts",
+        "why": "Owns sign-off for cancellation exposure over $250K (P-114)."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d18",
+    "title": "Lisbon AV quote 9% over benchmark",
+    "problem": "The venue’s in-house AV quote is €418K against a €385K budget line for the 850-person kickoff.",
+    "actionNeeded": "Re-quote with a preferred vendor before AV sign-off.",
+    "event": {
+      "id": "sko",
+      "name": "Global Sales Kickoff 2027",
+      "location": "Lisbon",
+      "date": "Jan 12–15, 2027",
+      "budget": "$1.4M",
+      "attendees": 850
+    },
+    "type": "budget",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "medium",
+      "because": "AV sign-off is 20 days out. The variance sits inside the discretion band, but a late re-quote loses the leverage window."
+    },
+    "dueInDays": 20,
+    "status": "open",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "Budget variances under 15% sit with the event lead."
+    },
+    "recommendation": {
+      "action": "Re-quote with preferred vendor StageCraft GmbH. Ask the venue to waive its outside-AV fee in the same message.",
+      "why": "Preferred-vendor re-quotes at venues with exclusivity clauses have repeatedly closed variances this size.",
+      "track": {
+        "worked": 95,
+        "total": 106,
+        "basis": "re-quotes with preferred AV vendors at venues with exclusivity clauses"
+      }
+    },
+    "evidence": {
+      "caseCount": 106,
+      "workedCount": 95,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Re-quote with a preferred vendor, then negotiate the outside-AV fee",
+          "count": "71 of the 95 successes",
+          "example": {
+            "event": "DACH Partner Day 2025 — Berlin",
+            "detail": "StageCraft came in 15% under the in-house quote. Venue waived its fee."
+          },
+          "takeaway": "Outside-AV fees are negotiable when F&B spend is high."
+        },
+        {
+          "outcome": "worked",
+          "title": "Use the outside quote as leverage to reprice the in-house offer",
+          "count": "24 of the 95 successes",
+          "example": {
+            "event": "Nordics Summit 2025 — Stockholm",
+            "detail": "Venue matched the outside price within 48 hours."
+          },
+          "takeaway": "Sometimes the quote’s only job is to exist."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [
+      "The SKO AV budget line is €385K."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Tom Okafor",
+        "role": "AV Category Manager",
+        "why": "Negotiated the StageCraft rate card. Can pressure-test both quotes."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d19",
+    "title": "Roadshow venue license sign-off sitting in legal",
+    "problem": "The NYC venue license has been in legal review for 4 days with no response. The signing window closes in 8 days.",
+    "actionNeeded": "Send legal a quantified cost-of-delay note before the window tightens.",
+    "event": {
+      "id": "roadshow",
+      "name": "Product Launch Roadshow",
+      "location": "NYC",
+      "date": "Jul 9, 2026",
+      "budget": "$240K",
+      "attendees": 300
+    },
+    "type": "approval",
+    "signalType": "approval.stalled",
+    "urgency": {
+      "level": "medium",
+      "because": "Eight days of runway remain. Past it, the venue reprices the date (~$6K) — bounded, but avoidable by acting this week."
+    },
+    "dueInDays": 8,
+    "status": "open",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "You own the escalation path for stalled approvals on your events."
+    },
+    "recommendation": {
+      "action": "Send the cost-of-delay figure to the legal reviewer today and ask for a committed review date.",
+      "why": "Quantified cost-of-delay has unblocked stalled approvals fastest. Vague urgency has not.",
+      "track": {
+        "worked": 17,
+        "total": 21,
+        "basis": "approval stalls broken with a quantified cost-of-delay escalation"
+      }
+    },
+    "evidence": {
+      "caseCount": 21,
+      "workedCount": 17,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Escalate with a quantified cost-of-delay",
+          "count": "13 of the 17 successes",
+          "example": {
+            "event": "Q1 Exec Offsite 2026 — Denver",
+            "detail": "Cost figure attached. Approved in 6 hours."
+          },
+          "takeaway": "Quantified cost-of-delay moves approvals. Vague urgency doesn’t."
+        },
+        {
+          "outcome": "failed",
+          "title": "Wait for the reviewer to resurface",
+          "count": "4 of the 4 failures",
+          "example": {
+            "event": "Board Retreat 2025 — Sonoma",
+            "detail": "Waited politely. The hold lapsed — $11K avoidable."
+          },
+          "takeaway": "Waiting out a stall has a measurable price."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [],
+    "escalationPaths": [
+      {
+        "name": "Mei Lin",
+        "role": "Chief of Staff to VP Events",
+        "why": "Can nudge legal with delegated authority when deadlines compress."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
+  },
+  {
+    "id": "d20",
+    "title": "SKO keynote speaker fee 40% over the talent envelope",
+    "problem": "The shortlisted keynote speaker quotes $120K against an $85K envelope. Alternatives score lower with sales leadership.",
+    "actionNeeded": "Decide whether the fee gap is worth the draw, or book the lower-cost alternative.",
+    "event": {
+      "id": "sko",
+      "name": "Global Sales Kickoff 2027",
+      "location": "Lisbon",
+      "date": "Jan 12–15, 2027",
+      "budget": "$1.4M",
+      "attendees": 850
+    },
+    "type": "budget",
+    "signalType": "quote.received",
+    "urgency": {
+      "level": "high",
+      "because": "The speaker holds the date for 10 more days. Past that, rebooking at this tier typically adds 15–20%."
+    },
+    "dueInDays": 10,
+    "status": "escalated",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "Talent decisions sit with the event lead until they breach the envelope."
+    },
+    "recommendation": {
+      "action": "Hold the envelope: book the second-choice speaker and reinvest $20K of the gap in the opening production.",
+      "why": "Speaker-fee overruns at this tier have not moved session scores. Production quality has.",
+      "track": {
+        "worked": 6,
+        "total": 9,
+        "basis": "keynote bookings decided against tier-priced fee gaps"
+      }
+    },
+    "evidence": {
+      "caseCount": 9,
+      "workedCount": 6,
+      "patterns": [
+        {
+          "outcome": "worked",
+          "title": "Book the second choice, spend the gap on production",
+          "count": "5 of the 6 successes",
+          "example": {
+            "event": "Global SKO 2026 — Marseille",
+            "detail": "Second-choice keynote plus upgraded opening. Session scores up year over year."
+          },
+          "takeaway": "The room remembers the show, not the fee."
+        },
+        {
+          "outcome": "failed",
+          "title": "Stretch the envelope for a marquee name",
+          "count": "2 of the 3 failures",
+          "example": {
+            "event": "Global SKO 2023 — Orlando",
+            "detail": "Envelope stretched 35%. Scores flat; the overrun came out of breakouts."
+          },
+          "takeaway": "Marquee fees trade against the rest of the program."
+        }
+      ],
+      "exceptions": [],
+      "cases": [],
+      "precedents": []
+    },
+    "whatsDifferent": [],
+    "risks": [],
+    "constraints": [
+      "FY27 talent envelope: $85K."
+    ],
+    "escalationPaths": [
+      {
+        "name": "James Tan",
+        "role": "VP Events",
+        "why": "SKO exec sponsor — owns envelope exceptions."
+      }
+    ],
+    "resolution": null,
+    "escalation": {
+      "to": "James Tan",
+      "reasoning": "Outside my decision authority — the fee tops the envelope by 40% and sales leadership is pushing hard for this name.",
+      "requestedBy": "Dana Ortiz",
+      "daysAgo": 2
+    }
+  }
+]

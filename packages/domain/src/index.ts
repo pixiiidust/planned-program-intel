@@ -21,7 +21,7 @@ export type {
   UrgencyLevel,
   WhatsDifferent,
 } from './types.js';
-export { URGENCY_RANK } from './types.js';
+export { SIGNAL_TYPES, URGENCY_RANK } from './types.js';
 export type { DecisionRepository, DecisionSource, LoadResult } from './ports.js';
 export { needsYou, tabOf } from './queue.js';
 export type { QueueTab } from './queue.js';
@@ -30,3 +30,5 @@ export type { DecisionAction } from './lifecycle.js';
 export { evidenceCounts, isSmallSample } from './evidence.js';
 export { openSiblingsOf } from './siblings.js';
 export { landPrecedent, precedentFrom } from './precedents.js';
+export { validateSeedBundle } from './seedValidation.js';
+export { makeDecision } from './testing.js';

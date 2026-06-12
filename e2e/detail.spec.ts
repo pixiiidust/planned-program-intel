@@ -21,8 +21,8 @@ test('detail opens action-first with an inspectable Case explorer', async ({ pag
   await evidenceFold.click();
   await expect(detail.getByText('41 worked')).toBeVisible();
   await expect(detail.getByText('85% success across 48 cases')).toBeVisible();
-  await expect(detail.getByText('Global SKO 2025 — Barcelona')).toBeVisible();
-  await expect(detail.getByText('94% similar')).toBeVisible();
+  await expect(detail.getByText('Sales Club 2023 — Athens')).toBeVisible();
+  await expect(detail.getByText('79% similar')).toBeVisible();
   await expect(detail.getByText('Iberia').first()).toBeVisible();
 
   // Outcome filter: only failed cases remain.

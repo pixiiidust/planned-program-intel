@@ -15,12 +15,15 @@ export type DecisionStatus = 'open' | 'blocked' | 'escalated' | 'resolved';
  * Decisions are detected from. Every seed Decision references the Signal type
  * that would have produced it.
  */
-export type SignalType =
-  | 'quote.received'
-  | 'contract.summarized'
-  | 'approval.stalled'
-  | 'registration.pace_updated'
-  | 'policy.checked';
+export const SIGNAL_TYPES = [
+  'quote.received',
+  'contract.summarized',
+  'approval.stalled',
+  'registration.pace_updated',
+  'policy.checked',
+] as const;
+
+export type SignalType = (typeof SIGNAL_TYPES)[number];
 
 export type ResolutionChoice = 'accepted' | 'changed' | 'overridden';
 

@@ -1,0 +1,825 @@
+[
+  {
+    "id": "c01",
+    "type": "contract",
+    "title": "Lisbon venue contract missing force majeure clause",
+    "event": "Global SKO 2025 — Barcelona",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Addendum accepted for a 5% earlier deposit.",
+    "tags": [
+      "Iberia",
+      "convention center"
+    ],
+    "origin": {
+      "decisionId": "d1",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c02",
+    "type": "contract",
+    "title": "Lisbon venue contract missing force majeure clause",
+    "event": "EMEA Summit 2024 — Prague",
+    "when": "2024",
+    "outcome": "failed",
+    "detail": "Signed without the clause. Storm cancellation cost $42K.",
+    "tags": [
+      "Central Europe",
+      "hotel"
+    ],
+    "origin": {
+      "decisionId": "d1",
+      "patternIndex": 2
+    }
+  },
+  {
+    "id": "c03",
+    "type": "contract",
+    "title": "Lisbon venue contract missing force majeure clause",
+    "event": "APAC SKO 2025 — Seoul",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Hold extension granted during legal review.",
+    "tags": [
+      "APAC",
+      "convention center"
+    ],
+    "origin": {
+      "decisionId": "d1",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c04",
+    "type": "contract",
+    "title": "Lisbon venue contract missing force majeure clause",
+    "event": "Partner Summit 2024 — Rome",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Government-owned venue. Legal board took 9 days but accepted the clause.",
+    "tags": [
+      "Italy",
+      "government-owned"
+    ],
+    "origin": {
+      "decisionId": "d1"
+    }
+  },
+  {
+    "id": "c05",
+    "type": "contract",
+    "title": "Lisbon venue contract missing force majeure clause",
+    "event": "Global SKO 2024 — Lisbon",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Same city, different venue. Clause accepted with no trade.",
+    "tags": [
+      "Iberia",
+      "hotel"
+    ],
+    "origin": {
+      "decisionId": "d1"
+    }
+  },
+  {
+    "id": "c06",
+    "type": "contract",
+    "title": "Lisbon venue contract missing force majeure clause",
+    "event": "Sales Club 2023 — Athens",
+    "when": "2023",
+    "outcome": "failed",
+    "detail": "Addendum talks stalled past the hold. Preferred dates lost.",
+    "tags": [
+      "Southern Europe",
+      "resort"
+    ],
+    "origin": {
+      "decisionId": "d1"
+    }
+  },
+  {
+    "id": "c07",
+    "type": "budget",
+    "title": "Berlin AV quote 22% over benchmark",
+    "event": "DACH Partner Day 2025 — Berlin",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "StageCraft 15% under in-house. Fee waived.",
+    "tags": [
+      "Berlin",
+      "exclusivity clause"
+    ],
+    "origin": {
+      "decisionId": "d2",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c08",
+    "type": "budget",
+    "title": "Berlin AV quote 22% over benchmark",
+    "event": "EMEA Summit 2025 — Vienna",
+    "when": "2025",
+    "outcome": "failed",
+    "detail": "No walkthrough budgeted. Load-in overran €9K.",
+    "tags": [
+      "Austria",
+      "outside vendor"
+    ],
+    "origin": {
+      "decisionId": "d2",
+      "patternIndex": 2
+    }
+  },
+  {
+    "id": "c09",
+    "type": "budget",
+    "title": "Berlin AV quote 22% over benchmark",
+    "event": "Nordics Summit 2025 — Stockholm",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Venue matched the outside quote in 48h.",
+    "tags": [
+      "Nordics",
+      "leverage re-quote"
+    ],
+    "origin": {
+      "decisionId": "d2",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c10",
+    "type": "budget",
+    "title": "Berlin AV quote 22% over benchmark",
+    "event": "Paris Customer Day 2024",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Preferred vendor 12% under. Fee waived at €70K F&B spend.",
+    "tags": [
+      "France",
+      "fee waiver"
+    ],
+    "origin": {
+      "decisionId": "d2",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c11",
+    "type": "budget",
+    "title": "Berlin AV quote 22% over benchmark",
+    "event": "London Exec Forum 2024",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "In-house repriced to within 4% of the outside quote.",
+    "tags": [
+      "UK",
+      "leverage re-quote"
+    ],
+    "origin": {
+      "decisionId": "d2",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c12",
+    "type": "budget",
+    "title": "Berlin AV quote 22% over benchmark",
+    "event": "Madrid Kickoff 2023",
+    "when": "2023",
+    "outcome": "failed",
+    "detail": "Outside vendor missed the rigging spec. €7K in change orders.",
+    "tags": [
+      "Iberia",
+      "outside vendor"
+    ],
+    "origin": {
+      "decisionId": "d2",
+      "patternIndex": 2
+    }
+  },
+  {
+    "id": "c13",
+    "type": "approval",
+    "title": "Austin hotel contract stuck in VP approval",
+    "event": "Q1 Exec Offsite 2026 — Denver",
+    "when": "2026",
+    "outcome": "worked",
+    "detail": "Chief-of-staff escalation. Approved in 6 hours.",
+    "tags": [
+      "delegate path",
+      "lodging"
+    ],
+    "origin": {
+      "decisionId": "d3",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c14",
+    "type": "approval",
+    "title": "Austin hotel contract stuck in VP approval",
+    "event": "Board Retreat 2025 — Sonoma",
+    "when": "2025",
+    "outcome": "failed",
+    "detail": "Waited. Hold lapsed. $11K avoidable spend.",
+    "tags": [
+      "waited",
+      "lodging"
+    ],
+    "origin": {
+      "decisionId": "d3",
+      "patternIndex": 2
+    }
+  },
+  {
+    "id": "c15",
+    "type": "approval",
+    "title": "Austin hotel contract stuck in VP approval",
+    "event": "NY Leadership Summit 2025",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Hotel extended the hold 72h on request.",
+    "tags": [
+      "vendor extension"
+    ],
+    "origin": {
+      "decisionId": "d3",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c16",
+    "type": "approval",
+    "title": "Austin hotel contract stuck in VP approval",
+    "event": "SKO Vendor Fair 2024",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Cost-of-delay memo cc’ing finance. Signed next morning.",
+    "tags": [
+      "delegate path"
+    ],
+    "origin": {
+      "decisionId": "d3",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c17",
+    "type": "policy",
+    "title": "NYC caterer unavailable — alternate needs a policy exception",
+    "event": "West Coast Roadshow 2025 — SF",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Exception + COI check. Vendor later joined the preferred list.",
+    "tags": [
+      "first-time venue",
+      "COI verified"
+    ],
+    "origin": {
+      "decisionId": "d4",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c18",
+    "type": "policy",
+    "title": "NYC caterer unavailable — alternate needs a policy exception",
+    "event": "Chicago Roadshow 2023",
+    "when": "2023",
+    "outcome": "failed",
+    "detail": "Verification skipped. Uninsured damage claim.",
+    "tags": [
+      "no verification"
+    ],
+    "origin": {
+      "decisionId": "d4",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c19",
+    "type": "policy",
+    "title": "NYC caterer unavailable — alternate needs a policy exception",
+    "event": "Boston Partner Day 2024",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Menu review caught a halal gap in time.",
+    "tags": [
+      "menu review"
+    ],
+    "origin": {
+      "decisionId": "d4",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c20",
+    "type": "forecast",
+    "title": "EMEA Summit registration 31% below target",
+    "event": "EMEA Summit 2025 — Vienna",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "50-room early release + partner wave → 96% pickup.",
+    "tags": [
+      "early release",
+      "partner wave"
+    ],
+    "origin": {
+      "decisionId": "d5",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c21",
+    "type": "forecast",
+    "title": "EMEA Summit registration 31% below target",
+    "event": "APAC Summit 2024 — Singapore",
+    "when": "2024",
+    "outcome": "failed",
+    "detail": "Held the block. $22K attrition at 71% pickup.",
+    "tags": [
+      "held block"
+    ],
+    "origin": {
+      "decisionId": "d5",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c22",
+    "type": "forecast",
+    "title": "EMEA Summit registration 31% below target",
+    "event": "Americas Summit 2025 — Chicago",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Released 40 rooms at 6 weeks out. Re-added 20 when pace recovered.",
+    "tags": [
+      "early release",
+      "reversible"
+    ],
+    "origin": {
+      "decisionId": "d5",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c23",
+    "type": "forecast",
+    "title": "EMEA Summit registration 31% below target",
+    "event": "EMEA Summit 2023 — Amsterdam",
+    "when": "2023",
+    "outcome": "failed",
+    "detail": "Conference overlap. Pace never recovered despite an invite wave.",
+    "tags": [
+      "conference overlap"
+    ],
+    "origin": {
+      "decisionId": "d5"
+    }
+  },
+  {
+    "id": "c24",
+    "type": "budget",
+    "title": "Lisbon venue raised its F&B minimum 15%",
+    "event": "Global SKO 2026 — Marseille",
+    "when": "2026",
+    "outcome": "worked",
+    "detail": "Networking night to stations. Satisfaction unchanged.",
+    "tags": [
+      "non-ceremonial",
+      "large event"
+    ],
+    "origin": {
+      "decisionId": "d6",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c25",
+    "type": "budget",
+    "title": "Lisbon venue raised its F&B minimum 15%",
+    "event": "Global SKO 2023 — Orlando",
+    "when": "2023",
+    "outcome": "failed",
+    "detail": "Awards dinner converted. Reverted after leadership pushback.",
+    "tags": [
+      "ceremonial dinner"
+    ],
+    "origin": {
+      "decisionId": "d6",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c26",
+    "type": "budget",
+    "title": "Lisbon venue raised its F&B minimum 15%",
+    "event": "EMEA Summit 2024 — Prague",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Two lunches to stations. €18K saved without comment.",
+    "tags": [
+      "lunch conversion"
+    ],
+    "origin": {
+      "decisionId": "d6",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c27",
+    "type": "vendor",
+    "title": "Breakout session recording for SKO",
+    "event": "Global SKO 2026 — Marseille",
+    "when": "2026",
+    "outcome": "worked",
+    "detail": "All tracks raw, 61% viewership.",
+    "tags": [
+      "raw cuts"
+    ],
+    "origin": {
+      "decisionId": "d14",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c28",
+    "type": "vendor",
+    "title": "Breakout session recording for SKO",
+    "event": "Global SKO 2024 — Lisbon",
+    "when": "2024",
+    "outcome": "failed",
+    "detail": "Pre-picked tracks missed demand.",
+    "tags": [
+      "partial recording"
+    ],
+    "origin": {
+      "decisionId": "d14",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c29",
+    "type": "logistics",
+    "title": "Badge design refresh for EMEA Summit",
+    "event": "EMEA Summit 2025 — Vienna",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Larger names, easier networking.",
+    "tags": [
+      "badges"
+    ],
+    "origin": {
+      "decisionId": "d15",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c30",
+    "type": "logistics",
+    "title": "Post-event survey tool for the roadshow",
+    "event": "West Coast Roadshow 2025 — SF",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Auto-joined results, zero exports.",
+    "tags": [
+      "survey"
+    ],
+    "origin": {
+      "decisionId": "d16",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c31",
+    "type": "budget",
+    "title": "Hybrid AV package for the Berlin keynote",
+    "event": "EMEA Summit 2025 — Vienna",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "2.3x in-room reach. 4x cost coverage.",
+    "tags": [
+      "keynote",
+      "hybrid"
+    ],
+    "origin": {
+      "decisionId": "d7",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c32",
+    "type": "budget",
+    "title": "Hybrid AV package for the Berlin keynote",
+    "event": "EMEA Summit 2024 — Prague",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "1.8x reach. Sponsor renewed on remote numbers.",
+    "tags": [
+      "keynote",
+      "hybrid"
+    ],
+    "origin": {
+      "decisionId": "d7",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c33",
+    "type": "vendor",
+    "title": "Cheaper hotel proposed for the Austin offsite",
+    "event": "Q1 Exec Offsite 2026 — Denver",
+    "when": "2026",
+    "outcome": "worked",
+    "detail": "Outlying property. $9K saved, no complaints.",
+    "tags": [
+      "internal-only"
+    ],
+    "origin": {
+      "decisionId": "d8",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c34",
+    "type": "vendor",
+    "title": "Berlin venue Wi-Fi upgrade for the live demo",
+    "event": "Paris Customer Day 2024",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Demo clean on a dedicated line.",
+    "tags": [
+      "live demo"
+    ],
+    "origin": {
+      "decisionId": "d9",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c35",
+    "type": "logistics",
+    "title": "Shuttles vs ride credits for the NYC roadshow",
+    "event": "West Coast Roadshow 2025 — SF",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Two loops, 92% satisfaction.",
+    "tags": [
+      "transit hubs"
+    ],
+    "origin": {
+      "decisionId": "d10",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c36",
+    "type": "logistics",
+    "title": "Shuttles vs ride credits for the NYC roadshow",
+    "event": "Chicago Roadshow 2023",
+    "when": "2023",
+    "outcome": "failed",
+    "detail": "Gridlock doubled loop times.",
+    "tags": [
+      "gridlock"
+    ],
+    "origin": {
+      "decisionId": "d10",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c37",
+    "type": "budget",
+    "title": "Digital-only signage proposed for SKO",
+    "event": "Global SKO 2026 — Marseille",
+    "when": "2026",
+    "outcome": "worked",
+    "detail": "Digital-only, no complaints.",
+    "tags": [
+      "screen-rich"
+    ],
+    "origin": {
+      "decisionId": "d11",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c38",
+    "type": "budget",
+    "title": "Digital-only signage proposed for SKO",
+    "event": "Partner Summit 2024 — Rome",
+    "when": "2024",
+    "outcome": "failed",
+    "detail": "Sponsor reprint cost €6K.",
+    "tags": [
+      "sponsor placement"
+    ],
+    "origin": {
+      "decisionId": "d11",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c39",
+    "type": "forecast",
+    "title": "Early-bird pricing extension for EMEA Summit",
+    "event": "Americas Summit 2025 — Chicago",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Extension lifted registrations 14%.",
+    "tags": [
+      "pricing"
+    ],
+    "origin": {
+      "decisionId": "d12",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c40",
+    "type": "contract",
+    "title": "StageCraft master rate card renewal",
+    "event": "Catering master renewal 2024",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Capped renewal beat market by 6%.",
+    "tags": [
+      "master agreement"
+    ],
+    "origin": {
+      "decisionId": "d13",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c41",
+    "type": "contract",
+    "title": "Berlin venue contract missing cancellation cap",
+    "event": "Global SKO 2024 — Lisbon",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Clause accepted with no trade. Asked early.",
+    "tags": [
+      "Iberia",
+      "hotel"
+    ],
+    "origin": {
+      "decisionId": "d17",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c42",
+    "type": "contract",
+    "title": "Berlin venue contract missing cancellation cap",
+    "event": "Global SKO 2025 — Barcelona",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "Addendum accepted for a 5% earlier deposit.",
+    "tags": [
+      "Iberia",
+      "convention center"
+    ],
+    "origin": {
+      "decisionId": "d17",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c43",
+    "type": "contract",
+    "title": "Berlin venue contract missing cancellation cap",
+    "event": "EMEA Summit 2024 — Prague",
+    "when": "2024",
+    "outcome": "failed",
+    "detail": "Signed without the cap. Amendment talks stalled.",
+    "tags": [
+      "Central Europe",
+      "hotel"
+    ],
+    "origin": {
+      "decisionId": "d17",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c44",
+    "type": "budget",
+    "title": "Lisbon AV quote 9% over benchmark",
+    "event": "DACH Partner Day 2025 — Berlin",
+    "when": "2025",
+    "outcome": "worked",
+    "detail": "StageCraft 15% under in-house. Fee waived.",
+    "tags": [
+      "Berlin",
+      "exclusivity clause"
+    ],
+    "origin": {
+      "decisionId": "d18",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c45",
+    "type": "budget",
+    "title": "Lisbon AV quote 9% over benchmark",
+    "event": "Paris Customer Day 2024",
+    "when": "2024",
+    "outcome": "worked",
+    "detail": "Preferred vendor 12% under. Fee waived.",
+    "tags": [
+      "France",
+      "fee waiver"
+    ],
+    "origin": {
+      "decisionId": "d18",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c46",
+    "type": "budget",
+    "title": "Lisbon AV quote 9% over benchmark",
+    "event": "Madrid Kickoff 2023",
+    "when": "2023",
+    "outcome": "failed",
+    "detail": "Outside vendor missed the rigging spec. €7K in change orders.",
+    "tags": [
+      "Iberia",
+      "outside vendor"
+    ],
+    "origin": {
+      "decisionId": "d18"
+    }
+  },
+  {
+    "id": "c47",
+    "type": "approval",
+    "title": "Roadshow venue license sign-off sitting in legal",
+    "event": "Q1 Exec Offsite 2026 — Denver",
+    "when": "2026",
+    "outcome": "worked",
+    "detail": "Cost-of-delay note. Approved in 6 hours.",
+    "tags": [
+      "delegate path"
+    ],
+    "origin": {
+      "decisionId": "d19",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c48",
+    "type": "approval",
+    "title": "Roadshow venue license sign-off sitting in legal",
+    "event": "Board Retreat 2025 — Sonoma",
+    "when": "2025",
+    "outcome": "failed",
+    "detail": "Waited. Hold lapsed. $11K avoidable spend.",
+    "tags": [
+      "waited"
+    ],
+    "origin": {
+      "decisionId": "d19",
+      "patternIndex": 1
+    }
+  },
+  {
+    "id": "c49",
+    "type": "budget",
+    "title": "SKO keynote speaker fee 40% over the talent envelope",
+    "event": "Global SKO 2026 — Marseille",
+    "when": "2026",
+    "outcome": "worked",
+    "detail": "Second choice + production upgrade. Scores up.",
+    "tags": [
+      "keynote",
+      "envelope held"
+    ],
+    "origin": {
+      "decisionId": "d20",
+      "patternIndex": 0
+    }
+  },
+  {
+    "id": "c50",
+    "type": "budget",
+    "title": "SKO keynote speaker fee 40% over the talent envelope",
+    "event": "Global SKO 2023 — Orlando",
+    "when": "2023",
+    "outcome": "failed",
+    "detail": "Envelope stretched 35%. Flat scores.",
+    "tags": [
+      "keynote",
+      "envelope stretched"
+    ],
+    "origin": {
+      "decisionId": "d20",
+      "patternIndex": 1
+    }
+  }
+]
