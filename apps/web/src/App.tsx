@@ -3,13 +3,14 @@
 // and persist, resolving auto-advances with a jump-back toast, and a stale
 // seed (version-stamp mismatch after a redeploy) nukes-and-reseeds with a
 // one-line toast. "Reset demo data" restores the pristine seed.
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Decision, QueueTab } from '@ppi/domain';
-import { applyAction, landPrecedent, openSiblingsOf, precedentFrom, tabOf } from '@ppi/domain';
-import { DEMO_SEED, IndexedDbDecisionRepository } from '@ppi/adapters';
+import { applyAction, detectFromFeed, landPrecedent, openSiblingsOf, precedentFrom, tabOf } from '@ppi/domain';
+import { DEMO_PROGRAM_THRESHOLDS, DEMO_SEED, IndexedDbDecisionRepository, ScriptedSignalFeed } from '@ppi/adapters';
 import type { ResolveOutcome } from './components/ActionPanel.js';
 import { DetailPane } from './components/DetailPane.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
+import { FEED_DECISION_IDS, feedDelayMs } from './lib/feed.js';
 
 const repository = new IndexedDbDecisionRepository();
 
@@ -25,6 +26,10 @@ const EMPTY_STATE: Record<QueueTab, string> = {
   decided: 'No calls made yet. Decided items land here, with their reasoning saved to program memory.',
 };
 
+function feedHasFired(decisions: readonly Decision[]): boolean {
+  return decisions.some((d) => FEED_DECISION_IDS.has(d.id));
+}
+
 interface Toast {
   message: string;
   jump?: { tab: QueueTab; id: string };
@@ -36,13 +41,52 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [mobileDetail, setMobileDetail] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
+  const decisionsRef = useRef<Decision[]>([]);
+  const feedUnsubscribeRef = useRef<(() => void) | null>(null);
+
+  function stopFeed() {
+    feedUnsubscribeRef.current?.();
+    feedUnsubscribeRef.current = null;
+  }
+
+  function armFeedIfNeeded(ds: Decision[]) {
+    stopFeed();
+    const delayMs = feedDelayMs(window.location.search);
+    const feedDecisions = DEMO_SEED.feedDecisions ?? [];
+    if (delayMs === null || feedDecisions.length === 0 || feedHasFired(ds)) return;
+
+    const feed = new ScriptedSignalFeed({ delayMs });
+    feedUnsubscribeRef.current = feed.subscribe((signal) => {
+      stopFeed();
+      const detected = detectFromFeed(signal, feedDecisions, DEMO_PROGRAM_THRESHOLDS);
+      if (!detected || decisionsRef.current.some((d) => d.id === detected.id)) return;
+
+      void repository.save(detected).then(() => {
+        setDecisions((current) => {
+          if (current.some((d) => d.id === detected.id)) return current;
+          const next = [...current, detected];
+          decisionsRef.current = next;
+          return next;
+        });
+        setToast({ message: 'New decision detected from the simulated feed', jump: { tab: 'needs-you', id: detected.id } });
+      });
+    });
+  }
 
   useEffect(() => {
+    let cancelled = false;
     void repository.load().then(({ decisions: ds, reseeded }) => {
+      if (cancelled) return;
+      decisionsRef.current = ds;
       setDecisions(ds);
       setSelectedId(defaultSort('needs-you', ds.filter((d) => tabOf(d) === 'needs-you'))[0]?.id ?? null);
+      armFeedIfNeeded(ds);
       if (reseeded) setToast({ message: 'Demo data refreshed — a new version of the seed was deployed.' });
     });
+    return () => {
+      cancelled = true;
+      stopFeed();
+    };
   }, []);
 
   useEffect(() => {
@@ -50,6 +94,10 @@ export default function App() {
     const t = setTimeout(() => setToast(null), 4000);
     return () => clearTimeout(t);
   }, [toast]);
+
+  useEffect(() => {
+    decisionsRef.current = decisions;
+  }, [decisions]);
 
   const inTab = decisions.filter((d) => tabOf(d) === tab);
   const counts = Object.fromEntries(TABS.map((t) => [t.key, decisions.filter((d) => tabOf(d) === t.key).length])) as Record<
@@ -117,11 +165,14 @@ export default function App() {
   }
 
   async function handleReset() {
+    stopFeed();
     const ds = await repository.reset();
+    decisionsRef.current = ds;
     setDecisions(ds);
     setTab('needs-you');
     setSelectedId(defaultSort('needs-you', ds.filter((d) => tabOf(d) === 'needs-you'))[0]?.id ?? null);
     setMobileDetail(false);
+    armFeedIfNeeded(ds);
     setToast({ message: '✓ Demo data reset to the pristine seed' });
   }
 

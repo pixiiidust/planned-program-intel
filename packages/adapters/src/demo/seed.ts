@@ -4,7 +4,7 @@
 import type { SeedBundle } from '@ppi/domain';
 
 export const SEED = {
-  "seedVersion": "seed-v2-corpus-intelligence",
+  "seedVersion": "seed-v2.1-simulated-feed",
   "decisions": [
     {
       "id": "d1",
@@ -2794,6 +2794,173 @@ export const SEED = {
       }
     }
   ],
+  "feedDecisions": [
+    {
+      "id": "d21",
+      "title": "SKO registration 26% below the booking curve",
+      "problem": "Registration is 480 against a booking-curve target of 650 at this point in the cycle. Attrition penalties start below 80% pickup on an 850-room block.",
+      "actionNeeded": "Release 90 rooms inside the free window and open the second partner-invite wave.",
+      "event": {
+        "id": "sko",
+        "name": "Global Sales Kickoff 2027",
+        "location": "Lisbon",
+        "date": "Jan 12–15, 2027",
+        "budget": "$1.4M",
+        "attendees": 850
+      },
+      "type": "forecast",
+      "signalType": "registration.pace_updated",
+      "urgency": {
+        "level": "medium",
+        "because": "The pace rule tripped: registration sits at 74% of the booking-curve target, under this program's three-quarters threshold inside its long-lead window. The free room-block release closes in 12 days; after it, attrition exposure starts at ~$45K."
+      },
+      "dueInDays": 12,
+      "status": "open",
+      "owner": {
+        "name": "Dana Ortiz",
+        "role": "Event Lead",
+        "whyRouted": "Forecast-driven scope changes route to the event lead before money moves."
+      },
+      "recommendation": {
+        "action": "Release 90 rooms now, inside the free window. Open the second partner-invite wave. Set a re-forecast checkpoint in 2 weeks.",
+        "why": "Pace projects ~700 attendees against an 850-room block. The release is free and reversible, and partner waves lifted registration at past kickoffs. The checkpoint covers the January-booking lag.",
+        "track": {
+          "worked": 27,
+          "total": 50,
+          "basis": "registration-pace decisions at similar long-lead programs"
+        }
+      },
+      "evidence": {
+        "caseCount": 50,
+        "workedCount": 27,
+        "patterns": [
+          {
+            "outcome": "worked",
+            "title": "Urgently contact unconfirmed registrants to accelerate booking",
+            "count": "9 of the 27 successes",
+            "example": {
+              "event": "User Conference 2022 — Madrid",
+              "detail": "Pace was 82% of target 39 days out. Target attendance was 653. Final attendance was 621. Added spend was $22K."
+            },
+            "takeaway": "This play succeeds when attendees remain reachable and responsive within the window before attrition penalties apply, but falters if outreach occurs too late or targets have already committed elsewhere."
+          },
+          {
+            "outcome": "worked",
+            "title": "Activate early-bird pricing incentive before attrition threshold",
+            "count": "8 of the 27 successes",
+            "example": {
+              "event": "SKO 2024 — Marseille",
+              "detail": "Pace was 53% of target 28 days out. Target attendance was 366. Final attendance was 356. Added spend was $4K."
+            },
+            "takeaway": "This play works when registration lags the booking curve significantly and sufficient time remains to convert price-sensitive prospects before penalty clauses activate."
+          },
+          {
+            "outcome": "worked",
+            "title": "Shrink the venue footprint to match registration",
+            "count": "7 of the 27 successes",
+            "example": {
+              "event": "Sales Club 2026 — Stockholm",
+              "detail": "Pace was 88% of target 84 days out. Target attendance was 470. Final attendance was 456. Added spend was $2K."
+            },
+            "takeaway": "This play works when pace cannot recover before the commitment deadline — reducing the footprint removes attrition exposure instead of chasing demand."
+          },
+          {
+            "outcome": "failed",
+            "title": "Maintain current booking strategy despite registration shortfall",
+            "count": "7 of the 23 failures",
+            "example": {
+              "event": "Sales Club 2026 — Seoul",
+              "detail": "Pace was 69% of target 12 days out. Target attendance was 989. Final attendance was 702. Added spend was $1K."
+            },
+            "takeaway": "This approach fails when registration trails the curve significantly with insufficient time to activate new demand levers before attrition penalties trigger."
+          }
+        ],
+        "exceptions": [
+          {
+            "title": "Inside 30 days out (13 cases)",
+            "detail": "Worked 5 of 13 vs 54% across the similar set. The subgroup of attendees who book immediately after the holiday freeze ends will determine whether registration velocity recovers enough to avoid attrition penalties before the room block commitment deadline."
+          }
+        ],
+        "cases": [
+          {
+            "event": "SKO 2024 — Marseille",
+            "when": "2024",
+            "similarity": 0.626,
+            "outcome": "worked",
+            "patternIndex": 1,
+            "detail": "Pace was 53% of target 28 days out. Target attendance was 366. Final attendance was 356. Added spend was $4K.",
+            "tags": [
+              "France",
+              "resort",
+              "under 30 days out"
+            ]
+          },
+          {
+            "event": "User Conference 2025 — Lisbon",
+            "when": "2025",
+            "similarity": 0.5764,
+            "outcome": "failed",
+            "patternIndex": 1,
+            "detail": "Pace was 86% of target 29 days out. Target attendance was 520. Final attendance was 338. Added spend was $10K.",
+            "tags": [
+              "Iberia",
+              "arena",
+              "under 30 days out"
+            ]
+          },
+          {
+            "event": "SKO 2025 — Austin",
+            "when": "2025",
+            "similarity": 0.5711,
+            "outcome": "worked",
+            "patternIndex": 3,
+            "detail": "Pace was 60% of target 12 days out. Target attendance was 838. Final attendance was 805. Added spend was $3K.",
+            "tags": [
+              "US Central",
+              "arena",
+              "under 30 days out"
+            ]
+          },
+          {
+            "event": "SKO 2024 — Seoul",
+            "when": "2024",
+            "similarity": 0.5573,
+            "outcome": "failed",
+            "patternIndex": 2,
+            "detail": "Pace was 82% of target 84 days out. Target attendance was 1071. Final attendance was 728. Added spend was $3K.",
+            "tags": [
+              "APAC",
+              "conference center",
+              "registration pace"
+            ]
+          }
+        ],
+        "precedents": []
+      },
+      "whatsDifferent": [
+        {
+          "change": "January dates put registration right behind the holiday booking freeze.",
+          "whyItMatters": "Pace historically reads worse than the final number after a freeze — release the rooms, but re-forecast before cutting deeper."
+        }
+      ],
+      "risks": [
+        "Over-releasing forces re-booking at higher January rates if pace recovers late.",
+        "The partner wave shifts the attendee mix; check sponsor commitments on customer attendance."
+      ],
+      "constraints": [
+        "The free-release window on the Lisbon room block closes in 12 days."
+      ],
+      "escalationPaths": [
+        {
+          "name": "Anika Sharma",
+          "role": "Demand Gen Lead",
+          "why": "Owns the partner-invite waves and can validate the pace projection."
+        }
+      ],
+      "resolution": null,
+      "escalation": null
+    }
+  ],
   "siblings": {
     "d1": [
       "d17"
@@ -2807,6 +2974,7 @@ export const SEED = {
       "d19"
     ],
     "d5": [
+      "d21",
       "d12"
     ],
     "d6": [
@@ -2847,6 +3015,9 @@ export const SEED = {
       "d7",
       "d11",
       "d14"
+    ],
+    "d21": [
+      "d5"
     ]
   }
 } satisfies SeedBundle;

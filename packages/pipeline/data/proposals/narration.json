@@ -470,5 +470,37 @@
       }
     ],
     "exceptions": []
+  },
+  {
+    "decisionId": "d21",
+    "basis": "registration-pace decisions at similar long-lead programs",
+    "patterns": [
+      {
+        "approach": "targeted-outreach",
+        "title": "Urgently contact unconfirmed registrants to accelerate booking",
+        "takeaway": "This play succeeds when attendees remain reachable and responsive within the window before attrition penalties apply, but falters if outreach occurs too late or targets have already committed elsewhere."
+      },
+      {
+        "approach": "extend-early-bird",
+        "title": "Activate early-bird pricing incentive before attrition threshold",
+        "takeaway": "This play works when registration lags the booking curve significantly and sufficient time remains to convert price-sensitive prospects before penalty clauses activate."
+      },
+      {
+        "approach": "rescope-venue",
+        "title": "Shrink the venue footprint to match registration",
+        "takeaway": "This play works when pace cannot recover before the commitment deadline — reducing the footprint removes attrition exposure instead of chasing demand."
+      },
+      {
+        "approach": "hold-course",
+        "title": "Maintain current booking strategy despite registration shortfall",
+        "takeaway": "This approach fails when registration trails the curve significantly with insufficient time to activate new demand levers before attrition penalties trigger."
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "inside-30-days",
+        "whyItMattersNow": "The subgroup of attendees who book immediately after the holiday freeze ends will determine whether registration velocity recovers enough to avoid attrition penalties before the room block commitment deadline."
+      }
+    ]
   }
 ]

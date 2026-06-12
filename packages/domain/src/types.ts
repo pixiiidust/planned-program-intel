@@ -173,6 +173,11 @@ export interface Decision {
 export interface SeedBundle {
   seedVersion: string;
   decisions: Decision[];
+  /**
+   * Held-back, pipeline-derived Decisions the simulated feed releases on Detection (ADR-0003).
+   * Evidence is true by construction like every seeded Decision.
+   */
+  feedDecisions?: Decision[];
   /** Sibling map for Precedent routing: decision id → similar open decision ids. */
   siblings: Record<string, string[]>;
 }

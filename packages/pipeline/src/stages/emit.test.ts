@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { makeDecision, type Decision } from '@ppi/domain';
+import { makeDecision, validateSeedBundle, type Decision } from '@ppi/domain';
 import type { CorpusCase } from '../corpus.js';
 import type { SimilarityTable } from '../tables.js';
 import type { DecisionIntelligence } from './cluster.js';
@@ -272,6 +272,32 @@ describe('assembleBundle', () => {
   it('maps the sibling table to an id list, dropping empty rows', () => {
     const bundle = assemble(decisions, [], table({ d1: [], d2: [] }), table({ d1: [{ id: 'd2', score: 0.8 }], d2: [] }));
     expect(bundle.siblings).toEqual({ d1: ['d2'] });
+  });
+
+  it('splits held-back feed decisions after deriving evidence', () => {
+    const main = decision('d1');
+    const feed = decision('d21', { signalType: 'registration.pace_updated' });
+    const all = [main, feed];
+    const bundle = assembleBundle(
+      all,
+      [],
+      table({ d1: [], d21: [] }),
+      table({ d1: [{ id: 'd21', score: 0.8 }], d21: [{ id: 'd1', score: 0.7 }] }),
+      minimalIntelligence(all, 3, 2),
+      minimalNarration(all, 'similar registration-pace decisions from past kickoff programs'),
+      'seed-test',
+      ['d21'],
+    );
+
+    expect(bundle.decisions.map((d) => d.id)).toEqual(['d1']);
+    expect(bundle.feedDecisions?.map((d) => d.id)).toEqual(['d21']);
+    expect(bundle.feedDecisions?.[0]?.recommendation.track).toEqual({
+      worked: 2,
+      total: 3,
+      basis: 'similar registration-pace decisions from past kickoff programs',
+    });
+    expect(bundle.siblings).toEqual({ d1: ['d21'], d21: ['d1'] });
+    expect(validateSeedBundle(bundle)).toEqual([]);
   });
 
   it('emits valid empty evidence for decisions with an empty similar set', () => {

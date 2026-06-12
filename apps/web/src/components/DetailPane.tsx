@@ -5,6 +5,7 @@ import type { Decision, Escalation, Resolution } from '@ppi/domain';
 import { isSmallSample } from '@ppi/domain';
 import type { ReactNode } from 'react';
 import { agoLabel } from '../lib/format.js';
+import { FEED_DECISION_IDS } from '../lib/feed.js';
 import { ActionPanel, type ResolveOutcome } from './ActionPanel.js';
 import { CaseExplorer } from './CaseExplorer.js';
 import { Fold } from './Fold.js';
@@ -113,6 +114,11 @@ export function DetailPane({ decision: d, onBack, onResolve }: DetailPaneProps) 
           <HeaderRow label="Action">
             <p>{d.actionNeeded}</p>
           </HeaderRow>
+          {FEED_DECISION_IDS.has(d.id) && (
+            <HeaderRow label="Source">
+              <p data-testid="feed-source">Simulated feed — a scripted registration.pace_updated Signal, detected by the pace rule.</p>
+            </HeaderRow>
+          )}
         </dl>
       </div>
 

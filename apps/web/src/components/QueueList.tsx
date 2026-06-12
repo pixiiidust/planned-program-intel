@@ -5,6 +5,7 @@ import { useState } from 'react';
 import type { Decision, QueueTab, ResolutionChoice } from '@ppi/domain';
 import { URGENCY_RANK } from '@ppi/domain';
 import { agoLabel, dueLabel } from '../lib/format.js';
+import { FEED_DECISION_IDS } from '../lib/feed.js';
 import { UrgencyChip } from './UrgencyChip.js';
 
 const dueDays = (d: Decision) => d.dueInDays ?? Infinity;
@@ -144,6 +145,11 @@ export function QueueList({ decisions, tab, selectedId, onSelect }: QueueListPro
                   {tab === 'needs-you' && <UrgencyChip urgency={d.urgency} />}
                   {tab === 'needs-you' && d.status === 'blocked' && (
                     <span className="text-[11px] font-semibold px-1.5 rounded ring-1 leading-5 bg-red-50 text-red-600 ring-red-200">BLOCKED</span>
+                  )}
+                  {FEED_DECISION_IDS.has(d.id) && (
+                    <span data-testid="feed-chip" className="text-[11px] font-semibold px-1.5 rounded ring-1 leading-5 bg-slate-50 text-slate-500 ring-slate-200">
+                      simulated feed
+                    </span>
                   )}
                   {tab === 'waiting' && (
                     <span className="text-[11px] font-semibold px-1.5 rounded ring-1 leading-5 bg-sky-50 text-sky-700 ring-sky-200">

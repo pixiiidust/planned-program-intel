@@ -710,5 +710,54 @@
       }
     ],
     "exceptions": []
+  },
+  {
+    "decisionId": "d21",
+    "caseCount": 50,
+    "workedCount": 27,
+    "patterns": [
+      {
+        "approach": "targeted-outreach",
+        "outcome": "worked",
+        "size": 14,
+        "worked": 9,
+        "failed": 5,
+        "exemplarCaseId": "gc-184"
+      },
+      {
+        "approach": "extend-early-bird",
+        "outcome": "worked",
+        "size": 14,
+        "worked": 8,
+        "failed": 6,
+        "exemplarCaseId": "gc-224"
+      },
+      {
+        "approach": "rescope-venue",
+        "outcome": "worked",
+        "size": 12,
+        "worked": 7,
+        "failed": 5,
+        "exemplarCaseId": "gc-229"
+      },
+      {
+        "approach": "hold-course",
+        "outcome": "failed",
+        "size": 10,
+        "worked": 3,
+        "failed": 7,
+        "exemplarCaseId": "gc-205"
+      }
+    ],
+    "exceptions": [
+      {
+        "id": "inside-30-days",
+        "label": "Inside 30 days out",
+        "size": 13,
+        "worked": 5,
+        "parentWorked": 27,
+        "parentTotal": 50
+      }
+    ]
   }
 ]

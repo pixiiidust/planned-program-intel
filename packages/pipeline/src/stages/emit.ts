@@ -10,7 +10,8 @@ import { INTELLIGENCE_PARAMS, similarMembers, type DecisionIntelligence, type Ex
 import type { DecisionNarration } from './name.js';
 
 /** Bumped whenever emitted content changes shape or meaning - the IndexedDB adapter reseeds on mismatch. */
-export const SEED_VERSION = 'seed-v2-corpus-intelligence';
+export const SEED_VERSION = 'seed-v2.1-simulated-feed';
+export const FEED_DECISION_IDS: readonly string[] = ['d21'];
 
 export function assembleBundle(
   decisions: Decision[],
@@ -20,6 +21,7 @@ export function assembleBundle(
   intelligence: DecisionIntelligence[],
   narration: DecisionNarration[],
   seedVersion: string = SEED_VERSION,
+  feedIds: readonly string[] = FEED_DECISION_IDS,
 ): SeedBundle {
   const caseById = new Map(cases.map((c) => [c.id, c]));
   const intelligenceByDecision = indexByDecisionId(intelligence, 'intelligence proposal');
@@ -76,7 +78,16 @@ export function assembleBundle(
     if (scored.length > 0) siblings[id] = scored.map((s) => s.id);
   }
 
-  const bundle: SeedBundle = { seedVersion, decisions: withEvidence, siblings };
+  const feedIdSet = new Set(feedIds);
+  const feedDecisions = withEvidence.filter((d) => feedIdSet.has(d.id));
+  const decisionsWithoutFeed = withEvidence.filter((d) => !feedIdSet.has(d.id));
+
+  const bundle: SeedBundle = {
+    seedVersion,
+    decisions: decisionsWithoutFeed,
+    ...(feedDecisions.length > 0 ? { feedDecisions } : {}),
+    siblings,
+  };
   const violations = validateSeedBundle(bundle);
   if (violations.length > 0) {
     throw new Error(`refusing to emit a seed bundle that violates the domain contracts:\n${violations.join('\n')}`);

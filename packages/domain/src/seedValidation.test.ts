@@ -82,4 +82,29 @@ describe('validateSeedBundle', () => {
     expect(v).toContain('siblings: d1 → unknown decision "ghost"');
     expect(v).toContain('siblings: unknown decision "ghost2"');
   });
+
+  it('accepts valid held-back feed decisions and sibling edges to them', () => {
+    const feedDecision = makeDecision({ id: 'feed-d1', signalType: 'registration.pace_updated' });
+    expect(validateSeedBundle(bundle({ feedDecisions: [feedDecision], siblings: { d1: ['feed-d1'], 'feed-d1': ['d1'] } }))).toEqual([]);
+  });
+
+  it('rejects feed decision ids that collide with main decisions', () => {
+    const b = bundle({ feedDecisions: [makeDecision({ id: 'd1' })] });
+    expect(validateSeedBundle(b)).toContain('d1: duplicate decision id');
+  });
+
+  it('rejects duplicate ids within feed decisions', () => {
+    const b = bundle({ feedDecisions: [makeDecision({ id: 'feed-d1' }), makeDecision({ id: 'feed-d1' })] });
+    expect(validateSeedBundle(b)).toContain('feed-d1: duplicate decision id');
+  });
+
+  it('feed decisions must arrive open', () => {
+    const b = bundle({ feedDecisions: [makeDecision({ id: 'feed-d1', status: 'blocked', blockedBy: 'VP sign-off pending' })] });
+    expect(validateSeedBundle(b)).toContain('feed-d1: feed decisions must arrive open');
+  });
+
+  it('still rejects sibling edges from feed decisions to unknown ids', () => {
+    const b = bundle({ feedDecisions: [makeDecision({ id: 'feed-d1' })], siblings: { 'feed-d1': ['ghost'] } });
+    expect(validateSeedBundle(b)).toContain('siblings: feed-d1 → unknown decision "ghost"');
+  });
 });

@@ -1,8 +1,15 @@
 import type { Decision } from './types.js';
+import type { Signal } from './signals.js';
 
 /** Where Decisions come from. Demo adapter seeds them; a real adapter would read planned.com. */
 export interface DecisionSource {
   listDecisions(): Promise<Decision[]>;
+}
+
+/** Ingestion port (ADR-0003): the demo's scripted feed and a real planned.com adapter speak the same Signal taxonomy. */
+export interface SignalFeed {
+  /** Begin delivering Signals; returns an unsubscribe that also cancels pending delivery. */
+  subscribe(onSignal: (signal: Signal) => void): () => void;
 }
 
 /** A JSON-generation request to the AI port. Inputs are structured; outputs must satisfy the schema. */

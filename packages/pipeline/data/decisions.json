@@ -1632,5 +1632,60 @@
       "requestedBy": "Dana Ortiz",
       "daysAgo": 2
     }
+  },
+  {
+    "id": "d21",
+    "title": "SKO registration 26% below the booking curve",
+    "problem": "Registration is 480 against a booking-curve target of 650 at this point in the cycle. Attrition penalties start below 80% pickup on an 850-room block.",
+    "actionNeeded": "Release 90 rooms inside the free window and open the second partner-invite wave.",
+    "event": {
+      "id": "sko",
+      "name": "Global Sales Kickoff 2027",
+      "location": "Lisbon",
+      "date": "Jan 12–15, 2027",
+      "budget": "$1.4M",
+      "attendees": 850
+    },
+    "type": "forecast",
+    "signalType": "registration.pace_updated",
+    "urgency": {
+      "level": "medium",
+      "because": "The pace rule tripped: registration sits at 74% of the booking-curve target, under this program's three-quarters threshold inside its long-lead window. The free room-block release closes in 12 days; after it, attrition exposure starts at ~$45K."
+    },
+    "dueInDays": 12,
+    "status": "open",
+    "owner": {
+      "name": "Dana Ortiz",
+      "role": "Event Lead",
+      "whyRouted": "Forecast-driven scope changes route to the event lead before money moves."
+    },
+    "recommendation": {
+      "action": "Release 90 rooms now, inside the free window. Open the second partner-invite wave. Set a re-forecast checkpoint in 2 weeks.",
+      "why": "Pace projects ~700 attendees against an 850-room block. The release is free and reversible, and partner waves lifted registration at past kickoffs. The checkpoint covers the January-booking lag.",
+      "track": { "worked": 0, "total": 0, "basis": "placeholder — the emit stage overwrites this" }
+    },
+    "evidence": { "caseCount": 0, "workedCount": 0, "patterns": [], "exceptions": [], "cases": [], "precedents": [] },
+    "whatsDifferent": [
+      {
+        "change": "January dates put registration right behind the holiday booking freeze.",
+        "whyItMatters": "Pace historically reads worse than the final number after a freeze — release the rooms, but re-forecast before cutting deeper."
+      }
+    ],
+    "risks": [
+      "Over-releasing forces re-booking at higher January rates if pace recovers late.",
+      "The partner wave shifts the attendee mix; check sponsor commitments on customer attendance."
+    ],
+    "constraints": [
+      "The free-release window on the Lisbon room block closes in 12 days."
+    ],
+    "escalationPaths": [
+      {
+        "name": "Anika Sharma",
+        "role": "Demand Gen Lead",
+        "why": "Owns the partner-invite waves and can validate the pace projection."
+      }
+    ],
+    "resolution": null,
+    "escalation": null
   }
 ]

@@ -22,7 +22,17 @@ export type {
   WhatsDifferent,
 } from './types.js';
 export { SIGNAL_TYPES, URGENCY_RANK } from './types.js';
-export type { AiJsonRequest, AiPort, DecisionRepository, DecisionSource, LoadResult } from './ports.js';
+export type {
+  ApprovalStalledSignal,
+  ContractSummarizedSignal,
+  PolicyCheckedSignal,
+  QuoteReceivedSignal,
+  RegistrationPaceSignal,
+  Signal,
+} from './signals.js';
+export type { AiJsonRequest, AiPort, DecisionRepository, DecisionSource, LoadResult, SignalFeed } from './ports.js';
+export { DEFAULT_DETECTION_THRESHOLDS, detectFromFeed, signalTrips } from './detection.js';
+export type { DetectionThresholds } from './detection.js';
 export { needsYou, tabOf } from './queue.js';
 export type { QueueTab } from './queue.js';
 export { applyAction, canApply, IllegalTransitionError } from './lifecycle.js';
