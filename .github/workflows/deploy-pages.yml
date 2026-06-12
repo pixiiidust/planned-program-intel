@@ -47,8 +47,8 @@ jobs:
           mkdir -p _site/app
           cp -r apps/web/dist/. _site/
           printf '<!doctype html><meta http-equiv="refresh" content="0; url=../"><link rel="canonical" href="../">' > _site/app/index.html
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
@@ -61,4 +61,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
