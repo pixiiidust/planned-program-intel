@@ -1,60 +1,76 @@
 # Planned Program Intel
 
-An AI-native **decision layer** for enterprise event programs, built on [Planned](https://planned.com)'s business context. Not a chatbot — a decision-routing layer.
+**Live demo: https://pixiiidust.github.io/planned-program-intel/** — no login, no cold start, safe to break (Settings → Reset demo data).
 
-**Live demo:** https://pixiiidust.github.io/planned-program-intel/
+An AI-native **decision layer** for enterprise event programs, built on [Planned](https://planned.com)'s business context. Not a chatbot — an inbox of decisions, each carrying its own justification and the evidence of past events, with a memory loop that turns every human resolution into the evidence future decisions cite.
 
-Standalone-first: the app works as a functional demo with its own data, and is architected to later integrate into Planned's enterprise stack as a module.
+## Sixty seconds in the demo
 
-## Context
+1. The Lisbon contract decision is already open. Read the header: the problem, the urgency *with its because*, the action needed.
+2. Click **Accept** — the reasoning is prefilled from the recommendation's why. Edit it, save.
+3. The resolution lands instantly; a beat later **✦ distilled** marks that a model condensed your reasoning into a Precedent. Click **View**: it now appears in a similar open decision's evidence, with a provenance chip naming the engine.
+4. The bell in the header replays everything that happened this session. The **Decided** tab survives a reload — persistence is real.
+5. Stay a minute longer and the simulated feed detects a new decision from a registration-pace Signal, honestly labeled as simulated.
 
-Planned helps enterprise teams move events from brief to delivery: venue sourcing, quotes, contracts, budgets, approvals, payments, reporting. Its constraints are real enterprise constraints: human approvals, vendor availability, policy rules, budget limits, legal/procurement checks, stakeholder coordination.
+If the model call ever fails, nothing breaks and nothing apologizes: your verbatim reasoning is the baseline, distillation is the enhancement ([ADR-0002](docs/adr/0002-single-live-ai-moment-with-selectable-engines.md)).
 
-## What it does
+## The problem
 
-- Surfaces the next important decision across the event lifecycle
-- Routes it to the best customer-side decision maker
-- Packages the evidence: what worked, what failed, what's different now — and why it matters
-- Lets planners accept, change, or override with reasoning — or escalate for feedback when something feels unsound
-- Turns that reasoning into program memory, cited as evidence by future similar decisions
+Enterprise event programs are streams of consequential decisions — a missing force-majeure clause on a venue hold, an AV quote 22% over benchmark, registration pacing behind plan. Today each one is re-researched from scratch, decided in a thread, and forgotten. The decision *and the reasoning behind it* evaporate, so the next event repeats the work and the mistakes.
 
-The goal: every event-program decision gets faster, better-contextualized, and reusable across the portfolio — without chatbot loops, manual research, or rereading past events.
+This project is the layer that catches those decisions: surfaces them with justified urgency, routes them to the right owner, packages what worked and failed in similar past events, and writes the human's reasoning back into program memory.
 
-## The decision moment
+Every decision answers six questions: what needs attention · who should decide · what happened in similar past events · what's different this time and why it matters · what action is recommended · accept, change, override — or escalate — and why.
 
-Every decision answers six questions:
+## Principles
 
-1. What needs attention?
-2. Who should decide?
-3. What happened in similar past events?
-4. What's different this time — and why does it matter?
-5. What action is recommended?
-6. Accept, change, override — or escalate — and why?
+- **Everything justifies itself.** Urgency always carries its because (the deadline and the cost of missing it). Routing carries why-you. Differences carry why-they-matter. Nothing in the inbox is an unexplained score.
+- **The Track Record never lies.** "Worked in 8 of 11 similar cases" counts only Cases with known outcomes. Fresh Precedents — recent resolutions whose outcomes aren't known yet — are shown as evidence but never counted.
+- **AI is progressive enhancement.** Exactly one live model moment (Precedent distillation), capped and degradable; everything else AI-flavored is computed at build time by a reviewable pipeline. The demo works keyless, offline-built, and model-down.
+- **Human authority is explicit.** Four verbs — accept, change, override, escalate — and every one records reasoning. Nothing executes autonomously.
 
-The dashboard comes second: mission control over the system of decisions (open, blocked, routed, decided, learned), not the starting point.
+The product language behind these — Decision, Resolution, Case, Precedent, Pattern, Track Record — is a maintained glossary: [`CONTEXT.md`](CONTEXT.md).
 
-## Operating principles
+## How it was designed
 
-- Human decision authority stays explicit; high-risk decisions are never executed autonomously
-- Confidence is evidence: "worked in 95 of 106 similar cases" — never an unexplained score
-- Urgency is justified, not asserted: the deadline, the cost of missing it, and how reversible the loss is
-- Policy, budget, legal, and stakeholder constraints are part of the intelligence layer, not afterthoughts
+The shape was settled by **six rounds of side-by-side prototype variants**, each round answering one question (inbox vs. dashboard, action-first vs. read-then-decide, evidence as inspectable cases, the four-verb workflow). The full verdict trail and data-model strawman: [`prototype/NOTES.md`](prototype/NOTES.md).
 
-## Prototype findings
+The same method carried into the real build: the activity timeline went through a design conversation and three variant rounds before a line of production code — [`docs/design/activity-timeline.md`](docs/design/activity-timeline.md). How decisions would really get detected from Planned-shaped Signals is reasoned through in [`docs/design/decision-detection.md`](docs/design/decision-detection.md).
 
-A working prototype lives in [`prototype/`](prototype/) (`cd prototype && npm install && npm run dev`). Six rounds of side-by-side variants converged on:
+The build plan itself is public: [PRD](docs/prd/2026-06-11-real-build-six-slices.md) → issues → six vertical slices, each shipped behind a CI-gated deploy.
 
-- An **inbox shape** (queue + detail) over a mission-control board or a sequenced briefing flow
-- An **action-first detail**: 3-point header (problem / justified urgency / action), recommendation on top, evidence folded below
-- **Evidence as inspectable cases**: a flat, similarity-ranked case list with outcome filters and named exceptions
-- A **four-verb workflow**: accept (reasoning prefilled) / change / override / escalate — every resolution becomes program memory
+## Verify the architecture claims
 
-Full verdict trail, data-model strawman, and open questions: [`prototype/NOTES.md`](prototype/NOTES.md).
+The deployed demo is a static page with seeded data — deliberately ([ADR-0001](docs/adr/0001-hexagonal-core-with-demo-and-real-adapters.md)): it must load instantly, never sleep, and cost $0 standing. The backend claims are proven in the repo instead:
 
-## AI posture
+**One suite, two adapters.** The persistence port has an IndexedDB demo adapter and a real Postgres adapter (migrations, advisory-locked runner, JSONB documents). One contract suite runs against both — the hexagonal claim made checkable:
 
-Retrieval, scoring, workflow intelligence, and human-in-the-loop decision support — not autonomous agents, not RL.
+```sh
+docker compose up -d --wait
+npm run test:contract:pg
+docker compose down -v
+```
 
-- **Prediction:** risk, bottlenecks, similarity to past events
-- **Optimization:** next best action under policy and program constraints
-- **Execution:** route the decision, show the evidence, capture the human reasoning
+**Keyless pipeline.** All corpus intelligence (similarity, patterns, exceptions, narration) is precomputed by a build-time pipeline ([ADR-0004](docs/adr/0004-build-time-intelligence-pipeline.md)) whose every stage runs without an API key on the canned engine; real engines are pluggable per run ([docs/pipeline-engines.md](docs/pipeline-engines.md)):
+
+```sh
+npm install
+npm run -w @ppi/pipeline validate   # domain contracts over the shipped seed
+```
+
+**Selectable live engines.** The one live AI moment routes through your choice in Settings: the capped demo proxy (a single Cloudflare Worker, the only hosted state), your own OpenRouter key (browser-direct, sessionStorage-only), or local Ollama.
+
+**A protected demo link.** Deploys are gated on the full Playwright journey (40 tests); a daily smoke drives the deployed site itself — load, resolve, Worker probe — and files an issue on failure. Stale beats broken.
+
+## Repo map
+
+| Workspace | What it is |
+| --- | --- |
+| `packages/domain` | Types, pure logic, ports — imports nothing ([ADR-0005](docs/adr/0005-npm-workspaces-monorepo.md)) |
+| `packages/adapters` | Every port implementation, demo tier and real tier ([README](packages/adapters/README.md)) |
+| `packages/pipeline` | Build-time intelligence CLI; seed data is its reviewed output |
+| `apps/web` | The deployed demo |
+| `apps/edge` | The single Cloudflare Worker (capped distillation proxy) |
+| `prototype/` | The throwaway prototype that settled the design — kept as a record |
+
+Decisions are written down as they're made: [`docs/adr/`](docs/adr/) (five ADRs), [`docs/design/`](docs/design/), and the issue trail.

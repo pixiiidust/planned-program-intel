@@ -2,6 +2,8 @@
 
 An AI-native decision layer for enterprise event programs: surfaces decisions, routes them to owners, packages evidence from past events, and turns human resolutions into program memory.
 
+This file is the product glossary. Decisions about the build itself are recorded in [docs/adr/](docs/adr/) and [docs/design/](docs/design/); the product story is the [README](README.md).
+
 ## Language
 
 ### The decision moment
