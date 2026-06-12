@@ -8,9 +8,10 @@ import {
 } from '@ppi/adapters';
 import type { DistillationInput } from '@ppi/adapters';
 
-// Placeholder until the Worker is deployed; treated as app config. E2E intercepts
-// `**/distill`, so the value never matters in tests; unreachable host = silent verbatim.
-export const DEMO_DISTILL_URL = 'https://ppi-distill.workers.dev/distill';
+// The deployed Worker (manual `wrangler deploy` from apps/edge); treated as app config.
+// E2E intercepts `**/distill`, so the value never matters in tests; an unreachable
+// host degrades to silent verbatim by contract.
+export const DEMO_DISTILL_URL = 'https://ppi-distill.pixiiidust.workers.dev/distill';
 
 export type EngineChoice = 'demo' | 'byok' | 'ollama';
 

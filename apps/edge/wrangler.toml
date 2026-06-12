@@ -6,8 +6,8 @@ compatibility_date = "2026-06-01"
 
 [[kv_namespaces]]
 binding = "DISTILL_KV"
-# Created at deploy time via `wrangler kv namespace create DISTILL_KV`.
-id = "00000000000000000000000000000000"
+# Created via `wrangler kv namespace create DISTILL_KV` (2026-06-12).
+id = "902c11ac8a8b468692fae71dafe07500"
 
 [[unsafe.bindings]]
 name = "RATE_LIMIT"
