@@ -10,6 +10,7 @@ import { DEMO_PROGRAM_THRESHOLDS, DEMO_SEED, DEMO_SENIOR_ROLES, IndexedDbDecisio
 import type { ResolveOutcome } from './components/ActionPanel.js';
 import { DetailPane } from './components/DetailPane.js';
 import { PersonaSwitcher } from './components/PersonaSwitcher.js';
+import { PortfolioPrototype } from './components/portfolio-prototype/PortfolioPrototype.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
 import { FEED_DECISION_IDS, feedDelayMs } from './lib/feed.js';
 
@@ -44,6 +45,7 @@ export default function App() {
   const [decisions, setDecisions] = useState<Decision[]>([]);
   const [persona, setPersona] = useState<Persona | null>(null);
   const [tab, setTab] = useState<QueueTab>('needs-you');
+  const [view, setView] = useState<'inbox' | 'portfolio'>('inbox');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [mobileDetail, setMobileDetail] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
@@ -215,6 +217,24 @@ export default function App() {
           <h1 className="text-lg font-semibold whitespace-nowrap">Program Intel</h1>
           <span className="text-sm text-slate-500 truncate hidden sm:inline">Acme Corp event portfolio</span>
         </div>
+        {import.meta.env.DEV && (
+          <div className="flex gap-1">
+            <button
+              type="button"
+              onClick={() => setView('inbox')}
+              className={`px-3 py-1.5 rounded-md text-sm ${view === 'inbox' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'}`}
+            >
+              Inbox
+            </button>
+            <button
+              type="button"
+              onClick={() => setView('portfolio')}
+              className={`px-3 py-1.5 rounded-md text-sm ${view === 'portfolio' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'}`}
+            >
+              Portfolio
+            </button>
+          </div>
+        )}
         <PersonaSwitcher personas={personas} current={persona} decisions={decisions} onSwitch={switchPersona} />
         <div className="flex items-center gap-4 whitespace-nowrap">
           <span className="hidden sm:block text-sm text-slate-500">
@@ -226,7 +246,10 @@ export default function App() {
         </div>
       </header>
 
-      <div className="flex-1 flex min-h-0">
+      {import.meta.env.DEV && view === 'portfolio' ? (
+        <PortfolioPrototype decisions={decisions} />
+      ) : (
+        <div className="flex-1 flex min-h-0">
         <aside className={`${mobileDetail ? 'hidden' : 'flex'} md:flex w-full md:w-[380px] md:border-r border-slate-200 bg-white flex-col`}>
           <nav className="flex gap-1 p-2 border-b border-slate-100">
             {TABS.map((t) => (
@@ -272,7 +295,8 @@ export default function App() {
             </div>
           )}
         </main>
-      </div>
+        </div>
+      )}
 
       {toast && (
         <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 rounded-lg bg-slate-900 text-white px-4 py-3 shadow-xl">
