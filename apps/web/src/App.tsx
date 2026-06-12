@@ -280,6 +280,8 @@ export default function App() {
           <span className="hidden sm:block text-sm text-slate-500">
             {counts['needs-you']} need you · {counts.waiting} waiting · {counts.decided} decided
           </span>
+          {/* PROTOTYPE mount (#27 variant round 2) — dev-only, stripped from builds. */}
+          {import.meta.env.DEV && <ActivityPanelPrototype />}
           <button
             type="button"
             onClick={() => setSettingsOpen((current) => !current)}
@@ -343,9 +345,6 @@ export default function App() {
       )}
 
       <SettingsDrawer open={settingsOpen} onClose={() => setSettingsOpen(false)} onReset={() => void handleReset()} />
-
-      {/* PROTOTYPE mount (#27 variant round) — dev-only, stripped from builds. */}
-      {import.meta.env.DEV && <ActivityPanelPrototype />}
 
       {toast && (
         <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 rounded-lg bg-slate-900 text-white px-4 py-3 shadow-xl">

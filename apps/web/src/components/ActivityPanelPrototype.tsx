@@ -1,8 +1,8 @@
-// PROTOTYPE — #27 activity-timeline variant round. Throwaway: dev-only mount,
-// canned entries, no persistence. Three structurally different takes on the
-// settled design (header affordance → right panel, session-scoped past-toasts
-// data, ✦ appears only when distillation actually landed). Flip with the
-// bottom bar or ?variant=A|B|C. Delete after a winner is picked.
+// PROTOTYPE — #27 variant round 2. Round 1 settled the panel form (Quiet
+// ledger). This round varies the HEADER TRIGGER affordance only; the trigger
+// now renders inside the real header flex (no overlap with the counts).
+// Throwaway: dev-only mount, canned entries. ?variant=A|B|C. Delete after a
+// winner is picked.
 import { useEffect, useState } from 'react';
 
 interface PrototypeEntry {
@@ -22,12 +22,14 @@ const ENTRIES: PrototypeEntry[] = [
   { ago: '34m', message: '✓ Demo data reset to the pristine seed' },
 ];
 
+const UNSEEN_COUNT = 2; // canned: entries since the panel was last opened
+
 const VARIANTS = ['A', 'B', 'C'] as const;
 type VariantKey = (typeof VARIANTS)[number];
 const VARIANT_NAMES: Record<VariantKey, string> = {
-  A: 'Quiet ledger',
-  B: 'Timeline spine',
-  C: 'Toast replay',
+  A: 'Text link, no indicator',
+  B: 'Bell icon + count badge',
+  C: 'Text + tab-style count',
 };
 
 function variantFromUrl(): VariantKey {
@@ -36,12 +38,14 @@ function variantFromUrl(): VariantKey {
 }
 
 export function ActivityPanelPrototype() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [toastVisible, setToastVisible] = useState(true);
   const [variant, setVariant] = useState<VariantKey>(variantFromUrl);
 
   function cycle(delta: number) {
     const next = VARIANTS[(VARIANTS.indexOf(variant) + delta + VARIANTS.length) % VARIANTS.length]!;
     setVariant(next);
+    setToastVisible(true); // re-show the mock toast so each variant is judged with it
     const url = new URL(window.location.href);
     url.searchParams.set('variant', next);
     window.history.replaceState(null, '', url);
@@ -58,25 +62,59 @@ export function ActivityPanelPrototype() {
     return () => window.removeEventListener('keydown', onKeyDown);
   });
 
+  const toggle = () => setOpen((o) => !o);
+
   return (
     <>
-      {/* Stand-in for the header affordance (left of Settings); fixed so App.tsx stays untouched. */}
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="fixed top-[15px] right-[92px] z-[55] text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2"
-      >
-        Activity
-        <span className="absolute -top-0.5 -right-2 size-1.5 rounded-full bg-sky-500" />
-      </button>
+      {variant === 'A' && (
+        <button type="button" onClick={toggle} className="text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2">
+          Activity
+        </button>
+      )}
+      {variant === 'B' && (
+        <button type="button" onClick={toggle} aria-label="Activity" className="relative text-slate-400 hover:text-slate-600">
+          <BellIcon />
+          {UNSEEN_COUNT > 0 && (
+            <span className="absolute -top-1.5 -right-1.5 min-w-[14px] rounded-full bg-slate-900 px-1 text-center text-[9px] leading-[14px] text-white">
+              {UNSEEN_COUNT}
+            </span>
+          )}
+        </button>
+      )}
+      {variant === 'C' && (
+        <button type="button" onClick={toggle} className="text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2 whitespace-nowrap">
+          Activity ({UNSEEN_COUNT})
+        </button>
+      )}
 
       {open && (
         <>
           <button type="button" aria-label="Close activity" className="fixed inset-0 z-40 cursor-default bg-transparent" onClick={() => setOpen(false)} />
-          {variant === 'A' && <QuietLedger />}
-          {variant === 'B' && <TimelineSpine />}
-          {variant === 'C' && <ToastReplay />}
+          <QuietLedger />
         </>
+      )}
+
+      {/* Mock toast in the Quiet-ledger language (Jamie: toast should match A),
+          with "View all" opening the panel. Stands in for the dark live toast. */}
+      {toastVisible && (
+        <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 whitespace-normal rounded-lg bg-white px-4 py-3 text-slate-700 shadow-xl ring-1 ring-slate-200">
+          <span className="text-sm">✓ Decided. Your reasoning now appears in 1 similar open decision</span>
+          <span className="inline-flex text-[10px] rounded-full px-2 py-0.5 text-sky-700 ring-1 ring-sky-200 bg-white">✦ distilled</span>
+          <button type="button" className="text-sm text-sky-700 underline underline-offset-2 hover:text-sky-900">View</button>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(true);
+              setToastVisible(false);
+            }}
+            className="text-xs text-slate-400 underline underline-offset-2 hover:text-slate-600 whitespace-nowrap"
+          >
+            View all
+          </button>
+          <button type="button" aria-label="Dismiss notification" onClick={() => setToastVisible(false)} className="text-sm leading-none text-slate-400 hover:text-slate-600">
+            ×
+          </button>
+        </div>
       )}
 
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-3 rounded-full bg-slate-900 text-white px-4 py-2 text-xs shadow-xl">
@@ -88,11 +126,20 @@ export function ActivityPanelPrototype() {
   );
 }
 
-// A — Quiet ledger: SettingsDrawer twin. Row list, time gutter, chip echoes
-// the precedent provenance chip. Message-first hierarchy.
+function BellIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+      <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+    </svg>
+  );
+}
+
+// Round-1 winner: SettingsDrawer twin. Row list, time gutter, provenance-chip
+// echo for the ✦ state. Unchanged from round 1.
 function QuietLedger() {
   return (
-    <div className="fixed top-16 inset-x-4 md:inset-x-auto md:right-4 md:w-96 z-50 rounded-lg bg-white text-sm shadow-xl ring-1 ring-slate-200">
+    <div className="fixed top-16 inset-x-4 md:inset-x-auto md:right-4 md:w-96 z-50 whitespace-normal rounded-lg bg-white text-sm shadow-xl ring-1 ring-slate-200">
       <div className="px-4 pt-4 pb-2">
         <h2 className="font-semibold text-slate-900">Activity</h2>
         <p className="mt-0.5 text-xs text-slate-400">This session · clears on reload</p>
@@ -111,55 +158,6 @@ function QuietLedger() {
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
-
-// B — Timeline spine: chronology-first. A vertical rail with nodes; the ✦
-// lives in the node colour, not a chip. Airier, no dividers.
-function TimelineSpine() {
-  return (
-    <div className="fixed top-16 inset-x-4 md:inset-x-auto md:right-4 md:w-96 z-50 rounded-lg bg-white text-sm shadow-xl ring-1 ring-slate-200 px-5 py-4">
-      <h2 className="font-semibold text-slate-900">Activity</h2>
-      <div className="relative mt-3 max-h-80 overflow-y-auto">
-        <div className="absolute left-[5px] top-1 bottom-1 border-l border-slate-200" />
-        <ul className="space-y-4">
-          {ENTRIES.map((entry, i) => (
-            <li key={i} className="relative pl-6">
-              <span className={`absolute left-0 top-1 size-3 rounded-full ring-2 ring-white ${entry.distilled ? 'bg-sky-400' : 'bg-slate-300'}`} />
-              <span className="block text-[10px] uppercase tracking-wide text-slate-400">{entry.ago} ago{entry.distilled ? ' · ✦ distilled' : ''}</span>
-              <span className="block text-slate-700 leading-snug mt-0.5">
-                {entry.message}
-                {entry.jump && (
-                  <button type="button" className="ml-2 text-xs text-sky-700 underline underline-offset-2 hover:text-sky-900">View</button>
-                )}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
-
-// C — Toast replay: where toasts went. Chromeless stack of the live toast's
-// exact anatomy (dark pill, sky ✦, underlined View), newest on top, older
-// entries receding. Continuity-with-the-moment hierarchy.
-function ToastReplay() {
-  return (
-    <div className="fixed top-16 inset-x-4 md:inset-x-auto md:right-4 md:w-96 z-50 max-h-96 overflow-y-auto space-y-2 pr-1">
-      {ENTRIES.map((entry, i) => (
-        <div
-          key={i}
-          className="flex items-center justify-between md:justify-start gap-3 rounded-lg bg-slate-900 text-white px-4 py-3 shadow-xl"
-          style={{ opacity: Math.max(1 - i * 0.12, 0.45) }}
-        >
-          <span className="text-[10px] text-slate-400 shrink-0">{entry.ago}</span>
-          <span className="text-sm flex-1">{entry.message}</span>
-          {entry.distilled && <span className="text-sm text-sky-300">✦ distilled</span>}
-          {entry.jump && <button type="button" className="text-sm underline underline-offset-2 text-sky-300 hover:text-sky-200">View</button>}
-        </div>
-      ))}
     </div>
   );
 }
