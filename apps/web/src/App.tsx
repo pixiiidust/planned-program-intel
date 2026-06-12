@@ -10,7 +10,7 @@ import { DEMO_PROGRAM_THRESHOLDS, DEMO_SEED, DEMO_SENIOR_ROLES, IndexedDbDecisio
 import type { ResolveOutcome } from './components/ActionPanel.js';
 import { DetailPane } from './components/DetailPane.js';
 import { PersonaSwitcher } from './components/PersonaSwitcher.js';
-import { PortfolioPrototype } from './components/portfolio-prototype/PortfolioPrototype.js';
+import { PortfolioView } from './components/PortfolioView.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
 import { FEED_DECISION_IDS, feedDelayMs } from './lib/feed.js';
 
@@ -204,6 +204,7 @@ export default function App() {
     setDecisions(ds);
     setPersona(null);
     setTab('needs-you');
+    setView('inbox');
     setSelectedId(defaultSort('needs-you', personaQueue(null, 'needs-you', ds))[0]?.id ?? null);
     setMobileDetail(false);
     armFeedIfNeeded(ds);
@@ -212,42 +213,46 @@ export default function App() {
 
   return (
     <div className="h-screen flex flex-col bg-slate-50 text-slate-900">
-      <header className="px-4 md:px-6 py-3 bg-white border-b border-slate-200 flex items-center justify-between gap-3">
+      <header className="px-4 md:px-6 py-3 bg-white border-b border-slate-200 flex items-center justify-between gap-2 sm:gap-3">
         <div className="flex items-baseline gap-3 min-w-0">
           <h1 className="text-lg font-semibold whitespace-nowrap">Program Intel</h1>
           <span className="text-sm text-slate-500 truncate hidden sm:inline">Acme Corp event portfolio</span>
         </div>
-        {import.meta.env.DEV && (
-          <div className="flex gap-1">
-            <button
-              type="button"
-              onClick={() => setView('inbox')}
-              className={`px-3 py-1.5 rounded-md text-sm ${view === 'inbox' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'}`}
-            >
-              Inbox
-            </button>
-            <button
-              type="button"
-              onClick={() => setView('portfolio')}
-              className={`px-3 py-1.5 rounded-md text-sm ${view === 'portfolio' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'}`}
-            >
-              Portfolio
-            </button>
-          </div>
-        )}
-        <PersonaSwitcher personas={personas} current={persona} decisions={decisions} onSwitch={switchPersona} />
-        <div className="flex items-center gap-4 whitespace-nowrap">
+        <div className="flex shrink-0 gap-1">
+          <button
+            type="button"
+            onClick={() => setView('inbox')}
+            className={`px-2 py-1.5 rounded-md text-sm sm:px-3 ${view === 'inbox' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'}`}
+          >
+            Inbox
+          </button>
+          <button
+            type="button"
+            onClick={() => setView('portfolio')}
+            className={`px-2 py-1.5 rounded-md text-sm sm:px-3 ${view === 'portfolio' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'}`}
+          >
+            Portfolio
+          </button>
+        </div>
+        {view === 'inbox' && <PersonaSwitcher personas={personas} current={persona} decisions={decisions} onSwitch={switchPersona} />}
+        <div className="flex shrink-0 items-center gap-3 sm:gap-4 whitespace-nowrap">
           <span className="hidden sm:block text-sm text-slate-500">
             {counts['needs-you']} need you · {counts.waiting} waiting · {counts.decided} decided
           </span>
-          <button onClick={() => void handleReset()} className="text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2">
-            Reset demo data
+          <button
+            type="button"
+            aria-label="Reset demo data"
+            onClick={() => void handleReset()}
+            className="text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2"
+          >
+            <span className="hidden sm:inline">Reset demo data</span>
+            <span className="sm:hidden">Reset</span>
           </button>
         </div>
       </header>
 
-      {import.meta.env.DEV && view === 'portfolio' ? (
-        <PortfolioPrototype decisions={decisions} />
+      {view === 'portfolio' ? (
+        <PortfolioView decisions={decisions} />
       ) : (
         <div className="flex-1 flex min-h-0">
         <aside className={`${mobileDetail ? 'hidden' : 'flex'} md:flex w-full md:w-[380px] md:border-r border-slate-200 bg-white flex-col`}>
@@ -304,6 +309,7 @@ export default function App() {
           {toast.jump && (
             <button
               onClick={() => {
+                setView('inbox');
                 setPersona(null);
                 setTab(toast.jump!.tab);
                 setSelectedId(toast.jump!.id);

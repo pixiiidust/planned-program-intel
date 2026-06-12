@@ -1,22 +1,27 @@
-// PROTOTYPE (#18) — throwaway variant sketch; dev-only, never ships. Winner gets rebuilt properly in #19.
-import type { Decision, EventRef, ResolutionChoice } from '@ppi/domain';
+import type { Decision, EventRef } from './types.js';
 
+/** Per-event rollup of decision states for the Portfolio view. */
 export interface EventRollup {
   event: EventRef;
   open: number;
   blocked: number;
+  /** Escalated Decisions; Waiting is the queue view over this state. */
   waiting: number;
+  /** Resolved Decisions; Decided is the queue view over this state. */
   decided: number;
-  criticalOpen: number;
+  /** Soonest Open or Blocked deadline only. */
   nextDue: { days: number; title: string } | null;
+  /** Oldest Escalated Decision still waiting for feedback. */
   oldestEscalation: { to: string; daysAgo: number; title: string } | null;
-  resolutionsWritten: number;
 }
 
+/** Program Memory growth facts. Counts are structural, never model-derived. */
 export interface MemoryStats {
-  resolutions: { decidedBy: string; choice: ResolutionChoice; daysAgo: number; title: string; event: string }[];
+  /** One entry per Resolved Decision's resolution age, oldest first. */
+  resolutionDaysAgo: number[];
+  /** Distinct Pattern titles across all Evidence. */
   patternCount: number;
-  caseCorpus: number;
+  /** Outcome-pending Precedents across all Evidence. */
   precedentsPending: number;
 }
 
@@ -35,10 +40,8 @@ function emptyRollup(event: EventRef): EventRollup {
     blocked: 0,
     waiting: 0,
     decided: 0,
-    criticalOpen: 0,
     nextDue: null,
     oldestEscalation: null,
-    resolutionsWritten: 0,
   };
 }
 
@@ -49,6 +52,10 @@ function captureNextDue(rollup: EventRollup, decision: Decision): void {
   }
 }
 
+/**
+ * Portfolio is whole-program mission control: lifecycle states roll up by Event,
+ * while tabs remain only views over those states.
+ */
 export function eventRollups(decisions: readonly Decision[]): EventRollup[] {
   const byEvent = new Map<string, EventRollup>();
 
@@ -59,22 +66,24 @@ export function eventRollups(decisions: readonly Decision[]): EventRollup[] {
       byEvent.set(decision.event.id, rollup);
     }
 
-    if (decision.status === 'open') {
-      rollup.open += 1;
-      if (decision.urgency.level === 'critical') rollup.criticalOpen += 1;
-      captureNextDue(rollup, decision);
-    } else if (decision.status === 'blocked') {
-      rollup.blocked += 1;
-      if (decision.urgency.level === 'critical') rollup.criticalOpen += 1;
-      captureNextDue(rollup, decision);
-    } else if (decision.status === 'escalated') {
-      rollup.waiting += 1;
-      if (decision.escalation && (!rollup.oldestEscalation || decision.escalation.daysAgo > rollup.oldestEscalation.daysAgo)) {
-        rollup.oldestEscalation = { to: decision.escalation.to, daysAgo: decision.escalation.daysAgo, title: decision.title };
-      }
-    } else {
-      rollup.decided += 1;
-      rollup.resolutionsWritten += 1;
+    switch (decision.status) {
+      case 'open':
+        rollup.open += 1;
+        captureNextDue(rollup, decision);
+        break;
+      case 'blocked':
+        rollup.blocked += 1;
+        captureNextDue(rollup, decision);
+        break;
+      case 'escalated':
+        rollup.waiting += 1;
+        if (decision.escalation && (!rollup.oldestEscalation || decision.escalation.daysAgo > rollup.oldestEscalation.daysAgo)) {
+          rollup.oldestEscalation = { to: decision.escalation.to, daysAgo: decision.escalation.daysAgo, title: decision.title };
+        }
+        break;
+      case 'resolved':
+        rollup.decided += 1;
+        break;
     }
   }
 
@@ -86,32 +95,26 @@ export function eventRollups(decisions: readonly Decision[]): EventRollup[] {
   });
 }
 
+/** Program Memory grows from Resolutions, Patterns, and outcome-pending Precedents. */
 export function memoryStats(decisions: readonly Decision[]): MemoryStats {
   const patternTitles = new Set<string>();
-  const resolutions: MemoryStats['resolutions'] = [];
-  let caseCorpus = 0;
+  const resolutionDaysAgo: number[] = [];
   let precedentsPending = 0;
 
   for (const decision of decisions) {
-    caseCorpus = Math.max(caseCorpus, decision.evidence.caseCount);
     precedentsPending += decision.evidence.precedents.length;
     for (const pattern of decision.evidence.patterns) patternTitles.add(pattern.title);
 
     if (decision.status === 'resolved' && decision.resolution) {
-      resolutions.push({
-        decidedBy: decision.resolution.decidedBy,
-        choice: decision.resolution.choice,
-        daysAgo: decision.resolution.daysAgo,
-        title: decision.title,
-        event: decision.event.name,
-      });
+      resolutionDaysAgo.push(decision.resolution.daysAgo);
     }
   }
 
-  resolutions.sort((a, b) => b.daysAgo - a.daysAgo || a.title.localeCompare(b.title));
-  return { resolutions, patternCount: patternTitles.size, caseCorpus, precedentsPending };
+  resolutionDaysAgo.sort((a, b) => b - a);
+  return { resolutionDaysAgo, patternCount: patternTitles.size, precedentsPending };
 }
 
+/** Program totals are sums of Event rollups, not independent model output. */
 export function programTotals(rollups: readonly EventRollup[]): ProgramTotals {
   return rollups.reduce<ProgramTotals>(
     (totals, rollup) => ({
