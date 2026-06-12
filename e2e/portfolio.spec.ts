@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // Portfolio (#19) stays one tab behind the inbox: whole-program, read-only,
 // and live from the same in-memory Decisions the user is resolving.

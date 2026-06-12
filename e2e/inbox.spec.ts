@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // Recruiter-journey e2e, slice-1 segment. Grows with each issue; gates every
 // Pages deploy — a red run keeps the previous demo live.

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // THE recruiter journey (slice-1 segment, #11) — the crown-jewel e2e that
 // gates every deploy: land in the inbox, resolve the top Decision with typed

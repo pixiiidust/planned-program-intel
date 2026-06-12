@@ -100,6 +100,8 @@ export interface Precedent {
   sourceTitle: string;
   choice: ResolutionChoice;
   reasoning: string;
+  /** Present when the reasoning was distilled by a model — names the engine for the provenance chip tooltip. Absent means verbatim human words. */
+  distilledBy?: string;
   decidedBy: string;
   daysAgo: number;
 }

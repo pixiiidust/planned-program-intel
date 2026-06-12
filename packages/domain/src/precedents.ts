@@ -25,3 +25,16 @@ export function landPrecedent(sibling: Decision, precedent: Precedent): Decision
     },
   };
 }
+
+/** Swaps the distilled text into a sibling's matching Precedent. Pure — returns the updated sibling, or the sibling unchanged if no matching Precedent. */
+export function distillPrecedentText(sibling: Decision, sourceDecisionId: string, distilled: string, engine: string): Decision {
+  let found = false;
+  const precedents = sibling.evidence.precedents.map((precedent) => {
+    if (precedent.sourceDecisionId !== sourceDecisionId) return precedent;
+    found = true;
+    return { ...precedent, reasoning: distilled, distilledBy: engine };
+  });
+
+  if (!found) return sibling;
+  return { ...sibling, evidence: { ...sibling.evidence, precedents } };
+}

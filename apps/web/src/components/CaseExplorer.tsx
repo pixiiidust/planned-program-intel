@@ -48,7 +48,14 @@ export function CaseExplorer({ decision: d }: { decision: Decision }) {
                   <span className="font-medium">{p.decidedBy}</span>
                   <span className="text-sky-700"> — outcome pending</span>
                 </p>
-                <p className="text-slate-600 mt-1">“{p.reasoning}”</p>
+                <p className="text-slate-600 mt-1">
+                  <span key={p.distilledBy ? 'distilled' : 'verbatim'} className={p.distilledBy ? 'precedent-distilled-in' : undefined}>
+                    “{p.reasoning}”
+                  </span>
+                  {p.distilledBy && (
+                    <span title={p.distilledBy} className="ml-2 inline-flex align-middle text-[10px] rounded-full px-2 py-0.5 text-sky-700 ring-1 ring-sky-200 bg-white">✦ distilled</span>
+                  )}
+                </p>
                 <p className="text-xs text-slate-400 mt-1">from: {p.sourceTitle}</p>
               </li>
             ))}

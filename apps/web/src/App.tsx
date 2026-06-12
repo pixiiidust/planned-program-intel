@@ -5,13 +5,14 @@
 // one-line toast. "Reset demo data" restores the pristine seed.
 import { useEffect, useRef, useState } from 'react';
 import type { Decision, Persona, QueueTab } from '@ppi/domain';
-import { applyAction, detectFromFeed, landPrecedent, openSiblingsOf, personaQueue, personasFrom, precedentFrom } from '@ppi/domain';
+import { applyAction, detectFromFeed, distillPrecedentText, landPrecedent, openSiblingsOf, personaQueue, personasFrom, precedentFrom } from '@ppi/domain';
 import { DEMO_PROGRAM_THRESHOLDS, DEMO_SEED, DEMO_SENIOR_ROLES, IndexedDbDecisionRepository, ScriptedSignalFeed } from '@ppi/adapters';
 import type { ResolveOutcome } from './components/ActionPanel.js';
 import { DetailPane } from './components/DetailPane.js';
 import { PersonaSwitcher } from './components/PersonaSwitcher.js';
 import { PortfolioView } from './components/PortfolioView.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
+import { distillResolution } from './lib/distillation.js';
 import { FEED_DECISION_IDS, feedDelayMs } from './lib/feed.js';
 
 const repository = new IndexedDbDecisionRepository();
@@ -39,6 +40,7 @@ function personaKey(persona: Persona | null): string {
 interface Toast {
   message: string;
   jump?: { tab: QueueTab; id: string };
+  distill?: 'pending' | 'done' | 'failed';
 }
 
 export default function App() {
@@ -132,6 +134,39 @@ export default function App() {
     if (remaining.length === 0) setMobileDetail(false);
   }
 
+  function updateDistillToast(distill: NonNullable<Toast['distill']>) {
+    setToast((current) =>
+      current?.message.startsWith('✓ Decided. Your reasoning now appears') ? { ...current, distill } : current,
+    );
+  }
+
+  async function runDistillation(resolved: Decision, landedIds: string[]) {
+    const result = await distillResolution(resolved, resolved.resolution!);
+    if (!result) {
+      updateDistillToast('failed');
+      return;
+    }
+
+    const changed: Decision[] = [];
+    for (const id of landedIds) {
+      const sibling = decisionsRef.current.find((d) => d.id === id);
+      if (!sibling) continue;
+      const updated = distillPrecedentText(sibling, resolved.id, result.text, result.engine);
+      if (updated !== sibling) changed.push(updated);
+    }
+
+    if (changed.length === 0) return;
+    for (const sibling of changed) await repository.save(sibling);
+
+    const byId = new Map(changed.map((sibling) => [sibling.id, sibling] as const));
+    setDecisions((existing) => {
+      const next = existing.map((d) => byId.get(d.id) ?? d);
+      decisionsRef.current = next;
+      return next;
+    });
+    updateDistillToast('done');
+  }
+
   async function handleResolve(decision: Decision, outcome: ResolveOutcome) {
     const next =
       outcome.choice === 'escalated'
@@ -163,6 +198,7 @@ export default function App() {
 
     const byId = new Map([[next.id, next], ...landed.map((s) => [s.id, s] as const)]);
     const updated = decisions.map((d) => byId.get(d.id) ?? d);
+    decisionsRef.current = updated;
     setDecisions(updated);
 
     const movedTo: QueueTab = outcome.choice === 'escalated' ? 'waiting' : 'decided';
@@ -171,7 +207,9 @@ export default function App() {
       setToast({
         message: `✓ Decided. Your reasoning now appears in ${landed.length} similar open decision${landed.length === 1 ? '' : 's'}`,
         jump: { tab: 'needs-you', id: landed[0]!.id },
+        distill: 'pending',
       });
+      void runDistillation(next, landed.map((s) => s.id));
     } else {
       setToast({ message: `✓ Moved to ${movedTo === 'waiting' ? 'Waiting' : 'Decided'}`, jump: { tab: movedTo, id: next.id } });
     }
@@ -306,6 +344,20 @@ export default function App() {
       {toast && (
         <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 rounded-lg bg-slate-900 text-white px-4 py-3 shadow-xl">
           <span className="text-sm">{toast.message}</span>
+          {toast.distill && (
+            <span
+              className={
+                toast.distill === 'pending'
+                  ? 'text-sm animate-pulse'
+                  : toast.distill === 'done'
+                    ? 'text-sm text-sky-300'
+                    : 'text-sm opacity-0 transition-opacity duration-500'
+              }
+              aria-hidden={toast.distill === 'done' ? undefined : 'true'}
+            >
+              {toast.distill === 'done' ? '✦ distilled' : '✦'}
+            </span>
+          )}
           {toast.jump && (
             <button
               onClick={() => {

@@ -1,1 +1,16 @@
 @import 'tailwindcss';
+
+@keyframes precedent-distilled-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.precedent-distilled-in {
+  animation: precedent-distilled-in 180ms ease-out;
+}

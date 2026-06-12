@@ -1,4 +1,5 @@
-import { expect, test, type Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // No-auth persona switching lets a demo visitor sit in every seat while the
 // whole-program inbox remains the default landing view.

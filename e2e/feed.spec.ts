@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test('detection fires once and survives reload', async ({ page }) => {
   await page.goto('/?feedDelay=250');

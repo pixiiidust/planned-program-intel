@@ -42,7 +42,7 @@ export { applyAction, canApply, IllegalTransitionError } from './lifecycle.js';
 export type { DecisionAction } from './lifecycle.js';
 export { evidenceCounts, isSmallSample } from './evidence.js';
 export { openSiblingsOf } from './siblings.js';
-export { landPrecedent, precedentFrom } from './precedents.js';
+export { distillPrecedentText, landPrecedent, precedentFrom } from './precedents.js';
 export { eventRollups, memoryStats, programTotals } from './portfolio.js';
 export type { EventRollup, MemoryStats, ProgramTotals } from './portfolio.js';
 export { validateSeedBundle } from './seedValidation.js';

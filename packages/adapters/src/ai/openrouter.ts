@@ -8,6 +8,7 @@ interface OpenRouterResponse {
 export interface OpenRouterAiOptions {
   apiKey: string;
   model?: string;
+  maxTokens?: number;
   fetchImpl?: typeof fetch;
 }
 
@@ -17,20 +18,23 @@ export function createOpenRouterAi(opts: OpenRouterAiOptions): AiPort {
 
   return {
     async generateJson(request) {
+      const requestBody: Record<string, unknown> = {
+        model,
+        messages: [
+          { role: 'system', content: systemInstruction(request.instruction) },
+          { role: 'user', content: JSON.stringify({ input: request.input, schema: request.schema }) },
+        ],
+        response_format: { type: 'json_object' },
+      };
+      if (opts.maxTokens !== undefined) requestBody.max_tokens = opts.maxTokens;
+
       const response = await fetchImpl('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${opts.apiKey}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          model,
-          messages: [
-            { role: 'system', content: systemInstruction(request.instruction) },
-            { role: 'user', content: JSON.stringify({ input: request.input, schema: request.schema }) },
-          ],
-          response_format: { type: 'json_object' },
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       const body = await response.text();

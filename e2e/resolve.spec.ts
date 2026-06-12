@@ -1,4 +1,5 @@
-import { expect, test, type Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // The resolution moment (#10): four verbs writing through the persistence
 // port (IndexedDB). State survives reload; the Decided tab is the proof.

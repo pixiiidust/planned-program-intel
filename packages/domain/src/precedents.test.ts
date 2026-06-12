@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { evidenceCounts } from './evidence.js';
-import { landPrecedent, precedentFrom } from './precedents.js';
+import { distillPrecedentText, landPrecedent, precedentFrom } from './precedents.js';
 import { makeDecision } from './testing.js';
 import type { Resolution } from './types.js';
 
@@ -46,5 +46,41 @@ describe('Precedent spawning', () => {
     const before = evidenceCounts(sibling.evidence);
     const after = evidenceCounts(landPrecedent(sibling, precedentFrom(makeDecision({ id: 'd1' }), RESOLUTION)).evidence);
     expect(after).toEqual(before);
+  });
+
+  it('swaps distilled text into the matching Precedent', () => {
+    const source = precedentFrom(makeDecision({ id: 'd1' }), RESOLUTION);
+    const sibling = landPrecedent(makeDecision({ id: 'd17' }), source);
+
+    const updated = distillPrecedentText(sibling, 'd1', 'Accepted the clause because storm exposure outweighed deposit timing.', 'Demo proxy · haiku');
+
+    expect(updated).not.toBe(sibling);
+    expect(updated.evidence.precedents[0]).toMatchObject({
+      sourceDecisionId: 'd1',
+      reasoning: 'Accepted the clause because storm exposure outweighed deposit timing.',
+      distilledBy: 'Demo proxy · haiku',
+    });
+  });
+
+  it('returns the sibling unchanged when no matching Precedent exists', () => {
+    const sibling = landPrecedent(makeDecision({ id: 'd17' }), precedentFrom(makeDecision({ id: 'd1' }), RESOLUTION));
+
+    const updated = distillPrecedentText(sibling, 'missing', 'No match.', 'Demo proxy · haiku');
+
+    expect(updated).toBe(sibling);
+  });
+
+  it('leaves other Precedents untouched', () => {
+    const first = precedentFrom(makeDecision({ id: 'd1' }), RESOLUTION);
+    const second = precedentFrom(makeDecision({ id: 'd2' }), { ...RESOLUTION, reasoning: 'AV variance needs sales funding.' });
+    const sibling = landPrecedent(landPrecedent(makeDecision({ id: 'd17' }), first), second);
+    const other = sibling.evidence.precedents.find((p) => p.sourceDecisionId === 'd2')!;
+
+    const updated = distillPrecedentText(sibling, 'd1', 'Accepted because the weather clause covered the exposure.', 'Demo proxy · haiku');
+
+    expect(updated.evidence.precedents.find((p) => p.sourceDecisionId === 'd2')).toBe(other);
+    expect(updated.evidence.precedents.find((p) => p.sourceDecisionId === 'd1')?.reasoning).toBe(
+      'Accepted because the weather clause covered the exposure.',
+    );
   });
 });
