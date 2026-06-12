@@ -11,6 +11,7 @@
     "embed": "tsx src/cli.ts embed",
     "cluster": "tsx src/cli.ts cluster",
     "name": "tsx src/cli.ts name",
+    "eval:distill": "tsx src/evalDistill.ts",
     "emit": "tsx src/cli.ts emit",
     "validate": "tsx src/cli.ts validate"
   },

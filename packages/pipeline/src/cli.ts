@@ -8,13 +8,14 @@
 //   emit     - join inputs + tables into the versioned SeedBundle (validates first)
 //   validate - re-check the emitted bundle against the domain contracts (CI)
 // Runs with no API key: embeddings come from a local open-source model.
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 import type { AiPort, Decision, SeedBundle } from '@ppi/domain';
 import { validateSeedBundle } from '@ppi/domain';
 import { createAnthropicAi, createCannedAi, createOllamaAi, createOpenRouterAi } from '@ppi/adapters';
 import type { CorpusCase, GeneratedCorpusCase, LabelledCorpusCase } from './corpus.js';
 import { createTransformersEmbedder, EMBEDDING_MODEL } from './embedder.js';
+import { loadRepoEnv } from './env.js';
 import {
   CASE_TABLE_PATH,
   CASES_PATH,
@@ -23,7 +24,6 @@ import {
   INTELLIGENCE_PROPOSAL_PATH,
   LABELLED_CASES_PATH,
   NARRATION_PROPOSAL_PATH,
-  REPO_ROOT,
   SEED_JSON_PATH,
   SEED_TS_PATH,
   SIBLING_TABLE_PATH,
@@ -152,20 +152,6 @@ function familyCounts(cases: readonly (GeneratedCorpusCase | LabelledCorpusCase)
     if (familyId) counts[familyId] += 1;
   }
   return counts;
-}
-
-function loadRepoEnv(): void {
-  const envPath = join(REPO_ROOT, '.env');
-  if (!existsSync(envPath)) return;
-  for (const rawLine of readFileSync(envPath, 'utf8').split(/\r?\n/)) {
-    const line = rawLine.trim();
-    if (!line || line.startsWith('#')) continue;
-    const equals = line.indexOf('=');
-    if (equals <= 0) continue;
-    const key = line.slice(0, equals).trim();
-    const value = line.slice(equals + 1).trim();
-    if (process.env[key] === undefined) process.env[key] = value;
-  }
 }
 
 function parseNameOptions(args: readonly string[]): { engine: AiEngine; model?: string } {

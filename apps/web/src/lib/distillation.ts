@@ -34,6 +34,14 @@ function storageValue(storage: Storage | undefined, key: string): string | null 
   }
 }
 
+function saveStorageValue(storage: Storage | undefined, key: string, value: string): void {
+  try {
+    storage?.setItem(key, value);
+  } catch {
+    // Storage can be unavailable in privacy modes; live distillation still degrades.
+  }
+}
+
 function browserLocalStorage(): Storage | undefined {
   return typeof localStorage === 'undefined' ? undefined : localStorage;
 }
@@ -59,6 +67,26 @@ export function loadEngineSettings(): EngineSettings {
 export function loadByokKey(): string | null {
   const key = storageValue(browserSessionStorage(), 'ppi-byok-key')?.trim();
   return key || null;
+}
+
+export function saveEngineChoice(value: EngineChoice): void {
+  saveStorageValue(browserLocalStorage(), 'ppi-engine', value);
+}
+
+export function saveByokKey(value: string): void {
+  saveStorageValue(browserSessionStorage(), 'ppi-byok-key', value);
+}
+
+export function saveByokModel(value: string): void {
+  saveStorageValue(browserLocalStorage(), 'ppi-byok-model', value);
+}
+
+export function saveOllamaEndpoint(value: string): void {
+  saveStorageValue(browserLocalStorage(), 'ppi-ollama-endpoint', value);
+}
+
+export function saveOllamaModel(value: string): void {
+  saveStorageValue(browserLocalStorage(), 'ppi-ollama-model', value);
 }
 
 export function engineLabel(settings: EngineSettings): string {

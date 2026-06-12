@@ -12,6 +12,7 @@ import { DetailPane } from './components/DetailPane.js';
 import { PersonaSwitcher } from './components/PersonaSwitcher.js';
 import { PortfolioView } from './components/PortfolioView.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
+import { SettingsDrawer } from './components/SettingsDrawer.js';
 import { distillResolution } from './lib/distillation.js';
 import { FEED_DECISION_IDS, feedDelayMs } from './lib/feed.js';
 
@@ -50,6 +51,7 @@ export default function App() {
   const [view, setView] = useState<'inbox' | 'portfolio'>('inbox');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [mobileDetail, setMobileDetail] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
   const decisionsRef = useRef<Decision[]>([]);
   const feedUnsubscribeRef = useRef<(() => void) | null>(null);
@@ -279,12 +281,10 @@ export default function App() {
           </span>
           <button
             type="button"
-            aria-label="Reset demo data"
-            onClick={() => void handleReset()}
+            onClick={() => setSettingsOpen((current) => !current)}
             className="text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2"
           >
-            <span className="hidden sm:inline">Reset demo data</span>
-            <span className="sm:hidden">Reset</span>
+            Settings
           </button>
         </div>
       </header>
@@ -341,6 +341,8 @@ export default function App() {
         </div>
       )}
 
+      <SettingsDrawer open={settingsOpen} onClose={() => setSettingsOpen(false)} onReset={() => void handleReset()} />
+
       {toast && (
         <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 rounded-lg bg-slate-900 text-white px-4 py-3 shadow-xl">
           <span className="text-sm">{toast.message}</span>
@@ -373,6 +375,14 @@ export default function App() {
               View
             </button>
           )}
+          <button
+            type="button"
+            aria-label="Dismiss notification"
+            onClick={() => setToast(null)}
+            className="text-slate-400 hover:text-white text-sm leading-none"
+          >
+            ×
+          </button>
         </div>
       )}
     </div>

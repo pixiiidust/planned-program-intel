@@ -26,7 +26,8 @@ test('reset re-arms', async ({ page }) => {
   const row = page.getByRole('button', { name: /SKO registration/i });
   await expect(row).toBeVisible();
 
-  await page.getByRole('button', { name: 'Reset demo data' }).click();
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('dialog', { name: 'Settings' }).getByRole('button', { name: 'Reset demo data' }).click();
   await expect(row).toBeHidden();
   await expect(row).toBeVisible();
 });

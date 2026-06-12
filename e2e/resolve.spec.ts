@@ -78,10 +78,22 @@ test('Reset demo data restores the pristine seed', async ({ page }) => {
   await expect(page.getByText(/✓ Decided\. Your reasoning now appears/)).toBeVisible();
   await expect(page.getByRole('button', { name: /^Decided \(8\)/ })).toBeVisible();
 
-  await page.getByRole('button', { name: 'Reset demo data' }).click();
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('dialog', { name: 'Settings' }).getByRole('button', { name: 'Reset demo data' }).click();
   await expect(page.getByText('✓ Demo data reset to the pristine seed')).toBeVisible();
   await expect(page.getByRole('button', { name: /^Decided \(7\)/ })).toBeVisible();
   await expect(page.getByTestId('decision-detail')).toContainText('Lisbon venue contract missing force majeure clause');
+});
+
+test('toast can be dismissed manually', async ({ page }) => {
+  await page.goto('/');
+
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('dialog', { name: 'Settings' }).getByRole('button', { name: 'Reset demo data' }).click();
+  await expect(page.getByText('✓ Demo data reset to the pristine seed')).toBeVisible();
+
+  await page.getByRole('button', { name: 'Dismiss notification' }).click();
+  await expect(page.getByText('✓ Demo data reset to the pristine seed')).not.toBeVisible();
 });
 
 async function tamperSeedVersion(page: Page) {
