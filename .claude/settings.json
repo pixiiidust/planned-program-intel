@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Select-Object *)",
+      "PowerShell(Select-String *)",
+      "PowerShell(ConvertFrom-Json *)",
+      "PowerShell(npm test)",
+      "PowerShell(npm run typecheck)",
+      "PowerShell(npx vitest run)",
+      "PowerShell(npx vitest run *)",
+      "PowerShell(gh run list *)",
+      "PowerShell(gh run view *)",
+      "PowerShell(gh run watch *)",
+      "PowerShell(gh pr view *)",
+      "PowerShell(gh pr list *)",
+      "PowerShell(gh pr diff *)",
+      "PowerShell(gh issue view *)",
+      "PowerShell(gh issue list *)",
+      "Bash(npm test)",
+      "Bash(npm run typecheck)",
+      "Bash(npx vitest run)",
+      "Bash(npx vitest run *)"
+    ]
+  }
+}

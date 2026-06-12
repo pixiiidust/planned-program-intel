@@ -19,6 +19,6 @@ The demo exposes an **engine picker** for this moment, making the AI port's adap
 
 ## Consequences
 
-- The build-time pipeline uses the same AI port: Anthropic (Haiku) adapter as primary, Ollama adapter as the free/offline alternative, canned adapter in CI (no key, no spend).
+- The build-time pipeline uses the same AI port, engine-selectable per run (`--engine canned|openrouter|ollama|anthropic`, `--model` passthrough; keys via env/`.env`, never required). *(Amended 2026-06-12:)* the default is **canned** — keyless, deterministic, CI-safe — so the pipeline's happy path never errors or spends for anyone who clones the repo; real narration runs are an explicit choice (e.g. OpenRouter routing to Haiku). The live-moment design above is unchanged.
 - The distillation prompt gets a small eval fixture set run in CI.
 - Demo seed data must give every headline decision at least one unresolved high-similarity sibling (quieter, non-headline) so the distilled Precedent has a visible landing place.
