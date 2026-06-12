@@ -1,5 +1,5 @@
 {
-  "seedVersion": "seed-v1.1-pipeline-tables",
+  "seedVersion": "seed-v2-corpus-intelligence",
   "decisions": [
     {
       "id": "d1",
@@ -31,97 +31,113 @@
         "action": "Request a force majeure addendum before signing. Offer a 5% earlier deposit in exchange. Ask for a 1-week hold extension in the same message.",
         "why": "Removes the $310K exposure. Costs only deposit timing — cash-flow neutral. The hold extension covers this venue’s slower legal review.",
         "track": {
-          "worked": 41,
-          "total": 48,
-          "basis": "force majeure addendums requested on international venue contracts"
+          "worked": 40,
+          "total": 60,
+          "basis": "venue contracts lacking protective clauses for unforeseen circumstances"
         }
       },
       "evidence": {
-        "caseCount": 48,
-        "workedCount": 41,
+        "caseCount": 60,
+        "workedCount": 40,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Pair the addendum request with a deposit-timing trade",
-            "count": "29 of the 41 successes",
+            "title": "Pair deposit trade with force majeure clause insertion",
+            "count": "15 of the 40 successes",
             "example": {
-              "event": "Global SKO 2025 — Barcelona",
-              "detail": "Venue accepted the clause for a 5% earlier deposit. Signed two days inside the hold."
+              "event": "Partner Summit 2025 — Lisbon",
+              "detail": "Clause requested 12 days before the hold. Venue ownership was private. Legal review took 5 days. Exposure was $106K."
             },
-            "takeaway": "Deposit timing is the cheapest currency for contract protections."
+            "takeaway": "This play works when both parties fear cancellation risk equally and agree that shared protection through explicit force majeure language costs less than individual forfeit exposure."
           },
           {
             "outcome": "worked",
-            "title": "Ask for a hold extension in the same message",
-            "count": "9 of the 41 successes",
+            "title": "Request force majeure protections before signing venue contracts",
+            "count": "12 of the 40 successes",
             "example": {
-              "event": "APAC SKO 2025 — Seoul",
-              "detail": "Venue gave a one-week extension while its legal team reviewed the clause. No leverage lost."
+              "event": "User Conference 2026 — Lisbon",
+              "detail": "Clause requested 28 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $37K."
             },
-            "takeaway": "Asking for time costs nothing and removes deadline pressure."
+            "takeaway": "This approach works when negotiating with venues early in planning, as adding protective clauses requires mutual agreement before either party becomes contractually bound."
+          },
+          {
+            "outcome": "worked",
+            "title": "Sign contract then amend force majeure protections",
+            "count": "10 of the 40 successes",
+            "example": {
+              "event": "Partner Summit 2023 — Lisbon",
+              "detail": "Clause requested 8 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $120K."
+            },
+            "takeaway": "This play works when both parties prioritize relationship continuity over contract perfectionism and amendments can be negotiated quickly before binding commitments lock in."
           },
           {
             "outcome": "failed",
-            "title": "Sign without the clause to protect the date",
-            "count": "5 of the 7 failures",
+            "title": "Sign contract without negotiating force majeure protection",
+            "count": "9 of the 20 failures",
             "example": {
-              "event": "EMEA Summit 2024 — Prague",
-              "detail": "Signed without the clause to save 3 days. A storm cancellation cost $42K, unrecoverable."
+              "event": "SKO 2025 — London",
+              "detail": "Clause requested 5 days before the hold. Venue ownership was private. Legal review took 6 days. Exposure was $193K."
             },
-            "takeaway": "Skipping the clause to save time has already cost real money."
+            "takeaway": "This approach fails when weather or unforeseen circumstances trigger cancellation, leaving all committed spend unrecoverable and creating financial exposure the venue controls entirely."
           }
         ],
         "exceptions": [
           {
-            "title": "Government-owned venues (3 cases)",
-            "detail": "All three took 2–4x longer in legal review than private venues. This venue is government-owned."
+            "title": "Government-owned venues (11 cases)",
+            "detail": "Legal review averaged 11.7 days vs 5.6 across the rest of the similar set. Government-owned venues require legal board approval for contract modifications, which consumes most of the remaining time before the hold expires Friday, making it critical to prioritize this clause now or risk losing the venue entirely."
           }
         ],
         "cases": [
           {
-            "event": "Sales Club 2023 — Athens",
+            "event": "Partner Summit 2023 — Lisbon",
             "when": "2023",
-            "similarity": 0.7854,
-            "outcome": "failed",
-            "detail": "Addendum talks stalled past the hold. Preferred dates lost.",
-            "tags": [
-              "Southern Europe",
-              "resort"
-            ]
-          },
-          {
-            "event": "Global SKO 2024 — Lisbon",
-            "when": "2024",
-            "similarity": 0.7817,
+            "similarity": 0.6358,
             "outcome": "worked",
-            "detail": "Same city, different venue. Clause accepted with no trade.",
+            "patternIndex": 2,
+            "detail": "Clause requested 8 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $120K.",
             "tags": [
               "Iberia",
-              "hotel"
+              "convention center",
+              "private venue"
             ]
           },
           {
-            "event": "Global SKO 2025 — Barcelona",
+            "event": "User Conference 2026 — Lisbon",
+            "when": "2026",
+            "similarity": 0.6223,
+            "outcome": "worked",
+            "patternIndex": 1,
+            "detail": "Clause requested 28 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $37K.",
+            "tags": [
+              "Iberia",
+              "convention center",
+              "private venue"
+            ]
+          },
+          {
+            "event": "Partner Summit 2025 — Lisbon",
             "when": "2025",
-            "similarity": 0.7688,
+            "similarity": 0.5892,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Addendum accepted for a 5% earlier deposit.",
+            "detail": "Clause requested 12 days before the hold. Venue ownership was private. Legal review took 5 days. Exposure was $106K.",
             "tags": [
               "Iberia",
-              "convention center"
+              "convention center",
+              "deposit trade"
             ]
           },
           {
-            "event": "EMEA Summit 2024 — Prague",
-            "when": "2024",
-            "similarity": 0.747,
+            "event": "Customer Roadshow 2022 — Lisbon",
+            "when": "2022",
+            "similarity": 0.5663,
             "outcome": "failed",
             "patternIndex": 2,
-            "detail": "Signed without the clause. Storm cancellation cost $42K.",
+            "detail": "Clause requested 8 days before the hold. Venue ownership was government. Legal review took 16 days. Exposure was $89K.",
             "tags": [
-              "Central Europe",
-              "hotel"
+              "Iberia",
+              "municipal hall",
+              "government venue"
             ]
           }
         ],
@@ -190,99 +206,108 @@
         "action": "Re-quote with preferred vendor StageCraft GmbH. Ask the venue to waive its outside-AV fee. Require a priced backup rig for the live demo.",
         "why": "StageCraft priced a comparable Berlin event 15% lower. That puts AV back inside the €130K line — no finance cycle. The venue has waived the fee before when F&B spend topped €80K. Yours is €95K.",
         "track": {
-          "worked": 95,
-          "total": 106,
-          "basis": "re-quotes with preferred AV vendors at venues with exclusivity clauses"
+          "worked": 44,
+          "total": 70,
+          "basis": "quotes from preferred vendors at comparable scope with repricing leverage opportunities"
         }
       },
       "evidence": {
-        "caseCount": 106,
-        "workedCount": 95,
+        "caseCount": 70,
+        "workedCount": 44,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Re-quote with a preferred vendor, then negotiate the outside-AV fee",
-            "count": "71 of the 95 successes",
+            "title": "Request alternative quotes from competing preferred vendors",
+            "count": "18 of the 44 successes",
             "example": {
-              "event": "DACH Partner Day 2025 — Berlin",
-              "detail": "StageCraft came in 15% under the in-house quote. Venue waived its fee once F&B spend passed €80K."
+              "event": "Partner Summit 2022 — Marseille",
+              "detail": "Original quote was $454K against a $388K line. Outside AV fee was not waived. Final cost was $326K. Change orders were $3K."
             },
-            "takeaway": "Outside-AV fees are negotiable when F&B spend is high."
+            "takeaway": "This approach works when the venue's sole quote exceeds budget and alternative suppliers exist in the market, but fails if the venue holds exclusive service contracts or competing options are unavailable."
           },
           {
             "outcome": "worked",
-            "title": "Use the outside quote as leverage to reprice the in-house offer",
-            "count": "24 of the 95 successes",
+            "title": "Leverage in-house repricing against budget benchmark",
+            "count": "13 of the 44 successes",
             "example": {
-              "event": "Nordics Summit 2025 — Stockholm",
-              "detail": "Venue matched the outside price within 48 hours rather than lose the contract."
+              "event": "User Conference 2022 — Berlin",
+              "detail": "Original quote was $333K against a $280K line. Outside AV fee was not waived. Final cost was $269K. Change orders were $1K."
             },
-            "takeaway": "Sometimes the quote’s only job is to exist."
+            "takeaway": "This play works when the venue holds exclusivity clauses and has competing alternatives in the same market, allowing budget pressure to force quote reduction toward the original line."
+          },
+          {
+            "outcome": "worked",
+            "title": "Descope the venue quote against comparable university benchmarks",
+            "count": "6 of the 44 successes",
+            "example": {
+              "event": "SKO 2023 — Madrid",
+              "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
+            },
+            "takeaway": "This play works when you have access to regional peer pricing data from similar multi-stage academic venues, as demonstrated in Madrid, allowing you to reframe the overage as a data-driven negotiation rather than a budget shortfall."
           },
           {
             "outcome": "failed",
-            "title": "Bring in an outside vendor without a paid venue walkthrough",
-            "count": "8 of the 11 failures",
+            "title": "Accept the venue's higher quote as final cost",
+            "count": "11 of the 26 failures",
             "example": {
-              "event": "EMEA Summit 2025 — Vienna",
-              "detail": "Outside vendor didn’t know the venue. Load-in overran and added €9K in overtime."
+              "event": "User Conference 2023 — Berlin",
+              "detail": "Original quote was $253K against a $201K line. Outside AV fee was waived. Final cost was $225K. Change orders were $8K."
             },
-            "takeaway": "Budget the walkthrough up front."
+            "takeaway": "This play fails when budget rigidity is necessary or when alternative venues at target price exist, but succeeds only if the venue's unique value justifies cost absorption across the event margin."
           }
         ],
-        "exceptions": [
-          {
-            "title": "Live product demos (4 cases)",
-            "detail": "Redundancy requirements erased about half the vendor savings each time. This keynote has a live demo. Price the backup rig before comparing quotes."
-          }
-        ],
+        "exceptions": [],
         "cases": [
           {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.715,
+            "event": "User Conference 2023 — Berlin",
+            "when": "2023",
+            "similarity": 0.6213,
             "outcome": "failed",
-            "patternIndex": 2,
-            "detail": "No walkthrough budgeted. Load-in overran €9K.",
+            "patternIndex": 3,
+            "detail": "Original quote was $253K against a $201K line. Outside AV fee was waived. Final cost was $225K. Change orders were $8K.",
             "tags": [
-              "Austria",
-              "outside vendor"
+              "DACH",
+              "university venue",
+              "fee waived"
             ]
           },
           {
-            "event": "Nordics Summit 2025 — Stockholm",
-            "when": "2025",
-            "similarity": 0.6159,
+            "event": "User Conference 2022 — Berlin",
+            "when": "2022",
+            "similarity": 0.5688,
             "outcome": "worked",
             "patternIndex": 1,
-            "detail": "Venue matched the outside quote in 48h.",
+            "detail": "Original quote was $333K against a $280K line. Outside AV fee was not waived. Final cost was $269K. Change orders were $1K.",
             "tags": [
-              "Nordics",
-              "leverage re-quote"
-            ]
-          },
-          {
-            "event": "DACH Partner Day 2025 — Berlin",
-            "when": "2025",
-            "similarity": 0.6154,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "StageCraft 15% under in-house. Fee waived.",
-            "tags": [
-              "Berlin",
+              "DACH",
+              "hotel",
               "exclusivity clause"
             ]
           },
           {
-            "event": "Madrid Kickoff 2023",
-            "when": "2023",
-            "similarity": 0.606,
-            "outcome": "failed",
-            "patternIndex": 2,
-            "detail": "Outside vendor missed the rigging spec. €7K in change orders.",
+            "event": "Partner Summit 2022 — Marseille",
+            "when": "2022",
+            "similarity": 0.5212,
+            "outcome": "worked",
+            "patternIndex": 0,
+            "detail": "Original quote was $454K against a $388K line. Outside AV fee was not waived. Final cost was $326K. Change orders were $3K.",
+            "tags": [
+              "France",
+              "arena",
+              "quote variance"
+            ]
+          },
+          {
+            "event": "Partner Summit 2026 — Madrid",
+            "when": "2026",
+            "similarity": 0.5028,
+            "outcome": "worked",
+            "patternIndex": 0,
+            "detail": "Original quote was $184K against a $163K line. Outside AV fee was waived. Final cost was $160K. Change orders were $0K.",
             "tags": [
               "Iberia",
-              "outside vendor"
+              "hotel",
+              "fee waived"
             ]
           }
         ],
@@ -352,97 +377,98 @@
         "action": "Escalate to the VP’s chief of staff today, with the $14K rate-expiry cost attached. Request delegated approval under policy A-22. In parallel, ask the hotel for a 72-hour hold extension.",
         "why": "A quantified cost-of-delay has unblocked approvals within 24h. Policy A-22 lets the chief of staff approve lodging contracts under $200K — this one is $86K. The hotel ask is free insurance if the escalation runs long.",
         "track": {
-          "worked": 17,
-          "total": 21,
-          "basis": "approval stalls broken with a quantified cost-of-delay escalation"
+          "worked": 32,
+          "total": 50,
+          "basis": "stalled approval workflows where executive decision-makers delay contract sign-offs"
         }
       },
       "evidence": {
-        "caseCount": 21,
-        "workedCount": 17,
+        "caseCount": 50,
+        "workedCount": 32,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Escalate to the approver’s delegate with a quantified cost-of-delay",
-            "count": "13 of the 17 successes",
+            "title": "Quantify daily revenue loss from approval delay",
+            "count": "17 of the 32 successes",
             "example": {
-              "event": "Q1 Exec Offsite 2026 — Denver",
-              "detail": "Chief-of-staff escalation with the cost figure attached. Approved in 6 hours."
+              "event": "Sales Club 2023 — Austin",
+              "detail": "Approval had stalled for 10 days. The hold window was 10 days. Approval came in 7 days. Reprice exposure was $2K."
             },
-            "takeaway": "Quantified cost-of-delay moves approvals. Vague urgency doesn’t."
+            "takeaway": "This approach works when the decision-maker has limited attention capacity and faces competing priorities, because attaching concrete financial impact to inaction creates urgency that abstract timelines alone cannot."
           },
           {
             "outcome": "worked",
-            "title": "Ask the vendor for a hold extension while approval clears",
-            "count": "4 of the 17 successes",
+            "title": "Escalate approval request directly to traveling VP's assistant",
+            "count": "10 of the 32 successes",
             "example": {
-              "event": "NY Leadership Summit 2025",
-              "detail": "Hotel extended the hold 72 hours on a direct request. Deadline defused."
+              "event": "Sales Club 2025 — Rome",
+              "detail": "Approval had stalled for 14 days. The hold window was 13 days. Approval came in 11 days. Reprice exposure was $2K."
             },
-            "takeaway": "The vendor often has more flexibility than the org chart."
+            "takeaway": "This play works when the decision-maker is mobile and unreachable through normal channels, as their delegate can prioritize and facilitate sign-off despite limited connectivity."
           },
           {
             "outcome": "failed",
-            "title": "Wait for the approver to resurface",
-            "count": "4 of the 4 failures",
+            "title": "Wait for VP approval despite travel and email constraints",
+            "count": "10 of the 18 failures",
             "example": {
-              "event": "Board Retreat 2025 — Sonoma",
-              "detail": "Waited politely. The hold lapsed. Paid a 21% higher rate — $11K avoidable."
+              "event": "User Conference 2022 — Chicago",
+              "detail": "Approval had stalled for 4 days. The hold window was 12 days. Approval came in 17 days. Reprice exposure was $26K."
             },
-            "takeaway": "Waiting out an approval stall has a measurable price."
+            "takeaway": "Waiting fails when the decision-maker has degraded access and competing travel priorities, requiring escalation or interim authorization instead."
           }
         ],
-        "exceptions": [
-          {
-            "title": "Approver traveling (2 cases)",
-            "detail": "Both needed the chief of staff. Direct pings to the traveling VP went unanswered past the deadline. Your VP is traveling now."
-          }
-        ],
+        "exceptions": [],
         "cases": [
           {
-            "event": "Board Retreat 2025 — Sonoma",
+            "event": "Sales Club 2023 — Austin",
+            "when": "2023",
+            "similarity": 0.5807,
+            "outcome": "worked",
+            "patternIndex": 0,
+            "detail": "Approval had stalled for 10 days. The hold window was 10 days. Approval came in 7 days. Reprice exposure was $2K.",
+            "tags": [
+              "US Central",
+              "university venue",
+              "cost of delay quantified"
+            ]
+          },
+          {
+            "event": "Customer Roadshow 2025 — Austin",
             "when": "2025",
-            "similarity": 0.7453,
-            "outcome": "failed",
+            "similarity": 0.5487,
+            "outcome": "worked",
             "patternIndex": 2,
-            "detail": "Waited. Hold lapsed. $11K avoidable spend.",
+            "detail": "Approval had stalled for 8 days. The hold window was 13 days. Approval came in 1 days. Reprice exposure was $3K.",
             "tags": [
-              "waited",
-              "lodging"
+              "US Central",
+              "university venue",
+              "approval wait"
             ]
           },
           {
-            "event": "Q1 Exec Offsite 2026 — Denver",
+            "event": "Sales Club 2026 — Seoul",
             "when": "2026",
-            "similarity": 0.7326,
+            "similarity": 0.5061,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Chief-of-staff escalation. Approved in 6 hours.",
+            "detail": "Approval had stalled for 8 days. The hold window was 11 days. Approval came in 2 days. Reprice exposure was $3K.",
             "tags": [
-              "delegate path",
-              "lodging"
+              "APAC",
+              "hotel",
+              "cost of delay quantified"
             ]
           },
           {
-            "event": "NY Leadership Summit 2025",
-            "when": "2025",
-            "similarity": 0.6881,
-            "outcome": "worked",
-            "patternIndex": 1,
-            "detail": "Hotel extended the hold 72h on request.",
-            "tags": [
-              "vendor extension"
-            ]
-          },
-          {
-            "event": "SKO Vendor Fair 2024",
-            "when": "2024",
-            "similarity": 0.6815,
+            "event": "Partner Summit 2022 — Madrid",
+            "when": "2022",
+            "similarity": 0.5047,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Cost-of-delay memo cc’ing finance. Signed next morning.",
+            "detail": "Approval had stalled for 21 days. The hold window was 10 days. Approval came in 5 days. Reprice exposure was $2K.",
             "tags": [
-              "delegate path"
+              "Iberia",
+              "hotel",
+              "cost of delay quantified"
             ]
           }
         ],
@@ -506,85 +532,98 @@
         "action": "Start the COI check and dietary menu review today. Grant the one-event exception once both pass. Skip re-sourcing.",
         "why": "The alternate passed venue vetting and has served 3 peer-company events. The exception costs a day of paperwork. Late re-sourcing costs 10–20% more.",
         "track": {
-          "worked": 9,
-          "total": 12,
-          "basis": "one-event supplier exceptions at first-time venues"
+          "worked": 33,
+          "total": 40,
+          "basis": "vendor unavailability requiring exception approval for service continuity"
         }
       },
       "evidence": {
-        "caseCount": 12,
-        "workedCount": 9,
+        "caseCount": 40,
+        "workedCount": 33,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Grant the exception with verification done first",
-            "count": "all 9 successes verified before contracting",
+            "title": "Document exception request and seek management approval",
+            "count": "15 of the 33 successes",
             "example": {
-              "event": "West Coast Roadshow 2025 — SF",
-              "detail": "Exception with COI check. The vendor later joined the preferred list."
+              "event": "Customer Roadshow 2022 — New York",
+              "detail": "Policy POL-SEC-03 was checked. Exception was granted. Incident after was false. Alternative was found in 0 days."
             },
-            "takeaway": "Exceptions are a sourcing pipeline, not just a risk."
+            "takeaway": "This approach works when time permits formal review and the requestor can justify business need before event logistics become critical."
           },
           {
-            "outcome": "failed",
-            "title": "Skip verification to move fast",
-            "count": "2 of the 3 failures",
+            "outcome": "worked",
+            "title": "Escalate unavailable preferred vendor for policy exception approval",
+            "count": "10 of the 33 successes",
             "example": {
-              "event": "Chicago Roadshow 2023",
-              "detail": "No COI check. An uninsured damage claim took 5 months to settle."
+              "event": "Sales Club 2026 — New York",
+              "detail": "Policy POL-TRV-18 was checked. Exception was granted. Incident after was false. Alternative was found in 0 days."
             },
-            "takeaway": "Verification is the exception’s entire safety margin."
-          }
-        ],
-        "exceptions": [
+            "takeaway": "This play succeeds when the preferred supplier has genuine capacity constraints and the escalation presents a vetted alternate with clear business justification."
+          },
           {
-            "title": "Dietary-compliance misses (2 cases)",
-            "detail": "Both involved new caterers missing halal or kosher needs, found at the event. Review menus before contracting, not after."
+            "outcome": "worked",
+            "title": "Deny preferred vendor, find and approve alternate",
+            "count": "8 of the 33 successes",
+            "example": {
+              "event": "Customer Roadshow 2022 — Boston",
+              "detail": "Policy POL-FB-07 was checked. Exception was denied. Incident after was false. Alternative was found in 5 days."
+            },
+            "takeaway": "This play works when the alternate vendor meets quality and compliance standards, reducing delay risk compared to waiting for the preferred caterer or rejecting the venue recommendation outright."
           }
         ],
+        "exceptions": [],
         "cases": [
           {
-            "event": "West Coast Roadshow 2025 — SF",
-            "when": "2025",
-            "similarity": 0.7582,
+            "event": "Customer Roadshow 2022 — New York",
+            "when": "2022",
+            "similarity": 0.5748,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Exception + COI check. Vendor later joined the preferred list.",
+            "detail": "Policy POL-SEC-03 was checked. Exception was granted. Incident after was false. Alternative was found in 0 days.",
             "tags": [
-              "first-time venue",
-              "COI verified"
+              "US East",
+              "arena",
+              "exception granted"
             ]
           },
           {
-            "event": "Boston Partner Day 2024",
-            "when": "2024",
-            "similarity": 0.719,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Menu review caught a halal gap in time.",
-            "tags": [
-              "menu review"
-            ]
-          },
-          {
-            "event": "Chicago Roadshow 2023",
-            "when": "2023",
-            "similarity": 0.7171,
-            "outcome": "failed",
-            "patternIndex": 1,
-            "detail": "Verification skipped. Uninsured damage claim.",
-            "tags": [
-              "no verification"
-            ]
-          },
-          {
-            "event": "Q1 Exec Offsite 2026 — Denver",
+            "event": "Sales Club 2026 — New York",
             "when": "2026",
-            "similarity": 0.3825,
+            "similarity": 0.5142,
             "outcome": "worked",
-            "detail": "Outlying property. $9K saved, no complaints.",
+            "patternIndex": 1,
+            "detail": "Policy POL-TRV-18 was checked. Exception was granted. Incident after was false. Alternative was found in 0 days.",
             "tags": [
-              "internal-only"
+              "US East",
+              "resort",
+              "exception granted"
+            ]
+          },
+          {
+            "event": "Customer Roadshow 2022 — Boston",
+            "when": "2022",
+            "similarity": 0.5104,
+            "outcome": "worked",
+            "patternIndex": 2,
+            "detail": "Policy POL-FB-07 was checked. Exception was denied. Incident after was false. Alternative was found in 5 days.",
+            "tags": [
+              "US East",
+              "resort",
+              "alternative found"
+            ]
+          },
+          {
+            "event": "Customer Roadshow 2022 — Denver",
+            "when": "2022",
+            "similarity": 0.5005,
+            "outcome": "worked",
+            "patternIndex": 0,
+            "detail": "Policy POL-SEC-03 was checked. Exception was granted. Incident after was false. Alternative was found in 0 days.",
+            "tags": [
+              "US Mountain",
+              "convention center",
+              "exception granted"
             ]
           }
         ],
@@ -648,86 +687,113 @@
         "action": "Release 60 rooms now, inside the free window. Trigger the reserve partner-invite wave. Set a re-forecast checkpoint in 2 weeks.",
         "why": "Pace projects ~265 attendees against 310 rooms. The release is free and reversible. Partner waves lifted attendance 12–18% at past summits. The checkpoint covers the conference-overlap risk.",
         "track": {
-          "worked": 28,
-          "total": 34,
-          "basis": "early block releases combined with reserve invite waves at similar summits"
+          "worked": 27,
+          "total": 50,
+          "basis": "previous summit registration shortfalls addressed through similar outreach and pricing interventions"
         }
       },
       "evidence": {
-        "caseCount": 34,
-        "workedCount": 28,
+        "caseCount": 50,
+        "workedCount": 27,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Release inside the free window + trigger reserve invites",
-            "count": "22 of the 28 successes",
+            "title": "Contact high-value prospects with personalized summit value propositions",
+            "count": "9 of the 27 successes",
             "example": {
-              "event": "EMEA Summit 2025 — Vienna",
-              "detail": "Released 50 rooms early and ran the partner wave. Finished at 96% pickup. Zero attrition fees."
+              "event": "Executive Forum 2024 — Stockholm",
+              "detail": "Pace was 59% of target 34 days out. Target attendance was 522. Final attendance was 543. Added spend was $15K."
             },
-            "takeaway": "Act inside the free window, not at the deadline."
+            "takeaway": "This play works when decision-makers remain reachable before the final registration push and perceive the event's content as addressing current business priorities."
+          },
+          {
+            "outcome": "worked",
+            "title": "Accelerate early-bird deadline to drive immediate registration surge",
+            "count": "8 of the 27 successes",
+            "example": {
+              "event": "User Conference 2022 — Berlin",
+              "detail": "Pace was 61% of target 64 days out. Target attendance was 606. Final attendance was 588. Added spend was $4K."
+            },
+            "takeaway": "This play works when registration lags significantly behind target with sufficient time to incentivize decision-making before attrition thresholds trigger penalties."
+          },
+          {
+            "outcome": "worked",
+            "title": "Shift event to smaller venue matching current registration",
+            "count": "7 of the 27 successes",
+            "example": {
+              "event": "Sales Club 2026 — Stockholm",
+              "detail": "Pace was 88% of target 84 days out. Target attendance was 470. Final attendance was 456. Added spend was $2K."
+            },
+            "takeaway": "This play works when registration trajectory cannot recover to original capacity targets within remaining lead time, eliminating attrition penalties and improving per-attendee economics."
           },
           {
             "outcome": "failed",
-            "title": "Hold the full block hoping registrations catch up",
-            "count": "5 of the 6 failures",
+            "title": "Maintain current promotional strategy despite registration shortfall",
+            "count": "7 of the 23 failures",
             "example": {
-              "event": "APAC Summit 2024 — Singapore",
-              "detail": "Held the block. Pickup landed at 71%. Paid $22K attrition."
+              "event": "Executive Forum 2024 — Berlin",
+              "detail": "Pace was 80% of target 26 days out. Target attendance was 464. Final attendance was 417. Added spend was $0K."
             },
-            "takeaway": "Hope is not a block-management strategy."
+            "takeaway": "This approach fails when registration decline is steep and time-to-event is insufficient to recover momentum through existing tactics alone."
           }
         ],
         "exceptions": [
           {
-            "title": "Competing-conference overlap (3 cases)",
-            "detail": "Pace stayed depressed after the fix in all 3. Your dates overlap a competing conference. Plan a second checkpoint, not a one-shot fix."
+            "title": "Inside 30 days out (13 cases)",
+            "detail": "Worked 5 of 13 vs 54% across the similar set. This subgroup determines whether the summit achieves minimum room pickup thresholds before attrition penalties activate, making their registration commitment critical to financial viability within the compressed timeframe remaining."
           }
         ],
         "cases": [
           {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.6671,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "50-room early release + partner wave → 96% pickup.",
-            "tags": [
-              "early release",
-              "partner wave"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2023 — Amsterdam",
-            "when": "2023",
-            "similarity": 0.6558,
-            "outcome": "failed",
-            "detail": "Conference overlap. Pace never recovered despite an invite wave.",
-            "tags": [
-              "conference overlap"
-            ]
-          },
-          {
-            "event": "Americas Summit 2025 — Chicago",
-            "when": "2025",
-            "similarity": 0.6237,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Released 40 rooms at 6 weeks out. Re-added 20 when pace recovered.",
-            "tags": [
-              "early release",
-              "reversible"
-            ]
-          },
-          {
-            "event": "APAC Summit 2024 — Singapore",
+            "event": "Executive Forum 2024 — Berlin",
             "when": "2024",
-            "similarity": 0.5948,
+            "similarity": 0.4792,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Pace was 80% of target 26 days out. Target attendance was 464. Final attendance was 417. Added spend was $0K.",
+            "tags": [
+              "DACH",
+              "conference center",
+              "under 30 days out"
+            ]
+          },
+          {
+            "event": "User Conference 2025 — Lisbon",
+            "when": "2025",
+            "similarity": 0.4655,
             "outcome": "failed",
             "patternIndex": 1,
-            "detail": "Held the block. $22K attrition at 71% pickup.",
+            "detail": "Pace was 86% of target 29 days out. Target attendance was 520. Final attendance was 338. Added spend was $10K.",
             "tags": [
-              "held block"
+              "Iberia",
+              "arena",
+              "under 30 days out"
+            ]
+          },
+          {
+            "event": "Executive Forum 2024 — Stockholm",
+            "when": "2024",
+            "similarity": 0.4555,
+            "outcome": "worked",
+            "patternIndex": 0,
+            "detail": "Pace was 59% of target 34 days out. Target attendance was 522. Final attendance was 543. Added spend was $15K.",
+            "tags": [
+              "Nordics",
+              "conference center",
+              "registration pace"
+            ]
+          },
+          {
+            "event": "Sales Club 2026 — Stockholm",
+            "when": "2026",
+            "similarity": 0.4553,
+            "outcome": "worked",
+            "patternIndex": 2,
+            "detail": "Pace was 88% of target 84 days out. Target attendance was 470. Final attendance was 456. Added spend was $2K.",
+            "tags": [
+              "Nordics",
+              "arena",
+              "registration pace"
             ]
           }
         ],
@@ -786,86 +852,108 @@
         "action": "Convert one non-ceremonial plated dinner to stations — saves ~€38K. Keep the awards dinner plated. Don’t request more budget.",
         "why": "Closes the €32K gap inside the current budget. Avoids the 2-week CFO cycle. Stations scored equal or better in past attendee surveys.",
         "track": {
-          "worked": 13,
-          "total": 16,
-          "basis": "plated-to-stations conversions at large SKOs and summits"
+          "worked": 35,
+          "total": 54,
+          "basis": "venue contracts with f&b minimum increases requiring renegotiation or scope adjustment decisions"
         }
       },
       "evidence": {
-        "caseCount": 16,
-        "workedCount": 13,
+        "caseCount": 54,
+        "workedCount": 35,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Convert a non-ceremonial night to stations",
-            "count": "11 of the 13 successes",
+            "title": "Request preferred vendor pricing concessions from Lisbon",
+            "count": "14 of the 35 successes",
             "example": {
-              "event": "Global SKO 2026 — Marseille",
-              "detail": "Networking night went to stations. Satisfaction unchanged (4.4 → 4.5). €35K saved."
+              "event": "Field Kickoff 2022 — Stockholm",
+              "detail": "Original quote was $199K against a $153K line. Outside AV fee was waived. Final cost was $153K. Change orders were $2K."
             },
-            "takeaway": "Format swaps beat budget escalations for mid-size gaps."
+            "takeaway": "This play works when a venue has recently invested in infrastructure and values retaining established clients, making them open to negotiating minimums in exchange for commitment."
+          },
+          {
+            "outcome": "worked",
+            "title": "Renegotiate venue F&B minimum based on renovation improvements",
+            "count": "12 of the 35 successes",
+            "example": {
+              "event": "Sales Club 2025 — Lisbon",
+              "detail": "Original quote was $170K against a $128K line. Outside AV fee was not waived. Final cost was $127K. Change orders were $5K."
+            },
+            "takeaway": "This approach succeeds when the venue upgrade substantively enhances client experience and justifies cost increases to stakeholders who value quality over budget constraints."
+          },
+          {
+            "outcome": "worked",
+            "title": "Descope the renovation requirement from the F&B minimum",
+            "count": "3 of the 35 successes",
+            "example": {
+              "event": "SKO 2023 — Madrid",
+              "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
+            },
+            "takeaway": "This play works when the venue's capital project is recent and unfinished, allowing you to negotiate a temporary reduction or phase-in that decouples your event from costs you did not approve."
           },
           {
             "outcome": "failed",
-            "title": "Convert the awards or ceremony dinner",
-            "count": "2 of the 3 failures",
+            "title": "Accept the venue's raised food and beverage minimum",
+            "count": "9 of the 19 failures",
             "example": {
-              "event": "Global SKO 2023 — Orlando",
-              "detail": "Leadership pushed back. Reverted at change-fee cost."
+              "event": "Field Kickoff 2023 — Prague",
+              "detail": "Original quote was $358K against a $306K line. Outside AV fee was waived. Final cost was $266K. Change orders were $35K."
             },
-            "takeaway": "Ceremonial dinners carry meaning beyond food. Leave them plated."
+            "takeaway": "This approach fails when the cost increase is unbudgeted and non-negotiable, as the Prague exemplar shows success only because the venue waived fees entirely rather than accepting a variance."
           }
         ],
-        "exceptions": [
-          {
-            "title": "850+ attendee events (2 cases)",
-            "detail": "Station throughput needed ~20% more floor space than the venue diagram showed. Verify with venue ops, not sales. This SKO is 850 attendees."
-          }
-        ],
+        "exceptions": [],
         "cases": [
           {
-            "event": "Global SKO 2026 — Marseille",
-            "when": "2026",
-            "similarity": 0.7331,
+            "event": "Sales Club 2025 — Lisbon",
+            "when": "2025",
+            "similarity": 0.4429,
             "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Networking night to stations. Satisfaction unchanged.",
-            "tags": [
-              "non-ceremonial",
-              "large event"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2024 — Prague",
-            "when": "2024",
-            "similarity": 0.7284,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Two lunches to stations. €18K saved without comment.",
-            "tags": [
-              "lunch conversion"
-            ]
-          },
-          {
-            "event": "Global SKO 2023 — Orlando",
-            "when": "2023",
-            "similarity": 0.7267,
-            "outcome": "failed",
             "patternIndex": 1,
-            "detail": "Awards dinner converted. Reverted after leadership pushback.",
-            "tags": [
-              "ceremonial dinner"
-            ]
-          },
-          {
-            "event": "Madrid Kickoff 2023",
-            "when": "2023",
-            "similarity": 0.4928,
-            "outcome": "failed",
-            "detail": "Outside vendor missed the rigging spec. €7K in change orders.",
+            "detail": "Original quote was $170K against a $128K line. Outside AV fee was not waived. Final cost was $127K. Change orders were $5K.",
             "tags": [
               "Iberia",
-              "outside vendor"
+              "arena",
+              "exclusivity clause"
+            ]
+          },
+          {
+            "event": "Field Kickoff 2023 — Prague",
+            "when": "2023",
+            "similarity": 0.4182,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Original quote was $358K against a $306K line. Outside AV fee was waived. Final cost was $266K. Change orders were $35K.",
+            "tags": [
+              "Central Europe",
+              "university venue",
+              "fee waived"
+            ]
+          },
+          {
+            "event": "Field Kickoff 2022 — Stockholm",
+            "when": "2022",
+            "similarity": 0.3841,
+            "outcome": "worked",
+            "patternIndex": 0,
+            "detail": "Original quote was $199K against a $153K line. Outside AV fee was waived. Final cost was $153K. Change orders were $2K.",
+            "tags": [
+              "Nordics",
+              "convention center",
+              "fee waived"
+            ]
+          },
+          {
+            "event": "Field Kickoff 2026 — Boston",
+            "when": "2026",
+            "similarity": 0.3798,
+            "outcome": "worked",
+            "patternIndex": 1,
+            "detail": "Original quote was $500K against a $410K line. Outside AV fee was waived. Final cost was $357K. Change orders were $2K.",
+            "tags": [
+              "US East",
+              "hotel",
+              "fee waived"
             ]
           }
         ],
@@ -929,80 +1017,103 @@
         "action": "Book CaptureWorks for all 12 tracks. Publish raw cuts — skip per-track editing.",
         "why": "Raw cuts cost 40% less, and past viewership concentrated in the first 48 hours — where speed beats polish.",
         "track": {
-          "worked": 5,
-          "total": 6,
-          "basis": "breakout recording packages at large internal events"
+          "worked": 17,
+          "total": 28,
+          "basis": "vendor decisions involving product sourcing strategies and supplier relationship management approaches"
         }
       },
       "evidence": {
-        "caseCount": 6,
-        "workedCount": 5,
+        "caseCount": 28,
+        "workedCount": 17,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Record everything, publish raw within 48 hours",
-            "count": "4 of the 5 successes",
+            "title": "Negotiate with preferred vendor to expand recording scope",
+            "count": "7 of the 17 successes",
             "example": {
-              "event": "Global SKO 2026 — Marseille",
-              "detail": "Raw cuts published next morning. 61% of sellers watched at least one track."
+              "event": "SKO 2023 — Austin",
+              "detail": "Incumbent quote was $158K. New quote was $120K. Sole source was true. Change orders were $3K."
             },
-            "takeaway": "Speed beats polish for internal content."
+            "takeaway": "This play succeeds when the existing vendor has bandwidth and willingness to add breakout sessions, avoiding sole-source constraints and delivery delays at convention centers."
           },
           {
-            "outcome": "failed",
-            "title": "Record only “top” tracks picked in advance",
-            "count": "1 of 1 failure",
+            "outcome": "worked",
+            "title": "Secure secondary vendor for breakout session recording",
+            "count": "5 of the 17 successes",
             "example": {
-              "event": "Global SKO 2024 — Lisbon",
-              "detail": "Two unrecorded tracks turned out to be the most requested."
+              "event": "SKO 2022 — San Francisco",
+              "detail": "Incumbent quote was $175K. New quote was $170K. Sole source was false. Change orders were $2K."
             },
-            "takeaway": "You can’t predict which tracks will matter."
+            "takeaway": "This approach works when primary vendor scope is limited and budget exists to extend coverage through a complementary vendor contract."
+          },
+          {
+            "outcome": "worked",
+            "title": "Extend incumbent vendor's scope for all breakout tracks",
+            "count": "5 of the 17 successes",
+            "example": {
+              "event": "Partner Summit 2025 — New York",
+              "detail": "Incumbent quote was $116K. New quote was $123K. Sole source was true. Change orders were $4K."
+            },
+            "takeaway": "This approach works when the existing AV vendor has proven capacity and onsite presence, avoiding fragmentation and ensuring consistent quality across all twelve sessions."
           }
         ],
-        "exceptions": [],
+        "exceptions": [
+          {
+            "title": "Sole-source vendors (15 cases)",
+            "detail": "Worked 6 of 15 vs 61% across the similar set. Sole-source vendors become critical when there is insufficient time to conduct competitive bidding before the SKO event, forcing reliance on the single AV provider who can quickly scale services beyond the keynote coverage."
+          }
+        ],
         "cases": [
           {
-            "event": "Global SKO 2024 — Lisbon",
-            "when": "2024",
-            "similarity": 0.7295,
+            "event": "SKO 2022 — San Francisco",
+            "when": "2022",
+            "similarity": 0.4274,
+            "outcome": "failed",
+            "patternIndex": 2,
+            "detail": "Incumbent quote was $161K. New quote was $182K. Sole source was true. Change orders were $18K.",
+            "tags": [
+              "US West",
+              "conference center",
+              "sole source"
+            ]
+          },
+          {
+            "event": "SKO 2026 — Seoul",
+            "when": "2026",
+            "similarity": 0.4209,
             "outcome": "failed",
             "patternIndex": 1,
-            "detail": "Pre-picked tracks missed demand.",
+            "detail": "Incumbent quote was $246K. New quote was $214K. Sole source was true. Change orders were $21K.",
             "tags": [
-              "partial recording"
+              "APAC",
+              "convention center",
+              "sole source"
             ]
           },
           {
-            "event": "Global SKO 2026 — Marseille",
-            "when": "2026",
-            "similarity": 0.6605,
-            "outcome": "worked",
-            "detail": "Second choice + production upgrade. Scores up.",
-            "tags": [
-              "keynote",
-              "envelope held"
-            ]
-          },
-          {
-            "event": "Global SKO 2023 — Orlando",
-            "when": "2023",
-            "similarity": 0.622,
+            "event": "Partner Summit 2024 — Seoul",
+            "when": "2024",
+            "similarity": 0.4142,
             "outcome": "failed",
-            "detail": "Envelope stretched 35%. Flat scores.",
+            "patternIndex": 1,
+            "detail": "Incumbent quote was $326K. New quote was $326K. Sole source was false. Change orders were $20K.",
             "tags": [
-              "keynote",
-              "envelope stretched"
+              "APAC",
+              "conference center",
+              "vendor swap"
             ]
           },
           {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.5241,
+            "event": "SKO 2023 — Austin",
+            "when": "2023",
+            "similarity": 0.3786,
             "outcome": "worked",
-            "detail": "2.3x in-room reach. 4x cost coverage.",
+            "patternIndex": 0,
+            "detail": "Incumbent quote was $158K. New quote was $120K. Sole source was true. Change orders were $3K.",
             "tags": [
-              "keynote",
-              "hybrid"
+              "US Central",
+              "convention center",
+              "sole source"
             ]
           }
         ],
@@ -1055,50 +1166,17 @@
         "action": "Use the refreshed design with larger names and role colors.",
         "why": "Bigger name type tested better for networking at two past summits. Zero cost difference.",
         "track": {
-          "worked": 2,
-          "total": 2,
-          "basis": "badge redesigns with larger name type"
+          "worked": 0,
+          "total": 0,
+          "basis": "badge design refresh projects for regional conferences across europe middle east and africa"
         }
       },
       "evidence": {
-        "caseCount": 2,
-        "workedCount": 2,
-        "patterns": [
-          {
-            "outcome": "worked",
-            "title": "Larger name type on badges",
-            "count": "2 of 2 cases",
-            "example": {
-              "event": "EMEA Summit 2025 — Vienna",
-              "detail": "Attendees reported easier networking. No cost change."
-            },
-            "takeaway": "Readability is free."
-          }
-        ],
+        "caseCount": 0,
+        "workedCount": 0,
+        "patterns": [],
         "exceptions": [],
-        "cases": [
-          {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.8488,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Larger names, easier networking.",
-            "tags": [
-              "badges"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2023 — Amsterdam",
-            "when": "2023",
-            "similarity": 0.5158,
-            "outcome": "failed",
-            "detail": "Conference overlap. Pace never recovered despite an invite wave.",
-            "tags": [
-              "conference overlap"
-            ]
-          }
-        ],
+        "cases": [],
         "precedents": []
       },
       "whatsDifferent": [],
@@ -1138,60 +1216,17 @@
         "action": "Use FormKit — it already holds the attendee schema from registration.",
         "why": "Reusing the registration schema removes a manual export step and one data-handling review.",
         "track": {
-          "worked": 3,
-          "total": 3,
-          "basis": "surveys run on the registration-linked tool"
+          "worked": 0,
+          "total": 0,
+          "basis": "post-event feedback collection mechanisms for mobile promotional tours and traveling demonstrations"
         }
       },
       "evidence": {
-        "caseCount": 3,
-        "workedCount": 3,
-        "patterns": [
-          {
-            "outcome": "worked",
-            "title": "Survey on the registration-linked tool",
-            "count": "3 of 3 cases",
-            "example": {
-              "event": "West Coast Roadshow 2025 — SF",
-              "detail": "No export step, results joined to attendee data automatically."
-            },
-            "takeaway": "Fewer handoffs, fewer reviews."
-          }
-        ],
+        "caseCount": 0,
+        "workedCount": 0,
+        "patterns": [],
         "exceptions": [],
-        "cases": [
-          {
-            "event": "West Coast Roadshow 2025 — SF",
-            "when": "2025",
-            "similarity": 0.6808,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Auto-joined results, zero exports.",
-            "tags": [
-              "survey"
-            ]
-          },
-          {
-            "event": "Q1 Exec Offsite 2026 — Denver",
-            "when": "2026",
-            "similarity": 0.4189,
-            "outcome": "worked",
-            "detail": "Cost-of-delay note. Approved in 6 hours.",
-            "tags": [
-              "delegate path"
-            ]
-          },
-          {
-            "event": "Chicago Roadshow 2023",
-            "when": "2023",
-            "similarity": 0.4088,
-            "outcome": "failed",
-            "detail": "Gridlock doubled loop times.",
-            "tags": [
-              "gridlock"
-            ]
-          }
-        ],
+        "cases": [],
         "precedents": []
       },
       "whatsDifferent": [],
@@ -1231,50 +1266,108 @@
         "action": "Approve the hybrid package.",
         "why": "Remote reach was 2.3x in-room at Vienna 2025. Remote pipeline covered the cost 4x.",
         "track": {
-          "worked": 2,
-          "total": 2,
-          "basis": "hybrid keynote packages at your last two summits"
+          "worked": 36,
+          "total": 55,
+          "basis": "similar budget decisions involving keynote event audiovisual packages with vendor repricing negotiations"
         }
       },
       "evidence": {
-        "caseCount": 2,
-        "workedCount": 2,
+        "caseCount": 55,
+        "workedCount": 36,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Broadcast-grade hybrid for the keynote only",
-            "count": "2 of 2 cases",
+            "title": "Return to preferred vendor for cost reduction leverage",
+            "count": "16 of the 36 successes",
             "example": {
-              "event": "EMEA Summit 2025 — Vienna",
-              "detail": "Hybrid keynote drew 2.3x in-room reach. Remote pipeline covered cost 4x."
+              "event": "Partner Summit 2022 — Marseille",
+              "detail": "Original quote was $454K against a $388K line. Outside AV fee was not waived. Final cost was $326K. Change orders were $3K."
             },
-            "takeaway": "Keynote livestreams out-earn their line item."
+            "takeaway": "This play works when a preferred vendor relationship exists and budget pressure forces renegotiation, but fails if the vendor lacks alternatives or if quality requirements cannot flex."
+          },
+          {
+            "outcome": "worked",
+            "title": "Repricing hybrid AV in-house to absorb broadcast costs",
+            "count": "10 of the 36 successes",
+            "example": {
+              "event": "User Conference 2022 — Berlin",
+              "detail": "Original quote was $333K against a $280K line. Outside AV fee was not waived. Final cost was $269K. Change orders were $1K."
+            },
+            "takeaway": "This approach succeeds when internal teams can redistribute existing AV resources and negotiate exclusivity clause waivers, making it ideal for regional conferences with hotel partners willing to flex on technical restrictions."
+          },
+          {
+            "outcome": "worked",
+            "title": "Descope broadcast features, prioritize core keynote experience",
+            "count": "4 of the 36 successes",
+            "example": {
+              "event": "Customer Roadshow 2026 — Stockholm",
+              "detail": "Original quote was $444K against a $347K line. Outside AV fee was not waived. Final cost was $344K. Change orders were $1K."
+            },
+            "takeaway": "This play works when audience engagement through essential content matters more than production polish, but fails if stakeholders expect premium broadcast quality as a differentiator."
+          },
+          {
+            "outcome": "failed",
+            "title": "Accept the broadcast-grade livestream package variance",
+            "count": "10 of the 19 failures",
+            "example": {
+              "event": "User Conference 2023 — Berlin",
+              "detail": "Original quote was $253K against a $201K line. Outside AV fee was waived. Final cost was $225K. Change orders were $8K."
+            },
+            "takeaway": "This approach fails when venue technical capabilities are assumed sufficient and stakeholder demand for production quality is underestimated before commitment."
           }
         ],
         "exceptions": [],
         "cases": [
           {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.7767,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "2.3x in-room reach. 4x cost coverage.",
+            "event": "User Conference 2023 — Berlin",
+            "when": "2023",
+            "similarity": 0.4905,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Original quote was $253K against a $201K line. Outside AV fee was waived. Final cost was $225K. Change orders were $8K.",
             "tags": [
-              "keynote",
-              "hybrid"
+              "DACH",
+              "university venue",
+              "fee waived"
             ]
           },
           {
-            "event": "EMEA Summit 2024 — Prague",
-            "when": "2024",
-            "similarity": 0.7645,
+            "event": "User Conference 2022 — Berlin",
+            "when": "2022",
+            "similarity": 0.4361,
             "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "1.8x reach. Sponsor renewed on remote numbers.",
+            "patternIndex": 1,
+            "detail": "Original quote was $333K against a $280K line. Outside AV fee was not waived. Final cost was $269K. Change orders were $1K.",
             "tags": [
-              "keynote",
-              "hybrid"
+              "DACH",
+              "hotel",
+              "exclusivity clause"
+            ]
+          },
+          {
+            "event": "User Conference 2022 — Austin",
+            "when": "2022",
+            "similarity": 0.393,
+            "outcome": "worked",
+            "patternIndex": 3,
+            "detail": "Original quote was $580K against a $417K line. Outside AV fee was waived. Final cost was $396K. Change orders were $2K.",
+            "tags": [
+              "US Central",
+              "conference center",
+              "fee waived"
+            ]
+          },
+          {
+            "event": "Customer Roadshow 2026 — Denver",
+            "when": "2026",
+            "similarity": 0.3761,
+            "outcome": "worked",
+            "patternIndex": 3,
+            "detail": "Original quote was $375K against a $282K line. Outside AV fee was waived. Final cost was $237K. Change orders were $1K.",
+            "tags": [
+              "US Mountain",
+              "arena",
+              "fee waived"
             ]
           }
         ],
@@ -1322,37 +1415,98 @@
         "action": "Move to the Lakeline property. Saves $14K with comparable meeting space.",
         "why": "Comparable space and service scores. The saving is 8% of the event budget.",
         "track": {
-          "worked": 1,
-          "total": 1,
-          "basis": "outlying-property swaps for small exec programs"
+          "worked": 11,
+          "total": 18,
+          "basis": "vendor selection decisions involving accommodation options and cost comparison scenarios"
         }
       },
       "evidence": {
-        "caseCount": 1,
-        "workedCount": 1,
+        "caseCount": 18,
+        "workedCount": 11,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Outlying-property swap for internal-only exec groups",
-            "count": "1 of 1 case",
+            "title": "Negotiate rate parity with preferred hotel vendor",
+            "count": "4 of the 11 successes",
             "example": {
-              "event": "Q1 Exec Offsite 2026 — Denver",
-              "detail": "Cheaper outlying property. No exec complaints. $9K saved."
+              "event": "SKO 2023 — Austin",
+              "detail": "Incumbent quote was $158K. New quote was $120K. Sole source was true. Change orders were $3K."
             },
-            "takeaway": "Execs care about the room and agenda, not the lobby — when no outside guests attend."
+            "takeaway": "This play succeeds when the preferred vendor has room to match pricing without sacrificing margin, particularly at established properties with existing volume relationships."
+          },
+          {
+            "outcome": "worked",
+            "title": "Weigh total cost against attendee experience impact",
+            "count": "4 of the 11 successes",
+            "example": {
+              "event": "SKO 2022 — San Francisco",
+              "detail": "Incumbent quote was $175K. New quote was $170K. Sole source was false. Change orders were $2K."
+            },
+            "takeaway": "This approach succeeds when the savings offset travel burden, but fails if attendee fatigue or reduced participation outweighs the budget gain."
+          },
+          {
+            "outcome": "worked",
+            "title": "Retain the established hotel despite lower-cost alternative",
+            "count": "3 of the 11 successes",
+            "example": {
+              "event": "User Conference 2024 — Stockholm",
+              "detail": "Incumbent quote was $274K. New quote was $307K. Sole source was false. Change orders were $11K."
+            },
+            "takeaway": "Keeping the incumbent vendor succeeds when proximity and convenience outweigh marginal cost savings for attendee experience."
           }
         ],
         "exceptions": [],
         "cases": [
           {
-            "event": "Q1 Exec Offsite 2026 — Denver",
+            "event": "Sales Club 2026 — Austin",
             "when": "2026",
-            "similarity": 0.7336,
+            "similarity": 0.4913,
+            "outcome": "failed",
+            "patternIndex": 0,
+            "detail": "Incumbent quote was $216K. New quote was $197K. Sole source was true. Change orders were $32K.",
+            "tags": [
+              "US Central",
+              "resort",
+              "sole source"
+            ]
+          },
+          {
+            "event": "User Conference 2024 — Austin",
+            "when": "2024",
+            "similarity": 0.4127,
+            "outcome": "failed",
+            "patternIndex": 2,
+            "detail": "Incumbent quote was $128K. New quote was $124K. Sole source was true. Change orders were $10K.",
+            "tags": [
+              "US Central",
+              "conference center",
+              "sole source"
+            ]
+          },
+          {
+            "event": "SKO 2023 — Austin",
+            "when": "2023",
+            "similarity": 0.402,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Outlying property. $9K saved, no complaints.",
+            "detail": "Incumbent quote was $158K. New quote was $120K. Sole source was true. Change orders were $3K.",
             "tags": [
-              "internal-only"
+              "US Central",
+              "convention center",
+              "sole source"
+            ]
+          },
+          {
+            "event": "Field Kickoff 2026 — Rome",
+            "when": "2026",
+            "similarity": 0.3537,
+            "outcome": "failed",
+            "patternIndex": 1,
+            "detail": "Incumbent quote was $348K. New quote was $306K. Sole source was true. Change orders were $24K.",
+            "tags": [
+              "Italy",
+              "hotel",
+              "sole source"
             ]
           }
         ],
@@ -1405,59 +1559,98 @@
         "action": "Approve the €9K dedicated line.",
         "why": "Two prior public demo failures traced to shared venue Wi-Fi. €9K insures the keynote moment.",
         "track": {
-          "worked": 3,
-          "total": 3,
-          "basis": "dedicated lines provisioned for live demos"
+          "worked": 12,
+          "total": 22,
+          "basis": "venue infrastructure technology quotes from competing network service providers"
         }
       },
       "evidence": {
-        "caseCount": 3,
-        "workedCount": 3,
+        "caseCount": 22,
+        "workedCount": 12,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Dedicated line for any live demo",
-            "count": "3 of 3 cases",
+            "title": "Swap venue to one with dedicated bandwidth guarantee",
+            "count": "6 of the 12 successes",
             "example": {
-              "event": "Paris Customer Day 2024",
-              "detail": "Demo ran clean on a dedicated line while guest Wi-Fi sagged under load."
+              "event": "Field Kickoff 2022 — Chicago",
+              "detail": "Incumbent quote was $243K. New quote was $219K. Sole source was false. Change orders were $7K."
             },
-            "takeaway": "Never demo on shared Wi-Fi."
+            "takeaway": "This play succeeds when a venue can contractually commit to isolated bandwidth for the demo, but fails if the replacement venue has shared infrastructure or cannot guarantee service levels in writing."
+          },
+          {
+            "outcome": "worked",
+            "title": "Retain the incumbent vendor for bandwidth guarantee",
+            "count": "4 of the 12 successes",
+            "example": {
+              "event": "User Conference 2024 — Stockholm",
+              "detail": "Incumbent quote was $274K. New quote was $307K. Sole source was false. Change orders were $11K."
+            },
+            "takeaway": "This approach works when the incumbent vendor has proven performance history at the venue and can isolate demo traffic from shared network congestion."
+          },
+          {
+            "outcome": "failed",
+            "title": "Secure dedicated bandwidth from two independent network providers",
+            "count": "4 of the 10 failures",
+            "example": {
+              "event": "Executive Forum 2024 — Berlin",
+              "detail": "Incumbent quote was $146K. New quote was $136K. Sole source was true. Change orders were $14K."
+            },
+            "takeaway": "This approach fails when venue infrastructure prevents parallel vendor installations or contracts lock in single-provider access, leaving no fallback option available."
           }
         ],
         "exceptions": [],
         "cases": [
           {
-            "event": "Paris Customer Day 2024",
+            "event": "Executive Forum 2024 — Berlin",
             "when": "2024",
-            "similarity": 0.7937,
+            "similarity": 0.4762,
+            "outcome": "failed",
+            "patternIndex": 2,
+            "detail": "Incumbent quote was $146K. New quote was $136K. Sole source was true. Change orders were $14K.",
+            "tags": [
+              "DACH",
+              "university venue",
+              "sole source"
+            ]
+          },
+          {
+            "event": "User Conference 2024 — Stockholm",
+            "when": "2024",
+            "similarity": 0.3357,
+            "outcome": "worked",
+            "patternIndex": 1,
+            "detail": "Incumbent quote was $274K. New quote was $307K. Sole source was false. Change orders were $11K.",
+            "tags": [
+              "Nordics",
+              "resort",
+              "vendor swap"
+            ]
+          },
+          {
+            "event": "Partner Summit 2024 — Seoul",
+            "when": "2024",
+            "similarity": 0.3311,
+            "outcome": "failed",
+            "patternIndex": 2,
+            "detail": "Incumbent quote was $326K. New quote was $326K. Sole source was false. Change orders were $20K.",
+            "tags": [
+              "APAC",
+              "conference center",
+              "vendor swap"
+            ]
+          },
+          {
+            "event": "Field Kickoff 2022 — Chicago",
+            "when": "2022",
+            "similarity": 0.3307,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Demo clean on a dedicated line.",
+            "detail": "Incumbent quote was $243K. New quote was $219K. Sole source was false. Change orders were $7K.",
             "tags": [
-              "live demo"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2024 — Prague",
-            "when": "2024",
-            "similarity": 0.4793,
-            "outcome": "failed",
-            "detail": "Signed without the cap. Amendment talks stalled.",
-            "tags": [
-              "Central Europe",
-              "hotel"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.47,
-            "outcome": "worked",
-            "detail": "2.3x in-room reach. 4x cost coverage.",
-            "tags": [
-              "keynote",
-              "hybrid"
+              "US Midwest",
+              "university venue",
+              "vendor swap"
             ]
           }
         ],
@@ -1505,81 +1698,17 @@
         "action": "Charter two shuttle loops from Penn Station and Grand Central.",
         "why": "Shuttles cost ~30% less than ride credits at this volume.",
         "track": {
-          "worked": 4,
-          "total": 6,
-          "basis": "charter shuttle loops at city roadshows"
+          "worked": 0,
+          "total": 0,
+          "basis": "similar logistics decisions involving transportation options for corporate events and employee engagement programs"
         }
       },
       "evidence": {
-        "caseCount": 6,
-        "workedCount": 4,
-        "patterns": [
-          {
-            "outcome": "worked",
-            "title": "Shuttle loops from major transit hubs",
-            "count": "4 of the 4 successes",
-            "example": {
-              "event": "West Coast Roadshow 2025 — SF",
-              "detail": "Two loops from BART hubs. 92% rider satisfaction."
-            },
-            "takeaway": "Shuttles work when pickup points are obvious."
-          },
-          {
-            "outcome": "failed",
-            "title": "Shuttles through gridlock zones",
-            "count": "2 of the 2 failures",
-            "example": {
-              "event": "Chicago Roadshow 2023",
-              "detail": "Loop times doubled in traffic. Attendees bailed to taxis."
-            },
-            "takeaway": "Match the mode to the traffic, not the budget."
-          }
-        ],
+        "caseCount": 0,
+        "workedCount": 0,
+        "patterns": [],
         "exceptions": [],
-        "cases": [
-          {
-            "event": "Chicago Roadshow 2023",
-            "when": "2023",
-            "similarity": 0.6903,
-            "outcome": "failed",
-            "patternIndex": 1,
-            "detail": "Gridlock doubled loop times.",
-            "tags": [
-              "gridlock"
-            ]
-          },
-          {
-            "event": "West Coast Roadshow 2025 — SF",
-            "when": "2025",
-            "similarity": 0.6637,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Two loops, 92% satisfaction.",
-            "tags": [
-              "transit hubs"
-            ]
-          },
-          {
-            "event": "Board Retreat 2025 — Sonoma",
-            "when": "2025",
-            "similarity": 0.4341,
-            "outcome": "failed",
-            "detail": "Waited. Hold lapsed. $11K avoidable spend.",
-            "tags": [
-              "waited"
-            ]
-          },
-          {
-            "event": "Q1 Exec Offsite 2026 — Denver",
-            "when": "2026",
-            "similarity": 0.4327,
-            "outcome": "worked",
-            "detail": "Cost-of-delay note. Approved in 6 hours.",
-            "tags": [
-              "delegate path"
-            ]
-          }
-        ],
+        "cases": [],
         "precedents": []
       },
       "whatsDifferent": [
@@ -1630,68 +1759,108 @@
         "action": "Go digital-only. Saves €22K.",
         "why": "Digital-only worked at two screen-rich venues with no wayfinding complaints.",
         "track": {
-          "worked": 2,
-          "total": 3,
-          "basis": "digital-only signage at screen-rich venues"
+          "worked": 37,
+          "total": 57,
+          "basis": "budget decisions with received quotes involving vendor repricing or scope adjustments"
         }
       },
       "evidence": {
-        "caseCount": 3,
-        "workedCount": 2,
+        "caseCount": 57,
+        "workedCount": 37,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Digital-only at screen-rich venues",
-            "count": "2 of 2 successes",
+            "title": "Ask the print vendor to requote before committing",
+            "count": "15 of the 37 successes",
             "example": {
-              "event": "Global SKO 2026 — Marseille",
-              "detail": "No wayfinding complaints. €18K saved."
+              "event": "SKO 2022 — Marseille",
+              "detail": "Original quote was $273K against a $222K line. Outside AV fee was waived. Final cost was $189K. Change orders were $5K."
             },
-            "takeaway": "Screens cover wayfinding when the venue has enough of them."
+            "takeaway": "This play works when the quote carries obvious slack and the vendor expects negotiation — a sharper print quote keeps the option open even while a cheaper substitute exists."
+          },
+          {
+            "outcome": "worked",
+            "title": "Use the venue's included screens instead of buying print",
+            "count": "12 of the 37 successes",
+            "example": {
+              "event": "SKO 2026 — Madrid",
+              "detail": "Original quote was $490K against a $389K line. Outside AV fee was not waived. Final cost was $381K. Change orders were $1K."
+            },
+            "takeaway": "This play works when venue infrastructure already includes display technology, making the digital-only substitution cost-neutral and removing the budget variance without sacrificing communication impact."
+          },
+          {
+            "outcome": "worked",
+            "title": "Cut the printed signage scope to essentials only",
+            "count": "4 of the 37 successes",
+            "example": {
+              "event": "SKO 2023 — Madrid",
+              "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
+            },
+            "takeaway": "This approach succeeds when most signage is wayfinding or schedule content that screens already cover, leaving only a small printed remainder worth paying for."
           },
           {
             "outcome": "failed",
-            "title": "Cutting print with sponsor placements unresolved",
-            "count": "1 of 1 failure",
+            "title": "Accept the printed-signage overspend as quoted",
+            "count": "9 of the 20 failures",
             "example": {
-              "event": "Partner Summit 2024 — Rome",
-              "detail": "Sponsors had contracted printed placement. Reprint cost €6K."
+              "event": "SKO 2022 — Stockholm",
+              "detail": "Original quote was $352K against a $291K line. Outside AV fee was waived. Final cost was $265K. Change orders were $33K."
             },
-            "takeaway": "Check sponsor contracts before cutting print."
+            "takeaway": "This play fails when an included alternative already covers the need — paying the variance buys nothing the venue package does not provide."
           }
         ],
         "exceptions": [],
         "cases": [
           {
-            "event": "Global SKO 2026 — Marseille",
-            "when": "2026",
-            "similarity": 0.735,
+            "event": "SKO 2022 — Stockholm",
+            "when": "2022",
+            "similarity": 0.4957,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Original quote was $352K against a $291K line. Outside AV fee was waived. Final cost was $265K. Change orders were $33K.",
+            "tags": [
+              "Nordics",
+              "arena",
+              "fee waived"
+            ]
+          },
+          {
+            "event": "SKO 2022 — Marseille",
+            "when": "2022",
+            "similarity": 0.4641,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Digital-only, no complaints.",
+            "detail": "Original quote was $273K against a $222K line. Outside AV fee was waived. Final cost was $189K. Change orders were $5K.",
             "tags": [
-              "screen-rich"
+              "France",
+              "resort",
+              "fee waived"
             ]
           },
           {
-            "event": "Partner Summit 2024 — Rome",
+            "event": "SKO 2024 — Stockholm",
             "when": "2024",
-            "similarity": 0.6649,
+            "similarity": 0.4619,
             "outcome": "failed",
-            "patternIndex": 1,
-            "detail": "Sponsor reprint cost €6K.",
+            "patternIndex": 3,
+            "detail": "Original quote was $483K against a $340K line. Outside AV fee was waived. Final cost was $371K. Change orders were $21K.",
             "tags": [
-              "sponsor placement"
+              "Nordics",
+              "conference center",
+              "fee waived"
             ]
           },
           {
-            "event": "Global SKO 2023 — Orlando",
+            "event": "SKO 2023 — Prague",
             "when": "2023",
-            "similarity": 0.572,
+            "similarity": 0.4446,
             "outcome": "failed",
-            "detail": "Awards dinner converted. Reverted after leadership pushback.",
+            "patternIndex": 2,
+            "detail": "Original quote was $160K against a $121K line. Outside AV fee was not waived. Final cost was $152K. Change orders were $9K.",
             "tags": [
-              "ceremonial dinner"
+              "Central Europe",
+              "arena",
+              "quote variance"
             ]
           }
         ],
@@ -1740,68 +1909,113 @@
         "action": "Extend early-bird 2 weeks. Frame it as capacity-based.",
         "why": "Extensions lifted registrations 8–14% at three prior summits.",
         "track": {
-          "worked": 3,
-          "total": 4,
-          "basis": "early-bird extensions at summits with soft pace"
+          "worked": 27,
+          "total": 50,
+          "basis": "previous pricing extension decisions for regional conference registrations"
         }
       },
       "evidence": {
-        "caseCount": 4,
-        "workedCount": 3,
+        "caseCount": 50,
+        "workedCount": 27,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Short extension framed as capacity-based",
-            "count": "3 of 3 successes",
+            "title": "Run targeted outreach to high-fit prospects",
+            "count": "9 of the 27 successes",
             "example": {
-              "event": "Americas Summit 2025 — Chicago",
-              "detail": "Two-week extension lifted registrations 14%."
+              "event": "Executive Forum 2025 — Stockholm",
+              "detail": "Pace was 74% of target 34 days out. Target attendance was 792. Final attendance was 729. Added spend was $29K."
             },
-            "takeaway": "Framing matters — discounts read as desperation, capacity reads as demand."
+            "takeaway": "This play works when the registration gap is concentrated in reachable segments — personal invitations convert hesitant prospects that a blanket price signal does not."
+          },
+          {
+            "outcome": "worked",
+            "title": "Extend the early-bird pricing window to recover pace",
+            "count": "8 of the 27 successes",
+            "example": {
+              "event": "Executive Forum 2024 — Austin",
+              "detail": "Pace was 72% of target 61 days out. Target attendance was 212. Final attendance was 225. Added spend was $10K."
+            },
+            "takeaway": "This play works when registration lags behind forecast and a time-limited incentive can overcome price sensitivity without devaluing the event."
+          },
+          {
+            "outcome": "worked",
+            "title": "Rescope the venue to match the registration trajectory",
+            "count": "7 of the 27 successes",
+            "example": {
+              "event": "Sales Club 2026 — Stockholm",
+              "detail": "Pace was 88% of target 84 days out. Target attendance was 470. Final attendance was 456. Added spend was $2K."
+            },
+            "takeaway": "This play works when pace cannot recover within the remaining lead time — shrinking the footprint removes attrition exposure and improves per-attendee economics."
+          },
+          {
+            "outcome": "failed",
+            "title": "Hold course on the current registration plan",
+            "count": "7 of the 23 failures",
+            "example": {
+              "event": "Partner Summit 2026 — London",
+              "detail": "Pace was 68% of target 24 days out. Target attendance was 524. Final attendance was 366. Added spend was $0K."
+            },
+            "takeaway": "This play fails when soft registration signals weak demand rather than timing friction — waiting without intervening converts none of the prospect interest into commitments."
           }
         ],
-        "exceptions": [],
+        "exceptions": [
+          {
+            "title": "Inside 30 days out (13 cases)",
+            "detail": "Worked 5 of 13 vs 54% across the similar set. Budget-conscious attendees in emerging EMEA markets will make their purchase decisions within this narrow window, and extending early-bird pricing directly addresses the primary barrier preventing registration conversion during this critical momentum phase."
+          }
+        ],
         "cases": [
           {
-            "event": "Americas Summit 2025 — Chicago",
+            "event": "Executive Forum 2024 — Austin",
+            "when": "2024",
+            "similarity": 0.4224,
+            "outcome": "worked",
+            "patternIndex": 1,
+            "detail": "Pace was 72% of target 61 days out. Target attendance was 212. Final attendance was 225. Added spend was $10K.",
+            "tags": [
+              "US Central",
+              "resort",
+              "registration pace"
+            ]
+          },
+          {
+            "event": "Partner Summit 2026 — London",
+            "when": "2026",
+            "similarity": 0.4189,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Pace was 68% of target 24 days out. Target attendance was 524. Final attendance was 366. Added spend was $0K.",
+            "tags": [
+              "UK",
+              "convention center",
+              "under 30 days out"
+            ]
+          },
+          {
+            "event": "User Conference 2025 — Lisbon",
             "when": "2025",
-            "similarity": 0.8253,
+            "similarity": 0.4188,
+            "outcome": "failed",
+            "patternIndex": 1,
+            "detail": "Pace was 86% of target 29 days out. Target attendance was 520. Final attendance was 338. Added spend was $10K.",
+            "tags": [
+              "Iberia",
+              "arena",
+              "under 30 days out"
+            ]
+          },
+          {
+            "event": "Executive Forum 2025 — Stockholm",
+            "when": "2025",
+            "similarity": 0.4126,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Extension lifted registrations 14%.",
+            "detail": "Pace was 74% of target 34 days out. Target attendance was 792. Final attendance was 729. Added spend was $29K.",
             "tags": [
-              "pricing"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2023 — Amsterdam",
-            "when": "2023",
-            "similarity": 0.6197,
-            "outcome": "failed",
-            "detail": "Conference overlap. Pace never recovered despite an invite wave.",
-            "tags": [
-              "conference overlap"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.613,
-            "outcome": "worked",
-            "detail": "50-room early release + partner wave → 96% pickup.",
-            "tags": [
-              "early release",
-              "partner wave"
-            ]
-          },
-          {
-            "event": "APAC Summit 2024 — Singapore",
-            "when": "2024",
-            "similarity": 0.5503,
-            "outcome": "failed",
-            "detail": "Held the block. $22K attrition at 71% pickup.",
-            "tags": [
-              "held block"
+              "Nordics",
+              "arena",
+              "registration pace"
             ]
           }
         ],
@@ -1849,47 +2063,108 @@
         "action": "Renew for 2 years at current rates with a 3% annual cap.",
         "why": "StageCraft delivered 95 of 106 successful re-quotes. Locked rates protect the whole portfolio.",
         "track": {
-          "worked": 2,
-          "total": 2,
-          "basis": "master agreement renewals with preferred AV vendors"
+          "worked": 18,
+          "total": 28,
+          "basis": "vendor service agreements with renewal terms and payment structure modifications"
         }
       },
       "evidence": {
-        "caseCount": 2,
-        "workedCount": 2,
+        "caseCount": 28,
+        "workedCount": 18,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Multi-year renewal with a price cap",
-            "count": "2 of 2 cases",
+            "title": "Pair master rate renewal with a deposit trade-in",
+            "count": "6 of the 18 successes",
             "example": {
-              "event": "Catering master renewal 2024",
-              "detail": "Two-year term with a cap beat market inflation by 6%."
+              "event": "User Conference 2022 — Barcelona",
+              "detail": "Clause requested 24 days before the hold. Venue ownership was government. Legal review took 8 days. Exposure was $138K."
             },
-            "takeaway": "Caps are worth more than discounts in inflationary years."
+            "takeaway": "This approach works when a customer faces imminent price escalation on an expiring contract and has capital assets or prior deposits available to offset renewal costs, creating urgency to secure favorable terms before list-price reinstatement."
+          },
+          {
+            "outcome": "worked",
+            "title": "Initiate renewal discussions before contract expiration",
+            "count": "5 of the 18 successes",
+            "example": {
+              "event": "Sales Club 2024 — Singapore",
+              "detail": "Clause requested 16 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $242K."
+            },
+            "takeaway": "This play works when decision-makers have sufficient lead time to approve terms and avoid default rate increases that would otherwise force budget renegotiation across all venues."
+          },
+          {
+            "outcome": "worked",
+            "title": "Sign master agreement then negotiate targeted rate exceptions",
+            "count": "4 of the 18 successes",
+            "example": {
+              "event": "Partner Summit 2025 — Marseille",
+              "detail": "Clause requested 9 days before the hold. Venue ownership was private. Legal review took 4 days. Exposure was $155K."
+            },
+            "takeaway": "This approach works when the counterparty values contract continuity and accepts a baseline framework that allows subsequent amendments for specific venue categories or regional tiers."
+          },
+          {
+            "outcome": "failed",
+            "title": "Renew master rate card before expiration deadline",
+            "count": "5 of the 10 failures",
+            "example": {
+              "event": "Partner Summit 2026 — Austin",
+              "detail": "Clause not requested 12 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $62K."
+            },
+            "takeaway": "This approach fails when renewal negotiations extend beyond the contract expiration date, forcing an immediate reversion to list pricing with no leverage to recover the discount."
           }
         ],
         "exceptions": [],
         "cases": [
           {
-            "event": "Catering master renewal 2024",
-            "when": "2024",
-            "similarity": 0.5786,
+            "event": "Partner Summit 2025 — Marseille",
+            "when": "2025",
+            "similarity": 0.3638,
             "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Capped renewal beat market by 6%.",
+            "patternIndex": 2,
+            "detail": "Clause requested 9 days before the hold. Venue ownership was private. Legal review took 4 days. Exposure was $155K.",
             "tags": [
-              "master agreement"
+              "France",
+              "university venue",
+              "private venue"
             ]
           },
           {
-            "event": "Americas Summit 2025 — Chicago",
-            "when": "2025",
-            "similarity": 0.4475,
-            "outcome": "worked",
-            "detail": "Extension lifted registrations 14%.",
+            "event": "Partner Summit 2022 — Austin",
+            "when": "2022",
+            "similarity": 0.3624,
+            "outcome": "failed",
+            "patternIndex": 2,
+            "detail": "Clause requested 6 days before the hold. Venue ownership was private. Legal review took 9 days. Exposure was $212K.",
             "tags": [
-              "pricing"
+              "US Central",
+              "university venue",
+              "private venue"
+            ]
+          },
+          {
+            "event": "Sales Club 2024 — Singapore",
+            "when": "2024",
+            "similarity": 0.342,
+            "outcome": "worked",
+            "patternIndex": 1,
+            "detail": "Clause requested 16 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $242K.",
+            "tags": [
+              "APAC",
+              "arena",
+              "private venue"
+            ]
+          },
+          {
+            "event": "Partner Summit 2026 — Austin",
+            "when": "2026",
+            "similarity": 0.3384,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Clause not requested 12 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $62K.",
+            "tags": [
+              "US Central",
+              "convention center",
+              "private venue"
             ]
           }
         ],
@@ -1937,83 +2212,113 @@
         "action": "Request a cancellation-cap addendum (1.5× deposit) before signing. No trade needed yet — ask early.",
         "why": "Protective addendums on international venue contracts succeed most often when asked before the hold deadline adds pressure.",
         "track": {
-          "worked": 41,
-          "total": 48,
-          "basis": "protective addendums requested on international venue contracts"
+          "worked": 40,
+          "total": 60,
+          "basis": "venue contracts lacking explicit cancellation fee limits or caps"
         }
       },
       "evidence": {
-        "caseCount": 48,
-        "workedCount": 41,
+        "caseCount": 60,
+        "workedCount": 40,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Ask for protective terms early, before deadline pressure",
-            "count": "29 of the 41 successes",
+            "title": "Pair deposit trade with cancellation liability cap",
+            "count": "15 of the 40 successes",
             "example": {
-              "event": "Global SKO 2024 — Lisbon",
-              "detail": "Clause accepted with no trade when requested three weeks before signature."
+              "event": "Executive Forum 2025 — Barcelona",
+              "detail": "Clause requested 10 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $251K."
             },
-            "takeaway": "Early asks cost nothing. Late asks cost trades."
+            "takeaway": "This play works when both parties agree upfront that deposit forfeiture limits total exposure, preventing catastrophic financial loss from either side's withdrawal."
+          },
+          {
+            "outcome": "worked",
+            "title": "Ask venue early for cancellation liability cap",
+            "count": "12 of the 40 successes",
+            "example": {
+              "event": "Customer Roadshow 2026 — Berlin",
+              "detail": "Clause requested 30 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $152K."
+            },
+            "takeaway": "This approach works when raised before contract finalization, as it locks mutual protection into the agreement and prevents full exposure of committed spend."
+          },
+          {
+            "outcome": "worked",
+            "title": "Sign contract then negotiate amendment limits",
+            "count": "10 of the 40 successes",
+            "example": {
+              "event": "Executive Forum 2025 — London",
+              "detail": "Clause requested 13 days before the hold. Venue ownership was private. Legal review took 2 days. Exposure was $167K."
+            },
+            "takeaway": "This approach works when counterparty has already committed resources and prefers amending a signed agreement to renegotiating from scratch, but fails if either party uses signature as leverage to harden their stance."
           },
           {
             "outcome": "failed",
-            "title": "Sign first, amend later",
-            "count": "5 of the 7 failures",
+            "title": "Sign contract without negotiating liability cap clause",
+            "count": "9 of the 20 failures",
             "example": {
-              "event": "EMEA Summit 2024 — Prague",
-              "detail": "Post-signature amendment talks went nowhere. Exposure stayed."
+              "event": "Executive Forum 2025 — Chicago",
+              "detail": "Clause requested 11 days before the hold. Venue ownership was private. Legal review took 5 days. Exposure was $242K."
             },
-            "takeaway": "Leverage disappears at signature."
+            "takeaway": "This play fails when either party cancels because unlimited exposure to full committed spend creates unacceptable financial risk that should have been bounded before execution."
           }
         ],
-        "exceptions": [],
+        "exceptions": [
+          {
+            "title": "Government-owned venues (11 cases)",
+            "detail": "Legal review averaged 11.7 days vs 5.6 across the rest of the similar set. Government-owned venues face unique budget constraints and public accountability requirements, making unlimited cancellation liability a critical fiscal risk that could jeopardize facility operations or require emergency appropriations if the contract is terminated."
+          }
+        ],
         "cases": [
           {
-            "event": "EMEA Summit 2024 — Prague",
-            "when": "2024",
-            "similarity": 0.7845,
-            "outcome": "failed",
-            "patternIndex": 1,
-            "detail": "Signed without the cap. Amendment talks stalled.",
-            "tags": [
-              "Central Europe",
-              "hotel"
-            ]
-          },
-          {
-            "event": "Global SKO 2024 — Lisbon",
-            "when": "2024",
-            "similarity": 0.7263,
+            "event": "Sales Club 2022 — Berlin",
+            "when": "2022",
+            "similarity": 0.5758,
             "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Clause accepted with no trade. Asked early.",
+            "patternIndex": 3,
+            "detail": "Clause requested 10 days before the hold. Venue ownership was private. Legal review took 3 days. Exposure was $195K.",
             "tags": [
-              "Iberia",
-              "hotel"
+              "DACH",
+              "resort",
+              "private venue"
             ]
           },
           {
-            "event": "Global SKO 2025 — Barcelona",
-            "when": "2025",
-            "similarity": 0.7049,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Addendum accepted for a 5% earlier deposit.",
-            "tags": [
-              "Iberia",
-              "convention center"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.4613,
+            "event": "Partner Summit 2022 — Austin",
+            "when": "2022",
+            "similarity": 0.5281,
             "outcome": "failed",
-            "detail": "No walkthrough budgeted. Load-in overran €9K.",
+            "patternIndex": 2,
+            "detail": "Clause requested 6 days before the hold. Venue ownership was private. Legal review took 9 days. Exposure was $212K.",
             "tags": [
-              "Austria",
-              "outside vendor"
+              "US Central",
+              "university venue",
+              "private venue"
+            ]
+          },
+          {
+            "event": "Executive Forum 2025 — Chicago",
+            "when": "2025",
+            "similarity": 0.5211,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Clause requested 11 days before the hold. Venue ownership was private. Legal review took 5 days. Exposure was $242K.",
+            "tags": [
+              "US Midwest",
+              "university venue",
+              "private venue"
+            ]
+          },
+          {
+            "event": "Executive Forum 2025 — London",
+            "when": "2025",
+            "similarity": 0.512,
+            "outcome": "worked",
+            "patternIndex": 2,
+            "detail": "Clause requested 13 days before the hold. Venue ownership was private. Legal review took 2 days. Exposure was $167K.",
+            "tags": [
+              "UK",
+              "hotel",
+              "private venue"
             ]
           }
         ],
@@ -2064,80 +2369,108 @@
         "action": "Re-quote with preferred vendor StageCraft GmbH. Ask the venue to waive its outside-AV fee in the same message.",
         "why": "Preferred-vendor re-quotes at venues with exclusivity clauses have repeatedly closed variances this size.",
         "track": {
-          "worked": 95,
-          "total": 106,
-          "basis": "re-quotes with preferred AV vendors at venues with exclusivity clauses"
+          "worked": 44,
+          "total": 70,
+          "basis": "similar quotes received from preferred vendors with comparable scope and service terms"
         }
       },
       "evidence": {
-        "caseCount": 106,
-        "workedCount": 95,
+        "caseCount": 70,
+        "workedCount": 44,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Re-quote with a preferred vendor, then negotiate the outside-AV fee",
-            "count": "71 of the 95 successes",
+            "title": "Negotiate fee waiver with preferred in-house vendor",
+            "count": "18 of the 44 successes",
             "example": {
-              "event": "DACH Partner Day 2025 — Berlin",
-              "detail": "StageCraft came in 15% under the in-house quote. Venue waived its fee."
+              "event": "Field Kickoff 2022 — Stockholm",
+              "detail": "Original quote was $199K against a $153K line. Outside AV fee was waived. Final cost was $153K. Change orders were $2K."
             },
-            "takeaway": "Outside-AV fees are negotiable when F&B spend is high."
+            "takeaway": "This play works when the venue's AV provider has discretionary margin and values long-term relationship over single-event margin, especially for anchor events like kickoffs."
           },
           {
             "outcome": "worked",
-            "title": "Use the outside quote as leverage to reprice the in-house offer",
-            "count": "24 of the 95 successes",
+            "title": "Negotiate in-house AV pricing down to budget baseline",
+            "count": "13 of the 44 successes",
             "example": {
-              "event": "Nordics Summit 2025 — Stockholm",
-              "detail": "Venue matched the outside price within 48 hours."
+              "event": "Sales Club 2025 — Lisbon",
+              "detail": "Original quote was $170K against a $128K line. Outside AV fee was not waived. Final cost was $127K. Change orders were $5K."
             },
-            "takeaway": "Sometimes the quote’s only job is to exist."
+            "takeaway": "This play works when the venue has exclusivity clauses that create dependency, giving the buyer leverage to repress the quote toward budget without losing the technical specification."
+          },
+          {
+            "outcome": "worked",
+            "title": "Descope venue AV scope to essential production requirements only",
+            "count": "6 of the 44 successes",
+            "example": {
+              "event": "SKO 2023 — Madrid",
+              "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
+            },
+            "takeaway": "This play works when venue quotes significantly exceed budget and the event team has authority to redefine scope without compromising core attendee experience."
+          },
+          {
+            "outcome": "failed",
+            "title": "Accept the venue's in-house AV variance as cost of convenience",
+            "count": "11 of the 26 failures",
+            "example": {
+              "event": "Field Kickoff 2023 — Prague",
+              "detail": "Original quote was $358K against a $306K line. Outside AV fee was waived. Final cost was $266K. Change orders were $35K."
+            },
+            "takeaway": "This play fails when the variance exceeds stakeholder tolerance and no competitive alternatives exist to justify premium pricing."
           }
         ],
         "exceptions": [],
         "cases": [
           {
-            "event": "Madrid Kickoff 2023",
-            "when": "2023",
-            "similarity": 0.6821,
-            "outcome": "failed",
-            "detail": "Outside vendor missed the rigging spec. €7K in change orders.",
+            "event": "Sales Club 2025 — Lisbon",
+            "when": "2025",
+            "similarity": 0.6055,
+            "outcome": "worked",
+            "patternIndex": 1,
+            "detail": "Original quote was $170K against a $128K line. Outside AV fee was not waived. Final cost was $127K. Change orders were $5K.",
             "tags": [
               "Iberia",
-              "outside vendor"
+              "arena",
+              "exclusivity clause"
             ]
           },
           {
-            "event": "Global SKO 2026 — Marseille",
-            "when": "2026",
-            "similarity": 0.6174,
+            "event": "Sales Club 2025 — Boston",
+            "when": "2025",
+            "similarity": 0.559,
             "outcome": "worked",
-            "detail": "Networking night to stations. Satisfaction unchanged.",
+            "patternIndex": 3,
+            "detail": "Original quote was $553K against a $416K line. Outside AV fee was not waived. Final cost was $391K. Change orders were $3K.",
             "tags": [
-              "non-ceremonial",
-              "large event"
+              "US East",
+              "university venue",
+              "quote variance"
             ]
           },
           {
-            "event": "Global SKO 2023 — Orlando",
-            "when": "2023",
-            "similarity": 0.5988,
-            "outcome": "failed",
-            "detail": "Awards dinner converted. Reverted after leadership pushback.",
-            "tags": [
-              "ceremonial dinner"
-            ]
-          },
-          {
-            "event": "Paris Customer Day 2024",
-            "when": "2024",
-            "similarity": 0.586,
+            "event": "Field Kickoff 2022 — Stockholm",
+            "when": "2022",
+            "similarity": 0.5193,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Preferred vendor 12% under. Fee waived.",
+            "detail": "Original quote was $199K against a $153K line. Outside AV fee was waived. Final cost was $153K. Change orders were $2K.",
             "tags": [
-              "France",
-              "fee waiver"
+              "Nordics",
+              "convention center",
+              "fee waived"
+            ]
+          },
+          {
+            "event": "Field Kickoff 2023 — Prague",
+            "when": "2023",
+            "similarity": 0.5179,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Original quote was $358K against a $306K line. Outside AV fee was waived. Final cost was $266K. Change orders were $35K.",
+            "tags": [
+              "Central Europe",
+              "university venue",
+              "fee waived"
             ]
           }
         ],
@@ -2188,79 +2521,98 @@
         "action": "Send the cost-of-delay figure to the legal reviewer today and ask for a committed review date.",
         "why": "Quantified cost-of-delay has unblocked stalled approvals fastest. Vague urgency has not.",
         "track": {
-          "worked": 17,
-          "total": 21,
-          "basis": "approval stalls broken with a quantified cost-of-delay escalation"
+          "worked": 30,
+          "total": 47,
+          "basis": "approval decisions delayed in legal review awaiting executive or cost-driven intervention"
         }
       },
       "evidence": {
-        "caseCount": 21,
-        "workedCount": 17,
+        "caseCount": 47,
+        "workedCount": 30,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Escalate with a quantified cost-of-delay",
-            "count": "13 of the 17 successes",
+            "title": "Quantify daily revenue loss until legal approves",
+            "count": "17 of the 30 successes",
             "example": {
-              "event": "Q1 Exec Offsite 2026 — Denver",
-              "detail": "Cost figure attached. Approved in 6 hours."
+              "event": "Customer Roadshow 2026 — Denver",
+              "detail": "Approval had stalled for 20 days. The hold window was 3 days. Approval came in 2 days. Reprice exposure was $2K."
             },
-            "takeaway": "Quantified cost-of-delay moves approvals. Vague urgency doesn’t."
+            "takeaway": "This play works when approval gatekeepers see concrete financial impact of delay, creating urgency that bureaucratic timelines alone cannot generate."
+          },
+          {
+            "outcome": "worked",
+            "title": "Escalate venue license approval to executive sponsor immediately",
+            "count": "8 of the 30 successes",
+            "example": {
+              "event": "Field Kickoff 2022 — New York",
+              "detail": "Approval had stalled for 8 days. The hold window was 14 days. Approval came in 11 days. Reprice exposure was $2K."
+            },
+            "takeaway": "This play works when legal review delays threaten hard deadline windows and executive visibility can unblock stakeholder bottlenecks before the opportunity closes."
           },
           {
             "outcome": "failed",
-            "title": "Wait for the reviewer to resurface",
-            "count": "4 of the 4 failures",
+            "title": "Allow legal review to conclude without escalation",
+            "count": "9 of the 17 failures",
             "example": {
-              "event": "Board Retreat 2025 — Sonoma",
-              "detail": "Waited politely. The hold lapsed — $11K avoidable."
+              "event": "Customer Roadshow 2026 — Singapore",
+              "detail": "Approval had stalled for 7 days. The hold window was 3 days. Approval came in 4 days. Reprice exposure was $32K."
             },
-            "takeaway": "Waiting out a stall has a measurable price."
+            "takeaway": "This approach fails when time-sensitive deadlines exist because passivity in approval processes risks missing critical windows."
           }
         ],
         "exceptions": [],
         "cases": [
           {
-            "event": "Board Retreat 2025 — Sonoma",
-            "when": "2025",
-            "similarity": 0.6717,
-            "outcome": "failed",
-            "patternIndex": 1,
-            "detail": "Waited. Hold lapsed. $11K avoidable spend.",
-            "tags": [
-              "waited"
-            ]
-          },
-          {
-            "event": "Q1 Exec Offsite 2026 — Denver",
+            "event": "Customer Roadshow 2026 — Denver",
             "when": "2026",
-            "similarity": 0.6507,
+            "similarity": 0.565,
             "outcome": "worked",
             "patternIndex": 0,
-            "detail": "Cost-of-delay note. Approved in 6 hours.",
+            "detail": "Approval had stalled for 20 days. The hold window was 3 days. Approval came in 2 days. Reprice exposure was $2K.",
             "tags": [
-              "delegate path"
+              "US Mountain",
+              "arena",
+              "cost of delay quantified"
             ]
           },
           {
-            "event": "Chicago Roadshow 2023",
-            "when": "2023",
-            "similarity": 0.4092,
-            "outcome": "failed",
-            "detail": "Gridlock doubled loop times.",
-            "tags": [
-              "gridlock"
-            ]
-          },
-          {
-            "event": "West Coast Roadshow 2025 — SF",
+            "event": "Customer Roadshow 2025 — Austin",
             "when": "2025",
-            "similarity": 0.3959,
+            "similarity": 0.5433,
             "outcome": "worked",
-            "detail": "Exception + COI check. Vendor later joined the preferred list.",
+            "patternIndex": 2,
+            "detail": "Approval had stalled for 8 days. The hold window was 13 days. Approval came in 1 days. Reprice exposure was $3K.",
             "tags": [
-              "first-time venue",
-              "COI verified"
+              "US Central",
+              "university venue",
+              "approval wait"
+            ]
+          },
+          {
+            "event": "Customer Roadshow 2026 — Singapore",
+            "when": "2026",
+            "similarity": 0.4894,
+            "outcome": "failed",
+            "patternIndex": 2,
+            "detail": "Approval had stalled for 7 days. The hold window was 3 days. Approval came in 4 days. Reprice exposure was $32K.",
+            "tags": [
+              "APAC",
+              "convention center",
+              "approval wait"
+            ]
+          },
+          {
+            "event": "Sales Club 2026 — San Francisco",
+            "when": "2026",
+            "similarity": 0.4869,
+            "outcome": "worked",
+            "patternIndex": 0,
+            "detail": "Approval had stalled for 14 days. The hold window was 4 days. Approval came in 4 days. Reprice exposure was $3K.",
+            "tags": [
+              "US West",
+              "university venue",
+              "cost of delay quantified"
             ]
           }
         ],
@@ -2309,82 +2661,108 @@
         "action": "Hold the envelope: book the second-choice speaker and reinvest $20K of the gap in the opening production.",
         "why": "Speaker-fee overruns at this tier have not moved session scores. Production quality has.",
         "track": {
-          "worked": 6,
-          "total": 9,
-          "basis": "keynote bookings decided against tier-priced fee gaps"
+          "worked": 43,
+          "total": 68,
+          "basis": "budget variance decisions involving external speaker or talent engagement cost overruns"
         }
       },
       "evidence": {
-        "caseCount": 9,
-        "workedCount": 6,
+        "caseCount": 68,
+        "workedCount": 43,
         "patterns": [
           {
             "outcome": "worked",
-            "title": "Book the second choice, spend the gap on production",
-            "count": "5 of the 6 successes",
+            "title": "Request preferred vendor to adjust fee within talent envelope",
+            "count": "17 of the 43 successes",
             "example": {
-              "event": "Global SKO 2026 — Marseille",
-              "detail": "Second-choice keynote plus upgraded opening. Session scores up year over year."
+              "event": "SKO 2022 — Singapore",
+              "detail": "Original quote was $366K against a $305K line. Outside AV fee was waived. Final cost was $302K. Change orders were $2K."
             },
-            "takeaway": "The room remembers the show, not the fee."
+            "takeaway": "This play works when the speaker's brand value to sales leadership is high enough that they will advocate for budget reallocation, but fails if the speaker views their quote as non-negotiable or if leadership lacks conviction to champion the gap."
+          },
+          {
+            "outcome": "worked",
+            "title": "Trade platform exposure for a reduced speaker fee",
+            "count": "13 of the 43 successes",
+            "example": {
+              "event": "User Conference 2024 — Boston",
+              "detail": "Original quote was $135K against a $104K line. Outside AV fee was waived. Final cost was $92K. Change orders were $3K."
+            },
+            "takeaway": "This approach works when the speaker values platform exposure or audience access enough to accept a lower fee than their standard rate."
+          },
+          {
+            "outcome": "worked",
+            "title": "Secure speaker commitment by phased fee structure negotiation",
+            "count": "6 of the 43 successes",
+            "example": {
+              "event": "SKO 2023 — Madrid",
+              "detail": "Original quote was $218K against a $200K line. Outside AV fee was not waived. Final cost was $168K. Change orders were $0K."
+            },
+            "takeaway": "This approach works when the speaker prioritizes event reach and brand visibility over upfront cash, enabling partial fee deferral or performance-linked payments that honor the envelope while closing the talent gap."
           },
           {
             "outcome": "failed",
-            "title": "Stretch the envelope for a marquee name",
-            "count": "2 of the 3 failures",
+            "title": "Accept the keynote speaker's premium fee above envelope",
+            "count": "11 of the 25 failures",
             "example": {
-              "event": "Global SKO 2023 — Orlando",
-              "detail": "Envelope stretched 35%. Scores flat; the overrun came out of breakouts."
+              "event": "SKO 2022 — Stockholm",
+              "detail": "Original quote was $352K against a $291K line. Outside AV fee was waived. Final cost was $265K. Change orders were $33K."
             },
-            "takeaway": "Marquee fees trade against the rest of the program."
+            "takeaway": "This approach fails when leadership preference for a specific speaker outweighs budget discipline, as accepting variance without negotiation or trade-offs sets precedent and erodes financial controls."
           }
         ],
         "exceptions": [],
         "cases": [
           {
-            "event": "Global SKO 2026 — Marseille",
-            "when": "2026",
-            "similarity": 0.8039,
-            "outcome": "worked",
-            "patternIndex": 0,
-            "detail": "Second choice + production upgrade. Scores up.",
-            "tags": [
-              "keynote",
-              "envelope held"
-            ]
-          },
-          {
-            "event": "Global SKO 2023 — Orlando",
-            "when": "2023",
-            "similarity": 0.7969,
+            "event": "SKO 2022 — Stockholm",
+            "when": "2022",
+            "similarity": 0.4682,
             "outcome": "failed",
-            "patternIndex": 1,
-            "detail": "Envelope stretched 35%. Flat scores.",
+            "patternIndex": 3,
+            "detail": "Original quote was $352K against a $291K line. Outside AV fee was waived. Final cost was $265K. Change orders were $33K.",
             "tags": [
-              "keynote",
-              "envelope stretched"
+              "Nordics",
+              "arena",
+              "fee waived"
             ]
           },
           {
-            "event": "EMEA Summit 2025 — Vienna",
-            "when": "2025",
-            "similarity": 0.4907,
-            "outcome": "worked",
-            "detail": "2.3x in-room reach. 4x cost coverage.",
-            "tags": [
-              "keynote",
-              "hybrid"
-            ]
-          },
-          {
-            "event": "EMEA Summit 2024 — Prague",
+            "event": "SKO 2024 — Stockholm",
             "when": "2024",
-            "similarity": 0.4746,
-            "outcome": "worked",
-            "detail": "1.8x reach. Sponsor renewed on remote numbers.",
+            "similarity": 0.4656,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Original quote was $483K against a $340K line. Outside AV fee was waived. Final cost was $371K. Change orders were $21K.",
             "tags": [
-              "keynote",
-              "hybrid"
+              "Nordics",
+              "conference center",
+              "fee waived"
+            ]
+          },
+          {
+            "event": "User Conference 2024 — Boston",
+            "when": "2024",
+            "similarity": 0.4655,
+            "outcome": "worked",
+            "patternIndex": 1,
+            "detail": "Original quote was $135K against a $104K line. Outside AV fee was waived. Final cost was $92K. Change orders were $3K.",
+            "tags": [
+              "US East",
+              "university venue",
+              "fee waived"
+            ]
+          },
+          {
+            "event": "User Conference 2023 — Berlin",
+            "when": "2023",
+            "similarity": 0.4409,
+            "outcome": "failed",
+            "patternIndex": 3,
+            "detail": "Original quote was $253K against a $201K line. Outside AV fee was waived. Final cost was $225K. Change orders were $8K.",
+            "tags": [
+              "DACH",
+              "university venue",
+              "fee waived"
             ]
           }
         ],

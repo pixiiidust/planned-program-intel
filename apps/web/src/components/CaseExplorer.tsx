@@ -23,6 +23,14 @@ export function CaseExplorer({ decision: d }: { decision: Decision }) {
     ...(ev.exceptions.length > 0 ? [{ key: 'exceptions' as const, label: `Exceptions (${ev.exceptions.length})` }] : []),
   ];
 
+  if (total === 0 && ev.precedents.length === 0) {
+    return (
+      <div>
+        <p className="text-sm text-slate-500">No similar cases yet — Program Memory grows as decisions resolve.</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* Precedents: recent similar Resolutions, outcome pending — visually
@@ -66,6 +74,26 @@ export function CaseExplorer({ decision: d }: { decision: Decision }) {
         <div className="h-full bg-emerald-500" style={{ width: `${pct}%` }} />
       </div>
 
+      {ev.patterns.length > 0 && (
+        <div className="mb-3">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Patterns</p>
+          <ul className="space-y-2" data-testid="patterns">
+            {ev.patterns.map((pattern, i) => (
+              <li key={`${pattern.title}-${i}`} className="rounded-lg bg-white ring-1 ring-slate-200 p-3 text-sm">
+                <p className="text-slate-800">
+                  <span className={`font-bold ${pattern.outcome === 'worked' ? 'text-emerald-600' : 'text-rose-600'}`}>
+                    {pattern.outcome === 'worked' ? '✓' : '✗'}
+                  </span>{' '}
+                  <span className="font-medium">{pattern.title}</span>
+                  <span className="text-slate-500"> — {pattern.count}</span>
+                </p>
+                <p className="text-xs text-slate-500 mt-1">{pattern.takeaway}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div className="flex flex-wrap gap-1.5 mb-3">
         {filters.map((f) => (
           <button
@@ -106,6 +134,11 @@ export function CaseExplorer({ decision: d }: { decision: Decision }) {
                         {t}
                       </span>
                     ))}
+                    {c.patternIndex !== undefined && (
+                      <span className="text-[10px] rounded-full bg-indigo-50 text-indigo-600 ring-1 ring-indigo-100 px-2 py-0.5">
+                        Pattern {c.patternIndex + 1}
+                      </span>
+                    )}
                   </span>
                 </span>
               </li>

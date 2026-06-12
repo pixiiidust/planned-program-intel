@@ -9,7 +9,7 @@ export interface SimilarityTable {
   rows: Record<string, Scored[]>;
 }
 
-/** Top-k cases listed per decision's evidence. */
+/** k is the display cap applied at emit; floor controls table membership. */
 export const CASE_PARAMS = { k: 4, floor: 0.25 };
 
 /**
