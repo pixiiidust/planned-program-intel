@@ -4,13 +4,15 @@
 
 An AI-native **decision layer** for enterprise event programs, built on [Planned](https://planned.com)'s business context. Not a chatbot — an inbox of decisions, each carrying its own justification and the evidence of past events, with a memory loop that turns every human resolution into the evidence future decisions cite.
 
+Standalone demo today; architected to slot into Planned's enterprise stack as a module — the ports are the integration seams.
+
 ## Sixty seconds in the demo
 
 1. The Lisbon contract decision is already open. Read the header: the problem, the urgency *with its because*, the action needed.
 2. Click **Accept** — the reasoning is prefilled from the recommendation's why. Edit it, save.
 3. The resolution lands instantly; a beat later **✦ distilled** marks that a model condensed your reasoning into a Precedent. Click **View**: it now appears in a similar open decision's evidence, with a provenance chip naming the engine.
 4. The bell in the header replays everything that happened this session. The **Decided** tab survives a reload — persistence is real.
-5. Stay a minute longer and the simulated feed detects a new decision from a registration-pace Signal, honestly labeled as simulated.
+5. Twenty seconds in, the simulated feed detects a new decision from a registration-pace Signal — honestly labeled as simulated.
 
 If the model call ever fails, nothing breaks and nothing apologizes: your verbatim reasoning is the baseline, distillation is the enhancement ([ADR-0002](docs/adr/0002-single-live-ai-moment-with-selectable-engines.md)).
 
