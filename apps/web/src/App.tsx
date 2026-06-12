@@ -8,12 +8,13 @@ import type { Decision, Persona, QueueTab } from '@ppi/domain';
 import { applyAction, detectFromFeed, distillPrecedentText, landPrecedent, openSiblingsOf, personaQueue, personasFrom, precedentFrom } from '@ppi/domain';
 import { DEMO_PROGRAM_THRESHOLDS, DEMO_SEED, DEMO_SENIOR_ROLES, IndexedDbDecisionRepository, ScriptedSignalFeed } from '@ppi/adapters';
 import type { ResolveOutcome } from './components/ActionPanel.js';
+import { ActivityPanel } from './components/ActivityPanel.js';
 import { DetailPane } from './components/DetailPane.js';
 import { PersonaSwitcher } from './components/PersonaSwitcher.js';
 import { PortfolioView } from './components/PortfolioView.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
-import { ActivityPanelPrototype } from './components/ActivityPanelPrototype.js';
 import { SettingsDrawer } from './components/SettingsDrawer.js';
+import { appendEntry, markAllSeen, markDistilled, markSeen, unseenCount, type ActivityEntry, type ActivityJump } from './lib/activity.js';
 import { distillResolution } from './lib/distillation.js';
 import { FEED_DECISION_IDS, feedDelayMs } from './lib/feed.js';
 
@@ -41,7 +42,7 @@ function personaKey(persona: Persona | null): string {
 
 interface Toast {
   message: string;
-  jump?: { tab: QueueTab; id: string };
+  jump?: ActivityJump;
   distill?: 'pending' | 'done' | 'failed';
 }
 
@@ -54,7 +55,10 @@ export default function App() {
   const [mobileDetail, setMobileDetail] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
+  const [activity, setActivity] = useState<ActivityEntry[]>([]);
+  const [activityOpen, setActivityOpen] = useState(false);
   const decisionsRef = useRef<Decision[]>([]);
+  const activityRef = useRef<ActivityEntry[]>([]);
   const feedUnsubscribeRef = useRef<(() => void) | null>(null);
 
   function stopFeed() {
@@ -81,9 +85,65 @@ export default function App() {
           decisionsRef.current = next;
           return next;
         });
-        setToast({ message: 'New decision detected from the simulated feed', jump: { tab: 'needs-you', id: detected.id } });
+        notify({ message: 'New decision detected from the simulated feed', jump: { tab: 'needs-you', id: detected.id } });
       });
     });
+  }
+
+  function updateActivity(updater: (entries: ActivityEntry[]) => ActivityEntry[]) {
+    const next = updater(activityRef.current);
+    activityRef.current = next;
+    setActivity(next);
+  }
+
+  function clearActivity() {
+    activityRef.current = [];
+    setActivity([]);
+  }
+
+  function notify(nextToast: Toast): number {
+    setToast(nextToast);
+    const next = appendEntry(activityRef.current, {
+      message: nextToast.message,
+      ...(nextToast.jump ? { jump: nextToast.jump } : {}),
+    });
+    activityRef.current = next;
+    setActivity(next);
+    return next[0]!.id;
+  }
+
+  function jumpTo(jump: ActivityJump) {
+    setView('inbox');
+    setPersona(null);
+    setTab(jump.tab);
+    setSelectedId(jump.id);
+    setMobileDetail(true);
+  }
+
+  function closeActivityPanel() {
+    if (activityOpen) updateActivity(markAllSeen);
+    setActivityOpen(false);
+  }
+
+  function toggleActivityPanel() {
+    if (activityOpen) {
+      closeActivityPanel();
+      return;
+    }
+
+    setSettingsOpen(false);
+    setActivityOpen(true);
+  }
+
+  function toggleSettings() {
+    if (!settingsOpen) closeActivityPanel();
+    setSettingsOpen((current) => !current);
+  }
+
+  function handleActivityJump(entry: ActivityEntry) {
+    updateActivity((entries) => markSeen(entries, entry.id));
+    closeActivityPanel();
+    if (entry.jump) jumpTo(entry.jump);
   }
 
   useEffect(() => {
@@ -94,7 +154,7 @@ export default function App() {
       setDecisions(ds);
       setSelectedId(defaultSort('needs-you', personaQueue(null, 'needs-you', ds))[0]?.id ?? null);
       armFeedIfNeeded(ds);
-      if (reseeded) setToast({ message: 'Demo data refreshed — a new version of the seed was deployed.' });
+      if (reseeded) notify({ message: 'Demo data refreshed — a new version of the seed was deployed.' });
     });
     return () => {
       cancelled = true;
@@ -143,7 +203,7 @@ export default function App() {
     );
   }
 
-  async function runDistillation(resolved: Decision, landedIds: string[]) {
+  async function runDistillation(resolved: Decision, landedIds: string[], activityId: number) {
     const result = await distillResolution(resolved, resolved.resolution!);
     if (!result) {
       updateDistillToast('failed');
@@ -167,6 +227,7 @@ export default function App() {
       decisionsRef.current = next;
       return next;
     });
+    updateActivity((entries) => markDistilled(entries, activityId));
     updateDistillToast('done');
   }
 
@@ -207,14 +268,14 @@ export default function App() {
     const movedTo: QueueTab = outcome.choice === 'escalated' ? 'waiting' : 'decided';
     if (landed.length > 0) {
       // The nudge: the loop closes visibly, in front of the user.
-      setToast({
+      const activityId = notify({
         message: `✓ Decided. Your reasoning now appears in ${landed.length} similar open decision${landed.length === 1 ? '' : 's'}`,
         jump: { tab: 'needs-you', id: landed[0]!.id },
         distill: 'pending',
       });
-      void runDistillation(next, landed.map((s) => s.id));
+      void runDistillation(next, landed.map((s) => s.id), activityId);
     } else {
-      setToast({ message: `✓ Moved to ${movedTo === 'waiting' ? 'Waiting' : 'Decided'}`, jump: { tab: movedTo, id: next.id } });
+      notify({ message: `✓ Moved to ${movedTo === 'waiting' ? 'Waiting' : 'Decided'}`, jump: { tab: movedTo, id: next.id } });
     }
 
     // Auto-advance to the next item in the current tab.
@@ -231,7 +292,7 @@ export default function App() {
 
     const updated = decisions.map((d) => (d.id === next.id ? next : d));
     setDecisions(updated);
-    setToast({
+    notify({
       message: `\u2713 Feedback sent \u2014 back to ${decision.owner.name}'s queue`,
       jump: { tab: 'needs-you', id: decision.id },
     });
@@ -249,7 +310,8 @@ export default function App() {
     setSelectedId(defaultSort('needs-you', personaQueue(null, 'needs-you', ds))[0]?.id ?? null);
     setMobileDetail(false);
     armFeedIfNeeded(ds);
-    setToast({ message: '✓ Demo data reset to the pristine seed' });
+    clearActivity();
+    notify({ message: '✓ Demo data reset to the pristine seed' });
   }
 
   return (
@@ -280,11 +342,17 @@ export default function App() {
           <span className="hidden sm:block text-sm text-slate-500">
             {counts['needs-you']} need you · {counts.waiting} waiting · {counts.decided} decided
           </span>
-          {/* PROTOTYPE mount (#27 variant round 2) — dev-only, stripped from builds. */}
-          {import.meta.env.DEV && <ActivityPanelPrototype />}
+          <button type="button" aria-label="Activity" className="relative text-slate-400 hover:text-slate-600" onClick={toggleActivityPanel}>
+            <BellIcon />
+            {!activityOpen && unseenCount(activity) > 0 && (
+              <span className="absolute -top-1.5 -right-1.5 min-w-[14px] rounded-full bg-slate-900 px-1 text-center text-[9px] leading-[14px] text-white">
+                {unseenCount(activity)}
+              </span>
+            )}
+          </button>
           <button
             type="button"
-            onClick={() => setSettingsOpen((current) => !current)}
+            onClick={toggleSettings}
             className="text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2"
           >
             Settings
@@ -345,17 +413,18 @@ export default function App() {
       )}
 
       <SettingsDrawer open={settingsOpen} onClose={() => setSettingsOpen(false)} onReset={() => void handleReset()} />
+      <ActivityPanel open={activityOpen} entries={activity} onClose={closeActivityPanel} onJump={handleActivityJump} />
 
       {toast && (
-        <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 rounded-lg bg-slate-900 text-white px-4 py-3 shadow-xl">
+        <div className="fixed top-4 left-4 right-4 md:left-auto z-50 flex items-center justify-between md:justify-start gap-3 rounded-lg bg-white text-slate-700 ring-1 ring-slate-200 px-4 py-3 shadow-xl">
           <span className="text-sm">{toast.message}</span>
           {toast.distill && (
             <span
               className={
                 toast.distill === 'pending'
-                  ? 'text-sm animate-pulse'
+                  ? 'text-sm animate-pulse text-sky-700'
                   : toast.distill === 'done'
-                    ? 'text-sm text-sky-300'
+                    ? 'text-sm text-sky-700'
                     : 'text-sm opacity-0 transition-opacity duration-500'
               }
               aria-hidden={toast.distill === 'done' ? undefined : 'true'}
@@ -366,14 +435,10 @@ export default function App() {
           {toast.jump && (
             <button
               onClick={() => {
-                setView('inbox');
-                setPersona(null);
-                setTab(toast.jump!.tab);
-                setSelectedId(toast.jump!.id);
-                setMobileDetail(true);
+                jumpTo(toast.jump!);
                 setToast(null);
               }}
-              className="text-sm underline underline-offset-2 text-sky-300 hover:text-sky-200"
+              className="text-sm underline underline-offset-2 text-sky-700 hover:text-sky-900"
             >
               View
             </button>
@@ -382,12 +447,21 @@ export default function App() {
             type="button"
             aria-label="Dismiss notification"
             onClick={() => setToast(null)}
-            className="text-slate-400 hover:text-white text-sm leading-none"
+            className="text-slate-400 hover:text-slate-600 text-sm leading-none"
           >
             ×
           </button>
         </div>
       )}
     </div>
+  );
+}
+
+function BellIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+      <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+    </svg>
   );
 }

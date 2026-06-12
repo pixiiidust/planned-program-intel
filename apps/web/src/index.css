@@ -14,3 +14,17 @@
 .precedent-distilled-in {
   animation: precedent-distilled-in 180ms ease-out;
 }
+
+.activity-list {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(203 213 225) transparent;
+}
+
+.activity-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activity-list::-webkit-scrollbar-thumb {
+  background: rgb(203 213 225);
+  border-radius: 3px;
+}
