@@ -35,6 +35,8 @@ export { DEFAULT_DETECTION_THRESHOLDS, detectFromFeed, signalTrips } from './det
 export type { DetectionThresholds } from './detection.js';
 export { needsYou, tabOf } from './queue.js';
 export type { QueueTab } from './queue.js';
+export { needsYouCount, personasFrom, personaQueue } from './personas.js';
+export type { Persona } from './personas.js';
 export { applyAction, canApply, IllegalTransitionError } from './lifecycle.js';
 export type { DecisionAction } from './lifecycle.js';
 export { evidenceCounts, isSmallSample } from './evidence.js';

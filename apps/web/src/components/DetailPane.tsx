@@ -85,13 +85,25 @@ function EscalationBanner({ esc }: { esc: Escalation }) {
   );
 }
 
+function FeedbackRequestBanner({ esc }: { esc: Escalation }) {
+  return (
+    <div className="rounded-lg p-4 ring-1 bg-sky-50 ring-sky-300">
+      <p className="text-sm font-semibold">{esc.requestedBy} asked for your feedback</p>
+      <p className="text-xs text-slate-500 mt-0.5">requested {agoLabel(esc.daysAgo)}</p>
+      <p className="text-sm text-slate-700 mt-1.5">“{esc.reasoning}”</p>
+      <p className="text-xs text-slate-500 mt-2">Full Decision context is below.</p>
+    </div>
+  );
+}
+
 interface DetailPaneProps {
   decision: Decision;
   onBack: () => void;
   onResolve: (outcome: ResolveOutcome) => void;
+  isFeedbackRequest?: boolean;
 }
 
-export function DetailPane({ decision: d, onBack, onResolve }: DetailPaneProps) {
+export function DetailPane({ decision: d, onBack, onResolve, isFeedbackRequest = false }: DetailPaneProps) {
   return (
     <div className="max-w-3xl mx-auto px-4 md:px-8 py-5 pb-32">
       <button onClick={onBack} className="md:hidden mb-3 text-sm text-slate-500 hover:text-slate-800">
@@ -138,8 +150,15 @@ export function DetailPane({ decision: d, onBack, onResolve }: DetailPaneProps) 
         </p>
         <TrackRecordLine decision={d} />
         <div className="mt-4 space-y-3">
-          {d.escalation && d.status === 'escalated' && <EscalationBanner esc={d.escalation} />}
-          {d.resolution ? <ResolutionBanner res={d.resolution} /> : <ActionPanel decision={d} onResolve={onResolve} />}
+          {isFeedbackRequest && d.escalation ? (
+            // #17 replaces this read-only request with the feedback composer.
+            <FeedbackRequestBanner esc={d.escalation} />
+          ) : (
+            <>
+              {d.escalation && d.status === 'escalated' && <EscalationBanner esc={d.escalation} />}
+              {d.resolution ? <ResolutionBanner res={d.resolution} /> : <ActionPanel decision={d} onResolve={onResolve} />}
+            </>
+          )}
         </div>
       </section>
 

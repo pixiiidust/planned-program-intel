@@ -4,11 +4,12 @@
 // seed (version-stamp mismatch after a redeploy) nukes-and-reseeds with a
 // one-line toast. "Reset demo data" restores the pristine seed.
 import { useEffect, useRef, useState } from 'react';
-import type { Decision, QueueTab } from '@ppi/domain';
-import { applyAction, detectFromFeed, landPrecedent, openSiblingsOf, precedentFrom, tabOf } from '@ppi/domain';
-import { DEMO_PROGRAM_THRESHOLDS, DEMO_SEED, IndexedDbDecisionRepository, ScriptedSignalFeed } from '@ppi/adapters';
+import type { Decision, Persona, QueueTab } from '@ppi/domain';
+import { applyAction, detectFromFeed, landPrecedent, openSiblingsOf, personaQueue, personasFrom, precedentFrom } from '@ppi/domain';
+import { DEMO_PROGRAM_THRESHOLDS, DEMO_SEED, DEMO_SENIOR_ROLES, IndexedDbDecisionRepository, ScriptedSignalFeed } from '@ppi/adapters';
 import type { ResolveOutcome } from './components/ActionPanel.js';
 import { DetailPane } from './components/DetailPane.js';
+import { PersonaSwitcher } from './components/PersonaSwitcher.js';
 import { defaultSort, QueueList } from './components/QueueList.js';
 import { FEED_DECISION_IDS, feedDelayMs } from './lib/feed.js';
 
@@ -30,6 +31,10 @@ function feedHasFired(decisions: readonly Decision[]): boolean {
   return decisions.some((d) => FEED_DECISION_IDS.has(d.id));
 }
 
+function personaKey(persona: Persona | null): string {
+  return persona ? `${persona.group}:${persona.name}:${persona.role}` : 'whole-program';
+}
+
 interface Toast {
   message: string;
   jump?: { tab: QueueTab; id: string };
@@ -37,6 +42,7 @@ interface Toast {
 
 export default function App() {
   const [decisions, setDecisions] = useState<Decision[]>([]);
+  const [persona, setPersona] = useState<Persona | null>(null);
   const [tab, setTab] = useState<QueueTab>('needs-you');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [mobileDetail, setMobileDetail] = useState(false);
@@ -79,7 +85,7 @@ export default function App() {
       if (cancelled) return;
       decisionsRef.current = ds;
       setDecisions(ds);
-      setSelectedId(defaultSort('needs-you', ds.filter((d) => tabOf(d) === 'needs-you'))[0]?.id ?? null);
+      setSelectedId(defaultSort('needs-you', personaQueue(null, 'needs-you', ds))[0]?.id ?? null);
       armFeedIfNeeded(ds);
       if (reseeded) setToast({ message: 'Demo data refreshed — a new version of the seed was deployed.' });
     });
@@ -99,16 +105,21 @@ export default function App() {
     decisionsRef.current = decisions;
   }, [decisions]);
 
-  const inTab = decisions.filter((d) => tabOf(d) === tab);
-  const counts = Object.fromEntries(TABS.map((t) => [t.key, decisions.filter((d) => tabOf(d) === t.key).length])) as Record<
-    QueueTab,
-    number
-  >;
+  const personas = personasFrom(decisions, DEMO_SENIOR_ROLES);
+  const inTab = personaQueue(persona, tab, decisions);
+  const counts = Object.fromEntries(TABS.map((t) => [t.key, personaQueue(persona, t.key, decisions).length])) as Record<QueueTab, number>;
   const selected = decisions.find((d) => d.id === selectedId) ?? null;
 
   function switchTab(next: QueueTab) {
     setTab(next);
-    setSelectedId(defaultSort(next, decisions.filter((d) => tabOf(d) === next))[0]?.id ?? null);
+    setSelectedId(defaultSort(next, personaQueue(persona, next, decisions))[0]?.id ?? null);
+    setMobileDetail(false);
+  }
+
+  function switchPersona(next: Persona | null) {
+    setPersona(next);
+    setTab('needs-you');
+    setSelectedId(defaultSort('needs-you', personaQueue(next, 'needs-you', decisions))[0]?.id ?? null);
     setMobileDetail(false);
   }
 
@@ -158,7 +169,7 @@ export default function App() {
 
     // Auto-advance to the next item in the current tab.
     if (tab !== movedTo) {
-      const remaining = defaultSort(tab, updated.filter((d) => tabOf(d) === tab));
+      const remaining = defaultSort(tab, personaQueue(persona, tab, updated));
       setSelectedId(remaining[0]?.id ?? null);
       if (remaining.length === 0) setMobileDetail(false);
     }
@@ -169,8 +180,9 @@ export default function App() {
     const ds = await repository.reset();
     decisionsRef.current = ds;
     setDecisions(ds);
+    setPersona(null);
     setTab('needs-you');
-    setSelectedId(defaultSort('needs-you', ds.filter((d) => tabOf(d) === 'needs-you'))[0]?.id ?? null);
+    setSelectedId(defaultSort('needs-you', personaQueue(null, 'needs-you', ds))[0]?.id ?? null);
     setMobileDetail(false);
     armFeedIfNeeded(ds);
     setToast({ message: '✓ Demo data reset to the pristine seed' });
@@ -183,6 +195,7 @@ export default function App() {
           <h1 className="text-lg font-semibold whitespace-nowrap">Program Intel</h1>
           <span className="text-sm text-slate-500 truncate hidden sm:inline">Acme Corp event portfolio</span>
         </div>
+        <PersonaSwitcher personas={personas} current={persona} decisions={decisions} onSwitch={switchPersona} />
         <div className="flex items-center gap-4 whitespace-nowrap">
           <span className="hidden sm:block text-sm text-slate-500">
             {counts['needs-you']} need you · {counts.waiting} waiting · {counts.decided} decided
@@ -211,7 +224,7 @@ export default function App() {
               <p className="p-6 text-sm text-slate-400 leading-relaxed">{EMPTY_STATE[tab]}</p>
             ) : (
               <QueueList
-                key={tab}
+                key={`${personaKey(persona)}:${tab}`}
                 decisions={inTab}
                 tab={tab}
                 selectedId={selectedId}
@@ -230,6 +243,7 @@ export default function App() {
               decision={selected}
               onBack={() => setMobileDetail(false)}
               onResolve={(outcome) => void handleResolve(selected, outcome)}
+              isFeedbackRequest={persona?.group === 'escalation-path' && selected.status === 'escalated' && selected.escalation?.to === persona.name}
             />
           ) : (
             <div className="hidden md:flex h-full items-center justify-center p-10">
@@ -245,7 +259,8 @@ export default function App() {
           {toast.jump && (
             <button
               onClick={() => {
-                switchTab(toast.jump!.tab);
+                setPersona(null);
+                setTab(toast.jump!.tab);
                 setSelectedId(toast.jump!.id);
                 setMobileDetail(true);
                 setToast(null);
