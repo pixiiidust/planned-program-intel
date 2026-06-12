@@ -1,4 +1,6 @@
-# Handoff: slice 6 shipped (#22 + #23 closed, #24 awaiting Jamie's voice review on PR #28)
+# Handoff: slice 6 shipped (#22 + #23 + #24 closed — ALL SIX PRD SLICES COMPLETE)
+
+> **Update, same session:** Jamie delegated the PR #28 voice review ("review it and merge if it's good"). Fable's review pass fixed one accuracy claim (the feed fires at 20s, not "a minute") and restored the standalone-today/module-later framing from the old README, then rebase-merged (`bd41a93`). #24 closed; zero open issues; deploy green. The "Next session" section below is superseded — only the live-smoke cron glance (~21:23 UTC daily) remains.
 
 **Date:** 2026-06-12 (eighth session of the day — supersedes `2026-06-12-27-activity-live.md`)
 **Repo:** `D:\planned-program-intel\planned-program-intel` → https://github.com/pixiiidust/planned-program-intel
