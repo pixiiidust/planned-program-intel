@@ -4,12 +4,14 @@ The deployed demo must feel AI-native without ever being slowed, broken, or made
 
 The demo exposes an **engine picker** for this moment, making the AI port's adapters user-visible:
 
-- **Demo** (default): capped serverless proxy (Cloudflare Worker) → Anthropic Haiku. Key lives only as a Worker secret; client sends structured data (never prompts); prompt built server-side; `max_tokens` capped; per-IP rate limit; Anthropic workspace spend cap as absolute backstop.
+- **Demo** (default): capped serverless proxy (Cloudflare Worker) → Haiku. Key lives only as a Worker secret; client sends structured data (never prompts); prompt built server-side; `max_tokens` capped; per-IP rate limit; a provider-side spend cap as absolute backstop. *(Amended 2026-06-12:)* the Worker proxies to **OpenRouter routing `anthropic/claude-haiku-4.5`** rather than Anthropic direct. Same model, but no new account provisioning (the project's existing OpenRouter key becomes the Worker secret), and the backstop becomes OpenRouter's **prepaid credit balance + per-key limit** — a hard wall that cannot be exceeded, versus a monthly cap that shouldn't be. This also sharpens the picker story: Demo and BYO-key are the same engine with different key custody — ours behind a capped proxy vs. yours browser-direct. The unused Anthropic-direct adapter remains the pipeline's `--engine anthropic` option.
 - **Bring your own key**: direct browser → OpenRouter call; key in sessionStorage, never sent to our infrastructure.
 - **Local**: user-supplied Ollama endpoint URL.
 - **Canned** (not in the menu): the universal fallback.
 
 **Degradation contract:** resolution always completes deterministically; the Precedent renders immediately with verbatim reasoning and swaps in the distilled version if it arrives within 3 seconds. Any failure (timeout, 429, proxy down) is silent — the AI call is progressive enhancement, never a dependency.
+
+*(Clarified 2026-06-12, slice-5 design conversation:)* the **3 seconds is a fetch timeout, not an animation window** — the Worker call gets one shot with a 3s abort at resolution time (one call per Resolution, shared by all sibling landings; no retry on later loads). On success the distilled text replaces the verbatim **in the data** and is re-persisted; whoever views that evidence next sees the final text. If the user leaves before it lands, the verbatim reasoning stays forever — program memory prefers the human's words when the machine is slow. Visibility is honest, never staged: the resolve toast announces the moment (an animated `✦` while distilling, settling to `✦ distilled` on success, fading wordlessly on failure — no AI error is ever rendered), distilled text permanently carries a small `✦ distilled` provenance chip whose tooltip names the engine, and an on-screen sibling crossfades live if the swap happens in view. No indicator ever appears when the canned fallback served the text — we never imply AI ran when it didn't.
 
 ## Considered Options
 

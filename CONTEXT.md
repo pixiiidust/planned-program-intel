@@ -73,6 +73,10 @@ _Avoid_: Ingestion (that's the transport, not the judgment)
 
 ### Memory
 
+**Distillation**:
+The condensation of a Resolution's free-text reasoning into the one-to-two-sentence form a Precedent carries. Progressive enhancement: verbatim reasoning is always the baseline, and distilled text is always marked as distilled.
+_Avoid_: Summarization (loses the "essence for a future decider" intent), AI rewrite
+
 **Program Memory**:
 The accumulated body of Cases, Patterns, Exceptions, and Precedents across all events. Every Resolution writes into it; future similar Decisions read from it as Evidence.
 _Avoid_: Knowledge base, history
